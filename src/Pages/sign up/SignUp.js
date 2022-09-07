@@ -4,7 +4,7 @@ import './sign-up.css';
 import SignNavBar from '../../components/sign up navbar/SignUpNavbar';
 
 const SignUp = () => {
-    const url = 'https://food-mo.herokuapp.com/waiting';
+    const url = 'https://hiyalo-backend.herokuapp.com/agents/agent-gateway/register';
   const [formData, setFormData] = useState({
     full_name: '',
     email: '',
