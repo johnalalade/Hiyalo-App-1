@@ -1,0 +1,172 @@
+
+.why-hiyalo-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0 80px;
+    margin-top: 6rem;
+}
+
+.why-hiyalo-container header,
+.market-container header {
+    display: flex;
+    flex-direction: column;
+}
+.why-hiyalo-container #why,
+.market-container #market {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    padding: .5rem 2rem;
+    background-color: #4733AC;
+    /* max-width: fit-content; */
+    border-radius: 3px;
+}
+.why-hiyalo-container #why p,
+.market-container #market p {
+    text-align: center;
+    font-weight: 600;
+    font-size: 16px;
+    color: #FFFFFF;
+}
+
+.why-hiyalo-container header h2 ,
+.market-container header h2{
+    max-width: 800px;
+    font-family: 'gilroy-medium';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 36px;
+    text-align: center;
+    color: #333333;
+    margin-top: 1.5rem;
+}
+
+.offers {
+    display: flex;
+    justify-content: space-between;
+    column-gap: 2rem;
+    margin-top: 64px;
+}
+.offer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+    border-radius: 5px;
+    padding: 2rem 1.5rem;
+    overflow: hidden;
+}
+
+.offer span {
+    display: flex;
+    justify-content: center;
+    width: 60px;
+    height: 60px;
+    background: #ECECEC;
+    border-radius: 5px;
+}
+.offer span img {
+    margin: auto;
+    width: 36px;
+    height: 36px;
+}
+.offers .offer:nth-child(1) {
+    padding-left: 0;
+}
+/* .offers .offer:nth-child(1) {
+    background: #610316;
+}
+.offers .offer:nth-child(2) {
+    background: #620042;
+} 
+.offers .offer:nth-child(3) {
+    background: #014D40;
+}  */
+.offer h6 {
+    font-family: 'gilroy-medium';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 34px;
+    letter-spacing: 0.02em;
+    color: #1A1A1A;
+    margin: 2rem 0;
+    margin-bottom: 1rem;
+}
+.offer p {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 30px;
+    letter-spacing: 0.02em;
+    color: #333;
+}
+
+.offers-cta {
+    display: flex;
+    justify-content: center;
+    margin-top: 100px;
+}
+
+.why-cta {
+    display: flex;
+    margin-top: 4rem;
+}
+
+@media screen and (max-width: 986px) {
+    .why-hiyalo-container {
+        padding: 0 24px;
+        margin-top: 5rem;
+    }
+    .offers {
+        column-gap: 1rem;
+    }
+    .offer {
+        padding: 2rem 1rem;
+    }
+    .offers-container header h3,
+    .how-it-works-container header h3,
+    .apartment-types h3  {
+        font-size: 32px;
+        text-align: left;
+    }
+}
+@media screen and (max-width: 786px) {
+    .why-hiyalo-container {
+        padding: 0 1rem;
+    }
+    .why-hiyalo-container #why,
+    .market-container #market {
+    padding: .5rem .6rem;
+}
+    .why-hiyalo-container header h2,
+    .market-container header h2 {
+        font-weight: 700;
+        font-size: 28px;
+        line-height: 38px;
+        margin-top: 1rem;
+    }
+
+    .offer br {
+        display: none;
+    }
+    .offers {
+        flex-direction: column;
+        row-gap: 2rem;
+        margin-top: 4rem;
+    }
+    .offer {
+        min-height: 270px;
+        padding: 3rem 1.5rem;
+    }
+    .offer span img{
+        width: 28px;
+    }
+    .offer h6 {
+        font-size: 24px;
+    }
+    .offer p {
+        font-size: 16px;
+    }
+}

@@ -1,0 +1,269 @@
+
+.sign-up-body {
+    background: #ECECEC;;
+    display: flex;
+    justify-content: cent er;
+}
+.sign-up-form-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 3rem 3rem;
+    padding-bottom: 4rem;
+    margin:0 auto;
+    margin-bottom: 36px;
+    margin-top: 80px;
+    width: 100%;
+    max-width: 800px;
+    color: #050213;
+    background-color: #4733AC;
+}
+
+.sign-up-form-container header {
+    display: flex;
+    flex-direction: column;
+    color: #FFF;
+    text-align: center;
+    row-gap: .3rem;
+}
+.sign-up-form-container header h3{
+    font-family: 'gilroy-medium';
+    font-size: 28px;
+    font-weight: 600;
+}   
+.sign-up-form-container header p {
+    font-family: 'gilroy-medium';
+    font-weight: 500;
+    font-size: 16px;
+    color: #ECECEC;
+}
+.sign-up-form-container header p a {
+    color: #FFF;
+    font-weight: 600;
+    text-decoration: underline;
+}
+.sign-up-form-container main {
+    display: flex;
+    flex-direction: column-reverse;
+    width: 100%;
+    margin-top: 1rem;
+}
+.sign-up-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    /* width: 100%; */
+    margin-top: 2rem;
+    position: relative;
+}
+.sign-up-form .full-name {
+    display: flex;
+    column-gap: 1rem;
+} 
+.full-name span {
+    display: flex;
+    flex-direction: column;
+    flex-basis: 50%;
+}
+.phone-number {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    /* width: 100%; */
+    margin-top: .7rem;
+    margin-bottom: 1.5rem;
+}
+.phone-number input {
+    width: 100%;
+    padding: 0 1.5rem ;
+    padding-left: 5.5rem !important;
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+}
+
+.phone-number p {
+    position: absolute;
+    bottom: 50%;
+    left: 1.5rem;
+    transform: translateY(50%);
+    font-family: 'gilroy-regular';
+    font-weight: 500;
+    font-size: 15px;
+    letter-spacing: 0.02em;
+    color: #ECECEC;
+}
+.sign-up-form label {
+    font-family: 'gilroy-medium';
+    font-weight: 500;
+    font-size: 18px;
+    letter-spacing: 0.02em;
+    color: #FFFFFF;
+}
+.sign-up-form input {
+    display: flex;
+    /* align-items: center; */
+    margin-top: .7rem;
+    margin-bottom: 1.5rem;
+    padding: 0 1.5rem;
+    height: 50px;
+    background: none;
+    border: 1px solid #ececec50;
+    outline: none;
+    border-radius: 5px;
+    font-family: 'gilroy-regular';
+    font-weight: 500;
+    font-size: 15px;
+    letter-spacing: 0.02em;
+    color: #ECECEC;
+}
+.sign-up-form input::placeholder {
+    color: rgba(236, 236, 236, 0.5);
+}
+.sign-up-form input:hover,
+.sign-up-form input:focus {
+    border-color: #ECECEC;
+    transition: all 0.5s ease;
+}
+.sign-up-form button {
+    margin-top: 2rem;
+    /* max-width: 657px; */
+    height: 55px;
+    background: #FFFFFF;
+    border: 1px solid #FFFFFF;
+    border-radius: 5px;
+    font-family: 'gilroy-medium';
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 22px;
+    text-align: center;
+    color: #4733AC;
+}
+.policy-checkbox {
+    display: flex;
+    align-items: center;
+    column-gap: 1rem;
+    padding: 0 0rem;
+}
+.policy-checkbox input {
+height: 18px !important;
+margin: 0;
+}
+.policy-checkbox p {
+    color: #ECECEC;
+}
+
+
+.or-container {
+    margin-top: 3rem;
+    display: flex;
+    align-items: center;
+    column-gap: 1rem;
+}
+.or-container div {
+    width: 100%;
+    height: 1px;
+    background-color: #ECECEC;
+}
+.or-container p {
+    width: 100%;
+    max-width: 36px;
+    font-weight: 600;
+    font-size: 18px;
+    text-align: center;
+    color: #ECECEC;
+}
+
+.sign-up-google {
+    margin-top: 2rem;
+}
+.sign-up-google button {
+    display: flex;
+    background: #ececec20;
+    justify-content: center;
+    align-items: center;
+    column-gap: .5rem;
+    height: 55px;
+    width: 100%;
+    border: 1px solid #ECECEC50;
+    border-radius: 5px;
+    font-family: 'gilroy-medium';
+    font-weight: 500;
+    font-size: 16px;
+    text-align: center;
+    color: #FFF;
+}
+.sign-up-google button .google-icon {
+    font-size: 24px;
+}
+
+.forgot-password-text {
+    display: flex;
+    justify-content: flex-end;
+}
+.forgot-password-text p {
+    color: #ECECEC;
+}
+.forgot-password-text a {
+    color: #FFF;
+    font-weight: 600;
+    text-decoration: underline;
+}
+
+@media screen and (max-width: 1100px) {
+    .sign-up-form-container {
+        margin-top: 80px;
+        border-radius: 0;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .sign-up-body {
+        margin-bottom: 0;
+    }
+    .sign-up-form-container {
+        margin-top: 70px;
+        border-radius: 0;
+        padding: 04rem 0rem;
+    }
+    .sign-up-form-container header {
+        padding: 0 1rem;
+        row-gap: .2rem;
+    }
+    .sign-up-form-container header  h3 {
+        font-size: 24px;
+    }
+    .sign-up-form-container header p {
+        line-height: 26px;
+        font-size: 14px;
+        padding: 0 1rem;
+    }
+    .sign-up-form-container main {
+        margin-top: 0;
+    }
+    .sign-up-form {
+        margin-top: 2rem;
+        padding: 0rem 1rem;
+    }
+    .sign-up-form label {
+        font-size: 14px;
+    }
+    .policy-checkbox {
+        column-gap: .5rem;
+    }
+    .policy-checkbox p{
+        font-size: 14px;
+    }
+    .sign-up-form .full-name {
+        column-gap: .5rem;
+    }
+
+    .sign-up-google {
+        padding: 0 1rem;
+        margin-top: 2rem;
+    }
+    .or-container {
+        margin-top: 2rem;
+        margin-bottom: .5rem;
+        padding: 0 1rem;
+    }
+}

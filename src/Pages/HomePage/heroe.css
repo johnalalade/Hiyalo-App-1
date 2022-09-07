@@ -1,0 +1,134 @@
+.heroe-section {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.heroe-section main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0rem 0px;
+    margin-top: 80px;
+    min-height: 500px;
+    background-color: rgba(5, 2, 19, 0.2);
+    background-image: url(../../images/bg.jpg);
+    background-blend-mode: multiply;
+    background-repeat: no-repeat;
+    background-position: center;
+    /* background-position-y: rem; */
+    background-size: cover;
+    /* border-radius: 5px; */
+}
+.heroe-section main h1 {
+    font-family: 'gilroy-bold';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 42px;
+    line-height: 56px;
+    text-align: center;
+    color: #FFFFFF;
+
+}
+
+.heroe-section main .heroe-form {
+    display: flex;
+    flex-direction: column;
+    /* align-items: center; */
+    position: relative;
+    width: 100%;
+    max-width: 700px;
+    margin-top: 1.5rem;
+    max-height: max-content;
+    overflow: hidden;
+}
+.heroe-form input {
+    font-family: 'gilroy-regular';
+    display: flex;
+    height: 70px;
+    padding:  0 3rem;
+    background: #FFFFFF;
+    font-weight: 400;
+    font-size: 18px;
+    /* letter-spacing: 0.02em; */
+    color: #050213;
+    border: none;
+    outline: none;
+    border-radius: 5px;
+}
+.heroe-form input::placeholder {
+    font-size: 18px;
+    color: #acacac;
+}
+.heroe-form button {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    column-gap: .5rem;
+    width: 200px;
+    height: 50px;
+    background: #4733AC;
+    border: 1.5px solid #4733AC;
+    border-radius: 5px;
+    font-weight: 500;
+    font-size: 16px;
+    letter-spacing: 0.01em;
+    color: #FFFFFF;
+}
+.heroe-form button:hover {
+    opacity: 0.8;
+    transition: all 0.5s ease-in-out;
+}
+.location-icon {
+    font-size: 24px;
+}
+
+@media screen and (min-width: 768px) {
+    .heroe-form input {
+        padding-right: 220px;
+    }
+    .heroe-form button {
+        right: 10px;
+        top: 10px;
+    }
+}
+/* @media screen and (max-width: 1100px) {
+    .nav-bar {
+        padding: 0rem 24px;
+    }
+} */
+@media screen and (max-width: 768px) {
+
+
+    .heroe-section main {
+        margin: 0rem;
+        padding: 0 1rem;
+        margin-top: 70px;
+        height: 520px;
+    }
+    .heroe-section main h1 {
+        font-size: 36px;
+        line-height: normal;
+    }
+    .heroe-section main .heroe-form {
+        margin-top: 1rem;
+        row-gap: .5rem;
+    }
+    .heroe-form input {
+        height: 55px;
+        font-size: 16px;
+        padding:  0 1rem;
+        text-align: center;
+    }
+    .heroe-form input::placeholder {
+        font-size: 16px;
+        color: #acacac;
+    }
+    .heroe-form button {
+        position: relative;
+        height: 55px;
+        width: 100%;
+    }
+}

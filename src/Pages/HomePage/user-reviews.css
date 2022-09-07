@@ -1,0 +1,160 @@
+
+.user-review-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    background: #4733AC;
+    color: #FFFF;
+    padding: 4rem 0;
+    padding-bottom: 8rem;
+}
+
+.user-review-container header {
+    margin: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+.user-review-container header h2 {
+    font-family: 'gilroy-medium';
+    font-weight: 600;
+    font-size: 36px;
+    line-height: 53px;
+    text-transform: capitalize;
+    color: #FFFFFF;
+}
+.user-review-container header p {
+    max-width: 550px;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 26px;
+    align-items: center;
+    text-align: center;
+    color: #F0F0F0;
+    margin-top: .5rem;
+}
+
+.user-reviews {
+    display: flex;
+    flex-direction: row;
+    margin-top: 3rem;
+}
+
+.user-review {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 5px;
+    display: flex;
+    width: 100%;
+    margin: auto;
+    padding: 1rem;
+    height: 350px;
+}
+.user-review .user-details {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    column-gap: 1rem;
+    flex-basis: 40%;
+    margin: auto 0;
+    margin-left: 1rem;
+}
+.user-details img {
+    object-fit: cover;
+    object-position: center center;
+    border-radius: 50%;
+    width: 80px;
+    height: 80px;
+
+}
+.user-review article {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 0 1.5rem;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 5px;
+    max-width: 500px;
+    flex-basis: 70%;
+}
+.quote-icon {
+    font-size: 32px;
+    color: #4A00AB;
+}
+.user-review article p {
+    font-family: 'gilroy-regular';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 28px;
+    color: #FFFFFF;
+    margin-top: 1.5rem;
+}
+
+#review-inactive-1 {
+    transform: scale(0.8);
+}
+
+.user-review-container aside{
+    font-family: 'gilroy-medium';
+    position: absolute;
+    right: 0;
+    bottom: 0;
+}
+.user-review-container aside img {
+    width: 150px;
+}
+@media screen and (min-width: 986px) {
+    .user-review {
+        min-width: 750px;
+    }
+}
+@media screen and (max-width: 986px) {
+    .user-review-container {
+        padding: 4rem 24px;
+    }
+}
+@media screen and (max-width: 786px) {
+    .user-review-container {
+        padding: 4rem 1rem;
+        padding-bottom: 8rem;
+    }
+    .user-review header {
+        padding: 0;
+    }
+    .user-review-container header h2 {
+        font-size: 24px;
+    }
+    .user-review-container header p {
+        width: 100%;
+        max-width: 700px;
+        font-size: 16px;
+        padding: 0;
+    }
+    .user-review .user-details {
+        margin-left: 0;
+    }
+    .user-reviews {
+        margin-top: 2rem;
+    }
+    .user-review {
+        display: flex;
+        flex-direction: column-reverse;
+        width: 100%;
+        height: max-content;
+        padding:  3rem 1rem;
+        padding-top:  1rem;
+        align-items: flex-start;
+        row-gap: 2rem;
+        /* max-width: 300px; */
+    }
+    .user-review article {
+        padding: 2rem 1rem;
+    }
+    #review-inactive-1 {
+        display: none;
+    }
+}
