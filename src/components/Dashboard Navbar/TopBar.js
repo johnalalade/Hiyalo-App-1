@@ -1,6 +1,9 @@
 import searchIcon from '../../images/search-normal.svg';
 import notificationIcon from '../../images/notification-bing.svg';
 import './topbar.css';
+
+
+
 const TopBar = () => {
   const userAvatar = require('../../images/bg.jpg');
   return (

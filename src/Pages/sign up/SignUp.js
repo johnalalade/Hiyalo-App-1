@@ -44,7 +44,7 @@ const SignUp = () => {
         </header>
         <main>
           <form className="sign-up-form"
-           onSubmit={(e) => submit(e)}>
+           >
            
            <label for='fullName'> Full Name </label>
             <input
@@ -96,7 +96,7 @@ const SignUp = () => {
                 policy?
               </p>
             </div>
-            <button type="submit">Get Started</button>
+            <button onClick={(e) => submit(e)} type="submit">Get Started</button>
           </form>
 
           <div class="or-container">

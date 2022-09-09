@@ -1,5 +1,6 @@
-import SideBar from '../../components/Dashboard Navbar/SideBar';
-import TopBar from '../../components/Dashboard Navbar/TopBar';
+
+import SideBar from '../../../components/Dashboard Navbar/SideBar';
+import TopBar from '../../../components/Dashboard Navbar/TopBar';
 import './dashboard-overview.css';
 
 const DashboardOverview = () => {

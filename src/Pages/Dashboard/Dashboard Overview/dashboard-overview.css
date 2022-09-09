@@ -208,3 +208,57 @@
  .payment-history .action-icon {
     color: #D63434;
  }
+ .payment-history {
+    width: 100% !important;
+}
+
+.payment-status {
+    color: #CB7A00;
+}
+
+
+.payment-actions .action-icon{
+    /* transform: rotate(-180deg); */
+    transform: rotate(-90deg);
+    align-items: center;
+    text-align: center;
+}
+
+.apartments-list thead tr {
+    border-bottom: 1px solid rgba(169, 0, 0, 0.4) !important;
+}
+.apartments-list thead tr th {
+    font-size: 14px !important;
+}
+.apartments-list th,
+.apartments-list td {
+    padding: 1.5rem 2rem;
+}
+.apartments-list tbody{
+    padding: 2rem 0;
+}
+.apartments-list tbody tr:nth-of-type(even) {
+    background: rgba(71, 51, 172, 0.1);
+}
+.apartments-list tr p{
+    /* font-family: 'gilroy-medium'; */
+    font-size: 14px;
+}
+.apartment-list-container tr td {
+    text-align: left;
+    align-items: center;
+}
+.apartment-list-container {
+    background-color: #FFFFFF;
+    /* height: 100%; */
+    margin: 24px 3rem;
+    border-radius: 5px;
+    /* width: 100%; */
+}
+.apartments-list {    
+    border-collapse: collapse;
+    text-align: left;
+    /* overflow: hidden; */
+    width: 100%;
+    padding: 1rem 2rem;
+}
