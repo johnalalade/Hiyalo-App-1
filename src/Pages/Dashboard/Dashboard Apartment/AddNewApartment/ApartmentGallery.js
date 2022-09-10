@@ -50,7 +50,7 @@ const ApartmentGallery = () => {
             <div class="step">
               <p>Payment</p>
               <span>05</span>
-            </div>
+            </div>  
           </div>
 
           <div class="gallery-upload-container">
