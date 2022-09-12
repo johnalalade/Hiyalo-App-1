@@ -5,7 +5,7 @@ import HomePageMarket from './HomePageMarket'
 import About from './About'
 import UserReviews from './UserReviews'
 import Faq from './Faq'
-import Footer from './Footer.js'
+import Footer from '../../components/Footer/Footer.js'
 
 function HomePage() {
   return (

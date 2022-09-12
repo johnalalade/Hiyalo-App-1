@@ -1,7 +1,7 @@
 import { Routes, Route } from 'react-router-dom';
 import HomePage from './Pages/HomePage/Homepage';
 import PropertyOverview from './Pages/Property Overview/PropertyOverview';
-
+import MarketPlace from './Pages/Market Place/MarketPlaceContainer';
 
 import SignUp from './Pages/sign up/SignUp';
 import SignIn from './Pages/sign up/SignIn';
@@ -13,6 +13,7 @@ import ApartmentAddress from './Pages/Dashboard/Dashboard Apartment/AddNewApartm
 import ApartmentAmmenities from './Pages/Dashboard/Dashboard Apartment/AddNewApartment/ApartmentAmmenities';
 import ApartmentGallery from './Pages/Dashboard/Dashboard Apartment/AddNewApartment/ApartmentPaymentDetails';
 import ApartmentPaymentDetails from './Pages/Dashboard/Dashboard Apartment/AddNewApartment/ApartmentPaymentDetails';
+
 function App() {
   return (
     <div>
@@ -21,6 +22,7 @@ function App() {
         <Route path="/property-overview" element={<PropertyOverview />}></Route>
         <Route path="/sign-up" element={<SignUp />}></Route>
         <Route path="/sign-in" element={<SignIn />}></Route>
+        <Route path="/marketplace" element={<MarketPlace />}></Route>
         <Route path="/dashboard" element={<DashboardOverview />}></Route>
         <Route path="/apartments" element={<ApartmentOverview />}></Route>
         <Route path="/apartments/add-apartment-basic-info" element={<ApartmentBasicInfo />}></Route>
