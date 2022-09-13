@@ -5,7 +5,6 @@ import { useState } from 'react';
 function Faq() {
   const [selected, setSelected] = useState(null);
 
-  
   const toggle = (i) => {
     if (selected === i) {
       return setSelected(null);
@@ -13,8 +12,8 @@ function Faq() {
     setSelected(i);
   };
 
-  const faqOpen = '+'
-  const faqClose = '-'
+  const faqOpen = '+';
+  const faqClose = '-';
 
   const faqData = [
     {
@@ -50,12 +49,7 @@ function Faq() {
             <div className="faq">
               <header className="title" onClick={() => toggle(i)}>
                 <h6>{faq.question}</h6>
-                <span>
-            
-                  {selected === i
-                    ? `${faqClose}`
-                    : `${faqOpen}`}
-                </span>
+                <span>{selected === i ? `${faqClose}` : `${faqOpen}`}</span>
               </header>
               <article
                 className={selected === i ? 'faq-content shows' : 'faq-content'}
@@ -66,6 +60,14 @@ function Faq() {
           );
         })}
       </main>
+      <div class="contact-us">
+        <h4>Still Got Questions?</h4>
+        <p>
+          Can’t find the answer you are looking for? You can can get in touch
+          with our friendly team thank you!
+        </p>
+        <button>Contact Us</button>
+      </div>
     </div>
   );
 }

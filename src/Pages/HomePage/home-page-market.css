@@ -150,17 +150,17 @@
 @media screen and (max-width: 786px) {
 
     .market-container {
-        padding: 4rem 1rem;
+        padding: 4rem .5rem;
     }
     .apartments {
         margin-top: 4rem;
     }
     .apartment-prices {
-        padding: .8rem 1.5rem;
+        padding: .8rem 1rem !important;
     }
     .apartment img {
-        min-height: 320px;
-        margin: 1.5rem;
+        min-height: 270px !important;
+        margin: 1.5rem 1rem !important;
     }
     .explore-cta  button{
         height: 55px !important;
