@@ -89,17 +89,52 @@
     column-gap: 4rem;
     /* padding-bottom: 1rem; */
     border-bottom: 1px solid #75757543;
+    overflow: scroll   !important   ;
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
 }
-.product-details header li {
+.product-details header ul::-webkit-scrollbar {
+    display: none;
+}
+.product-details .tabs {
+    border: none;
+    background: none;
+    font-size: 16px;
     color: #757575;
-    font-weight: 600;
-    padding-bottom: 1.0rem;
-}
-.product-details ul .active-details {
+    font-weight: 500;
+} 
+.product-details ul .active-tabs {
+    background: none;
+    border: none;
     color: #050213;
     border-bottom: 2px solid #050213;
     z-index: 1111;
+    padding-bottom: 1.0rem;
 }
+/* .active-tabs  {
+    background: white;
+    border-bottom: 1px solid transparent;
+  } */
+  
+  .product-details ul .active-tabs::before {
+    content: "";
+    display: block;
+    position: absolute;
+    top: -5px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: calc(100% + 2px);
+    height: 5px;
+    background: rgb(88, 147, 241);
+  }
+  .product-details-overview .content {
+    display: none;
+  }
+  .product-details-overview .active-content {
+    display: block;
+  }
+
+
 .physical-tour-info {
     display: flex;
     justify-content: center;
@@ -134,11 +169,9 @@
 .payment-details-container {
     display: flex;
     flex-direction: column;
-    /* align-content: center; */
     flex-basis: 38%;
     min-height: 400px;
-    background: #FFFFFF;
-    /* box-shadow: 0px 0px 5px rgba(70, 70, 70, 0.53); */
+    background: #ececec;
     margin-bottom: 2rem;
     margin-top: 3rem;
     border-radius: 5px;

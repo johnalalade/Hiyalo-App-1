@@ -138,9 +138,11 @@
 }
 .basic-info-form div:nth-child(1) input,
 .col-2 input,
-.basic-info-form div textarea{
+.basic-info-form div textarea,
+.input-selection{
     padding: 0 1rem;
     height: 50px;
+    background: transparent;
     border: 1px solid rgba(51, 51, 51, 0.3);
     border-radius: 5px;
     font-weight: 400;
@@ -277,34 +279,57 @@
     align-items: center;
     background: #FFFFFF;
     border: 1.5px dashed rgba(214, 52, 52, 0.74);
+    border-radius: 5px;
+    cursor: pointer;
 }
 .input-image-container p {
     font-family: 'gilroy-medium';
 }
-
+.input-image-container input {
+    display: none;
+}
 
 .amenities-info-form {
     width: 100%;
     padding: 0 2rem;
     display: grid !important;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     column-gap: 2rem;
     row-gap: 2rem;
     align-items: center;
     margin: 3rem 0;
 }
-.amenities-info-form div {
+.amenity{
     display: flex;
     column-gap: 1rem;
+    justify-content: center;
+    align-items: center;
     position: relative;
-    /* height: 250px; */
     border-radius: 5px;
     overflow: hidden;
     border: 1px solid rgba(117, 117, 117, 0.3);
-    padding: 1rem 2rem;
+    padding: 1rem 1rem;
 }
-
-
+ .amenity-icons{
+    font-size: 34px !important;
+}
+.amenity:hover{
+    border-color: #4733AC;
+}
+.amenity input {
+    border: none;
+    max-width: 36px;
+    font-size: 24px;
+    color: #333333;
+    margin-left: 1rem;
+}
+.amenity input:hover,
+.amenity input:focus {
+    border: none !important;
+}
+.amenity input::placeholder {
+    color: #aeaeae;
+}
 
 
 

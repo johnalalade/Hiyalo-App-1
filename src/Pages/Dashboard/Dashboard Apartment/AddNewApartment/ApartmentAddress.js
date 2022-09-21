@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
+
 import './add-new-apartment.css';
 
-export class ApartmentPaymentDetails extends Component {
+class ApartmentAddress extends Component {
   continue = (e) => {
     e.preventDefault();
     this.props.nextStep();
@@ -36,12 +37,12 @@ export class ApartmentPaymentDetails extends Component {
             <p>Address</p>
             <span>03</span>
           </div>
-          <div class="step-connector active-connector"></div>
+          <div class="step-connector"></div>
           <div class="step">
             <p>Gallery</p>
             <span>04</span>
           </div>
-          <div class="step-connector active-connector"></div>
+          <div class="step-connector"></div>
           <div class="step">
             <p>Payment</p>
             <span>05</span>
@@ -49,32 +50,29 @@ export class ApartmentPaymentDetails extends Component {
         </div>
 
         <div class="add-propery-form-container">
-          <div class="step-title">
-            <h4>Payment Details</h4>
-          </div>
+          <div class="step-title">Full Address</div>
           <form action="" class="basic-info-form">
             <div class="col-1">
-              <label for="payment"> Annual Rent Fee (&#8358;) </label>
-              <input type="number" placeholder="enter annual rent fee" />
-              <label for="agency fee">Agency & Agreement Fee (&#8358;)</label>
-              <input
-                type="number"
-                placeholder="enter the angency fee & Agreement Fee"
-              />
-              <label for="caution fee">Caution Fee (&#8358;)</label>
-              <input type="number" placeholder="enter the caution fee" />
+              <label for="apartment type"> Address Description</label>
+              <input type="text" placeholder="enter the apartment loaction" />
+              <label for="city">City</label>
+              <input type="city" placeholder="Ikoyi" />
+              <label for="state">State</label>
+              <input type="text" placeholder="Lagos State" />
             </div>
-            <div class="col-2">
-              <label for="stamp duty">Stamp Duty Fee (&#8358;)</label>
-              <input type="number" placeholder="stamp duty fee" />
-
-              <aside>Total Fee is (&#8358;)1,000,000</aside>
+            <div class="location-map">
+              {/* <iframe
+                  src="https://www.google.com/maps/embed?pb=!1m21!1m12!1m3!1d62867.248239867855!2d7.964980542196037!3d10.000082697842062!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m6!3e6!4m3!3m2!1d10!2d8!4m0!5e0!3m2!1sen!2sng!4v1661851744253!5m2!1sen!2sng"
+                  style="border:0;"
+                  allowfullscreen=""
+                  loading="lazy"
+                  referrerpolicy="no-referrer-when-downgrade"
+                ></iframe> */}
             </div>
           </form>
-
           <div class="property-form-cta">
             <button type="submit" onClick={this.back}>previous</button>
-            <button onClick={this.continue} type="button">
+            <button onClick={this.continue} type="submit">
               Next
             </button>
           </div>
@@ -84,4 +82,4 @@ export class ApartmentPaymentDetails extends Component {
   }
 }
 
-export default ApartmentPaymentDetails;
+export default ApartmentAddress;

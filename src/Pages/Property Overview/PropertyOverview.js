@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import './property-overview.css';
 import NavBar from '../../components/Navbar/Navbar';
 import Footer from '../../components/Footer/Footer';
@@ -9,6 +10,12 @@ const PropertyOverview = () => {
   const PropertyImage1 = img1;
   const PropertyImage2 = img2;
   const PropertyImage3 = img3;
+
+  const [toggleState, setToggleState] = useState(1);
+
+  const toggleTab = (index) => {
+    setToggleState(index);
+  };
   return (
     <>
       <NavBar />
@@ -33,26 +40,114 @@ const PropertyOverview = () => {
           <div className="product-details">
             <header>
               <ul>
-                <li className="active-details">Overview</li>
-                <li>Description</li>
-                <li>Features</li>
-                <li>Location</li>
-                <li>Features</li>
+                <li>
+                  <button
+                    className={toggleState === 1 ? 'tabs active-tabs' : 'tabs'}
+                    onClick={() => toggleTab(1)}
+                  >
+                    {' '}
+                    Description
+                  </button>
+                </li>
+                <li>
+                  <button
+                    className={toggleState === 2 ? 'tabs active-tabs' : 'tabs'}
+                    onClick={() => toggleTab(2)}
+                  >
+                    Features
+                  </button>
+                </li>
+                <li>
+                  <button
+                    className={toggleState === 3 ? 'tabs active-tabs' : 'tabs'}
+                    onClick={() => toggleTab(3)}
+                  >
+                    Location
+                  </button>
+                </li>
+                <li>
+                  <button
+                    className={toggleState === 4 ? 'tabs active-tabs' : 'tabs'}
+                    onClick={() => toggleTab(4)}
+                  >
+                    Price
+                  </button>
+                </li>
               </ul>
             </header>
-            <article className="product-details-overview">
-              <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae,
-                pariatur fugiat. Ratione nostrum quisquam repellat fugiat
-                voluptatum animi debitis reprehenderit maiores hic sapiente!
-                Similique numquam explicabo, aliquid quod itaque
-                temporibus!Lorem ipsum dolor sit amet consectetur adipisicing
-                elit. Beatae, pariatur fugiat. Ratione nostrum quisquam repellat
-                fugiat voluptatum animi debitis reprehenderit maiores hic
-                sapiente! Similique numquam explicabo, aliquid quod itaque
-                temporibus!
-              </p>
-            </article>
+            <div className="product-details-overview">
+              <div
+                className={
+                  toggleState === 1 ? 'content  active-content' : 'content'
+                }
+              >
+                <p>1
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                  Beatae, pariatur fugiat. Ratione nostrum quisquam repellat
+                  fugiat voluptatum animi debitis reprehenderit maiores hic
+                  sapiente! Similique numquam explicabo, aliquid quod itaque
+                  temporibus!Lorem ipsum dolor sit amet consectetur adipisicing
+                  elit. Beatae, pariatur fugiat. Ratione nostrum quisquam
+                  repellat fugiat voluptatum animi debitis reprehenderit maiores
+                  hic sapiente! Similique numquam explicabo, aliquid quod itaque
+                  temporibus!
+                </p>
+              </div>
+
+              <div
+                className={
+                  toggleState === 2 ? 'content  active-content' : 'content'
+                }
+              >
+                <p>2
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                  Beatae, pariatur fugiat. Ratione nostrum quisquam repellat
+                  fugiat voluptatum animi debitis reprehenderit maiores hic
+                  sapiente! Similique numquam explicabo, aliquid quod itaque
+                  temporibus!Lorem ipsum dolor sit amet consectetur adipisicing
+                  elit. Beatae, pariatur fugiat. Ratione nostrum quisquam
+                  repellat fugiat voluptatum animi debitis reprehenderit maiores
+                  hic sapiente! Similique numquam explicabo, aliquid quod itaque
+                  temporibus!
+                </p>
+              </div>
+              <div
+                className={
+                  toggleState === 3 ? 'content  active-content' : 'content'
+                }
+              >
+                <p>
+                  3
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                  Beatae, pariatur fugiat. Ratione nostrum quisquam repellat
+                  fugiat voluptatum animi debitis reprehenderit maiores hic
+                  sapiente! Similique numquam explicabo, aliquid quod itaque
+                  temporibus!Lorem ipsum dolor sit amet consectetur adipisicing
+                  elit. Beatae, pariatur fugiat. Ratione nostrum quisquam
+                  repellat fugiat voluptatum animi debitis reprehenderit maiores
+                  hic sapiente! Similique numquam explicabo, aliquid quod itaque
+                  temporibus!
+                </p>
+              </div>
+              <div
+                className={
+                  toggleState === 4 ? 'content  active-content' : 'content'
+                }
+              >
+                <p>
+                  4
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                  Beatae, pariatur fugiat. Ratione nostrum quisquam repellat
+                  fugiat voluptatum animi debitis reprehenderit maiores hic
+                  sapiente! Similique numquam explicabo, aliquid quod itaque
+                  temporibus!Lorem ipsum dolor sit amet consectetur adipisicing
+                  elit. Beatae, pariatur fugiat. Ratione nostrum quisquam
+                  repellat fugiat voluptatum animi debitis reprehenderit maiores
+                  hic sapiente! Similique numquam explicabo, aliquid quod itaque
+                  temporibus!
+                </p>
+              </div>
+            </div>
 
             <div className="physical-tour-info">
               <iconify-icon
@@ -120,8 +215,6 @@ const PropertyOverview = () => {
           <button>Apply Now</button>
         </div>
       </main>
-
-
 
       <Footer />
     </>

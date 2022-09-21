@@ -15,7 +15,7 @@ const GeneralSettings = () => {
               <a href="#">Edit</a>
             </header>
             <form>
-              <label for="apartment type"> First Name</label>
+              <label for="apartment type"> Firs t Name</label>
               <input type="text" placeholder="Olakunbi" />
               <label for="name">Last Name</label>
               <input type="text" placeholder="Olabode" />

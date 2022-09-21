@@ -1,43 +1,82 @@
-import React from "react" 
-import './navbar.css'
-import logo from '../../images/logo.svg'
-import SearchIcon from '../../images/search-normal.svg'
+import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
+import './navbar.css';
+import Dropdown from './Dropdown';
+// import Dropdown from './Dropdown';
+import logo from '../../images/logo.svg';
+import SearchIcon from '../../images/search-normal.svg';
 
 function NavBar() {
+//   const [click, setClick] = useState(false);
+  const [dropdown, setDropdown] = useState(false);
 
-    return (
-        <nav class="nav-bar">
-        <div class="logo">
-            <img src={logo} alt="" />
-        </div>
-        <ul class="nav-links">
+//   const handleClick = () => setClick(!click);
+//   const closeMobileMenu = () => setClick(false);
+
+  const onMouseEnter = () => {
+    if (window.innerWidth < 960) {
+      setDropdown(false);
+    } else {
+      setDropdown(true);
+    }
+  };
+
+  const onMouseLeave = () => {
+    if (window.innerWidth < 960) {
+      setDropdown(false);
+    } else {
+      setDropdown(false);
+    }
+  };
+  return (
+    <nav class="nav-bar">
+      <div class="logo">
+        <img src={logo} alt="" />
+      </div>
+      <ul class="nav-links">
         <li>
-                    <a href="https://www.google.com">Home</a>
-            </li>
-            <li>
-                    <a href="https://www.google.com">Agent</a>
-            </li>
-            <li>
-                    <a href="https://www.google.com">Rent</a>
-            </li>
-            <li>
-                    <a href="https://www.google.com">Rent Loan</a>
-            </li>
-            <li>
-                    <a href="https://www.google.com">FAQ</a>
-            </li>
-        </ul>
-        <div class="cta-btn">
-            <img src={SearchIcon} alt="" />
-            <button type="button">Login</button>
-        </div>
-        <div class="hamburger">
-            <div></div>
-            <div></div>
-            <div></div>
-        </div>
+          <Link to="/" className="nav-link">
+            Home
+          </Link>
+        </li>
+        <li
+          // className='nav-item'
+          onMouseEnter={onMouseEnter}
+          onMouseLeave={onMouseLeave}
+        >
+          <Link to="/sign-up" className="nav-link" >
+            Agent <iconify-icon icon="ri:arrow-drop-down-line"></iconify-icon>
+          </Link>
+          {dropdown && <Dropdown />}
+        </li>
+
+        <li>
+          <Link to="/market-place" className="nav-link">
+            Rent
+          </Link>
+        </li>
+        <li>
+          <Link to="/" className="nav-link">
+            Rent Loan
+          </Link>
+        </li>
+        <li>
+          <Link to="/" className="nav-link">
+            FAQ
+          </Link>
+        </li>
+      </ul>
+      <div class="cta-btn">
+        <img src={SearchIcon} alt="" />
+        <button type="button">Login</button>
+      </div>
+      <div class="hamburger">
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
     </nav>
-    )
+  );
 }
 
 export default NavBar;

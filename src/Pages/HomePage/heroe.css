@@ -1,7 +1,7 @@
 .heroe-section {
     display: flex;
     flex-direction: column;
-    position: relative;
+    /* position: relative; */
 }
 
 .heroe-section main {

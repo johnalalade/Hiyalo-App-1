@@ -1,24 +1,17 @@
-import React from 'react';
-import { useNavigate } from 'react-router-dom';
+import React, { Component } from 'react';
+// import { useNavigate } from 'react-router-dom';
 import './add-new-apartment.css';
-import SideBar from '../../../../components/Dashboard Navbar/SideBar';
-import TopBar from '../../../../components/Dashboard Navbar/TopBar';
+// import SideBar from '../../../../components/Dashboard Navbar/SideBar';
+// import TopBar from '../../../../components/Dashboard Navbar/TopBar';
 
-const ApartmentBasicInfo = () => {
-  const navigate = useNavigate();
-
-  const navigateToAddAmmenities = () => {
-    navigate('/apartments/add-apartment-ammenities-info');
+export class ApartmentBasicInfo extends Component {
+  continue = e => {
+    e.preventDefault();
+    this.props.nextStep();
   };
 
-
-  return (
-    <section className='dashboard-container'>
-      <SideBar />
-
-      <main className='dashboard-main'>
-        <TopBar />
-
+  render() {
+    return(
         <main class="add-new-property-container">
           <header>
             <h4>Add New Apartment:</h4>
@@ -55,43 +48,35 @@ const ApartmentBasicInfo = () => {
             </div>
           </div>
 
-
           <div class="add-propery-form-container">
-                    <div class="step-title">
-                        <h4>Basic Info</h4>
-                    </div>
-                    <form action="" class="basic-info-form">
-                        <div class="col-1">
-                            <label for="apartment type"> Apartment Type</label>
-                            <input type="text" placeholder="Residential"  />
-                            <label for="How many unit">How Many Unit</label>
-                            <input type="text" placeholder="1 Unit" />
-                            <label for="How many unit">How Many Room Apartment Has?</label>
-                            <input type="text" placeholder="2 Unit" />
-                        </div>
-                        <div>
-                            <label for="apartment type">General Description</label>
-                            <textarea name="apartment type" id=""  rows="6"></textarea>
-                            <span class="form-message-info">
-                                <p>
-                                    Minimum of 60 words and Maximum of 120 words
-                                </p>
-                            </span>
-                        </div>
+            <div class="step-title">
+              <h4>Basic Info</h4>
+            </div>
+            <form action="" class="basic-info-form">
+              <div class="col-1">
+                <label for="apartment type"> Propety Type</label>
+                <select className='input-selection'>
+                  <option value="grapefruit">Residential</option>
+                </select>
+                <label for="apartment type">General Description</label>
+                <textarea name="apartment type" id="" rows="6"></textarea>
+                <span class="form-message-info">
+                  <p>Minimum of 60 words and Maximum of 120 words</p>
+                </span>
+              </div>
+            </form>
 
-
-                    </form>
-
-                    <div class="property-form-cta">
-                        <button type="submit">previous</button>
-                        <button  type="submit" onClick={navigateToAddAmmenities}>Next</button>
-                    </div>
-
-                </div>
+            <div class="property-form-cta">
+              {/* <button type="submit" onClick={this.back}>previous</button> */}
+              <button type="submit" onClick={this.continue}>
+                Next
+              </button>
+            </div>
+          </div>
         </main>
-      </main>
-    </section>
-  );
+    //   </main>
+    // </section>
+  )};
 };
 
 export default ApartmentBasicInfo;
