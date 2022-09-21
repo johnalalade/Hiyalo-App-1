@@ -102,6 +102,11 @@ export class ApartmentAmmenities extends Component {
               <p>Bathroom</p>
               <input type="number" placeholder="0" />
             </div>
+            <div className="amenity">
+            <iconify-icon className="amenity-icons"   icon="cil:garage"></iconify-icon>
+              <p>Parking Space</p>
+              <input type="number" placeholder="0" />
+            </div>
           </form>
           <div class="property-form-cta">
             <button type="submit" onClick={this.back}>previous</button>

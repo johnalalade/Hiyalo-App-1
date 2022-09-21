@@ -285,9 +285,9 @@
 .input-image-container p {
     font-family: 'gilroy-medium';
 }
-.input-image-container input {
+/* .input-image-container input {
     display: none;
-}
+} */
 
 .amenities-info-form {
     width: 100%;

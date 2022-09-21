@@ -12,7 +12,7 @@ const PropertyOverview = () => {
   const PropertyImage3 = img3;
 
   const [toggleState, setToggleState] = useState(1);
-
+  // const index = 0
   const toggleTab = (index) => {
     setToggleState(index);
   };
@@ -21,6 +21,8 @@ const PropertyOverview = () => {
       <NavBar />
 
       <main className="product-overview-container">
+        {/******** PROPERTY IMAGES ********/}
+
         <div className="product-images">
           <div className="image-1">
             <img src={PropertyImage1} alt="" />
@@ -35,6 +37,8 @@ const PropertyOverview = () => {
             </span>
           </div>
         </div>
+
+        {/******** PROPERTY DETAILS ********/}
 
         <main className="product-details-container ">
           <div className="product-details">
@@ -78,11 +82,13 @@ const PropertyOverview = () => {
             <div className="product-details-overview">
               <div
                 className={
-                  toggleState === 1 ? 'content  active-content' : 'content'
+                  toggleState === 1
+                    ? 'property-content  active-content'
+                    : 'property-content'
                 }
               >
-                <p>1
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                <p>
+                  1 Lorem ipsum dolor sit amet consectetur adipisicing elit.
                   Beatae, pariatur fugiat. Ratione nostrum quisquam repellat
                   fugiat voluptatum animi debitis reprehenderit maiores hic
                   sapiente! Similique numquam explicabo, aliquid quod itaque
@@ -96,11 +102,113 @@ const PropertyOverview = () => {
 
               <div
                 className={
-                  toggleState === 2 ? 'content  active-content' : 'content'
+                  toggleState === 2
+                    ? 'property-content  active-content'
+                    : 'property-content'
                 }
               >
-                <p>2
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                <main id="property-amenities-details">
+                  <div className="product-amenity">
+                    <span>
+                      <iconify-icon
+                        className="amenity-icons"
+                        icon="fluent:bed-16-regular"
+                      ></iconify-icon>
+                    </span>
+                    <span>
+                      <p className="amenity-title">Bedroom</p>
+                      <p className="amenity-value">3</p>
+                    </span>
+                  </div>
+
+                  <div className="product-amenity">
+                    <span>
+                      <iconify-icon
+                        className="amenity-icons"
+                        icon="fe:kitchen-cooker"
+                      ></iconify-icon>
+                    </span>
+                    <span>
+                      <p className="amenity-title">Kitchen</p>
+                      <p className="amenity-value">1</p>
+                    </span>
+                  </div>
+
+                  <div className="product-amenity">
+                    <span>
+                      <iconify-icon
+                        className="amenity-icons"
+                        icon="wpf:dining-room"
+                      ></iconify-icon>
+                    </span>
+                    <span>
+                      <p className="amenity-title">Dinig Room</p>
+                      <p className="amenity-value">1</p>
+                    </span>
+                  </div>
+
+                  <div className="product-amenity">
+                    <span>
+                      <iconify-icon
+                        className="amenity-icons"
+                        icon="icon-park:swimming-pool"
+                      ></iconify-icon>
+                    </span>
+                    <span>
+                      <p className="amenity-title">Swimming pool</p>
+                      <p className="amenity-value">1</p>
+                    </span>
+                  </div>
+
+                  <div className="product-amenity">
+                    <span>
+                      <iconify-icon
+                        className="amenity-icons"
+                        icon="bx:store"
+                      ></iconify-icon>
+                    </span>
+                    <span>
+                      <p className="amenity-title">Store room</p>
+                      <p className="amenity-value">2</p>
+                    </span>
+                  </div>
+
+                  <div className="product-amenity">
+                    <span>
+                      <iconify-icon
+                        className="amenity-icons"
+                        icon="cil:bathroom"
+                      ></iconify-icon>
+                    </span>
+                    <span>
+                      <p className="amenity-title">Bathroom</p>
+                      <p className="amenity-value">3</p>
+                    </span>
+                  </div>
+
+                  <div className="product-amenity">
+                    <span>
+                      <iconify-icon
+                        className="amenity-icons"
+                        icon="cil:garage"
+                      ></iconify-icon>
+                    </span>
+                    <span>
+                      <p className="amenity-title">Parking Space</p>
+                      <p className="amenity-value">3 cars</p>
+                    </span>
+                  </div>
+                </main>
+              </div>
+              <div
+                className={
+                  toggleState === 3
+                    ? 'property-content  active-content'
+                    : 'property-content'
+                }
+              >
+                <p>
+                  3 Lorem ipsum dolor sit amet consectetur adipisicing elit.
                   Beatae, pariatur fugiat. Ratione nostrum quisquam repellat
                   fugiat voluptatum animi debitis reprehenderit maiores hic
                   sapiente! Similique numquam explicabo, aliquid quod itaque
@@ -113,30 +221,13 @@ const PropertyOverview = () => {
               </div>
               <div
                 className={
-                  toggleState === 3 ? 'content  active-content' : 'content'
+                  toggleState === 4
+                    ? 'property-content  active-content'
+                    : 'property-content'
                 }
               >
                 <p>
-                  3
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  Beatae, pariatur fugiat. Ratione nostrum quisquam repellat
-                  fugiat voluptatum animi debitis reprehenderit maiores hic
-                  sapiente! Similique numquam explicabo, aliquid quod itaque
-                  temporibus!Lorem ipsum dolor sit amet consectetur adipisicing
-                  elit. Beatae, pariatur fugiat. Ratione nostrum quisquam
-                  repellat fugiat voluptatum animi debitis reprehenderit maiores
-                  hic sapiente! Similique numquam explicabo, aliquid quod itaque
-                  temporibus!
-                </p>
-              </div>
-              <div
-                className={
-                  toggleState === 4 ? 'content  active-content' : 'content'
-                }
-              >
-                <p>
-                  4
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                  4 Lorem ipsum dolor sit amet consectetur adipisicing elit.
                   Beatae, pariatur fugiat. Ratione nostrum quisquam repellat
                   fugiat voluptatum animi debitis reprehenderit maiores hic
                   sapiente! Similique numquam explicabo, aliquid quod itaque
@@ -148,6 +239,8 @@ const PropertyOverview = () => {
                 </p>
               </div>
             </div>
+
+            {/******** PROPERTY TOUR AND APPLICATION FORM ********/}
 
             <div className="physical-tour-info">
               <iconify-icon
