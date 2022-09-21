@@ -138,7 +138,7 @@ const PropertyOverview = () => {
                     <span>
                       <iconify-icon
                         className="amenity-icons"
-                        icon="wpf:dining-room"
+                        icon="material-symbols:dining-outline"
                       ></iconify-icon>
                     </span>
                     <span>
@@ -151,7 +151,7 @@ const PropertyOverview = () => {
                     <span>
                       <iconify-icon
                         className="amenity-icons"
-                        icon="icon-park:swimming-pool"
+                        icon="icon-park-outline:swimming-pool"
                       ></iconify-icon>
                     </span>
                     <span>
@@ -190,7 +190,7 @@ const PropertyOverview = () => {
                     <span>
                       <iconify-icon
                         className="amenity-icons"
-                        icon="cil:garage"
+                        icon="maki:parking-garage"
                       ></iconify-icon>
                     </span>
                     <span>
@@ -207,17 +207,24 @@ const PropertyOverview = () => {
                     : 'property-content'
                 }
               >
-                <p>
-                  3 Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  Beatae, pariatur fugiat. Ratione nostrum quisquam repellat
-                  fugiat voluptatum animi debitis reprehenderit maiores hic
-                  sapiente! Similique numquam explicabo, aliquid quod itaque
-                  temporibus!Lorem ipsum dolor sit amet consectetur adipisicing
-                  elit. Beatae, pariatur fugiat. Ratione nostrum quisquam
-                  repellat fugiat voluptatum animi debitis reprehenderit maiores
-                  hic sapiente! Similique numquam explicabo, aliquid quod itaque
-                  temporibus!
-                </p>
+                <div id="property-address-details">
+                  <span>
+                    <p className="address-title">Street Address</p>
+                    <p className="address-p">
+                      Road 15b Omolayo Akobo, Oju-Irin
+                    </p>
+                  </span>
+
+                  <span>
+                    <p className="address-title">City</p>
+                    <p className="address-p">Ibadan</p>
+                  </span>
+
+                  <span>
+                    <p className="address-title">State</p>
+                    <p className="address-p">Oyo State</p>
+                  </span>
+                </div>
               </div>
               <div
                 className={
@@ -226,17 +233,27 @@ const PropertyOverview = () => {
                     : 'property-content'
                 }
               >
-                <p>
-                  4 Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  Beatae, pariatur fugiat. Ratione nostrum quisquam repellat
-                  fugiat voluptatum animi debitis reprehenderit maiores hic
-                  sapiente! Similique numquam explicabo, aliquid quod itaque
-                  temporibus!Lorem ipsum dolor sit amet consectetur adipisicing
-                  elit. Beatae, pariatur fugiat. Ratione nostrum quisquam
-                  repellat fugiat voluptatum animi debitis reprehenderit maiores
-                  hic sapiente! Similique numquam explicabo, aliquid quod itaque
-                  temporibus!
-                </p>
+                <div id="property-address-details">
+                  <span>
+                    <p className="address-title">Anual Rent Fee</p>
+                    <p className="address-p">&#8358; 1,000,000</p>
+                  </span>
+
+                  <span>
+                    <p className="address-title">Agency & Agreement Fee</p>
+                    <p className="address-p"> &#8358; 10,000</p>
+                  </span>
+
+                  <span>
+                    <p className="address-title">Caution Fee</p>
+                    <p className="address-p">&#8358; 20,000</p>
+                  </span>
+
+                  <span>
+                    <p className="address-title">Stamp Duty</p>
+                    <p className="address-p">&#8358; 1,000</p>
+                  </span>
+                </div>
               </div>
             </div>
 

@@ -6,7 +6,7 @@ export class ApartmentAmmenities extends Component {
     e.preventDefault();
     this.props.nextStep();
   };
-  back = e => {
+  back = (e) => {
     e.preventDefault();
     this.props.prevStep();
   };
@@ -73,7 +73,7 @@ export class ApartmentAmmenities extends Component {
             <div className="amenity">
               <iconify-icon
                 className="amenity-icons"
-                icon="wpf:dining-room"
+                icon="material-symbols:dining-outline"
               ></iconify-icon>
               <p>Dining Room</p>
               <input type="number" placeholder="0" />
@@ -81,7 +81,7 @@ export class ApartmentAmmenities extends Component {
             <div className="amenity">
               <iconify-icon
                 className="amenity-icons"
-                icon="icon-park:swimming-pool"
+                icon="icon-park-outline:swimming-pool"
               ></iconify-icon>
               <p>Swimming pool</p>
               <input type="number" placeholder="0" />
@@ -103,13 +103,18 @@ export class ApartmentAmmenities extends Component {
               <input type="number" placeholder="0" />
             </div>
             <div className="amenity">
-            <iconify-icon className="amenity-icons"   icon="cil:garage"></iconify-icon>
+              <iconify-icon
+                className="amenity-icons"
+                icon="maki:parking-garage"
+              ></iconify-icon>
               <p>Parking Space</p>
               <input type="number" placeholder="0" />
             </div>
           </form>
           <div class="property-form-cta">
-            <button type="submit" onClick={this.back}>previous</button>
+            <button type="submit" onClick={this.back}>
+              previous
+            </button>
             <button onClick={this.continue} type="submit">
               Next
             </button>
