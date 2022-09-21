@@ -170,6 +170,27 @@
 .basic-info-form div input::placeholder {
     font-size: 14px;
 }
+.basic-info-form div:nth-child(1) input:hover,
+.basic-info-form div:nth-child(1) input:focus,
+.col-2 input:hover,
+.col-2 input:focus,
+.basic-info-form div textareaL:hover,
+.basic-info-form div textareaL:focus,
+.input-selection:hover,
+.input-selection:focus{
+    border-color: #4733AC;
+}
+
+#house-type-option *{
+    border: none;
+    background: #ECECEC;
+    padding: .5rem;
+    /* height: 50px; */
+}
+
+
+
+
 .form-message-info {
     font-size: 14px;
     margin-top: 1.5rem;
