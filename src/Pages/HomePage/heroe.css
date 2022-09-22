@@ -11,7 +11,8 @@
     align-items: center;
     margin: 0rem 0px;
     margin-top: 80px;
-    min-height: 500px;
+    height: 700px;
+    max-height: 80vh;
     background-color: rgba(5, 2, 19, 0.2);
     background-image: url(../../images/bg.jpg);
     background-blend-mode: multiply;
