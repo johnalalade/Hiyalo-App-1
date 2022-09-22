@@ -1,6 +1,7 @@
 import React from 'react';
-import SideBar from '../../../../components/Dashboard Navbar/SideBar';
-import TopBar from '../../../../components/Dashboard Navbar/TopBar';
+import SideBar from '../../../components/Dashboard Navbar/SideBar';
+import TopBar from '../../../components/Dashboard Navbar/TopBar';
+
 const GeneralSettings = () => {
   return (
     <section className="dashboard-container">
@@ -12,7 +13,7 @@ const GeneralSettings = () => {
           <div class="personal-information-settings">
             <header>
               <h6>Personal Information</h6>
-              <a href="#">Edit</a>
+              <a href="#">Edit</a> //
             </header>
             <form>
               <label for="apartment type"> Firs t Name</label>

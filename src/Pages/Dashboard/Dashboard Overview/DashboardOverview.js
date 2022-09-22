@@ -1,27 +1,55 @@
 
+import axios from 'axios';
+import { useEffect, useState } from 'react';
 import SideBar from '../../../components/Dashboard Navbar/SideBar';
 import TopBar from '../../../components/Dashboard Navbar/TopBar';
 import './dashboard-overview.css';
 
 const DashboardOverview = () => {
+  const [name, setName] = useState("")
+  const [agent, setAgent] = useState({})
+  const [houses, setHouses] = useState([])
+
+  useEffect(() => {
+    axios.post('https://hiyalo-backend.herokuapp.com/agents/agent-gateway/get-agent', { id: localStorage.getItem("id") })
+      .then(data => {
+        setAgent(data.data.agent)
+        setName(data.data.agent.full_name)
+      })
+
+      axios.post("https://hiyalo-backend.herokuapp.com/houses/house-gateway/get-agent-houses", {agent_id: localStorage.getItem('id')})
+    .then(data => {
+      console.log(data.data)
+      setHouses(data.data.houses)
+    })
+    .catch(err => {
+      console.log({
+        err
+      })
+    })
+
+  }, [])
+
   return (
-    <section className="dashboard-container">
+
+
+    agent.full_name && <section className="dashboard-container">
       <SideBar />
 
       <main className="dashboard-main">
-        <TopBar />
+        <TopBar name={name} />
 
         <div className="page-title">
           <h4>Account Overview:</h4>
           <span class="overview-date">
-            <button>June, 2022</button>
+            <button>September, 2022</button>
           </span>
         </div>
 
         <div class="overview-header">
           <div class="total-income">
             <header>Total Income Revenue</header>
-            <span class="total-amount">&#8358;1,450,000</span>
+            <span class="total-amount">&#8358; {Number(agent.balance).toFixed(2).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')}</span>
             <span class="unpaid-stat">
               <p>% Unpaid</p>
               <p>85%</p>
@@ -29,7 +57,7 @@ const DashboardOverview = () => {
           </div>
           <div class="total-outstanding">
             <header>outstanding Payments</header>
-            <span class="total-amount">&#8358;75,000</span>
+            <span class="total-amount">&#8358; {Number(agent.outstanding_payments).toFixed(2).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')}</span>
             <span class="total-outstanding-cta">
               <button>Messages</button>
               <button>Manage</button>
@@ -41,14 +69,14 @@ const DashboardOverview = () => {
               <header>
                 <h6>Total Properties</h6>
               </header>
-              <p>24</p>
+              <p>{houses[0] && houses.length}</p>
             </span>
 
             <span class="active-properties">
               <header>
-                <h6>Total Properties</h6>
+                <h6>Vacant Properties</h6>
               </header>
-              <p>24</p>
+              <p>{houses[0] && houses.filter(h => h.status === "vacant").length}</p>
             </span>
           </div>
         </div>
@@ -208,6 +236,7 @@ const DashboardOverview = () => {
         </div>
       </main>
     </section>
+
   );
 };
 

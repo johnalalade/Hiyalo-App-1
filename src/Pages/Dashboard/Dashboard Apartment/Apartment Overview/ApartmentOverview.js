@@ -3,79 +3,107 @@ import { useNavigate } from 'react-router-dom';
 import SideBar from '../../../../components/Dashboard Navbar/SideBar';
 import TopBar from '../../../../components/Dashboard Navbar/TopBar';
 // import apartmentImg from '../../images/bg.jpg';
-import apartmentImg from '../../../../images/bg.jpg';
+import { useEffect, useState } from 'react';
+import axios from 'axios';
 
 const ApartmentOverview = () => {
+  const [houses, setHouses] = useState([])
+  const [name, setName] = useState("")
+  const [filterStatus, setFilterStatus] = useState("all")
+
   const navigate = useNavigate();
 
   const navigateToAddBasicInfo = () => {
-    navigate('/apartments/add-apartment-basic-info');
+    navigate('/apartments/add-new-apartment');
   };
 
   const filterOptions = [
     {
+      filterType: 'All',
+      availableApartment: houses.length,
+    },
+    {
       filterType: 'Occupied',
-      availableApartment: 28,
+      availableApartment: houses.filter(h => h.status === "occupied").length,
     },
     {
       filterType: 'Vacant',
-      availableApartment: 28,
+      availableApartment: houses.filter(h => h.status === "vacant").length,
     },
     {
       filterType: 'Pending Request',
-      availableApartment: 28,
+      availableApartment: houses.filter(h => h.status === "pending").length,
     },
     {
       filterType: 'Draft',
-      availableApartment: 28,
+      availableApartment: houses.filter(h => h.status === "draft").length,
     },
   ];
 
-  const tableData = [
-    {
-      apartmentID: '#120000',
-      apartmentPictures: apartmentImg,
-      apartmentAddress: 'Obafemi Awolowo University, Ile=Ife',
-      apartmentPrice: '120,000',
-      apartmentStatus: 'Occupied',
-      apartmentDateAdded: '12th January, 2021',
-      apartmentAction: 'menu',
-    },
-    {
-      apartmentID: '#120000',
-      apartmentPictures: apartmentImg,
-      apartmentAddress: 'Obafemi Awolowo University, Ile=Ife',
-      apartmentPrice: '120,000',
-      apartmentStatus: 'Occupied',
-      apartmentDateAdded: '12th January, 2021',
-      apartmentAction: 'menu',
-    },
-    {
-      apartmentID: '#120000',
-      apartmentPictures: apartmentImg,
-      apartmentAddress: 'Obafemi Awolowo University, Ile=Ife',
-      apartmentPrice: '120,000',
-      apartmentStatus: 'Occupied',
-      apartmentDateAdded: '12th January, 2021',
-      apartmentAction: 'menu',
-    },
-    {
-      apartmentID: '#120000',
-      apartmentPictures: apartmentImg,
-      apartmentAddress: 'Obafemi Awolowo University, Ile=Ife',
-      apartmentPrice: '120,000',
-      apartmentStatus: 'Occupied',
-      apartmentDateAdded: '12th January, 2021',
-      apartmentAction: 'menu',
-    },
-  ];
+  // const tableData = [
+  //   {
+  //     apartmentID: '#120000',
+  //     apartmentPictures: apartmentImg,
+  //     apartmentAddress: 'Obafemi Awolowo University, Ile=Ife',
+  //     apartmentPrice: '120,000',
+  //     apartmentStatus: 'Occupied',
+  //     apartmentDateAdded: '12th January, 2021',
+  //     apartmentAction: 'menu',
+  //   },
+  //   {
+  //     apartmentID: '#120000',
+  //     apartmentPictures: apartmentImg,
+  //     apartmentAddress: 'Obafemi Awolowo University, Ile=Ife',
+  //     apartmentPrice: '120,000',
+  //     apartmentStatus: 'Occupied',
+  //     apartmentDateAdded: '12th January, 2021',
+  //     apartmentAction: 'menu',
+  //   },
+  //   {
+  //     apartmentID: '#120000',
+  //     apartmentPictures: apartmentImg,
+  //     apartmentAddress: 'Obafemi Awolowo University, Ile=Ife',
+  //     apartmentPrice: '120,000',
+  //     apartmentStatus: 'Occupied',
+  //     apartmentDateAdded: '12th January, 2021',
+  //     apartmentAction: 'menu',
+  //   },
+  //   {
+  //     apartmentID: '#120000',
+  //     apartmentPictures: apartmentImg,
+  //     apartmentAddress: 'Obafemi Awolowo University, Ile=Ife',
+  //     apartmentPrice: '120,000',
+  //     apartmentStatus: 'Occupied',
+  //     apartmentDateAdded: '12th January, 2021',
+  //     apartmentAction: 'menu',
+  //   },
+  // ];
+
+  useEffect(() => {
+    axios.post('https://hiyalo-backend.herokuapp.com/agents/agent-gateway/get-agent', { id: localStorage.getItem("id") })
+      .then(data => {
+
+        setName(data.data.agent.full_name)
+      })
+
+    axios.post("https://hiyalo-backend.herokuapp.com/houses/house-gateway/get-agent-houses", { agent_id: localStorage.getItem('id') })
+      .then(data => {
+        console.log(data.data)
+        setHouses(data.data.houses)
+      })
+      .catch(err => {
+        console.log({
+          err
+        })
+      })
+  }, [])
 
   return (
     <section className="dashboard-container">
       <SideBar />
 
       <main className="dashboard-main">
-        <TopBar />
+        <TopBar name={name} />
 
         <main className="properties-container">
           <header class="property-page-title">
@@ -86,14 +114,14 @@ const ApartmentOverview = () => {
           </header>
 
           <div className="properties-page-filter-options">
-            <div class="filter-option active-option">
+            {/* <div class="filter-option active-option">
               <p>All</p>
               <span>28</span>
-            </div>
+            </div> */}
 
             {filterOptions.map((filteroption, idx) => {
               return (
-                <div class="filter-option">
+                <div className={filterStatus === filteroption.filterType.toLowerCase()? "filter-option active-option" : "filter-option" } onClick={() => setFilterStatus(filteroption.filterType.toLowerCase())}>
                   <p>{filteroption.filterType}</p>
                   <span>{filteroption.availableApartment}</span>
                 </div>
@@ -109,7 +137,7 @@ const ApartmentOverview = () => {
                 <th>Apartment ID</th>
                 <th>Photos</th>
                 <th>Address</th>
-                <th>Price</th>
+                <th>Price (&#8358;)</th>
                 <th>Status</th>
                 <th>Date Added</th>
                 <th>Action</th>
@@ -117,20 +145,23 @@ const ApartmentOverview = () => {
             </thead>
 
             <tbody>
-              {tableData.map((data, idx) => {
+              {houses.filter(h => filterStatus === "all"? h : h.status === filterStatus).map((data, idx) => {
                 return (
                   <tr>
-                    <td className="apartment-id">{data.apartmentID}</td>
-                    <td className="apartment-imges-overview">
-                      {data.apartmentPictures}
+                    <td className="apartment-id">{data._id}</td>
+                    <td className="apartment-images-overview">
+                      <img src={data.images[0]} alt={data.address} />
+                      <img src={data.images[1]} alt={data.address} />
+                      <img src={data.images[2]} alt={data.address} />
+                      <span> + {data.images.length - 3}</span>
                     </td>
 
                     <td className="apartment-address">
-                      {data.apartmentAddress}
+                      {data.address}
                     </td>
-                    <td className="apartment-price">{data.apartmentPrice}</td>
-                    <td>{data.apartmentStatus}</td>
-                    <td>{data.apartmentDateAdded}</td>
+                    <td className="apartment-price">{Number(data.annual_fee).toFixed(2).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')}</td>
+                    <td>{data.status}</td>
+                    <td>{data.createdAt}</td>
                     <td class="action-options">
                       <iconify-icon icon="carbon:overflow-menu-vertical"></iconify-icon>
                     </td>
