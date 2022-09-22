@@ -1,12 +1,15 @@
 import React from 'react';
-import {Link} from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
-const Apartment = ({apartment} ) => {
+const Apartment = ({ apartment }) => {
   return (
-    <Link className="apartment" to={`/apartment/${apartment.id}`}>
-      <img src={apartment.productImg} alt="" />
+    <Link className="apartment" onClick={() => {
+      localStorage.setItem("house_id", apartment._id)
+    }} to={`/property-overview/`}>
+
+      <img src={apartment.images[0]} alt="" />
       <div className="apartment-location">
-        <p>{apartment.productLocation}</p>
+        <p>{apartment.address}</p>
       </div>
       <div className="core-ammenities">
         <span>
@@ -14,28 +17,30 @@ const Apartment = ({apartment} ) => {
             class="iconify"
             icon="emojione-monotone:bed"
           ></iconify-icon>
-          <p>{apartment.numberOfBeds}Bed(s)</p>
+          <p>{apartment.ammenities[0].quantity}{apartment.ammenities[0].quantity}(s)</p>
         </span>
         <span>
           <iconify-icon
             class="iconify"
             icon="emojione-monotone:bed"
           ></iconify-icon>
-          <p>{apartment.numberOfBaths}Bath(s)</p>
+          <p>{apartment.ammenities[1].quantity}{apartment.ammenities[1].quantity}(s)</p>
         </span>
       </div>
       <div class="apartment-prices">
         <span>
           <p>
-            &#8358; {apartment.productPriceYearly}
+          &#8358; {Number(apartment.annual_fee).toFixed(2).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')}
             <small>/year</small>
           </p>
           <p>
-            &#8358;{apartment.productPriceMonthly}
+          &#8358;{(Number(apartment.annual_fee / 12)).toFixed(2).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')}
             <small>/month</small>
           </p>
         </span>
-        <a href="#">
+        <a onClick={() => {
+          localStorage.setItem("house_id", apartment._id)
+        }} href={`/property-overview/`}>
           <iconify-icon icon="bx:right-arrow-alt"></iconify-icon>
         </a>
       </div>

@@ -3,6 +3,7 @@ import NavBar from '../../components/Navbar/Navbar';
 import Footer from '../../components/Footer/Footer';
 import Apartment from '../../components/Apartment/Apartment';
 import apartments from './apartments';
+
 const MarketPlace = () => {
   return (
     <body className="sign-up-body">

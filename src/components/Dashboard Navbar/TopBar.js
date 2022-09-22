@@ -4,12 +4,12 @@ import './topbar.css';
 
 
 
-const TopBar = () => {
+const TopBar = ({ name }) => {
   const userAvatar = require('../../images/bg.jpg');
   return (
     <header class="top-bar">
       <div class="welcome-back">
-        <h3>Welcome, Olakunbi</h3>
+        <h3>Welcome, {name ? name.slice(0,name.indexOf(" ")) : ""}</h3>
         <p>Go through what’s happening in your account</p>
       </div>
       <div class="top-bar-cta">
