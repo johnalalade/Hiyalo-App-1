@@ -1,112 +1,158 @@
-import React, { Component } from 'react';
+import React, { useState } from 'react';
 import uploadIllustration from '../../../../images/add-photo-illustration.svg'
 import './add-new-apartment.css';
 
-export class ApartmentGallery extends Component {
-  continue = (e) => {
+export const ApartmentGallery = ({ nextStep, prevStep, images, handleChange, finish }) => {
+
+  const [files, setFiles] = useState([...images])
+
+  const continu = (e) => {
     e.preventDefault();
-    this.props.nextStep();
+    nextStep();
+
+    handleChange({
+      target: {
+        value: files,
+        name: "images"
+      }
+    })
+
   };
-  back = e => {
+
+  const back = e => {
     e.preventDefault();
-    this.props.prevStep();
+    prevStep();
+
+    handleChange({
+      target: {
+        value: files,
+        name: "images"
+      }
+    })
   };
 
+  const draft = () => {
 
-  render() {
-    return (
-      <main className="add-new-property-container">
-        <header>
-          <h4>Add New Apartment:</h4>
-          <div className="add-property-cta">
-            <button type="submit">Save as Draft</button>
-            <button type="submit">Completed</button>
-          </div>
-        </header>
+    handleChange({
+      target: {
+        value: files,
+        name: "images"
+      }
+    })
 
-        <div className="steps-filters">
-          <div className="step active-step">
-            <p>Basic Info</p>
-            <span>01</span>
-          </div>
-          <div className="step-connector active-connector"></div>
-          <div className="step">
-            <p>Amenities</p>
-            <span>02</span>
-          </div>
-          <div className="step-connector active-connector"></div>
-          <div className="step">
-            <p>Address</p>
-            <span>03</span>
-          </div>
-          <div className="step-connector active-connector"></div>
-          <div className="step">
-            <p>Gallery</p>
-            <span>04</span>
-          </div>
-          <div className="step-connector"></div>
-          <div className="step">
-            <p>Payment</p>
-            <span>05</span>
-          </div>
+    handleChange({
+      target: {
+        value: "draft",
+        name: "status"
+      }
+    })
+
+    finish()
+  }
+
+
+
+  return (
+    <main className="add-new-property-container">
+      <header>
+        <h4>Add New Apartment:</h4>
+        <div className="add-property-cta">
+          <button type="submit" onClick={() => draft()}>Save as Draft</button>
+          <button type="submit" onClick={() => finish()} >Completed</button>
+        </div>
+      </header>
+
+      <div className="steps-filters">
+        <div className="step active-step">
+          <p>Basic Info</p>
+          <span>01</span>
+        </div>
+        <div className="step-connector active-connector"></div>
+        <div className="step active-step">
+          <p>Amenities</p>
+          <span>02</span>
         </div>
 
-        <div className="gallery-upload-container">
-          <div className="step-title">
-            <h4>Gallery</h4>
-          </div>
+        <div className="step-connector active-connector"></div>
+        <div className="step active-step">
+          <p>Gallery</p>
+          <span>03</span>
+        </div>
 
-          <div className="uploaded-pictures">
+        <div className="step-connector"></div>
+        <div className="step">
+          <p>Address</p>
+          <span>04</span>
+        </div>
+        
+        <div className="step-connector"></div>
+        <div className="step">
+          <p>Payment</p>
+          <span>05</span>
+        </div>
+      </div>
+
+      <div className="gallery-upload-container">
+        <div className="step-title">
+          <h4>Gallery</h4>
+        </div>
+
+        <div className="uploaded-pictures">
+          {files.map(f =>
             <div className="">
+              <img src={f ? window.URL.createObjectURL(f) : './images/bg.jpg'} alt="" />
+              <span className="picture-delete-btn">
+                <button onClick={() => setFiles(files.filter(fr => fr !== f))}
+                >
+                  <iconify-icon icon="ic:baseline-delete"></iconify-icon>
+                </button>
+              </span>
+            </div>
+          )}
+
+          {/* <div>
               <img src="./images/bg.jpg" alt="" />
               <span className="picture-delete-btn">
                 <button>
                   <iconify-icon icon="ic:baseline-delete"></iconify-icon>
                 </button>
               </span>
-            </div>
+            </div> */}
 
-            <div>
+          {/* <div>
               <img src="./images/bg.jpg" alt="" />
               <span className="picture-delete-btn">
                 <button>
                   <iconify-icon icon="ic:baseline-delete"></iconify-icon>
                 </button>
               </span>
-            </div>
+            </div> */}
 
-            <div>
-              <img src="./images/bg.jpg" alt="" />
-              <span className="picture-delete-btn">
-                <button>
-                  <iconify-icon icon="ic:baseline-delete"></iconify-icon>
-                </button>
-              </span>
-            </div>
+          <label htmlFor="input-image" className="input-image-container">
 
-          <label htmlFor="input-image"className="input-image-container">
-          <input type='file' />
-              <img src={uploadIllustration} alt="" />
-              <p>Click to upload photos</p>
+            <input type='file' accept='image/*' multiple={true} onChange={(ev) => setFiles([...files, ...ev.target.files])} />
+            <img src={uploadIllustration} alt="" />
+            <p>Click to upload photos</p>
+
           </label>
 
-            
-          </div>
 
-          <span className="form-message-info">
-            <p>Upload a minimumof 4 High quality photos of the apartment</p>
-          </span>
-
-          <div className="property-form-cta">
-            <button type="submit"  onClick={this.back}>previous</button>
-            <button onClick={this.continue} type="button">
-              Next
-            </button>
-          </div>
         </div>
-      </main>
-    );
-  }
+
+        <span className="form-message-info">
+          <p>Upload a minimumof 4 High quality photos of the apartment</p>
+        </span>
+
+        <div className="property-form-cta">
+          <button type="submit" onClick={back}>previous</button>
+          <button onClick={continu} type="button">
+            Next
+          </button>
+        </div>
+      </div>
+    </main>
+  );
 }
+
 
 export default ApartmentGallery;

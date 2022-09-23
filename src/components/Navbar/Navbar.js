@@ -44,7 +44,7 @@ function NavBar() {
           onMouseEnter={onMouseEnter}
           onMouseLeave={onMouseLeave}
         >
-          <Link to="/sign-up" className="nav-link" >
+          <Link to="/sign-up-agent" className="nav-link" >
             Agent <iconify-icon icon="ri:arrow-drop-down-line"></iconify-icon>
           </Link>
           {dropdown && <Dropdown />}

@@ -12,7 +12,6 @@ const PropertyOverview = () => {
   const PropertyImage3 = img3;
 
   const [toggleState, setToggleState] = useState(1);
-  // const index = 0
   const toggleTab = (index) => {
     setToggleState(index);
   };

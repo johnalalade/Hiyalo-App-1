@@ -15,17 +15,43 @@
     column-gap: 4rem;
     padding-top: auto;
     align-items: center;
+
     /* justify-content: center; */
 }
-.settings-filter li {
+.settings-filter .settings-tab {
+    display: none;
     padding: 1.5rem 0;
     font-family: 'gilroy-medium';
     color: #757575;
 }
-.settings-filter li.active-settings {
+.settings-filter li.active-setings-tabs {
+    display: block;
     border-bottom: 2px solid #4733AC;
     color: #050213;
+    padding: 1.5rem 0;
 }
+
+.settings-filter ul .active-setings-tabs::before {
+    content: "";
+    display: block;
+    position: absolute;
+    top: -5px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: calc(100% + 2px);
+    height: 5px;
+    background: rgba(88, 147, 241, 0.505);
+  }
+
+
+  .settings-content {
+    display: none;
+  }
+  .active-settings-content {
+    display: block;
+  }
+
+
 
 .settings-form-container {
     display: flex;

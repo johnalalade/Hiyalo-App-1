@@ -2,6 +2,7 @@ import { useState } from 'react';
 import Axios from 'axios';
 import './sign-up.css';
 import SignNavBar from '../../components/sign up navbar/SignUpNavbar';
+import { Link } from 'react-router-dom';
 
 const SignUp = () => {
     const url = 'https://hiyalo-backend.herokuapp.com/agents/agent-gateway/register';
@@ -39,7 +40,7 @@ const SignUp = () => {
           <h3>Welcome To Hiyalo</h3>
           <p>
             Let’s get you started. Already have an account?{' '}
-            <a href="www.google.com">Sign Up</a>
+            <Link to="/sign-in-agent">Sign in</Link>
           </p>
         </header>
         <main>

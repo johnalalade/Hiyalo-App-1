@@ -1,18 +1,15 @@
 import React from 'react';
-import SideBar from '../../../../components/Dashboard Navbar/SideBar';
-import TopBar from '../../../../components/Dashboard Navbar/TopBar';
-const GeneralSettings = () => {
+
+import './general-settings.css'
+
+const PersonalDetailsSettings = () => {
   return (
-    <section className="dashboard-container">
-      <SideBar />
-      <main className="dashboard-main">
-        <TopBar />
 
         <main class="settings-form-container">
           <div class="personal-information-settings">
             <header>
               <h6>Personal Information</h6>
-              <a href="#">Edit</a>
+              <a href="www.google.com">Edit</a>
             </header>
             <form>
               <label for="apartment type"> Firs t Name</label>
@@ -64,9 +61,8 @@ const GeneralSettings = () => {
             </div>
           </div>
         </main>
-      </main>
-    </section>
+
   );
 };
 
-export default GeneralSettings;
+export default PersonalDetailsSettings;

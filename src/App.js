@@ -9,7 +9,7 @@ import DashboardOverview from './Pages/Dashboard/Dashboard Overview/DashboardOve
 import ApartmentOverview from './Pages/Dashboard/Dashboard Apartment/Apartment Overview/ApartmentOverview';
 // import {AddNewApartmentContainer} from './Pages/Dashboard/Dashboard Apartment/AddNewApartment/AddNewApartmentContainer';
 import AddNewApartmentContainer from './Pages/Dashboard/Dashboard Apartment/AddNewApartment/AddNewApartmentContainer';
-// import GeneralSettings from './Pages/Dashboard/Dashboard Settings/GeneralSettings';
+import GeneralSettingsContainer from './Pages/Dashboard/Dashboard Settings/GeneralSettingsContainer';
 // import ApartmentBasicInfo from './Pages/Dashboard/Dashboard Apartment/AddNewApartment/ApartmentBasicInfo';
 // import ApartmentAddress from './Pages/Dashboard/Dashboard Apartment/AddNewApartment/ApartementAddress';
 // import ApartmentAmmenities from './Pages/Dashboard/Dashboard Apartment/AddNewApartment/ApartmentAmmenities';
@@ -22,22 +22,20 @@ function App() {
       <Router>
         <Routes>
           <Route path="/" element={<HomePage />}></Route>
-        </Routes>
-      </Router>
-
-      <Router>
-        <Routes>
+       
           <Route
             path="/property-overview"
             element={<PropertyOverview />}
           ></Route>
-          <Route path="/sign-up" element={<SignUp />}></Route>
-          <Route path="/sign-in" element={<SignIn />}></Route>
+          
+          <Route path="/sign-up-agent" element={<SignUp />}></Route>
+          <Route path="/sign-in-agent" element={<SignIn />}></Route>
           <Route path="/marketplace" element={<MarketPlace />}></Route>
           <Route path="/dashboard" element={<DashboardOverview />}></Route>
           <Route path="/apartments" element={<ApartmentOverview />}></Route>
+          <Route path="/settings" element={<GeneralSettingsContainer />}></Route>
           <Route
-            path="/add-new-apartment"
+            path="/apartments/add-new-apartment"
             element={<AddNewApartmentContainer />}
           ></Route>
           {/* <Route

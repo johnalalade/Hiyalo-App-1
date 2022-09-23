@@ -1,11 +1,12 @@
 import dashboardIcon from '../../images/dashboard.svg';
 import buildingsIcon from '../../images/buildings-2.svg';
-import noteIcon from '../../images/note.svg';
+// import noteIcon from '../../images/note.svg';
 import walletIcon from '../../images/wallet-minus.svg';
-import messageIcon from '../../images/message-notif.svg';
+// import messageIcon from '../../images/message-notif.svg';
 import settingsIcon from '../../images/setting-2.svg';
 
 import './sidebar.css';
+import { Link } from 'react-router-dom';
 
 const SideBar = () => {
   return (
@@ -14,40 +15,40 @@ const SideBar = () => {
       <nav class="dashboard-navbar">
         <ul class="dashboard-nav-links">
           <li>
-            <a href="dashboard.html" id="active">
+            <Link to="/dashboard" className="side-bar-link" id="active">
               <img src={dashboardIcon} alt="" />
-              <p>Overview</p>
-            </a>
+              <span>Overview</span>
+            </Link>
           </li>
           <li>
-            <a href="property.html">
+            <Link to="/apartments" className="side-bar-link">
               <img src={buildingsIcon} alt="" />
-              <p>Apartment</p>
-            </a>
+              <span>Apartment</span>
+            </Link>
           </li>
-          <li>
-            <a href="#">
+          {/* <li>
+            <NavLink to="#">
               <img src={noteIcon} alt="" />
-              <p>Services</p>
-            </a>
-          </li>
+              <span>Services</span>
+            </NavLink>
+          </li> */}
           <li>
-            <a href="payment.html">
+            <Link to="/payment" className="side-bar-link">
               <img src={walletIcon} alt="" />
-              <p>Payments</p>
-            </a>
+              <span>Payments</span>
+            </Link>
           </li>
-          <li>
-            <a href="#">
+          {/* <li>
+            <NavLink href="#">
               <img src={messageIcon} alt="" />
-              <p>Messages</p>
-            </a>
-          </li>
+              <span>Messages</span>
+            </NavLink>
+          </li> */}
           <li>
-            <a href="account-settings.html">
+            <Link to="/settings" className="side-bar-link">
               <img src={settingsIcon} alt="" />
-              <p>Settings</p>
-            </a>
+              <span>Settings</span>
+            </Link>
           </li>
         </ul>
       </nav>
