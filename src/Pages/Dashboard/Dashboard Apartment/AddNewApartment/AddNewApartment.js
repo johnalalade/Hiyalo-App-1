@@ -7,6 +7,13 @@ import ApartmentPaymentDetails from './ApartmentPaymentDetails';
 import ApartmentGallery from './ApartmentGallery';
 import axios from 'axios';
 
+// const override: CSSProperties = {
+//   display: "block",
+//   margin: "0 auto",
+//   borderColor: "red",
+// };
+
+
 const AddNewApartment = () => {
   const [houseData, setHousesData] = useState({
 
@@ -30,6 +37,7 @@ const AddNewApartment = () => {
     images: []
   })
   const [step, setStep] = useState(1)
+  const [loading, setLoading] = useState(false)
 
   const navigate = useNavigate();
 
@@ -73,20 +81,24 @@ const AddNewApartment = () => {
   };
 
   const finish = () => {
-
+    setLoading(true)
     if (images.length < 4) {
+      setLoading(false)
       setStep(3)
       return false
     }
     if (property_type === "" || house_type === "" || description === "") {
+      setLoading(false)
       setStep(1)
       return false
     }
     if (address === "" || state === "" || city === "") {
+      setLoading(false)
       setStep(4)
       return false
     }
     if (annual_fee === "0" || agency_fee === "0" || caution_fee === "0" || stamp_fee === "0") {
+      setLoading(false)
       setStep(5)
       return false
     }
@@ -98,7 +110,10 @@ const AddNewApartment = () => {
     dat.append("property_type", property_type)
     dat.append("house_type", house_type)
     dat.append("description", description)
-    dat.append("ammenities", ammenities)
+    for (let i = 0; i < ammenities.length; i++) {
+    dat.append("ammenities[]", JSON.stringify(ammenities[i]))
+    // dat.append("ammenities[number]", ammenities[i].number)
+  }
     dat.append("address", address)
     dat.append("state", state)
     dat.append("city", city)
@@ -112,6 +127,9 @@ const AddNewApartment = () => {
     for (let i = 0; i < images.length; i++) {
       dat.append("files", images[i])
     }
+    for (let i = 0; i < ammenities.length; i++) {
+      console.log(ammenities[i])
+    }
 
     console.log(dat)
 
@@ -122,15 +140,17 @@ const AddNewApartment = () => {
       }
     })
       .then(res => {
-
+        console.log(res.data)
         if (res.data.message === "success") {
-          localStorage.setItem("house_id", res.data.house_data._id)
+          localStorage.setItem("house_id", res.data.house._id)
             navigate('/apartments');
         }
+        setLoading(false)
         console.log(res.data)
       })
       .catch(err => {
         console.log(err)
+        setLoading(false)
       })
 
   }
@@ -204,7 +224,7 @@ const AddNewApartment = () => {
           stamp_fee={stamp_fee}
           finish={finish}
           agent_id={agent_id}
-
+          loading={loading}
         />
       );
     // case 6:

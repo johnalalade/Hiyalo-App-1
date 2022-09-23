@@ -5,11 +5,13 @@ import TopBar from '../../../../components/Dashboard Navbar/TopBar';
 // import apartmentImg from '../../images/bg.jpg';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
+import ClipLoader from "react-spinners/ClipLoader";
 
 const ApartmentOverview = () => {
   const [houses, setHouses] = useState([])
   const [name, setName] = useState("")
   const [filterStatus, setFilterStatus] = useState("all")
+  const [loading, setLoading] = useState(false);
 
   const navigate = useNavigate();
 
@@ -80,6 +82,7 @@ const ApartmentOverview = () => {
   // ];
 
   useEffect(() => {
+    setLoading(true)
     axios.post('https://hiyalo-backend.herokuapp.com/agents/agent-gateway/get-agent', { id: localStorage.getItem("id") })
       .then(data => {
 
@@ -90,13 +93,23 @@ const ApartmentOverview = () => {
       .then(data => {
         console.log(data.data)
         setHouses(data.data.houses)
+        setLoading(false)
       })
       .catch(err => {
+        setLoading(false)
         console.log({
           err
         })
       })
   }, [])
+
+  if (loading) {
+    return (
+      <div className="spinner">
+          <ClipLoader color='#4733AC' loading={loading} size={150} />
+      </div>
+    )
+  }
 
   return (
     <section className="dashboard-container">
@@ -121,7 +134,7 @@ const ApartmentOverview = () => {
 
             {filterOptions.map((filteroption, idx) => {
               return (
-                <div className={filterStatus === filteroption.filterType.toLowerCase()? "filter-option active-option" : "filter-option" } onClick={() => setFilterStatus(filteroption.filterType.toLowerCase())}>
+                <div className={filterStatus === filteroption.filterType.toLowerCase() ? "filter-option active-option" : "filter-option"} onClick={() => setFilterStatus(filteroption.filterType.toLowerCase())}>
                   <p>{filteroption.filterType}</p>
                   <span>{filteroption.availableApartment}</span>
                 </div>
@@ -145,7 +158,7 @@ const ApartmentOverview = () => {
             </thead>
 
             <tbody>
-              {houses.filter(h => filterStatus === "all"? h : h.status === filterStatus).map((data, idx) => {
+              {houses.filter(h => filterStatus === "all" ? h : h.status === filterStatus).map((data, idx) => {
                 return (
                   <tr>
                     <td className="apartment-id">{data._id}</td>

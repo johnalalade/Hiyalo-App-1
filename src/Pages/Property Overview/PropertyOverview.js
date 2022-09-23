@@ -1,21 +1,45 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import './property-overview.css';
 import NavBar from '../../components/Navbar/Navbar';
+import axios from 'axios';
 import Footer from '../../components/Footer/Footer';
-import img1 from '../../images/bg.jpg';
-import img2 from '../../images/bg.jpg';
-import img3 from '../../images/bg.jpg';
+import ClipLoader from "react-spinners/ClipLoader";
+// import img1 from '../../images/bg.jpg';
+// import img2 from '../../images/bg.jpg';
+// import img3 from '../../images/bg.jpg';
 
 const PropertyOverview = () => {
-  const PropertyImage1 = img1;
-  const PropertyImage2 = img2;
-  const PropertyImage3 = img3;
+  // const PropertyImage1 = img1;
+  // const PropertyImage2 = img2;
+  // const PropertyImage3 = img3;
 
   const [toggleState, setToggleState] = useState(1);
+  const [loading, setLoading] = useState(true);
   // const index = 0
   const toggleTab = (index) => {
     setToggleState(index);
   };
+
+  const [property, setProperty] = useState({})
+
+  useEffect(() => {
+    setLoading(true)
+    axios.post('https://hiyalo-backend.herokuapp.com/houses/house-gateway/get-house', { id: localStorage.getItem("house_id") })
+      .then(data => {
+
+        setProperty(data.data.house)
+        setLoading(false)
+      })
+  }, [])
+
+  if (loading) {
+    return (
+      <div className="spinner">
+          <ClipLoader color='#4733AC' loading={loading} size={150} />
+      </div>
+    )
+  }
+
   return (
     <>
       <NavBar />
@@ -25,13 +49,13 @@ const PropertyOverview = () => {
 
         <div className="product-images">
           <div className="image-1">
-            <img src={PropertyImage1} alt="" />
+            <img src={property.address && property.images[0]} alt="" />
           </div>
 
           <div className="image-2-3">
-            <img src={PropertyImage2} alt="" />
+            <img src={property.address && property.images[1]} alt="" />
 
-            <img src={PropertyImage3} alt="" />
+            <img src={property.address && property.images[2]} alt="" />
             <span className="view-all-btn">
               <button type="button">View all image</button>
             </span>
@@ -88,15 +112,7 @@ const PropertyOverview = () => {
                 }
               >
                 <p>
-                  1 Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  Beatae, pariatur fugiat. Ratione nostrum quisquam repellat
-                  fugiat voluptatum animi debitis reprehenderit maiores hic
-                  sapiente! Similique numquam explicabo, aliquid quod itaque
-                  temporibus!Lorem ipsum dolor sit amet consectetur adipisicing
-                  elit. Beatae, pariatur fugiat. Ratione nostrum quisquam
-                  repellat fugiat voluptatum animi debitis reprehenderit maiores
-                  hic sapiente! Similique numquam explicabo, aliquid quod itaque
-                  temporibus!
+                  {property.description}
                 </p>
               </div>
 
@@ -117,7 +133,7 @@ const PropertyOverview = () => {
                     </span>
                     <span>
                       <p className="amenity-title">Bedroom</p>
-                      <p className="amenity-value">3</p>
+                      <p className="amenity-value">{property.ammenities.find(o => o.name === "Bedroom") ? property.ammenities.find(o => o.name === "Bedroom").number : "0"}</p>
                     </span>
                   </div>
 
@@ -130,7 +146,7 @@ const PropertyOverview = () => {
                     </span>
                     <span>
                       <p className="amenity-title">Kitchen</p>
-                      <p className="amenity-value">1</p>
+                      <p className="amenity-value">{property.ammenities.find(o => o.name === "Kitchen") ? property.ammenities.find(o => o.name === "Kitchen").number : "0"}</p>
                     </span>
                   </div>
 
@@ -142,8 +158,8 @@ const PropertyOverview = () => {
                       ></iconify-icon>
                     </span>
                     <span>
-                      <p className="amenity-title">Dinig Room</p>
-                      <p className="amenity-value">1</p>
+                      <p className="amenity-title">Dining Room</p>
+                      <p className="amenity-value">{property.ammenities.find(o => o.name === "Dining Room") ? property.ammenities.find(o => o.name === "Dining Room").number : "0"}</p>
                     </span>
                   </div>
 
@@ -156,7 +172,7 @@ const PropertyOverview = () => {
                     </span>
                     <span>
                       <p className="amenity-title">Swimming pool</p>
-                      <p className="amenity-value">1</p>
+                      <p className="amenity-value">{property.ammenities.find(o => o.name === "Swimming pool") ? property.ammenities.find(o => o.name === "Swimming pool").number : "0"}</p>
                     </span>
                   </div>
 
@@ -169,7 +185,7 @@ const PropertyOverview = () => {
                     </span>
                     <span>
                       <p className="amenity-title">Store room</p>
-                      <p className="amenity-value">2</p>
+                      <p className="amenity-value">{property.ammenities.find(o => o.name === "Store room") ? property.ammenities.find(o => o.name === "Store room").number : "0"}</p>
                     </span>
                   </div>
 
@@ -182,7 +198,7 @@ const PropertyOverview = () => {
                     </span>
                     <span>
                       <p className="amenity-title">Bathroom</p>
-                      <p className="amenity-value">3</p>
+                      <p className="amenity-value">{property.ammenities.find(o => o.name === "Bathroom") ? property.ammenities.find(o => o.name === "Bathroom").number : "0"}</p>
                     </span>
                   </div>
 
@@ -195,7 +211,7 @@ const PropertyOverview = () => {
                     </span>
                     <span>
                       <p className="amenity-title">Parking Space</p>
-                      <p className="amenity-value">3 cars</p>
+                      <p className="amenity-value">{property.ammenities.find(o => o.name === "Parking Space") ? property.ammenities.find(o => o.name === "Parking Space").number : "0"}</p>
                     </span>
                   </div>
                 </main>
@@ -211,18 +227,18 @@ const PropertyOverview = () => {
                   <span>
                     <p className="address-title">Street Address</p>
                     <p className="address-p">
-                      Road 15b Omolayo Akobo, Oju-Irin
+                      {property.address}
                     </p>
                   </span>
 
                   <span>
                     <p className="address-title">City</p>
-                    <p className="address-p">Ibadan</p>
+                    <p className="address-p">{property.city}</p>
                   </span>
 
                   <span>
                     <p className="address-title">State</p>
-                    <p className="address-p">Oyo State</p>
+                    <p className="address-p">{property.state} State</p>
                   </span>
                 </div>
               </div>
@@ -236,22 +252,22 @@ const PropertyOverview = () => {
                 <div id="property-address-details">
                   <span>
                     <p className="address-title">Anual Rent Fee</p>
-                    <p className="address-p">&#8358; 1,000,000</p>
+                    <p className="address-p">&#8358; {Number(property.annual_fee).toFixed(2).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')} </p>
                   </span>
 
                   <span>
                     <p className="address-title">Agency & Agreement Fee</p>
-                    <p className="address-p"> &#8358; 10,000</p>
+                    <p className="address-p"> &#8358; {Number(property.agency_fee).toFixed(2).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')}</p>
                   </span>
 
                   <span>
                     <p className="address-title">Caution Fee</p>
-                    <p className="address-p">&#8358; 20,000</p>
+                    <p className="address-p">&#8358; {Number(property.caution_fee).toFixed(2).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')}</p>
                   </span>
 
                   <span>
                     <p className="address-title">Stamp Duty</p>
-                    <p className="address-p">&#8358; 1,000</p>
+                    <p className="address-p">&#8358; {Number(property.stamp_fee).toFixed(2).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')}</p>
                   </span>
                 </div>
               </div>
@@ -275,10 +291,10 @@ const PropertyOverview = () => {
           <div class="payment-details-container">
             <header>
               <h4>
-                &#8358; 1,200,000<small>/year</small>
+                &#8358; {Number(property.annual_fee).toFixed(2).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')}<small>/year</small>
               </h4>
               <h4>
-                &#8358; 1,200,000<small>/month</small>
+                &#8358; {(Number(property.annual_fee / 12)).toFixed(2).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')}<small>/month</small>
               </h4>
             </header>
             <div class="tour-form-container">

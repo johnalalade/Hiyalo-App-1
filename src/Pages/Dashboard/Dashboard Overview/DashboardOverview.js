@@ -4,31 +4,47 @@ import { useEffect, useState } from 'react';
 import SideBar from '../../../components/Dashboard Navbar/SideBar';
 import TopBar from '../../../components/Dashboard Navbar/TopBar';
 import './dashboard-overview.css';
+import ClipLoader from "react-spinners/ClipLoader";
+import { Link } from 'react-router-dom';
 
 const DashboardOverview = () => {
   const [name, setName] = useState("")
   const [agent, setAgent] = useState({})
   const [houses, setHouses] = useState([])
+  const [loading, setLoading] = useState(false);
+
 
   useEffect(() => {
+    setLoading(true)
+
     axios.post('https://hiyalo-backend.herokuapp.com/agents/agent-gateway/get-agent', { id: localStorage.getItem("id") })
       .then(data => {
         setAgent(data.data.agent)
         setName(data.data.agent.full_name)
       })
 
-      axios.post("https://hiyalo-backend.herokuapp.com/houses/house-gateway/get-agent-houses", {agent_id: localStorage.getItem('id')})
-    .then(data => {
-      console.log(data.data)
-      setHouses(data.data.houses)
-    })
-    .catch(err => {
-      console.log({
-        err
+    axios.post("https://hiyalo-backend.herokuapp.com/houses/house-gateway/get-agent-houses", { agent_id: localStorage.getItem('id') })
+      .then(data => {
+        console.log(data.data)
+        setHouses(data.data.houses)
+        setLoading(false)
       })
-    })
+      .catch(err => {
+        setLoading(false)
+        console.log({
+          err
+        })
+      })
 
   }, [])
+
+  if (loading) {
+    return (
+      <div className="spinner">
+        <ClipLoader color='#4733AC' loading={loading} size={150} />
+      </div>
+    )
+  }
 
   return (
 
@@ -84,7 +100,7 @@ const DashboardOverview = () => {
         <div class="transaction-history-overview">
           <header>
             <h6>Payment History:</h6>
-            <a href="payment.html">see all</a>
+            <Link to="/payments">see all</Link>
           </header>
           <table class="apartments-list payment-history">
             <thead>

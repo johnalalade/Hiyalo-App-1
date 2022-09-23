@@ -17,15 +17,15 @@ const Apartment = ({ apartment }) => {
             class="iconify"
             icon="emojione-monotone:bed"
           ></iconify-icon>
-          <p>{apartment.ammenities[0].quantity}{apartment.ammenities[0].quantity}(s)</p>
+          <p>{apartment.ammenities.find(o => o.name === "Bedroom") ? apartment.ammenities.find(o => o.name === "Bedroom").number : "0"} bedroom(s)</p>
         </span>
-        <span>
+        {/* <span>
           <iconify-icon
             class="iconify"
             icon="emojione-monotone:bed"
           ></iconify-icon>
           <p>{apartment.ammenities[1].quantity}{apartment.ammenities[1].quantity}(s)</p>
-        </span>
+        </span> */}
       </div>
       <div class="apartment-prices">
         <span>
@@ -38,11 +38,11 @@ const Apartment = ({ apartment }) => {
             <small>/month</small>
           </p>
         </span>
-        <a onClick={() => {
+        <Link onClick={() => {
           localStorage.setItem("house_id", apartment._id)
-        }} href={`/property-overview/`}>
+        }} to={`/property-overview/`}>
           <iconify-icon icon="bx:right-arrow-alt"></iconify-icon>
-        </a>
+        </Link>
       </div>
     </Link>
   );

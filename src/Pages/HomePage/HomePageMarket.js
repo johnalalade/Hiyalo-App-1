@@ -110,11 +110,11 @@ const HomePageMarket = () => {
                     &#8358;{(Number(apartment.annual_fee / 12)).toFixed(2).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')} <small>/monthlyPrice</small>{' '}
                   </p>
                 </span>
-                <a onClick={() => {
+                <Link onClick={() => {
                   localStorage.setItem("house_id", apartment._id)
-                }} href={`/property-overview/`}>
+                }} to={`/property-overview/`}>
                   <iconify-icon icon="bx:right-arrow-alt"></iconify-icon>
-                </a>
+                </Link>
               </div>
             </div>
           );

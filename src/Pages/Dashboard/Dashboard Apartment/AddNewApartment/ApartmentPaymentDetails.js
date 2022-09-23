@@ -1,14 +1,19 @@
 import React from 'react';
 import './add-new-apartment.css';
+import ClipLoader from "react-spinners/ClipLoader";
 
-export const ApartmentPaymentDetails = ({ prevStep, annual_fee, agency_fee, caution_fee, stamp_fee, handleChange, finish }) => {
+export const ApartmentPaymentDetails = ({ prevStep, annual_fee, agency_fee, caution_fee, stamp_fee, handleChange, finish, loading }) => {
 
+  // let [loading, setLoading] = useState(false);
+  // let [color, setColor] = useState("#ffffff");
 
   const continu = (e) => {
     // e.preventDefault();
     // nextStep();
+    
     finish()
   };
+
   const back = e => {
     e.preventDefault();
     prevStep();
@@ -25,7 +30,13 @@ export const ApartmentPaymentDetails = ({ prevStep, annual_fee, agency_fee, caut
 
     finish()
   }
-
+  if (loading) {
+    return (
+      <div className="spinner">
+        <ClipLoader color='#4733AC' loading={loading} size={150} />
+      </div>
+    )
+  }
   return (
     <main class="add-new-property-container">
       <header>
