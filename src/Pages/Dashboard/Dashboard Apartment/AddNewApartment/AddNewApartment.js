@@ -92,6 +92,11 @@ const AddNewApartment = () => {
       setStep(1)
       return false
     }
+    if (ammenities.length === 0) {
+      setLoading(false)
+      setStep(2)
+      return false
+    }
     if (address === "" || state === "" || city === "") {
       setLoading(false)
       setStep(4)

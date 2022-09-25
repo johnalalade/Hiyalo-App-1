@@ -10,14 +10,14 @@ const SignUp = () => {
   const url =
     'https://hiyalo-backend.herokuapp.com/agents/agent-gateway/register';
   const [formData, setFormData] = useState({
-    full_name: '',
+    first_name: '',
     email: '',
     phone: '',
     password: '',
   });
   const [loading, setLoading] = useState(false);
 
-  const { full_name, email, phone, password } = formData;
+  const { first_name, last_name, email, phone, password } = formData;
 
   const navigate = useNavigate();
 
@@ -69,7 +69,7 @@ const SignUp = () => {
                   placeholder="John"
                   id="fullName"
                   name="full_name"
-                  value={full_name}
+                  value={first_name}
                   onChange={(event) => handle(event)}
                 />
               </span>
@@ -80,7 +80,7 @@ const SignUp = () => {
                   placeholder="John"
                   id="fullName"
                   name="full_name"
-                  value={full_name}
+                  value={last_name}
                   onChange={(event) => handle(event)}
                 />
               </span>
