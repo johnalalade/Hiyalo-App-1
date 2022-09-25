@@ -45,7 +45,7 @@
 
 
   .settings-content {
-    display: none;
+    display: none !important;
   }
   .active-settings-content {
     display: block;

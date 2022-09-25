@@ -15,8 +15,12 @@ const ApartmentAddedModal = () => {
         </p>
 
         <span className="apartment-added-modal-cta">
-          <Link to="/dashboard">Go To Dashboard</Link>
-          <Link to="./dashboard">Apartment Overview</Link>
+          <Link to="/dashboard" className="modal-cta">
+            Go To Dashboard
+          </Link>
+          <Link to="./dashboard" className="modal-cta">
+            Apartment Overview
+          </Link>
         </span>
       </div>
     </section>

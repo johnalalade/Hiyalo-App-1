@@ -1,4 +1,3 @@
-import React from 'react';
 import { useState } from 'react';
 import './general-settings.css';
 import SideBar from '../../../components/Dashboard Navbar/SideBar';
@@ -67,29 +66,35 @@ const GeneralSettingsContainer = () => {
             </ul>
           </div>
 
-          <PersonalDetailsSettings
-            className={
-              toggleState === 1
-                ? 'settings-content  active-settings-content'
-                : 'settings-content'
-            }
-          />
+          <div>
+            <PersonalDetailsSettings
+              className={
+                toggleState === 1
+                  ? 'settings-content  active-settings-content'
+                  : 'settings-content'
+              }
+            />
+          </div>
 
-          <PaymentBankDetailsSettings
-            className={
-              toggleState === 2
-                ? 'settings-content  active-settings-content'
-                : 'settings-content'
-            }
-          />
+          <div>
+            <PaymentBankDetailsSettings
+              className={
+                toggleState === 2
+                  ? 'settings-content  active-settings-content'
+                  : 'settings-content'
+              }
+            />
+          </div>
 
-          <PasswordSettings 
-                       className={
-                        toggleState === 3
-                          ? 'settings-content  active-settings-content'
-                          : 'settings-content'
-                      }
-          />
+          <div>
+             <PasswordSettings
+             className={
+                toggleState === 3
+                  ? 'settings-content  active-settings-content'
+                  : 'settings-content'
+              }
+            />
+          </div>
         </main>
       </main>
     </section>

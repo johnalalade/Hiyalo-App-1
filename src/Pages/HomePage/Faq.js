@@ -12,9 +12,6 @@ function Faq() {
     setSelected(i);
   };
 
-  const faqOpen = '+';
-  const faqClose = '-';
-
   const faqData = [
     {
       question: 'What is Hiyalo about?',
@@ -49,7 +46,23 @@ function Faq() {
             <div className="faq">
               <header className="title" onClick={() => toggle(i)}>
                 <h6>{faq.question}</h6>
-                <span>{selected === i ? `${faqClose}` : `${faqOpen}`}</span>
+                <span>
+                  {selected === i ? (
+                    <iconify-icon
+                      style={{
+                        color: '#D63434',
+                        transition: 'all 0.5s ease-in-out;',
+                      }}
+                      icon="fe:close"
+                    ></iconify-icon>
+                  ) : (
+                    <iconify-icon
+                      style={{ color: '#4733AC' }}
+                      className="open-icon"
+                      icon="ant-design:plus-outlined"
+                    ></iconify-icon>
+                  )}
+                </span>
               </header>
               <article
                 className={selected === i ? 'faq-content shows' : 'faq-content'}

@@ -4,7 +4,7 @@
     justify-content: center;
     /* align-items: center; */
     padding: 6rem 80px;
-    background-color: #7572EA;
+    background-color: #4733AC;
     margin-top: 4rem;
 }
 .market-container header #market {
@@ -136,7 +136,7 @@
     width: 100%;
     max-width: 300px;
     height: 60px;
-    background: #4733AC;
+    background: #7572EA;
     text-align: center;
     color: #FFFFFF;
     border-radius: 5px;
@@ -156,7 +156,7 @@
     .market-container {
         padding: 4rem 24px;
     }
-    .apartments {
+    .homepage-apartments  {
         /* order: 3; */
         column-gap: 2rem;
         row-gap: 2rem;
@@ -167,13 +167,16 @@
     .market-container {
         padding: 4rem .5rem;
     }
-    .apartments {
+    .homepage-apartments  {
+        display: flex;
+        flex-direction: column;
         margin-top: 4rem;
+        column-gap: 1rem;
     }
     .apartment-prices {
         padding: .8rem 1rem !important;
     }
-    .apartment img {
+    .homepage-apartments img {
         min-height: 270px !important;
         margin: 1.5rem 1rem !important;
     }

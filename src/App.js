@@ -2,7 +2,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import HomePage from './Pages/HomePage/Homepage';
 import PropertyOverview from './Pages/Property Overview/PropertyOverview';
 import MarketPlace from './Pages/Market Place/MarketPlaceContainer';
-
+// import MarketPlace from './Pages/Market Place/MarketPlaceContainer';
 import SignUp from './Pages/sign up/SignUp';
 import SignIn from './Pages/sign up/SignIn';
 import DashboardOverview from './Pages/Dashboard/Dashboard Overview/DashboardOverview';

@@ -1,4 +1,3 @@
-import React from 'react';
 import './general-settings.css'
 const PaymentBankDetailsSettings = () => {
   return (
