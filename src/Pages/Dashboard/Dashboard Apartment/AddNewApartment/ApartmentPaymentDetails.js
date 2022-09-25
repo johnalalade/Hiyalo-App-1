@@ -1,6 +1,6 @@
 import React from 'react';
 import './add-new-apartment.css';
-import ClipLoader from "react-spinners/ClipLoader";
+import PageLoader from '../../../../components/Loader/PageLoader';
 
 export const ApartmentPaymentDetails = ({ prevStep, annual_fee, agency_fee, caution_fee, stamp_fee, handleChange, finish, loading }) => {
 
@@ -33,7 +33,7 @@ export const ApartmentPaymentDetails = ({ prevStep, annual_fee, agency_fee, caut
   if (loading) {
     return (
       <div className="spinner">
-        <ClipLoader color='#4733AC' loading={loading} size={150} />
+        <PageLoader color='#4733AC' />
       </div>
     )
   }

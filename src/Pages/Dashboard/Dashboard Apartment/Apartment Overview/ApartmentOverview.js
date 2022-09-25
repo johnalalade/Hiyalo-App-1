@@ -5,8 +5,8 @@ import TopBar from '../../../../components/Dashboard Navbar/TopBar';
 // import apartmentImg from '../../images/bg.jpg';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
-import ClipLoader from "react-spinners/ClipLoader";
 import PropertyDetails from './Apartment_Details';
+import PageLoader from '../../../../components/Loader/PageLoader';
 
 const ApartmentOverview = () => {
   const [houses, setHouses] = useState([])
@@ -108,7 +108,7 @@ const ApartmentOverview = () => {
   if (loading) {
     return (
       <div className="spinner">
-        <ClipLoader color='#4733AC' loading={loading} size={150} />
+        <PageLoader color='#4733AC' />
       </div>
     )
   }

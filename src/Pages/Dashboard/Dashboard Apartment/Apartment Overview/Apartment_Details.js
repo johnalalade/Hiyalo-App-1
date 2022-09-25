@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import './Apartment_Details.css';
 import axios from 'axios';
-import ClipLoader from "react-spinners/ClipLoader";
+import PageLoader from '../../../../components/Loader/PageLoader';
 // import img1 from '../../images/bg.jpg';
 // import img2 from '../../images/bg.jpg';
 // import img3 from '../../images/bg.jpg';
@@ -33,7 +33,7 @@ const PropertyDetails = () => {
   if (loading) {
     return (
       <div className="spinner">
-          <ClipLoader color='#4733AC' loading={loading} size={150} />
+          <PageLoader />
       </div>
     )
   }

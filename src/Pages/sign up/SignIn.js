@@ -4,7 +4,7 @@ import SignNavBar from '../../components/sign up navbar/SignUpNavbar';
 import { Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
-import ClipLoader from "react-spinners/ClipLoader";
+import PageLoader from '../../components/Loader/PageLoader';
 
 const SignIn = () => {
   const [formData, setFormData] = useState({
@@ -48,7 +48,7 @@ const SignIn = () => {
   if (loading) {
     return (
       <div className="spinner">
-        <ClipLoader color='#4733AC' loading={loading} size={150} />
+        <PageLoader />
       </div>
     )
   }

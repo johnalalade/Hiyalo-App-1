@@ -4,8 +4,8 @@ import { useEffect, useState } from 'react';
 import SideBar from '../../../components/Dashboard Navbar/SideBar';
 import TopBar from '../../../components/Dashboard Navbar/TopBar';
 import './dashboard-overview.css';
-import ClipLoader from "react-spinners/ClipLoader";
 import { Link } from 'react-router-dom';
+import PageLoader from '../../../components/Loader/PageLoader';
 
 const DashboardOverview = () => {
   const [name, setName] = useState("")
@@ -55,7 +55,7 @@ const DashboardOverview = () => {
   if (loading) {
     return (
       <div className="spinner">
-        <ClipLoader color='#4733AC' loading={loading} size={150} />
+        <PageLoader />
       </div>
     )
   }

@@ -4,8 +4,8 @@ import Footer from '../../components/Footer/Footer';
 import Apartment from '../../components/Apartment/Apartment';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
-import ClipLoader from 'react-spinners/ClipLoader';
 import { Link } from 'react-router-dom';
+import PageLoader from '../../components/Loader/PageLoader';
 
 const MarketPlace = () => {
   const [data, setData] = useState([]);
@@ -32,7 +32,7 @@ const MarketPlace = () => {
   if (loading) {
     return (
       <div className="spinner">
-        <ClipLoader color="#4733AC" loading={loading} size={150} />
+        <PageLoader />
       </div>
     );
   }

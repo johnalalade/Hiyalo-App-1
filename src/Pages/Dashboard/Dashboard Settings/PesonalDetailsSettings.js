@@ -1,7 +1,7 @@
 import axios from 'axios';
 import React, { useState } from 'react';
 import './general-settings.css'
-import ClipLoader from "react-spinners/ClipLoader";
+import PageLoader from '../../../components/Loader/PageLoader';
 
 const PersonalDetailsSettings = ({ f_name, l_name, mail, phonee, doc_number, bn }) => {
 
@@ -83,7 +83,7 @@ const PersonalDetailsSettings = ({ f_name, l_name, mail, phonee, doc_number, bn 
   if (loading) {
     return (
       <div className="spinner">
-        <ClipLoader color='#4733AC' loading={loading} size={150} />
+        <PageLoader />
       </div>
     )
   }
