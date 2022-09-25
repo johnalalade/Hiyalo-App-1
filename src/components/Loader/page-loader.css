@@ -1,8 +1,8 @@
-* {
-    overflow: visible;
-    box-sizing: content-box !important;
-}
-body{
+
+    /* overflow: visible; */
+    /* box-sizing: content-box !important; */
+
+/* body{
     display: flex;
     justify-content: center;
     align-items: center;
@@ -11,7 +11,7 @@ body{
     height: 100vh;
 
     padding: normal;
-}
+} */
 
 .page-loader {
     width: 100px;
