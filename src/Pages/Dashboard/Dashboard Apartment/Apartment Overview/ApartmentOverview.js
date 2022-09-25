@@ -120,6 +120,18 @@ const ApartmentOverview = () => {
       {page === "details" ?
         <main className="dashboard-main">
           <TopBar name={name} />
+
+          <header class="property-page-title">
+
+            <h4 onClick={() => {setPage("overview")}}><iconify-icon className='add-new-property-cta' icon="eva:arrow-back-outline"></iconify-icon> Apartments</h4>
+
+            <button onClick={navigateToAddBasicInfo} type="button">
+              <iconify-icon className='add-new-property-cta' icon="akar-icons:plus"></iconify-icon>
+              <span> Add New Property</span>
+            </button>
+
+          </header>
+
           <PropertyDetails />
         </main>
         :

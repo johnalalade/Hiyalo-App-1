@@ -15,7 +15,7 @@ const SignIn = () => {
   const [loading, setLoading] = useState(false)
 
   const navigate = useNavigate();
-  
+
   const { userName, password } = formData;
   const url = 'https://hiyalo-backend.herokuapp.com/agents/agent-gateway/login';
 
@@ -35,9 +35,13 @@ const SignIn = () => {
     axios.post(url, formData)
       .then((res) => {
         console.log(res);
+        if (res.data.message === "success") {
+          setLoading(false)
+          localStorage.setItem("id", res.data.id)
+          navigate('/dashboard');
+        }
+        alert(res.data.message)
         setLoading(false)
-        localStorage.setItem("id", res.data.id)
-        navigate('/dashboard');
       });
   };
 
@@ -49,7 +53,7 @@ const SignIn = () => {
     )
   }
 
-  
+
   return (
     <section className="sign-up-body">
       <SignNavBar />

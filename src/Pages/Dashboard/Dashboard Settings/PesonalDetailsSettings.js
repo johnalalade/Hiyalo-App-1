@@ -10,8 +10,8 @@ const PersonalDetailsSettings = ({ f_name, l_name, mail, phonee, doc_number, bn 
   const [email, setEmail] = useState(mail);
   const [phone, setPhone] = useState(phonee);
 
-  const [document_number, setDocumentNum] = useState(doc_number);
-  const [bvn, setBVN] = useState(bn);
+  // const [document_number, setDocumentNum] = useState(doc_number);
+  // const [bvn, setBVN] = useState(bn);
 
   const [loading, setLoading] = useState(false)
 
@@ -52,6 +52,33 @@ const PersonalDetailsSettings = ({ f_name, l_name, mail, phonee, doc_number, bn 
 
   }
 
+  // const update_docs = (ev) => {
+  //   setLoading(true)
+
+  //   ev.preventDefault()
+
+  //   let data = {
+  //     bvn,
+  //     document_number
+  //   }
+
+  //   axios.post('https://hiyalo-backend.herokuapp.com/agents/agent-gateway/update-agent', data)
+  //   .then(res => {
+  //     if (res.data.message === "success") {
+  //       setLoading(false)
+  //       alert("Success")
+  //     } else {
+  //       setLoading(false)
+  //       alert(res.data.details)
+  //     }
+  //   })
+  //   .catch(err => {
+  //     setLoading(false)
+  //     alert(err)
+  //     return false
+  //   })
+  // }
+
 
   if (loading) {
     return (
@@ -68,7 +95,7 @@ const PersonalDetailsSettings = ({ f_name, l_name, mail, phonee, doc_number, bn 
       <div class="personal-information-settings">
         <header>
           <h6>Personal Information</h6>
-          <a href="www.google.com">Edit</a>
+          {/* <a href="www.google.com">Edit</a> */}
         </header>
         <form>
           <label for="apartment type"> First Name</label>
@@ -91,7 +118,7 @@ const PersonalDetailsSettings = ({ f_name, l_name, mail, phonee, doc_number, bn 
         </form>
       </div>
 
-      <div class="identification-picture-container">
+      {/* <div class="identification-picture-container">
         <div class="identification-form">
           <header>
             <h6>Identification Number</h6>
@@ -110,6 +137,8 @@ const PersonalDetailsSettings = ({ f_name, l_name, mail, phonee, doc_number, bn 
             <label for="name">BVN</label>
             <input type="text" placeholder="*************" value={bvn} onChange={(ev) => setBVN(ev.target.value)} />
 
+            <button onClick={(ev) => update_docs(ev)}>Update Details</button>
+
           </form>
         </div>
 
@@ -118,7 +147,7 @@ const PersonalDetailsSettings = ({ f_name, l_name, mail, phonee, doc_number, bn 
             <h6>Your Profile Picture</h6>
           </header>
           <form action="">
-            {/* <input type='file' /> */}
+            
             <img src="./images/yuo.jpg" alt="" />
 
             <span>
@@ -129,7 +158,8 @@ const PersonalDetailsSettings = ({ f_name, l_name, mail, phonee, doc_number, bn 
             </span>
           </form>
         </div>
-      </div>
+      </div> */}
+
     </main>
 
   );

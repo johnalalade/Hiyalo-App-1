@@ -2,13 +2,13 @@ import './heroe.css'
 import NavBar from '../../components/Navbar/Navbar';
 import axios from 'axios';
 import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+// import { useNavigate } from 'react-router-dom';
 
 const Heroe = () => {
 
   const [search_data, setSearchData] = useState("")
 
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
 
 
   const search = (ev) => {
