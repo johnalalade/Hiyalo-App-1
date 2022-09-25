@@ -1,10 +1,16 @@
-.page-loader-body{
+* {
+    overflow: visible;
+    box-sizing: content-box !important;
+}
+body{
     display: flex;
     justify-content: center;
     align-items: center;
     background: #FFF;
     margin: 0;
     height: 100vh;
+
+    padding: normal;
 }
 
 .page-loader {
@@ -25,7 +31,7 @@
     top: -30px;
     right: -30px;
     bottom: -30px;
-    border: 1px solid #4733ac2f;
+    border: 1px solid #4733ac4f;
     border-radius: 50%;
     animation: pageloarder 1.5s linear infinite;
 }
@@ -42,7 +48,7 @@
     top: -50px;
     right: -50px;
     bottom: -50px;
-    border: 1px solid #4733ac5f;
+    border: 1px solid #4733ac6f;
 }
 @keyframes pageloarder {
     0% {transform: scale(0.5); opacity: 0;}

@@ -10,6 +10,7 @@ import ApartmentOverview from './Pages/Dashboard/Dashboard Apartment/Apartment O
 // import {AddNewApartmentContainer} from './Pages/Dashboard/Dashboard Apartment/AddNewApartment/AddNewApartmentContainer';
 import AddNewApartmentContainer from './Pages/Dashboard/Dashboard Apartment/AddNewApartment/AddNewApartmentContainer';
 import GeneralSettingsContainer from './Pages/Dashboard/Dashboard Settings/GeneralSettingsContainer';
+import PageLoader from './components/Loader/PageLoader';
 // import ApartmentBasicInfo from './Pages/Dashboard/Dashboard Apartment/AddNewApartment/ApartmentBasicInfo';
 // import ApartmentAddress from './Pages/Dashboard/Dashboard Apartment/AddNewApartment/ApartementAddress';
 // import ApartmentAmmenities from './Pages/Dashboard/Dashboard Apartment/AddNewApartment/ApartmentAmmenities';
@@ -37,6 +38,10 @@ function App() {
           <Route
             path="/apartments/add-new-apartment"
             element={<AddNewApartmentContainer />}
+          ></Route>
+                    <Route
+            path="/loader"
+            element={<PageLoader />}
           ></Route>
           {/* <Route
             path="/apartments/add-apartment-basic-info"
