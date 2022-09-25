@@ -1,18 +1,18 @@
-
-    /* overflow: visible; */
-    /* box-sizing: content-box !important; */
-
-/* body{
+* .page-loader {
+    overflow: visible;
+    box-sizing: content-box !important;
+}
+.page-loader-body{
     display: flex;
     justify-content: center;
     align-items: center;
     background: #FFF;
     margin: 0;
     height: 100vh;
-
+    overflow: visible !important;
+    box-sizing: content-box !important;
     padding: normal;
-} */
-
+}
 .page-loader {
     width: 100px;
     height: 100px;
@@ -21,7 +21,6 @@
     border: 50%;
     position: relative;
 }
-
 .page-loader:before,
 .page-loader:after,
 .page-loader-2:after {
@@ -35,11 +34,9 @@
     border-radius: 50%;
     animation: pageloarder 1.5s linear infinite;
 }
-
 .page-loader:after  {
     animation-delay: 0.3s;
 }
-
 .page-loader-2:after  {
     animation-delay: 0.3s;
 }

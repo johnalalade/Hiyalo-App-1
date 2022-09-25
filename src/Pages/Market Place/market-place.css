@@ -1,8 +1,9 @@
-.sign-up-body {
+.sign-up-body.market-place-body {
     background: #ECECEC;;
     display: flex;
     flex-direction: column;
     justify-content: center;
+    flex-direction: column;
     margin-bottom: 3rem;
 }
 .apartments {
@@ -182,6 +183,14 @@
     font-size: 16px;
     font-weight: 400;
 }
+.filter-inputs input:hover,
+.filter-inputs input:focus,
+.filter-inputs select:hover,
+.filter-inputs select:focus
+ {
+    border-color: #7572EA;
+    outline: none;
+}
 .filter-inputs option {
     color: #757575 !important;
 }
@@ -191,6 +200,8 @@
 
 
 .market-apartments .apartment {
+    display: flex;
+    flex-direction: column !important;
     border: 1px solid rgba(17, 17, 17, 0.1);
     border-radius: 5px;
     color: #1A1A1A;

@@ -4,13 +4,13 @@ import './page-loader.css';
 
 const PageLoader = () => {
   return (
-    <body className='page-loader-body'>
+    <section className='page-loader-body'>
       <div class="page-loader">
         <div class="page-loader-2">
           <img src={HiyaloLogo} alt="" />
         </div>
       </div>
-    </body>
+    </section>
   );
 };
 
