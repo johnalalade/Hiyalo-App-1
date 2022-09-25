@@ -3,7 +3,7 @@ import './property-overview.css';
 import NavBar from '../../components/Navbar/Navbar';
 import axios from 'axios';
 import Footer from '../../components/Footer/Footer';
-import ClipLoader from "react-spinners/ClipLoader";
+import PageLoader from '../../components/Loader/PageLoader';
 // import img1 from '../../images/bg.jpg';
 // import img2 from '../../images/bg.jpg';
 // import img3 from '../../images/bg.jpg';
@@ -35,7 +35,7 @@ const PropertyOverview = () => {
   if (loading) {
     return (
       <div className="spinner">
-          <ClipLoader color='#4733AC' loading={loading} size={150} />
+          <PageLoader />
       </div>
     )
   }

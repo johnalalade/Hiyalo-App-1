@@ -115,6 +115,7 @@
 .personal-information-settings form input::placeholder{
     color: #333333;
 }
+.identification-form button,
 .personal-information-settings button {
     margin-top: 2rem;
     height: 55px;

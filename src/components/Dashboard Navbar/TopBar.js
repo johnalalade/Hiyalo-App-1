@@ -1,5 +1,5 @@
-import searchIcon from '../../images/search-normal.svg';
-import notificationIcon from '../../images/notification-bing.svg';
+// import searchIcon from '../../images/search-normal.svg';
+// import notificationIcon from '../../images/notification-bing.svg';
 import './topbar.css';
 
 
@@ -13,7 +13,7 @@ const TopBar = ({ name }) => {
         <p>Go through what’s happening in your account</p>
       </div>
       <div class="top-bar-cta">
-        <span class="search-btn">
+        {/* <span class="search-btn">
           <button type="button">
             <img src={searchIcon} alt="" />
           </button>
@@ -22,7 +22,7 @@ const TopBar = ({ name }) => {
           <button type="submit">
             <img src={notificationIcon} alt="" />
           </button>
-        </span>
+        </span> */}
         <div class="profile-settings">
           <img src={userAvatar} alt="" />
           <iconify-icon

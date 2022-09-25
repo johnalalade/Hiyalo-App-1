@@ -2,8 +2,8 @@ import axios from 'axios';
 import { useEffect, useState } from 'react';
 import SideBar from '../../../components/Dashboard Navbar/SideBar';
 import TopBar from '../../../components/Dashboard Navbar/TopBar';
+import PageLoader from '../../../components/Loader/PageLoader';
 import './Dashboard_Payment.css';
-import ClipLoader from "react-spinners/ClipLoader";
 
 const DashboardPayment = () => {
 
@@ -40,7 +40,7 @@ const DashboardPayment = () => {
     if (loading) {
         return (
             <div className="spinner">
-                <ClipLoader color='#4733AC' loading={loading} size={150} />
+                <PageLoader />
             </div>
         )
     }

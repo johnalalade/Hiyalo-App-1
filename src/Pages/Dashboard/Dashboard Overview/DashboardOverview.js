@@ -4,8 +4,8 @@ import { useEffect, useState } from 'react';
 import SideBar from '../../../components/Dashboard Navbar/SideBar';
 import TopBar from '../../../components/Dashboard Navbar/TopBar';
 import './dashboard-overview.css';
-import ClipLoader from "react-spinners/ClipLoader";
 import { Link } from 'react-router-dom';
+import PageLoader from '../../../components/Loader/PageLoader';
 
 const DashboardOverview = () => {
   const [name, setName] = useState("")
@@ -55,7 +55,7 @@ const DashboardOverview = () => {
   if (loading) {
     return (
       <div className="spinner">
-        <ClipLoader color='#4733AC' loading={loading} size={150} />
+        <PageLoader />
       </div>
     )
   }
@@ -81,8 +81,8 @@ const DashboardOverview = () => {
             <header>Total Income Revenue</header>
             <span class="total-amount">&#8358; {Number(agent.balance).toFixed(2).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')}</span>
             <span class="unpaid-stat">
-              <p>% Unpaid</p>
-              <p>85%</p>
+              {/* <p>% Unpaid</p>
+              <p>85%</p> */}
             </span>
           </div>
           <div class="total-outstanding">
@@ -90,7 +90,7 @@ const DashboardOverview = () => {
             <span class="total-amount">&#8358; {Number(agent.outstanding_payments).toFixed(2).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')}</span>
             <span class="total-outstanding-cta">
               <button>Messages</button>
-              <button>Manage</button>
+              <button>Withdraw</button>
             </span>
           </div>
 
