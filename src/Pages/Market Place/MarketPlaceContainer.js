@@ -36,7 +36,7 @@ const MarketPlace = () => {
   }
 
   return (
-    <section className="sign-up-body">
+    <section className="sign-up-body market-place-body">
       <NavBar />
 
       <section className="available-spaces-container">

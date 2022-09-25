@@ -3,23 +3,24 @@ import './sign-up.css';
 import SignNavBar from '../../components/sign up navbar/SignUpNavbar';
 import { Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
-import ClipLoader from "react-spinners/ClipLoader";
+import ClipLoader from 'react-spinners/ClipLoader';
 import axios from 'axios';
 
 const SignUp = () => {
-  const url = 'https://hiyalo-backend.herokuapp.com/agents/agent-gateway/register';
+  const url =
+    'https://hiyalo-backend.herokuapp.com/agents/agent-gateway/register';
   const [formData, setFormData] = useState({
     full_name: '',
     email: '',
     phone: '',
     password: '',
   });
-  const [loading, setLoading] = useState(false)
+  const [loading, setLoading] = useState(false);
 
   const { full_name, email, phone, password } = formData;
 
   const navigate = useNavigate();
-  
+
   const handle = (e) => {
     setFormData((prevState) => ({
       ...prevState,
@@ -29,23 +30,22 @@ const SignUp = () => {
   };
 
   const submit = (e) => {
-    setLoading(true)
+    setLoading(true);
     e.preventDefault();
-    axios.post(url, formData)
-      .then((res) => {
-        console.log(res);
-        setLoading(false)
-        localStorage.setItem("id", res.data.id)
-        navigate('/dashboard');
-      });
+    axios.post(url, formData).then((res) => {
+      console.log(res);
+      setLoading(false);
+      localStorage.setItem('id', res.data.id);
+      navigate('/dashboard');
+    });
   };
 
   if (loading) {
     return (
       <div className="spinner">
-        <ClipLoader color='#4733AC' loading={loading} size={150} />
+        <ClipLoader color="#4733AC" loading={loading} size={150} />
       </div>
-    )
+    );
   }
 
   return (
@@ -60,18 +60,31 @@ const SignUp = () => {
           </p>
         </header>
         <main>
-          <form className="sign-up-form"
-          >
-
-            <label for='fullName'> Full Name </label>
-            <input
-              type="text"
-              placeholder="John"
-              id="fullName"
-              name="full_name"
-              value={full_name}
-              onChange={(event) => handle(event)}
-            />
+          <form className="sign-up-form">
+            <div className="full-name">
+              <span>
+                <label for="fullName"> First Name </label>
+                <input
+                  type="text"
+                  placeholder="John"
+                  id="fullName"
+                  name="full_name"
+                  value={full_name}
+                  onChange={(event) => handle(event)}
+                />
+              </span>
+              <span>
+                <label for="fullName"> Full Name </label>
+                <input
+                  type="text"
+                  placeholder="John"
+                  id="fullName"
+                  name="full_name"
+                  value={full_name}
+                  onChange={(event) => handle(event)}
+                />
+              </span>
+            </div>
 
             <label for="email">Email</label>
             <input
@@ -107,13 +120,19 @@ const SignUp = () => {
             />
 
             <div class="policy-checkbox">
-              <input type="checkbox" id="policy-check" onChange={(event) => handle(event)} />
+              <input
+                type="checkbox"
+                id="policy-check"
+                onChange={(event) => handle(event)}
+              />
               <p>
                 By creating an account you agree to the terms of and privacy
                 policy?
               </p>
             </div>
-            <button onClick={(e) => submit(e)} type="submit">Get Started</button>
+            <button onClick={(e) => submit(e)} type="submit">
+              Get Started
+            </button>
           </form>
 
           <div class="or-container">

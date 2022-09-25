@@ -1,7 +1,8 @@
-.sign-up-body {
+.sign-up-body.market-place-body {
     background: #ECECEC;;
     display: flex;
     justify-content: center;
+    flex-direction: column;
     margin-bottom: 3rem;
 }
 .apartments {
