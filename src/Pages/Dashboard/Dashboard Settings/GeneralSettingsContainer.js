@@ -7,7 +7,7 @@ import PersonalDetailsSettings from './PesonalDetailsSettings';
 import PaymentBankDetailsSettings from './PaymentBankDetailsSettings';
 import PasswordSettings from './PasswordSettings';
 import axios from 'axios';
-import ClipLoader from "react-spinners/ClipLoader";
+import PageLoader from '../../../components/Loader/PageLoader';
 
 const GeneralSettingsContainer = () => {
   const [toggleState, setToggleState] = useState(1);
@@ -34,7 +34,7 @@ const GeneralSettingsContainer = () => {
   if (loading) {
     return (
       <div className="spinner">
-        <ClipLoader color='#4733AC' loading={loading} size={150} />
+        <PageLoader />
       </div>
     )
   }

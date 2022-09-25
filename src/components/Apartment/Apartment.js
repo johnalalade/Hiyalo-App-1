@@ -19,13 +19,13 @@ const Apartment = ({ apartment }) => {
           ></iconify-icon>
           <p>{apartment.ammenities.find(o => o.name === "Bedroom") ? apartment.ammenities.find(o => o.name === "Bedroom").number : "0"} bedroom(s)</p>
         </span>
-        {/* <span>
+        <span>
           <iconify-icon
             class="iconify"
-            icon="emojione-monotone:bed"
+            icon="cil:bath"
           ></iconify-icon>
-          <p>{apartment.ammenities[1].quantity}{apartment.ammenities[1].quantity}(s)</p>
-        </span> */}
+          <p>{apartment.ammenities.find(o => o.name === "Bathroom") ? apartment.ammenities.find(o => o.name === "Bathroom").number : "0"} bathroom(s)</p>
+        </span>
       </div>
       <div class="apartment-prices">
         <span>

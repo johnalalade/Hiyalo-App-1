@@ -3,21 +3,22 @@ import './sign-up.css';
 import SignNavBar from '../../components/sign up navbar/SignUpNavbar';
 import { Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
-import ClipLoader from 'react-spinners/ClipLoader';
 import axios from 'axios';
+import PageLoader from '../../components/Loader/PageLoader';
 
 const SignUp = () => {
   const url =
     'https://hiyalo-backend.herokuapp.com/agents/agent-gateway/register';
   const [formData, setFormData] = useState({
-    full_name: '',
+    first_name: '',
+    last_name: '',
     email: '',
     phone: '',
     password: '',
   });
   const [loading, setLoading] = useState(false);
 
-  const { full_name, email, phone, password } = formData;
+  const { first_name, last_name, email, phone, password } = formData;
 
   const navigate = useNavigate();
 
@@ -33,17 +34,21 @@ const SignUp = () => {
     setLoading(true);
     e.preventDefault();
     axios.post(url, formData).then((res) => {
-      console.log(res);
+      if (res.data.message === "success") {
+        console.log(res);
+        setLoading(false);
+        localStorage.setItem('id', res.data.id);
+        navigate('/dashboard');
+      }
+      alert(res.data.message)
       setLoading(false);
-      localStorage.setItem('id', res.data.id);
-      navigate('/dashboard');
     });
   };
 
   if (loading) {
     return (
       <div className="spinner">
-        <ClipLoader color="#4733AC" loading={loading} size={150} />
+        <PageLoader />
       </div>
     );
   }
@@ -68,19 +73,19 @@ const SignUp = () => {
                   type="text"
                   placeholder="John"
                   id="fullName"
-                  name="full_name"
-                  value={full_name}
+                  name="first_name"
+                  value={first_name}
                   onChange={(event) => handle(event)}
                 />
               </span>
               <span>
-                <label for="fullName"> Full Name </label>
+                <label for="fullName"> Last Name </label>
                 <input
                   type="text"
-                  placeholder="John"
+                  placeholder="Alalade"
                   id="fullName"
-                  name="full_name"
-                  value={full_name}
+                  name="last_name"
+                  value={last_name}
                   onChange={(event) => handle(event)}
                 />
               </span>

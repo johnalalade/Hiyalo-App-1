@@ -1,7 +1,7 @@
 import axios from 'axios';
 import React, { useState } from 'react';
+import PageLoader from '../../../components/Loader/PageLoader';
 import './general-settings.css';
-import ClipLoader from "react-spinners/ClipLoader";
 
 const PasswordSettings = () => {
 
@@ -59,7 +59,7 @@ const PasswordSettings = () => {
   if (loading) {
     return (
       <div className="spinner">
-        <ClipLoader color='#4733AC' loading={loading} size={150} />
+        <PageLoader />
       </div>
     )
   }

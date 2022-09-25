@@ -1,6 +1,7 @@
 .sign-up-body.market-place-body {
     background: #ECECEC;;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     flex-direction: column;
     margin-bottom: 3rem;
@@ -201,7 +202,7 @@
 .market-apartments .apartment {
     display: flex;
     flex-direction: column !important;
-    border: 1px solid rgba(17, 17, 17, 0.1);
+    border: 1px solid rgba(17, 17, 17, 0.1) !important;
     border-radius: 5px;
     color: #1A1A1A;
 }
