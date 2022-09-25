@@ -1,9 +1,10 @@
-import { useState} from 'react';
+import { useState } from 'react';
 import './sign-up.css';
 import SignNavBar from '../../components/sign up navbar/SignUpNavbar';
 import { Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import ClipLoader from "react-spinners/ClipLoader";
 
 const SignIn = () => {
   const [formData, setFormData] = useState({
@@ -11,6 +12,10 @@ const SignIn = () => {
     password: '',
   });
 
+  const [loading, setLoading] = useState(false)
+
+  const navigate = useNavigate();
+  
   const { userName, password } = formData;
   const url = 'https://hiyalo-backend.herokuapp.com/agents/agent-gateway/login';
 
@@ -23,17 +28,28 @@ const SignIn = () => {
   };
 
   const submit = (e) => {
+    setLoading(true)
     e.preventDefault();
 
     console.log(formData)
-    axios.post(url, formData).then((res) => {
-          console.log(res);
-          localStorage.setItem("id", res.data.id)
-          navigate('/dashboard');
-    });
+    axios.post(url, formData)
+      .then((res) => {
+        console.log(res);
+        setLoading(false)
+        localStorage.setItem("id", res.data.id)
+        navigate('/dashboard');
+      });
   };
 
-  const navigate = useNavigate();
+  if (loading) {
+    return (
+      <div className="spinner">
+        <ClipLoader color='#4733AC' loading={loading} size={150} />
+      </div>
+    )
+  }
+
+  
   return (
     <section className="sign-up-body">
       <SignNavBar />

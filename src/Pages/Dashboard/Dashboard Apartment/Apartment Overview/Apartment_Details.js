@@ -1,14 +1,12 @@
 import { useEffect, useState } from 'react';
-import './property-overview.css';
-import NavBar from '../../components/Navbar/Navbar';
+import './Apartment_Details.css';
 import axios from 'axios';
-import Footer from '../../components/Footer/Footer';
 import ClipLoader from "react-spinners/ClipLoader";
 // import img1 from '../../images/bg.jpg';
 // import img2 from '../../images/bg.jpg';
 // import img3 from '../../images/bg.jpg';
 
-const PropertyOverview = () => {
+const PropertyDetails = () => {
   // const PropertyImage1 = img1;
   // const PropertyImage2 = img2;
   // const PropertyImage3 = img3;
@@ -42,8 +40,6 @@ const PropertyOverview = () => {
 
   return (
     <>
-      <NavBar />
-
       <main className="product-overview-container">
         {/******** PROPERTY IMAGES ********/}
 
@@ -297,7 +293,8 @@ const PropertyOverview = () => {
                 &#8358; {(Number(property.annual_fee / 12)).toFixed(2).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')}<small>/month</small>
               </h4>
             </header>
-            <div class="tour-form-container">
+
+            {/* <div class="tour-form-container">
               <h4>Request For Tour</h4>
 
               <form action="" class="tour-form">
@@ -332,7 +329,8 @@ const PropertyOverview = () => {
 
             <div class="apply-now-cta">
               <button>Apply Now</button>
-            </div>
+            </div> */}
+            
           </div>
         </main>
 
@@ -341,10 +339,8 @@ const PropertyOverview = () => {
           <button>Apply Now</button>
         </div>
       </main>
-
-      <Footer />
     </>
   );
 };
 
-export default PropertyOverview;
+export default PropertyDetails;

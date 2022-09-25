@@ -6,25 +6,34 @@ import walletIcon from '../../images/wallet-minus.svg';
 import settingsIcon from '../../images/setting-2.svg';
 
 import './sidebar.css';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
+// import { useEffect } from 'react';
 
 const SideBar = () => {
+
+  // useEffect(() => {
+  //   console.log(window.location)
+  // }, [])
+
   return (
     <aside class="side-bar">
       <div class="dashboard-logo">{/* <!-- logo --> */}</div>
       <nav class="dashboard-navbar">
         <ul class="dashboard-nav-links">
+
           <li>
-            <Link to="/dashboard" className="side-bar-link" id="active">
+            <NavLink to="/dashboard" className="side-bar-link" id={window.location.pathname === "/dashboard" ? "active" : ""} >
               <img src={dashboardIcon} alt="" />
-              <span>Overview</span>
-            </Link>
+              <p>Overview</p>
+            </NavLink>
           </li>
+
           <li>
-            <Link to="/apartments" className="side-bar-link">
+            <NavLink to="/apartments" className="side-bar-link" id={window.location.pathname === "/apartments" ? "active" : ""} >
               <img src={buildingsIcon} alt="" />
-              <span>Apartment</span>
-            </Link>
+              <p>Apartment</p>
+            </NavLink>
+
           </li>
           {/* <li>
             <NavLink to="#">
@@ -32,24 +41,28 @@ const SideBar = () => {
               <span>Services</span>
             </NavLink>
           </li> */}
+
           <li>
-            <Link to="/payment" className="side-bar-link">
+            <NavLink to="/payments" className="side-bar-link" id={window.location.pathname === "/payments" ? "active" : ""} >
               <img src={walletIcon} alt="" />
-              <span>Payments</span>
-            </Link>
+              <p>Payments</p>
+            </NavLink>
           </li>
+
           {/* <li>
             <NavLink href="#">
               <img src={messageIcon} alt="" />
               <span>Messages</span>
             </NavLink>
           </li> */}
+
           <li>
-            <Link to="/settings" className="side-bar-link">
+            <NavLink to="/settings" className="side-bar-link" id={window.location.pathname === "/settings" ? "active" : ""} >
               <img src={settingsIcon} alt="" />
-              <span>Settings</span>
-            </Link>
+              <p>Settings</p>
+            </NavLink>
           </li>
+
         </ul>
       </nav>
     </aside>

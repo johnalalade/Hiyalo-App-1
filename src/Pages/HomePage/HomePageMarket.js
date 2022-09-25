@@ -17,57 +17,6 @@ const HomePageMarket = () => {
       })
   }, [])
 
-  // const apartments = [
-  //   {
-  //     apartmentImg: apartmentImage,
-  //     apartmentLocation: 'Gbaga Express Lagos, Nigeria',
-  //     amenityTitle1: '3(beds)',
-  //     amenityTitle2: '3(beds)',
-  //     yearlyPrice: '2.5M',
-  //     monthlyPrice: '500k'
-  //   },
-  //   {
-  //     apartmentImg: apartmentImage,
-  //     apartmentLocation: 'Gbaga Express Lagos, Nigeria',
-  //     amenityTitle1: '3(beds)',
-  //     amenityTitle2: '3(beds)',
-  //     yearlyPrice: '2.5M',
-  //     monthlyPrice: '500k'
-  //   },
-  //   {
-  //     apartmentImg: apartmentImage,
-  //     apartmentLocation: 'Gbaga Express Lagos, Nigeria',
-  //     amenityTitle1: '3(beds)',
-  //     amenityTitle2: '3(beds)',
-  //     yearlyPrice: '2.5M',
-  //     monthlyPrice: '500k',
-  //   },
-  //   {
-  //     apartmentImg: apartmentImage,
-  //     apartmentLocation: 'Gbaga Express Lagos, Nigeria',
-  //     amenityTitle1: '3(beds)',
-  //     amenityTitle2: '3(beds)',
-  //     yearlyPrice: '2.5M',
-  //     monthlyPrice: '500k',
-  //   },
-  //   {
-  //     apartmentImg: apartmentImage,
-  //     apartmentLocation: 'Gbaga Express Lagos, Nigeria',
-  //     amenityTitle1: '3(beds)',
-  //     amenityTitle2: '3(beds)',
-  //     yearlyPrice: '2.5M',
-  //     monthlyPrice: '500k',
-  //   },
-  //   {
-  //     apartmentImg: apartmentImage,
-  //     apartmentLocation: 'Gbaga Express Lagos, Nigeria',
-  //     amenityTitle1: '3(beds)',
-  //     amenityTitle2: '3(beds)',
-  //     yearlyPrice: '2.5M',
-  //     monthlyPrice: '500k',
-  //   }
-  // ];
-
   return (
     <section className="market-container">
       <header>
@@ -110,11 +59,11 @@ const HomePageMarket = () => {
                     &#8358;{(Number(apartment.annual_fee / 12)).toFixed(2).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')}<small>/monthly</small>{' '}
                   </p>
                 </span>
-                <a onClick={() => {
+                <Link onClick={() => {
                   localStorage.setItem("house_id", apartment._id)
-                }} href={`/property-overview/`}>
+                }} to={`/property-overview/`}>
                   <iconify-icon icon="bx:right-arrow-alt"></iconify-icon>
-                </a>
+                </Link>
               </div>
             </div>
           );

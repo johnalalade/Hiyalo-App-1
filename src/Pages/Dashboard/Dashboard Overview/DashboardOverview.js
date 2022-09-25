@@ -4,36 +4,66 @@ import { useEffect, useState } from 'react';
 import SideBar from '../../../components/Dashboard Navbar/SideBar';
 import TopBar from '../../../components/Dashboard Navbar/TopBar';
 import './dashboard-overview.css';
+import ClipLoader from "react-spinners/ClipLoader";
+import { Link } from 'react-router-dom';
 
 const DashboardOverview = () => {
   const [name, setName] = useState("")
   const [agent, setAgent] = useState({})
   const [houses, setHouses] = useState([])
+  const [loading, setLoading] = useState(false);
+  const [transactions, setTransactions] = useState([]);
+
 
   useEffect(() => {
+    setLoading(true)
+
     axios.post('https://hiyalo-backend.herokuapp.com/agents/agent-gateway/get-agent', { id: localStorage.getItem("id") })
       .then(data => {
         setAgent(data.data.agent)
-        setName(data.data.agent.full_name)
+        setName(data.data.agent.first_name)
       })
 
-      axios.post("https://hiyalo-backend.herokuapp.com/houses/house-gateway/get-agent-houses", {agent_id: localStorage.getItem('id')})
-    .then(data => {
-      console.log(data.data)
-      setHouses(data.data.houses)
-    })
-    .catch(err => {
-      console.log({
-        err
+    axios.post("https://hiyalo-backend.herokuapp.com/houses/house-gateway/get-agent-houses", { agent_id: localStorage.getItem('id') })
+      .then(data => {
+        console.log(data.data)
+        setHouses(data.data.houses)
+        setLoading(false)
       })
-    })
+      .catch(err => {
+        setLoading(false)
+        console.log({
+          err
+        })
+      })
+
+    axios.post("https://hiyalo-backend.herokuapp.com/agents/agent-gateway/get-agent-transactions", { agent_id: localStorage.getItem('id') })
+      .then(data => {
+        console.log(data.data)
+        setTransactions(data.data.transactions)
+        setLoading(false)
+      })
+      .catch(err => {
+        setLoading(false)
+        console.log({
+          err
+        })
+      })
 
   }, [])
+
+  if (loading) {
+    return (
+      <div className="spinner">
+        <ClipLoader color='#4733AC' loading={loading} size={150} />
+      </div>
+    )
+  }
 
   return (
 
 
-    agent.full_name && <section className="dashboard-container">
+    agent.first_name && <section className="dashboard-container">
       <SideBar />
 
       <main className="dashboard-main">
@@ -84,7 +114,7 @@ const DashboardOverview = () => {
         <div class="transaction-history-overview">
           <header>
             <h6>Payment History:</h6>
-            <a href="payment.html">see all</a>
+            <Link to="/payments">see all</Link>
           </header>
           <table class="apartments-list payment-history">
             <thead>
@@ -100,137 +130,42 @@ const DashboardOverview = () => {
             </thead>
 
             <tbody>
-              <tr>
-                <td class="apartment-id payment id">
-                  <p>#111111</p>
-                </td>
+              {transactions.map(transaction =>
+                <tr>
+                  <td class="apartment-id payment id">
+                    <p>{transaction._id}</p>
+                  </td>
 
-                <td class="name">
-                  <p>Olakunbi Olabode</p>
-                </td>
+                  <td class="name">
+                    <p>{transaction.name}</p>
+                  </td>
 
-                <td class="payment-status">
-                  <p> Pending</p>
-                </td>
+                  <td class="payment-status">
+                    <p> {transaction.status}</p>
+                  </td>
 
-                <td class="apartment-price">
-                  <p> N1,000,000</p>
-                </td>
+                  <td class="apartment-price">
+                    <p> &#8358; {Number(transaction.amount).toFixed(2).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')}</p>
+                  </td>
 
-                <td class="date-added">
-                  <p>30th Jan, 2022</p>
-                </td>
+                  <td class="date-added">
+                    <p>{transaction.createdAt}</p>
+                  </td>
 
-                <td class="type">
-                  <p>Deposit</p>
-                </td>
+                  <td class="type">
+                    <p>{transaction.type}</p>
+                  </td>
 
-                <td class="action-options payment-actions">
-                  <iconify-icon
-                    class="action-icon"
-                    icon="carbon:overflow-menu-vertical"
-                  ></iconify-icon>
-                </td>
-              </tr>
+                  <td class="action-options payment-actions">
+                    <iconify-icon
+                      class="action-icon"
+                      icon="carbon:overflow-menu-vertical"
+                    ></iconify-icon>
+                  </td>
+                </tr>
+              )}
 
-              <tr>
-                <td class="apartment-id payment id">
-                  <p>#111111</p>
-                </td>
 
-                <td class="name">
-                  <p>Olakunbi Olabode</p>
-                </td>
-
-                <td class="payment-status">
-                  <p> Pending</p>
-                </td>
-
-                <td class="apartment-price">
-                  <p> N1,000,000</p>
-                </td>
-
-                <td class="date-added">
-                  <p>30th Jan, 2022</p>
-                </td>
-
-                <td class="type">
-                  <p>Deposit</p>
-                </td>
-
-                <td class="action-options payment-actions">
-                  <iconify-icon
-                    class="action-icon"
-                    icon="carbon:overflow-menu-vertical"
-                  ></iconify-icon>
-                </td>
-              </tr>
-
-              <tr>
-                <td class="apartment-id payment id">
-                  <p>#111111</p>
-                </td>
-
-                <td class="name">
-                  <p>Olakunbi Olabode</p>
-                </td>
-
-                <td class="payment-status">
-                  <p> Pending</p>
-                </td>
-
-                <td class="apartment-price">
-                  <p> N1,000,000</p>
-                </td>
-
-                <td class="date-added">
-                  <p>30th Jan, 2022</p>
-                </td>
-
-                <td class="type">
-                  <p>Deposit</p>
-                </td>
-
-                <td class="action-options payment-actions">
-                  <iconify-icon
-                    class="action-icon"
-                    icon="carbon:overflow-menu-vertical"
-                  ></iconify-icon>
-                </td>
-              </tr>
-
-              <tr>
-                <td class="apartment-id payment id">
-                  <p>#111111</p>
-                </td>
-
-                <td class="name">
-                  <p>Olakunbi Olabode</p>
-                </td>
-
-                <td class="payment-status">
-                  <p> Pending</p>
-                </td>
-
-                <td class="apartment-price">
-                  <p> N1,000,000</p>
-                </td>
-
-                <td class="date-added">
-                  <p>30th Jan, 2022</p>
-                </td>
-
-                <td class="type">
-                  <p>Deposit</p>
-                </td>
-
-                <td class="action-options payment-actions">
-                  <iconify-icon
-                    class="action-icon"
-                    icon="carbon:overflow-menu-vertical"
-                  ></iconify-icon>
-                </td>
-              </tr>
             </tbody>
           </table>
         </div>

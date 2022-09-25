@@ -1,36 +1,52 @@
 import { useState } from 'react';
-import Axios from 'axios';
 import './sign-up.css';
 import SignNavBar from '../../components/sign up navbar/SignUpNavbar';
 import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
+import ClipLoader from "react-spinners/ClipLoader";
+import axios from 'axios';
 
 const SignUp = () => {
-    const url = 'https://hiyalo-backend.herokuapp.com/agents/agent-gateway/register';
+  const url = 'https://hiyalo-backend.herokuapp.com/agents/agent-gateway/register';
   const [formData, setFormData] = useState({
     full_name: '',
     email: '',
     phone: '',
     password: '',
   });
+  const [loading, setLoading] = useState(false)
 
   const { full_name, email, phone, password } = formData;
 
+  const navigate = useNavigate();
+  
   const handle = (e) => {
     setFormData((prevState) => ({
       ...prevState,
       [e.target.name]: e.target.value,
     }));
-        console.log(e.target.value);
+    console.log(e.target.value);
   };
 
   const submit = (e) => {
+    setLoading(true)
     e.preventDefault();
-    Axios.post(url, {
-          formData,
-        }).then((res) => {
-          console.log(res);
-    });
+    axios.post(url, formData)
+      .then((res) => {
+        console.log(res);
+        setLoading(false)
+        localStorage.setItem("id", res.data.id)
+        navigate('/dashboard');
+      });
   };
+
+  if (loading) {
+    return (
+      <div className="spinner">
+        <ClipLoader color='#4733AC' loading={loading} size={150} />
+      </div>
+    )
+  }
 
   return (
     <section className="sign-up-body">
@@ -45,9 +61,9 @@ const SignUp = () => {
         </header>
         <main>
           <form className="sign-up-form"
-           >
-           
-           <label for='fullName'> Full Name </label>
+          >
+
+            <label for='fullName'> Full Name </label>
             <input
               type="text"
               placeholder="John"
@@ -91,7 +107,7 @@ const SignUp = () => {
             />
 
             <div class="policy-checkbox">
-              <input type="checkbox" id="policy-check" onChange={(event) => handle(event) } />
+              <input type="checkbox" id="policy-check" onChange={(event) => handle(event)} />
               <p>
                 By creating an account you agree to the terms of and privacy
                 policy?

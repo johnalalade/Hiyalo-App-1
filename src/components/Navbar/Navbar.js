@@ -66,10 +66,10 @@ function NavBar() {
           </Link>
         </li>
       </ul>
-      <div class="cta-btn">
+      <Link to="/sign-up-agent" class="cta-btn">
         <img src={SearchIcon} alt="" />
         <button type="button">Login</button>
-      </div>
+      </Link>
       <div class="hamburger">
         <div></div>
         <div></div>
