@@ -2,7 +2,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import HomePage from './Pages/HomePage/Homepage';
 import PropertyOverview from './Pages/Property Overview/PropertyOverview';
 import MarketPlace from './Pages/Market Place/MarketPlaceContainer';
-
+// import MarketPlace from './Pages/Market Place/MarketPlaceContainer';
 import SignUp from './Pages/sign up/SignUp';
 import SignIn from './Pages/sign up/SignIn';
 import DashboardOverview from './Pages/Dashboard/Dashboard Overview/DashboardOverview';
@@ -11,6 +11,7 @@ import ApartmentOverview from './Pages/Dashboard/Dashboard Apartment/Apartment O
 import AddNewApartmentContainer from './Pages/Dashboard/Dashboard Apartment/AddNewApartment/AddNewApartmentContainer';
 import GeneralSettingsContainer from './Pages/Dashboard/Dashboard Settings/GeneralSettingsContainer';
 import DashboardPayment from './Pages/Dashboard/Dashboard Payment/Dashboard_Payment';
+import PageLoader from './components/Loader/PageLoader';
 // import ApartmentBasicInfo from './Pages/Dashboard/Dashboard Apartment/AddNewApartment/ApartmentBasicInfo';
 // import ApartmentAddress from './Pages/Dashboard/Dashboard Apartment/AddNewApartment/ApartementAddress';
 // import ApartmentAmmenities from './Pages/Dashboard/Dashboard Apartment/AddNewApartment/ApartmentAmmenities';
@@ -39,6 +40,10 @@ function App() {
           <Route
             path="/apartments/add-new-apartment"
             element={<AddNewApartmentContainer />}
+          ></Route>
+                    <Route
+            path="/loader"
+            element={<PageLoader />}
           ></Route>
           {/* <Route
             path="/apartments/add-apartment-basic-info"

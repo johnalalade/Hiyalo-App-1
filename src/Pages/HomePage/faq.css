@@ -6,7 +6,7 @@
     align-items: center;
     padding:  6rem 80px;
 }
-#faq-header h2{
+.faq-header h2{
     max-width: 900px;
     margin-top: 1rem;
     font-style: normal;
@@ -54,17 +54,17 @@
     align-items: center;
     width: 45px;
     height: 45px;
-    background: rgba(71, 51, 172, 0.1);
+    background: rgba(117, 114, 234, 0.1);
     border-radius: 60px;
 }
 .faq .open-icon {
     font-size: 24px;
-    color: #4733AC;
     cursor: pointer;
+
 }
 .faq .close-icon {
     font-size: 24px;
-    color: #7572EA;
+
     cursor: pointer;
 }
 
@@ -81,12 +81,12 @@
 .faq .faq-content {
     max-height: 0;
     overflow: hidden;
-    transition: all 0.5s ease;
+    transition: all 0.3s ease-in-out;
   }
   .faq-content.shows {
     height: auto;
     max-height: 999px;
-    transition: all 0.5s ease;
+    transition: all 0.3s ease-in-out;
     margin-top: 1.5rem;
   }
 .contact-us {
@@ -113,7 +113,7 @@
     font-family: 'gilroy-regular';
     font-style: normal;
     font-weight: 400;
-    font-size: 18px;
+    font-size: 16px;
     line-height: 28px;
     text-align: center;
     max-width: 600px;
@@ -144,7 +144,7 @@
     .faq-container {
         padding: 6rem 1rem;
     }
-    #faq-header h2{
+    .faq-header h2{
         font-size: 28px;
     }
     .faq header h6 {

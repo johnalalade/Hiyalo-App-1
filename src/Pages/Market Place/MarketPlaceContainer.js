@@ -14,34 +14,34 @@ const MarketPlace = () => {
   useEffect(() => {
     setLoading(true)
     axios.post('https://hiyalo-backend.herokuapp.com/houses/house-gateway/get-houses')
-    .then(data => {
-      console.log(data.data.houses)
-      setData(data.data.houses)
-      setLoading(false)
-    })
-    .catch(err => {
-      console.log(err)
-      setLoading(false)
-    })
+      .then(data => {
+        console.log(data.data.houses)
+        setData(data.data.houses)
+        setLoading(false)
+      })
+      .catch(err => {
+        console.log(err)
+        setLoading(false)
+      })
   }, [])
 
   if (loading) {
     return (
       <div className="spinner">
-          <ClipLoader color='#4733AC' loading={loading} size={150} />
+        <ClipLoader color='#4733AC' loading={loading} size={150} />
       </div>
     )
   }
 
   return (
-    <body className="sign-up-body">
+    <section className="sign-up-body">
       <NavBar />
 
       <section className="available-spaces-container">
         <main class="available-spaces">
           <header>
             <h3>Available Spaces</h3>
-            <button class="filter-btn">
+            <button className="filter-btn">
               <iconify-icon
                 class="iconify"
                 icon="material-symbols:filter-list"
@@ -51,14 +51,46 @@ const MarketPlace = () => {
           </header>
 
           <div className='apartments market-apartments'>
-          {data.map((apartment) => (
-            <Apartment apartment={apartment} />
-            ))}
+            {/* {data.map((apartment) => (
+            <Apartment apartment={apartment} /> */}
+            <div className="filter-form">
+              <div className="filter-inputs">
+                <label for="#">Location</label>
+                <input type="text" placeholder="your preferred location" />
+              </div>
+              <div className="filter-inputs">
+                <label for="#">Apartment Type</label>
+                <select>
+                  <option value="">Choose Apartment Type</option>
+                  <option value="">Duplex</option>
+                  <option value="">Bungalow</option>
+                </select>
+              </div>
+              <div className="filter-inputs">
+                <label for="#">Minimum Price</label>
+                <input type="number" placeholder="&#8358;0.00" />
+              </div>
+              <div className="filter-inputs">
+                <label for="#">Maximum Price</label>
+                <input type="text" placeholder="&#8358;0.00" />
+              </div>
+            </div>
+
+            <div className="apartments market-apartments">
+              {data.map((apartment) => (
+                <Apartment apartment={apartment} />
+              ))}
+            </div>
           </div>
         </main>
+        <div class="get-listed-container">
+          <p>Are You An Agent/Realtor?</p>
+          <h3>Get Your Apartment Listed On Hyalo</h3>
+          <button type="button">Get Started</button>
+        </div>
       </section>
       <Footer />
-    </body>
+    </section>
   );
 };
 

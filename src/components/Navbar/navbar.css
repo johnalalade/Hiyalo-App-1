@@ -54,6 +54,11 @@
     border: 2px solid #4733AC;
     border-radius: 5px;
 }
+.cta-btn button:hover {
+    background: #4733AC;
+    color: #FFF;
+    transition: all 0.4s ease-in-out;
+}
 .hamburger {
     display: none;
 }

@@ -2,9 +2,13 @@
 .why-hiyalo-container {
     display: flex;
     flex-direction: column;
+    justify-content: center;
     align-items: center;
     padding: 0 80px;
+    max-width: 1500px;
+    margin: auto;
     margin-top: 6rem;
+
 }
 
 .why-hiyalo-container header,
@@ -57,7 +61,7 @@
     border-radius: 5px;
     padding: 2rem 2rem;
     overflow: hidden;
-    border: 1px solid #ECECEC;
+    border: 1px solid #7672ea86;
 }
 
 .offer span {
@@ -65,7 +69,7 @@
     justify-content: center;
     width: 60px;
     height: 60px;
-    background: #ECECEC;
+    background: rgba(117, 114, 234, 0.1);
     border-radius: 60px;
 }
 .offer span img {
@@ -155,7 +159,7 @@
     }
     .offer {
         min-height: 270px;
-        padding: 1rem;
+        padding: 3rem 1rem;
     }
     .offer span img{
         width: 28px;
