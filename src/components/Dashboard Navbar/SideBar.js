@@ -22,14 +22,14 @@ const SideBar = () => {
         <ul class="dashboard-nav-links">
 
           <li>
-            <NavLink to="/dashboard" id={window.location.pathname == "/dashboard" ? "active" : ""} >
+            <NavLink to="/dashboard" className="side-bar-link" id={window.location.pathname === "/dashboard" ? "active" : ""} >
               <img src={dashboardIcon} alt="" />
               <p>Overview</p>
             </NavLink>
           </li>
 
           <li>
-            <NavLink to="/apartments" id={window.location.pathname == "/apartments" ? "active" : ""} >
+            <NavLink to="/apartments" className="side-bar-link" id={window.location.pathname === "/apartments" ? "active" : ""} >
               <img src={buildingsIcon} alt="" />
               <p>Apartment</p>
             </NavLink>
@@ -38,12 +38,12 @@ const SideBar = () => {
           {/* <li>
             <NavLink to="#">
               <img src={noteIcon} alt="" />
-              <p>Services</p>
+              <span>Services</span>
             </NavLink>
           </li> */}
 
           <li>
-            <NavLink to="/payments" id={window.location.pathname == "/payments" ? "active" : ""} >
+            <NavLink to="/payments" className="side-bar-link" id={window.location.pathname === "/payments" ? "active" : ""} >
               <img src={walletIcon} alt="" />
               <p>Payments</p>
             </NavLink>
@@ -52,12 +52,12 @@ const SideBar = () => {
           {/* <li>
             <NavLink href="#">
               <img src={messageIcon} alt="" />
-              <p>Messages</p>
+              <span>Messages</span>
             </NavLink>
           </li> */}
 
           <li>
-            <NavLink to="/settings" id={window.location.pathname == "/settings" ? "active" : ""} >
+            <NavLink to="/settings" className="side-bar-link" id={window.location.pathname === "/settings" ? "active" : ""} >
               <img src={settingsIcon} alt="" />
               <p>Settings</p>
             </NavLink>

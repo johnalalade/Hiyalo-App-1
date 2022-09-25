@@ -1,8 +1,9 @@
 
 .sign-up-body {
-    background: #ECECEC;;
+    background: #ECECEC;
+    min-height: 100vh;
     display: flex;
-    justify-content: cent er;
+    justify-content: center;
 }
 .sign-up-form-container {
     display: flex;
@@ -137,6 +138,14 @@
     line-height: 22px;
     text-align: center;
     color: #4733AC;
+}
+.sign-up-form button:hover {
+    background: #7572EA;
+    transform: scale(0.98);
+    background: transparent;
+    color: #FFFFFF;
+    border-color: #ececec;
+    transition: all 0.4s ease-in-out;
 }
 .policy-checkbox {
     display: flex;

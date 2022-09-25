@@ -9,7 +9,8 @@ import DashboardOverview from './Pages/Dashboard/Dashboard Overview/DashboardOve
 import ApartmentOverview from './Pages/Dashboard/Dashboard Apartment/Apartment Overview/ApartmentOverview';
 // import {AddNewApartmentContainer} from './Pages/Dashboard/Dashboard Apartment/AddNewApartment/AddNewApartmentContainer';
 import AddNewApartmentContainer from './Pages/Dashboard/Dashboard Apartment/AddNewApartment/AddNewApartmentContainer';
-import GeneralSettings from './Pages/Dashboard/Dashboard Settings/GeneralSettings';
+import GeneralSettingsContainer from './Pages/Dashboard/Dashboard Settings/GeneralSettingsContainer';
+import DashboardPayment from './Pages/Dashboard/Dashboard Payment/Dashboard_Payment';
 // import ApartmentBasicInfo from './Pages/Dashboard/Dashboard Apartment/AddNewApartment/ApartmentBasicInfo';
 // import ApartmentAddress from './Pages/Dashboard/Dashboard Apartment/AddNewApartment/ApartementAddress';
 // import ApartmentAmmenities from './Pages/Dashboard/Dashboard Apartment/AddNewApartment/ApartmentAmmenities';
@@ -33,7 +34,8 @@ function App() {
           <Route path="/marketplace" element={<MarketPlace />}></Route>
           <Route path="/dashboard" element={<DashboardOverview />}></Route>
           <Route path="/apartments" element={<ApartmentOverview />}></Route>
-          <Route path="/settings" element={<GeneralSettings />}></Route>
+          <Route path="/settings" element={<GeneralSettingsContainer />}></Route>
+          <Route path="/payments" element={<DashboardPayment />}></Route>
           <Route
             path="/apartments/add-new-apartment"
             element={<AddNewApartmentContainer />}

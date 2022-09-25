@@ -17,57 +17,6 @@ const HomePageMarket = () => {
       })
   }, [])
 
-  // const apartments = [
-  //   {
-  //     apartmentImg: apartmentImage,
-  //     apartmentLocation: 'Gbaga Express Lagos, Nigeria',
-  //     amenityTitle1: '3(beds)',
-  //     amenityTitle2: '3(beds)',
-  //     yearlyPrice: '2.5M',
-  //     monthlyPrice: '500k'
-  //   },
-  //   {
-  //     apartmentImg: apartmentImage,
-  //     apartmentLocation: 'Gbaga Express Lagos, Nigeria',
-  //     amenityTitle1: '3(beds)',
-  //     amenityTitle2: '3(beds)',
-  //     yearlyPrice: '2.5M',
-  //     monthlyPrice: '500k'
-  //   },
-  //   {
-  //     apartmentImg: apartmentImage,
-  //     apartmentLocation: 'Gbaga Express Lagos, Nigeria',
-  //     amenityTitle1: '3(beds)',
-  //     amenityTitle2: '3(beds)',
-  //     yearlyPrice: '2.5M',
-  //     monthlyPrice: '500k',
-  //   },
-  //   {
-  //     apartmentImg: apartmentImage,
-  //     apartmentLocation: 'Gbaga Express Lagos, Nigeria',
-  //     amenityTitle1: '3(beds)',
-  //     amenityTitle2: '3(beds)',
-  //     yearlyPrice: '2.5M',
-  //     monthlyPrice: '500k',
-  //   },
-  //   {
-  //     apartmentImg: apartmentImage,
-  //     apartmentLocation: 'Gbaga Express Lagos, Nigeria',
-  //     amenityTitle1: '3(beds)',
-  //     amenityTitle2: '3(beds)',
-  //     yearlyPrice: '2.5M',
-  //     monthlyPrice: '500k',
-  //   },
-  //   {
-  //     apartmentImg: apartmentImage,
-  //     apartmentLocation: 'Gbaga Express Lagos, Nigeria',
-  //     amenityTitle1: '3(beds)',
-  //     amenityTitle2: '3(beds)',
-  //     yearlyPrice: '2.5M',
-  //     monthlyPrice: '500k',
-  //   }
-  // ];
-
   return (
     <section className="market-container">
       <header>
@@ -77,7 +26,7 @@ const HomePageMarket = () => {
         <h2>Explore The Market Place</h2>
       </header>
 
-      <main className="apartments">
+      <main className="homepage-apartments">
         {data.map((apartment, idx) => {
           return (
             <div className="apartment">
@@ -98,16 +47,16 @@ const HomePageMarket = () => {
                     class="iconify"
                     icon="emojione-monotone:person-taking-bath"
                   ></iconify-icon>
-                  <p>{apartment.address}</p>
+                  <p>{apartment.apartment_type}</p>
                 </span>
               </div>
               <div className="apartment-prices">
                 <span>
                   <p>
-                    &#8358;{(Number(apartment.annual_fee)).toFixed(2).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')} <small>/year</small>{' '}
+                    &#8358;{(Number(apartment.annual_fee)).toFixed(2).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')}<small>/year</small>{' '}
                   </p>
                   <p>
-                    &#8358;{(Number(apartment.annual_fee / 12)).toFixed(2).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')} <small>/monthlyPrice</small>{' '}
+                    &#8358;{(Number(apartment.annual_fee / 12)).toFixed(2).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')}<small>/monthly</small>{' '}
                   </p>
                 </span>
                 <Link onClick={() => {
@@ -121,14 +70,9 @@ const HomePageMarket = () => {
         })}
       </main>
       <div class="explore-cta">
-        {/* <!-- <button id="secure">
-                Secure Rent Loan
-            </button> --> */}
 
-        <Link to='/marketplace'>
-          <button type="submit">
-            Explore
-          </button>
+        <Link to='/marketplace' className='explore-btn'>
+            <p>Explore</p>
         </Link>
 
       </div>

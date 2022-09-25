@@ -1,16 +1,16 @@
 
 .apartments {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-    column-gap: 3rem;
-    row-gap: 3rem;
-    margin-top: 4rem;
+    display: grid !important;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)) !important;
+    column-gap: 3rem !important;
+    row-gap: 3rem !important;
+    margin-top: 4rem !important;
 }
 .apartment {
-    display: flex;
-    flex-direction: column;
-    border: 1px solid rgba(255, 255, 255, 0.526);
-    border-radius: 5px;
+    display: flex !important;
+    flex-direction: column !important;
+    border: 1px solid rgba(255, 255, 255, 0.526) !important;
+    border-radius: 5px !important;
 }
 .apartment img {
     object-fit: cover;
