@@ -58,7 +58,7 @@ const SignUp = () => {
       <SignNavBar />
       <div class="sign-up-form-container">
         <header>
-          <h3>Welcome To Hiyalo</h3>
+          <h3>Welcome To Hiyalo Agents</h3>
           <p>
             Let’s get you started. Already have an account?{' '}
             <Link to="/sign-in-agent">Sign in</Link>
@@ -140,7 +140,7 @@ const SignUp = () => {
             </button>
           </form>
 
-          <div class="or-container">
+          {/* <div class="or-container">
             <div></div>
             <p>OR</p>
             <div></div>
@@ -154,7 +154,7 @@ const SignUp = () => {
               ></iconify-icon>
               <p>Sign Up with Google</p>
             </button>
-          </div>
+          </div> */}
         </main>
       </div>
     </section>

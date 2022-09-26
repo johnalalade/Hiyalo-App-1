@@ -10,7 +10,10 @@ const PersonalDetailsSettings = ({ f_name, l_name, mail, phonee, doc_number, bn 
   const [email, setEmail] = useState(mail);
   const [phone, setPhone] = useState(phonee);
 
-  // const [document_number, setDocumentNum] = useState(doc_number);
+  const [doc_type, setDocType] = useState("National ID");
+  const [document_number, setDocumentNum] = useState("");
+  const [document_image, setDocImage] = useState({});
+
   // const [bvn, setBVN] = useState(bn);
 
   const [loading, setLoading] = useState(false)
@@ -18,7 +21,7 @@ const PersonalDetailsSettings = ({ f_name, l_name, mail, phonee, doc_number, bn 
 
   const update_personal = (ev) => {
     setLoading(true)
-    
+
     ev.preventDefault()
 
     let data = {
@@ -52,32 +55,35 @@ const PersonalDetailsSettings = ({ f_name, l_name, mail, phonee, doc_number, bn 
 
   }
 
-  // const update_docs = (ev) => {
-  //   setLoading(true)
+  const update_docs = (ev) => {
+    ev.preventDefault()
 
-  //   ev.preventDefault()
+    setLoading(true)
 
-  //   let data = {
-  //     bvn,
-  //     document_number
-  //   }
 
-  //   axios.post('https://hiyalo-backend.herokuapp.com/agents/agent-gateway/update-agent', data)
-  //   .then(res => {
-  //     if (res.data.message === "success") {
-  //       setLoading(false)
-  //       alert("Success")
-  //     } else {
-  //       setLoading(false)
-  //       alert(res.data.details)
-  //     }
-  //   })
-  //   .catch(err => {
-  //     setLoading(false)
-  //     alert(err)
-  //     return false
-  //   })
-  // }
+    let data = new FormData()
+
+    data.append("document_type", doc_type)
+    data.append("document_number", document_number)
+    data.append("agent_id", localStorage.getItem("id"))
+    data.append("file", document_image)
+
+    axios.post('https://hiyalo-backend.herokuapp.com/agents/agent-gateway/update-agent-identification', data)
+      .then(res => {
+        if (res.data.message === "success") {
+          setLoading(false)
+          alert("Success")
+        } else {
+          setLoading(false)
+          alert(res.data.details)
+        }
+      })
+      .catch(err => {
+        setLoading(false)
+        alert(err)
+        return false
+      })
+  }
 
 
   if (loading) {
@@ -118,7 +124,7 @@ const PersonalDetailsSettings = ({ f_name, l_name, mail, phonee, doc_number, bn 
         </form>
       </div>
 
-      {/* <div class="identification-picture-container">
+      <div class="identification-picture-container">
         <div class="identification-form">
           <header>
             <h6>Identification Number</h6>
@@ -130,19 +136,31 @@ const PersonalDetailsSettings = ({ f_name, l_name, mail, phonee, doc_number, bn 
               ></iconify-icon>
             </span>
           </header>
+
           <form action="">
-            <label for="apartment type"> Document</label>
+
+            <label for="apartment type">Document Type</label>
+            <select onChange={(ev) => setDocType(ev.target.value)}>
+              <option value="National ID">National Identification</option>
+              <option value="International Passport">International Passport</option>
+              <option value="Driver's License">Driver's License</option>
+            </select>
+
+            <label for="apartment type">Document Number</label>
             <input type="text" value={document_number} onChange={(ev) => setDocumentNum(ev.target.value)} placeholder="National ID" />
 
-            <label for="name">BVN</label>
-            <input type="text" placeholder="*************" value={bvn} onChange={(ev) => setBVN(ev.target.value)} />
+            <label>Upload Document</label>
+            <input type="file" accept='image/*' onChange={(ev) => setDocImage(ev.target.files[0])} />
+
+            {/* <label for="name">BVN</label>
+            <input type="text" placeholder="*************" value={bvn} onChange={(ev) => setBVN(ev.target.value)} /> */}
 
             <button onClick={(ev) => update_docs(ev)}>Update Details</button>
 
           </form>
         </div>
 
-        <div class="profile-picture-form">
+        {/* <div class="profile-picture-form">
           <header>
             <h6>Your Profile Picture</h6>
           </header>
@@ -157,8 +175,8 @@ const PersonalDetailsSettings = ({ f_name, l_name, mail, phonee, doc_number, bn 
 
             </span>
           </form>
-        </div>
-      </div> */}
+        </div> */}
+      </div>
 
     </main>
 
