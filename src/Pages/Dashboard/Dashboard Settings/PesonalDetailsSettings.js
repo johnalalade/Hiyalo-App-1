@@ -72,7 +72,7 @@ const PersonalDetailsSettings = ({ f_name, l_name, mail, phonee, doc_number, bn 
       .then(res => {
         if (res.data.message === "success") {
           setLoading(false)
-          alert("Success")
+          alert("Success, We'll review your details and verify within the next 24 hours")
         } else {
           setLoading(false)
           alert(res.data.details)
