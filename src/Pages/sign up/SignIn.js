@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import PageLoader from '../../components/Loader/PageLoader';
+import { GoogleLogin } from '@react-oauth/google';
 
 const SignIn = () => {
   const [formData, setFormData] = useState({
@@ -39,11 +40,38 @@ const SignIn = () => {
           setLoading(false)
           localStorage.setItem("id", res.data.id)
           navigate('/dashboard');
+        } else {
+          alert(res.data.message, res.data.details)
+          setLoading(false);
         }
-        alert(res.data.message)
-        setLoading(false)
       });
   };
+
+  const onGoogleSuccess = (res) => {
+    console.log(res);
+    setLoading(true);
+
+    axios.post('https://hiyalo-backend.herokuapp.com/agents/agent-gateway/google-auth', {
+      token: res.credential
+    })
+      .then((resp) => {
+        if (resp.data.message === "success") {
+          console.log(resp.data);
+          setLoading(false);
+          localStorage.setItem('id', resp.data.id);
+          navigate('/dashboard');
+        } else {
+          alert(`${resp.data.message}, ${resp.data.details}`)
+          setLoading(false);
+        }
+      });
+
+  };
+
+  const onGoogleFailure = (res) => {
+    console.log(res);
+  };
+
 
   if (loading) {
     return (
@@ -94,21 +122,29 @@ const SignIn = () => {
             <button type="submit" onClick={submit} >Get Started</button>
           </form>
 
-          {/* <div class="or-container">
+          <div class="or-container">
             <div></div>
             <p>OR</p>
             <div></div>
           </div>
 
           <div class="sign-up-google">
-            <button type="submit">
-              <iconify-icon
+            <button type="submit" >
+              {/* <iconify-icon
                 class="google-icon"
                 icon="flat-color-icons:google"
-              ></iconify-icon>
-              <p>Sign Up with Google</p>
+              ></iconify-icon> */}
+              {/* <p>Sign Up with Google</p> */}
+              <GoogleLogin
+                class="sign-up-google"
+                buttonText="Login"
+                onSuccess={onGoogleSuccess}
+                onError={onGoogleFailure}
+                cookiePolicy={'single_host_origin'}
+              />
             </button>
-          </div> */}
+          </div>
+
         </main>
       </div>
     </section>
