@@ -114,12 +114,15 @@ const SignIn = () => {
               value={password}
               onChange={onChange}
             />
+            
+            <button type="submit" onClick={submit} >Get Started</button>
+            <br/>
             <div class="forgot-password-text">
               <p>
                 forgot password? <a href="www.google.com">click here</a>{' '}
               </p>
             </div>
-            <button type="submit" onClick={submit} >Get Started</button>
+
           </form>
 
           <div class="or-container">

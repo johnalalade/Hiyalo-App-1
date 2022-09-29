@@ -180,3 +180,35 @@
     align-items: center;
     text-align: center;
 }
+
+
+.property-page-add  {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 3rem;
+    margin-top: 1.5rem;
+    align-self: center;
+}
+
+.property-page-add button {
+    display: flex;
+    align-items: center;
+    column-gap: .5rem;
+   align-items: center;
+    padding: 0 2rem;
+    height: 50px;
+    background: #4733AC;
+    border: none;
+    border-radius: 5px;
+    font-family: 'gilroy-medium';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    color: #FFFFFF;
+}
+.property-page-add button:hover {
+    background-color: #7572EA;
+    transition: all 0.4s ease-in-out;
+}

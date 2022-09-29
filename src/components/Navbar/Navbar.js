@@ -51,15 +51,17 @@ function NavBar() {
         </li>
 
         <li>
-          <Link to="/market-place" className="nav-link">
+          <Link to="/marketplace" className="nav-link">
             Rent
           </Link>
         </li>
-        <li>
+
+        {/* <li>
           <Link to="/" className="nav-link">
             Rent Loan
           </Link>
-        </li>
+        </li> */}
+
         <li>
           <Link to="/" className="nav-link">
             FAQ

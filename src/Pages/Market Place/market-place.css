@@ -5,6 +5,61 @@
     justify-content: center;
     flex-direction: column;
 }
+
+.heroe-form {
+    display: flex;
+    flex-direction: column;
+    /* align-items: center; */
+    position: relative;
+    width: 100%;
+    max-width: 700px;
+    margin-top: 1.5rem;
+    margin-bottom: 1rem;
+    max-height: max-content;
+    overflow: hidden;
+}
+.heroe-form input {
+    font-family: 'gilroy-regular';
+    display: flex;
+    height: 70px;
+    padding:  0 3rem;
+    background: #FFFFFF;
+    font-weight: 400;
+    font-size: 18px;
+    /* letter-spacing: 0.02em; */
+    color: #050213;
+    border: none;
+    outline: none;
+    border-radius: 5px;
+}
+.heroe-form input::placeholder {
+    font-size: 18px;
+    color: #acacac;
+}
+.heroe-form button {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    column-gap: .5rem;
+    width: 200px;
+    height: 50px;
+    background: #4733AC;
+    border: 1.5px solid #4733AC;
+    border-radius: 5px;
+    font-weight: 500;
+    font-size: 16px;
+    letter-spacing: 0.01em;
+    color: #FFFFFF;
+}
+.heroe-form button:hover {
+    opacity: 0.9;
+    transition: all 0.5s ease-in-out;
+    background: #7572EA;
+}
+.location-icon {
+    font-size: 24px;
+}
 .apartments {
     display: grid !important;
     grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));

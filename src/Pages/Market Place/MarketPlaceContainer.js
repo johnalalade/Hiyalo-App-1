@@ -6,11 +6,29 @@ import { useEffect, useState } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 import PageLoader from '../../components/Loader/PageLoader';
+import states from '../../components/states';
 
 const MarketPlace = () => {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
   const [filterStatus, setFilterStatus] = useState("all")
+  const [state, setState] = useState("Choose State")
+  const [search_data, setSearchData] = useState("")
+
+  
+  const search = (ev) => {
+    ev.preventDefault()
+    let data = {
+      search: search_data
+    }
+
+    axios.post('https://hiyalo-backend.herokuapp.com/houses/house-gateway/search-houses', data)
+      .then(res => {
+        if (res.data.message === "success") {
+          setData(res.data.houses)
+        }
+      })
+  } 
 
   useEffect(() => {
     setLoading(true);
@@ -43,16 +61,34 @@ const MarketPlace = () => {
 
       <section className="available-spaces-container">
         <main class="available-spaces">
+
           <header>
             <h3>Available Spaces</h3>
             <button className="filter-btn">
               <iconify-icon
-                class="iconify" 
+                class="iconify"
                 icon="material-symbols:filter-list"
               ></iconify-icon>
               <p>Filter</p>
             </button>
           </header>
+
+          <form class="heroe-form">
+
+            <input type="text" placeholder="Search based on your loaction"
+              onChange={(ev) => setSearchData(ev.target.value)}
+            />
+
+            <button type="submit" onClick={(ev) => search(ev)} >
+              <iconify-icon
+                class="location-icon"
+                icon="lucide:locate-fixed"
+              ></iconify-icon>
+              <p>Search</p>
+            </button>
+
+          </form>
+
           <div className="filter-form">
 
             {/* <div className="filter-inputs">
@@ -76,6 +112,14 @@ const MarketPlace = () => {
               <label for="#">Minimum Price</label>
               <input type="number" placeholder="&#8358;0.00" />
             </div> */}
+            <div className="filter-inputs">
+              <label for="#">Location</label>
+              <select name='state' value={state} onChange={(e) => setState(e.target.value)} className="input-selection" id='house-type-option' >
+                {
+                  states.map(st => <option value={st} >{st}</option>)
+                }
+              </select>
+            </div>
 
             {/* <div className="filter-inputs">
               <label for="#">Maximum Price</label>
@@ -89,7 +133,7 @@ const MarketPlace = () => {
             <Apartment apartment={apartment} /> */}
 
             <div className="apartments market-apartments">
-              {data.filter(h => filterStatus === "all" ? h : h.house_type === filterStatus).map((apartment) => (
+              {data.filter(h => filterStatus === "all" ? h : h.house_type === filterStatus).filter(h2 => state === "Choose State" ? h2 : h2.state === state).slice(0, 4).map((apartment) => (
                 <Apartment apartment={apartment} />
               ))}
             </div>
@@ -98,7 +142,7 @@ const MarketPlace = () => {
 
         </main>
         <div>
-          
+
         </div>
 
         <div class="get-listed-container">

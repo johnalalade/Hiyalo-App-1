@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import './general-settings.css'
 import PageLoader from '../../../components/Loader/PageLoader';
 
-const PersonalDetailsSettings = ({ f_name, l_name, mail, phonee, doc_number, bn }) => {
+const PersonalDetailsSettings = ({ f_name, l_name, mail, phonee, doc_number, bn, verified }) => {
 
   const [first_name, setFName] = useState(f_name);
   const [last_name, setLName] = useState(l_name);
@@ -126,15 +126,19 @@ const PersonalDetailsSettings = ({ f_name, l_name, mail, phonee, doc_number, bn 
 
       <div class="identification-picture-container">
         <div class="identification-form">
-          <header>
-            <h6>Identification Number</h6>
-            <span>
-              <p>Verified</p>
-              <iconify-icon
-                class="verified-icon"
-                icon="codicon:verified-filled"
-              ></iconify-icon>
-            </span>
+          <header className='badger'>
+            <h6 className={verified === true ? "" : "badge"}>Identification Number</h6>
+            {verified ?
+              <span>
+                <p>Verified</p>
+                <iconify-icon
+                  class="verified-icon"
+                  icon="codicon:verified-filled"
+                ></iconify-icon>
+
+              </span>
+              : null
+            }
           </header>
 
           <form action="">

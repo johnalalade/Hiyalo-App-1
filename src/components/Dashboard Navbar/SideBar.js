@@ -9,7 +9,7 @@ import './sidebar.css';
 import { NavLink } from 'react-router-dom';
 // import { useEffect } from 'react';
 
-const SideBar = () => {
+const SideBar = ({ verified }) => {
 
   // useEffect(() => {
   //   console.log(window.location)
@@ -56,8 +56,8 @@ const SideBar = () => {
             </NavLink>
           </li> */}
 
-          <li>
-            <NavLink to="/settings" className="side-bar-link" id={window.location.pathname === "/settings" ? "active" : ""} >
+          <li className='badger'>
+            <NavLink to="/settings" className={verified === true ? "side-bar-link" : "side-bar-link badge" }  id={window.location.pathname === "/settings" ? "active" : ""} >
               <img src={settingsIcon} alt="" />
               <p>Settings</p>
             </NavLink>

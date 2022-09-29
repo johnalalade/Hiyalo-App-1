@@ -8,19 +8,19 @@ const Features = () => {
     {
       title: 'Search',
       paragraph:
-        'Lorem ipsum dolor sit amet, nsectetur adipiscing elit. Risus pharetra in aiscing sapien amet, malesuada bibendum amet tempor. Sagittis diam dapibus nec quis. Elit',
+        'Another stressful day of property hunting without progress? Not to worry! Hiyalo provides a virtual and live tour of your prospective home. With our virtual tour, you can make the right choice from wherever you are.',
       icon: flashIcon,
     },
     {
-      title: 'Search',
+      title: 'Security',
       paragraph:
-        'Lorem ipsum dolor sit amet, nsectetur adipiscing elit. Risus pharetra in aiscing sapien amet, malesuada bibendum amet tempor. Sagittis diam dapibus nec quis. Elit',
+        'Never be a victim of fraudulent agents. At Hiyalo we make sure your payments are secure: connecting you with verified house agents and certified properties',
       icon: walletIcon,
     },
     {
       title: 'Search',
       paragraph:
-        'Lorem ipsum dolor sit amet, nsectetur adipiscing elit. Risus pharetra in aiscing sapien amet, malesuada bibendum amet tempor. Sagittis diam dapibus nec quis. Elit',
+        "Little or no cash for an upfront payment? you don't have to forfeit your dream property. Hiyalo provides you with flexible payment plans. You can pay conveniently in installments ",
       icon: secureIcon,
     },
   ];

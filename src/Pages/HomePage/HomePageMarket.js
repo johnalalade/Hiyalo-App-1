@@ -1,21 +1,8 @@
 import './home-page-market.css';
-import { useState, useEffect } from 'react';
-import axios from 'axios';
 import { Link } from 'react-router-dom';
 
-const HomePageMarket = () => {
-  const [data, setData] = useState([])
+const HomePageMarket = ({ data, search }) => {
 
-  useEffect(() => {
-    axios.post('https://hiyalo-backend.herokuapp.com/houses/house-gateway/get-houses')
-      .then(data => {
-        console.log(data.data.houses)
-        setData(data.data.houses)
-      })
-      .catch(err => {
-        console.log(err)
-      })
-  }, [])
 
   return (
     <section className="market-container">
@@ -23,7 +10,7 @@ const HomePageMarket = () => {
         <span id="market">
           <p>Market Place</p>
         </span>
-        <h2>Explore The Market Place</h2>
+        <h2>Explore The Market Place {search? `(${search})`: null} </h2>
       </header>
 
       <main className="homepage-apartments">
