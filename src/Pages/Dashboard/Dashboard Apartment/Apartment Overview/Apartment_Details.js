@@ -271,7 +271,7 @@ const PropertyDetails = () => {
 
             {/******** PROPERTY TOUR AND APPLICATION FORM ********/}
 
-            <div className="physical-tour-info">
+            {/* <div className="physical-tour-info">
               <iconify-icon
                 class="info-icon"
                 icon="bi:info-circle"
@@ -281,7 +281,7 @@ const PropertyDetails = () => {
                 would cater for your transportation from your house to where the
                 apartment is located
               </p>
-            </div>
+            </div> */}
           </div>
 
           <div class="payment-details-container">
@@ -334,10 +334,10 @@ const PropertyDetails = () => {
           </div>
         </main>
 
-        <div class="mobile-product-cta">
+        {/* <div class="mobile-product-cta">
           <button>Request for Tour</button>
           <button>Apply Now</button>
-        </div>
+        </div> */}
       </main>
     </>
   );
