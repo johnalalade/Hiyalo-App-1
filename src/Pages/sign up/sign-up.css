@@ -127,6 +127,18 @@
     border-color: #ECECEC;
     transition: all 0.5s ease;
 }
+
+.sign-up-form input:-webkit-autofill,
+.sign-up-form input:-webkit-autofill:hover, 
+.sign-up-form input:-webkit-autofill:focus,
+.phone-number input:-webkit-autofill:focus {
+  border: 1px solid #ececec50;
+  -webkit-text-fill-color: #FFFFFF;
+  -webkit-box-shadow: 0 0 0px 1000px transparent inset;
+  transition: background-color 5000s ease-in-out 0s;
+}
+
+
 .sign-up-form button {
     margin-top: 2rem;
     /* max-width: 657px; */
@@ -239,11 +251,13 @@ margin: 0;
     .sign-up-form-container header {
         padding: 0 1rem;
         row-gap: .2rem;
+        align-items: center;
     }
     .sign-up-form-container header  h3 {
         font-size: 24px;
     }
     .sign-up-form-container header p {
+        max-width: 350px;
         line-height: 26px;
         font-size: 14px;
         padding: 0 1rem;

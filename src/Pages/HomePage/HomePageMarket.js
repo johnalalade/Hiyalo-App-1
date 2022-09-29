@@ -29,7 +29,9 @@ const HomePageMarket = () => {
       <main className="homepage-apartments">
         {data.map((apartment, idx) => {
           return (
-            <div className="apartment">
+            <Link onClick={() => {
+              localStorage.setItem("house_id", apartment._id)
+            }} to={`/property-overview/`} className="homepage-apartment">
               <img src={apartment.images[0]} alt="" />
               <div className="apartment-location">
                 <p>{apartment.address}</p>
@@ -65,7 +67,7 @@ const HomePageMarket = () => {
                   <iconify-icon icon="bx:right-arrow-alt"></iconify-icon>
                 </Link>
               </div>
-            </div>
+            </Link>
           );
         })}
       </main>
@@ -73,6 +75,7 @@ const HomePageMarket = () => {
 
         <Link to='/marketplace' className='explore-btn'>
             <p>Explore</p>
+            <iconify-icon class='explore-icon' icon="fluent:sparkle-20-regular"></iconify-icon>
         </Link>
 
       </div>

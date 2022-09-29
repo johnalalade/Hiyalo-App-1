@@ -47,7 +47,7 @@ const MarketPlace = () => {
             <h3>Available Spaces</h3>
             <button className="filter-btn">
               <iconify-icon
-                class="iconify"
+                class="iconify" 
                 icon="material-symbols:filter-list"
               ></iconify-icon>
               <p>Filter</p>
@@ -94,7 +94,13 @@ const MarketPlace = () => {
               ))}
             </div>
           </div>
+
+
         </main>
+        <div>
+          
+        </div>
+
         <div class="get-listed-container">
           <p>Are You An Agent/Realtor?</p>
           <h3>Get Your Apartment Listed On Hyalo</h3>
@@ -103,6 +109,8 @@ const MarketPlace = () => {
           </Link>
         </div>
       </section>
+
+
       <Footer />
     </section>
   );

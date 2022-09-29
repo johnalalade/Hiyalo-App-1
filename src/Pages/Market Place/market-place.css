@@ -4,7 +4,6 @@
     flex-direction: column;
     justify-content: center;
     flex-direction: column;
-    margin-bottom: 3rem;
 }
 .apartments {
     display: grid !important;
@@ -14,10 +13,17 @@
     margin-top: 4rem;
 }
 .apartment {
-    display: flex !important;
-    flex-direction: column !important;
-    border: 1px solid rgba(255, 255, 255, 0.526) !important;
-    border-radius: 5px !important;
+    display: flex;
+    flex-direction: column;
+    background-color: #4733ac0c;
+    border: none;
+    border-radius: 5px;
+    max-width: 420px;
+}
+.apartment:hover {
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    /* transform: scale(0.98); */
+    transition: all 0.3s ease-in-out;
 }
 .apartment img {
     object-fit: cover;
@@ -45,7 +51,7 @@
     display: flex;
     justify-content: center;
     column-gap: 1rem;
-    margin-top: 1rem;
+    margin: 1rem 0;
     color: #FFF;
 }
 .core-ammenities span {
@@ -65,9 +71,9 @@
     display: flex;
     align-items: center;
     padding: 1.2rem 1.5rem;
-    background: rgba(255, 255, 255, 0.2);
-    margin-top: 1rem;
-    /* justify-content: baseline; */
+    background-color: #4733ac20;
+    margin-top: auto;
+    border-top: none !important;
 }
 
 .apartment-prices span {
@@ -152,9 +158,9 @@
     column-gap: 1rem;
     justify-content: space-between;
     background: rgba(71, 51, 172, 0.05);
-    border: 0.780759px solid rgba(71, 51, 172, 0.357);
+    border: 0.5px solid rgba(71, 51, 172, 0.3);
     border-radius: 3.9038px;
-    margin-top: 3em;
+    margin-top: 3rem;
     padding: 2rem;
     position: relative;
 }
@@ -183,6 +189,7 @@
     font-size: 16px;
     font-weight: 400;
 }
+
 .filter-inputs input:hover,
 .filter-inputs input:focus,
 .filter-inputs select:hover,
@@ -197,21 +204,31 @@
 .filter-inputs input::placeholder {
     color: #757575;
 }
+.filter-inputs input:-webkit-autofill,
+.filter-inputs input:-webkit-autofill:hover, 
+.filter-inputs input:-webkit-autofill:focus,
+.filter-inputs select:-webkit-autofill,
+.filter-inputs select:-webkit-autofill:hover,
+.filter-inputs select:-webkit-autofill:focus {
+    border: 1px solid rgba(117, 117, 117, 0.5);
+  -webkit-text-fill-color: #FFF;
+  -webkit-box-shadow: 0 0 0px 1000px transparent inset;
+  transition: background-color 5000s ease-in-out 0s;
+}
 
-
-.market-apartments .apartment {
+/* .market-apartments .apartment {
     display: flex;
     flex-direction: column !important;
     border: 1px solid rgba(17, 17, 17, 0.1) !important;
     border-radius: 5px;
     color: #1A1A1A;
-}
-.market-apartments .apartment-prices {
+} */
+/* .market-apartments .apartment-prices {
     background: rgba(71, 51, 172, 0.1);
     border-top: 1px solid rgba(17, 17, 17, 0.1);
-}
+} */
 .market-apartments .apartment-location p {
-    color: #333333;
+    color: #555;
 }
 .market-apartments .core-ammenities { 
     color: #333;
@@ -244,6 +261,7 @@
     font-family: 'gilroy-medium';
     font-size: 42px;
     margin: 1rem;
+    color: #050213;
 }
 .get-listed-container button {
     display: flex;
@@ -272,14 +290,42 @@
         column-gap: 2rem;
         row-gap: 2rem;
     }
+    .available-spaces-container {
+        padding: 4rem 24px;
+    }
 }
 @media screen and (max-width: 786px) {
 
-    .market-container {
+    .market-container,
+    .available-spaces-container {
         padding: 4rem 1rem;
     }
+    .available-spaces header h3 {
+        font-size: 28px;
+    }
+    .available-spaces header .filter-btn {
+        width: 80px;
+        column-gap: .2rem;
+        align-items: center;
+    }
+    .filter-btn .iconify {
+        font-size: 20px;
+        transform: translateY(-3px);
+    }
+    .filter-btn p {
+        font-size: 16px;
+    }
+    .filter-form {
+        padding-top: 1.5rem;
+    }
+    .filter-inputs {
+        padding-top: 1rem;
+    }
+    .filter-inputs label {
+        top: 0rem;
+    }
     .apartments {
-        margin-top: 4rem;
+        margin-top: 2rem;
     }
     .apartment-prices {
         padding: .8rem 1.5rem;
@@ -290,5 +336,16 @@
     }
     .explore-cta  button{
         height: 55px !important;
+    }
+    .get-listed-container {
+        text-align: center;
+    }
+    .get-listed-container h3 {
+        font-size: 32px;
+        line-height: 50px;
+    }
+    .get-listed-container button {
+        width: 160px;
+        height: 50px;
     }
 }
