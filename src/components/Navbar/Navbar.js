@@ -4,7 +4,7 @@ import './navbar.css';
 import Dropdown from './Dropdown';
 // import Dropdown from './Dropdown';
 import logo from '../../images/logo.svg';
-import SearchIcon from '../../images/search-normal.svg';
+// import SearchIcon from '../../images/search-normal.svg';
 
 function NavBar() {
 //   const [click, setClick] = useState(false);
