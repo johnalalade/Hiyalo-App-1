@@ -9,7 +9,7 @@ const TopBar = ({ name }) => {
   return (
     <header class="top-bar">
       <div class="welcome-back">
-        <h3>Welcome, {name ? name : ""}</h3>
+        <h3>Welcome, {name ? name : ""} 😃</h3>
         <p>Go through what’s happening in your account</p>
       </div>
       <div class="top-bar-cta">
