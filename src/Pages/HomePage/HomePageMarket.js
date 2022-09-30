@@ -1,3 +1,4 @@
+import React from 'react';
 import './home-page-market.css';
 import { useState, useEffect } from 'react';
 import axios from 'axios';

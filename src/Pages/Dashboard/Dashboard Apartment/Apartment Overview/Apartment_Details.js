@@ -1,3 +1,4 @@
+import React from 'react';
 import { useEffect, useState } from 'react';
 import './Apartment_Details.css';
 import axios from 'axios';

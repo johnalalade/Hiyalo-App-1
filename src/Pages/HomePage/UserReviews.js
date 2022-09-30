@@ -1,6 +1,7 @@
+import React from 'react';
 import './user-reviews.css';
-import userImg from '../../images/bg.jpg'
-import reviewPattern from '../../images/review-pattern.svg'
+import userImg from '../../images/bg.jpg';
+import reviewPattern from '../../images/review-pattern.svg';
 const UserReviews = () => {
   return (
     <section class="user-review-container">
@@ -81,6 +82,19 @@ const UserReviews = () => {
           </article>
         </div>
       </main>
+      <footer className='reviews-nav'>
+        <div className="reviews-radio-btn">
+          <iconify-icon icon="ci:radio"></iconify-icon>
+          <iconify-icon icon="ci:radio-filled"></iconify-icon>
+          <iconify-icon icon="ci:radio"></iconify-icon>
+          {/* <iconify-icon icon="ci:radio"></iconify-icon> */}
+        </div>
+
+        <div className='reviews-arrow'>
+          <iconify-icon class='left-arrow' icon="bx:left-arrow-alt"></iconify-icon>
+          <iconify-icon class='right-arrow'  icon="bx:right-arrow-alt"></iconify-icon>
+        </div>
+      </footer>
 
       <aside>
         <img src={reviewPattern} alt="" />

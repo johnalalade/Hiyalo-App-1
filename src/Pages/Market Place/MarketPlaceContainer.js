@@ -1,3 +1,4 @@
+import React from 'react';
 import './market-place.css';
 import NavBar from '../../components/Navbar/Navbar';
 import Footer from '../../components/Footer/Footer';

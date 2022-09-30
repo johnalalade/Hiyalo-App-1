@@ -1,7 +1,8 @@
 // import searchIcon from '../../images/search-normal.svg';
 // import notificationIcon from '../../images/notification-bing.svg';
 import './topbar.css';
-
+import React from 'react'
+// import React from 'react'
 
 
 const TopBar = ({ name }) => {

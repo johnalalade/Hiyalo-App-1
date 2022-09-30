@@ -81,12 +81,12 @@
 .faq .faq-content {
     max-height: 0;
     overflow: hidden;
-    transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease;
   }
   .faq-content.shows {
     height: auto;
     max-height: 999px;
-    transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease;
     margin-top: 1.5rem;
   }
 .contact-us {

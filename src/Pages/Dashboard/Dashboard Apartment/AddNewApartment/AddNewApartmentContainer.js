@@ -1,4 +1,5 @@
 // import  {AddNewApartment}  from './AddNewApartment';
+import React from 'react';
 import AddNewApartment from './AddNewApartment';
 import SideBar from '../../../../components/Dashboard Navbar/SideBar';
 import TopBar from '../../../../components/Dashboard Navbar/TopBar';
