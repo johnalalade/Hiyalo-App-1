@@ -50,7 +50,7 @@
     width: 100%;
     margin: auto;
     padding: 1rem;
-    height: 350px;
+    height: 300px;
 }
 .user-review .user-details {
     display: flex;
@@ -94,8 +94,8 @@
     margin-top: 1.5rem;
 }
 
-#review-inactive-1 {
-    transform: scale(0.80);
+.review-inactive-1 {
+    transform: scale(0.75);
 }
 
 .reviews-nav {
@@ -104,7 +104,7 @@
     justify-content: space-between;
     align-items: center;
     position: relative;
-    margin-top: 6rem;
+    margin-top: 4rem;
     height: 50px;
     overflow: hidden;
 }

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { NavLink,  Link } from 'react-router-dom';
 import './navbar.css';
 import Dropdown from './Dropdown';
 // import Dropdown from './Dropdown';
@@ -30,40 +30,40 @@ function NavBar() {
   };
   return (
     <nav class="nav-bar">
-      <Link to='/' class="logo">
+      <NavLink to='/' class="logo">
         <img src={logo} alt="" />
-      </Link>
+      </NavLink>
       <ul class="nav-links">
         <li>
-          <Link to="/" className="nav-link">
+          <NavLink to="/" className="nav-link">
             Home
-          </Link>
+          </NavLink>
         </li>
         <li
           // className='nav-item'
           onMouseEnter={onMouseEnter}
           onMouseLeave={onMouseLeave}
         >
-          <Link to="/sign-up-agent" className="nav-link" >
+          <NavLink to="/sign-up-agent" className="nav-link" >
             Agent <iconify-icon icon="ri:arrow-drop-down-line"></iconify-icon>
-          </Link>
+          </NavLink>
           {dropdown && <Dropdown />}
         </li>
 
         <li>
-          <Link to="/market-place" className="nav-link">
+          <NavLink to="/marketplace" className="nav-link">
             Rent
-          </Link>
+          </NavLink>
         </li>
         <li>
-          <Link to="/" className="nav-link">
+          <NavLink to="/" className="nav-link">
             Rent Loan
-          </Link>
+          </NavLink>
         </li>
         <li>
-          <Link to="/" className="nav-link">
+          <NavLink to="/" className="nav-link">
             FAQ
-          </Link>
+          </NavLink>
         </li>
       </ul>
       <Link to="/sign-up-agent" class="cta-btn">

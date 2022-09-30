@@ -1,8 +1,32 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import './user-reviews.css';
 import userImg from '../../images/bg.jpg';
 import reviewPattern from '../../images/review-pattern.svg';
+import reviewsData from './ReviewsData'
+
 const UserReviews = () => {
+  const [reviews] = useState(reviewsData);
+  const [index, setIndex] = useState(0);
+
+  useEffect(() => {
+    const lastIndex = reviews.length - 1;
+    if (index < 0) {
+      setIndex(lastIndex);
+    }
+    if (index > lastIndex) {
+      setIndex(1);
+    }
+  }, [index, reviews]);
+
+  useEffect(() => {
+    let slider = setInterval(() => {
+      setIndex(index + 1);
+    }, 5000);
+    return () => {
+      clearInterval(slider);
+    };
+  }, [index]);
+
   return (
     <section class="user-review-container">
       <header>
@@ -14,7 +38,40 @@ const UserReviews = () => {
       </header>
 
       <main class="user-reviews">
-        <div class="user-review" id="review-inactive-1">
+        {reviews.map((review, indexReviews) => {
+          const { id, userImg, userFullname, userRole, reviewComment } = review;
+          let position = 'user-review review-inactive-1 ';
+          if (indexReviews === index) {
+            position = 'user-review review-active';
+          }
+          if (
+            indexReviews === index - 1 ||
+            (index === 0 && indexReviews === reviews.length - 1)
+          ) {
+            position = 'user-review review-inactive-1';
+          }
+
+          return (
+            <div className={position} key={id}>
+              <div class="user-details">
+                <img src={userImg} alt="" />
+                <span class="user-name">
+                  <p>{userFullname}</p>
+                  <small>{userRole}</small>
+                </span>
+              </div>
+              <article>
+                <iconify-icon
+                  class="quote-icon"
+                  icon="fontisto:quote-left"
+                ></iconify-icon>
+                <p>{reviewComment} </p>
+              </article>
+            </div>
+          );
+        })}
+
+        {/* <div class="user-review" id="review-inactive-1">
           <div class="user-details">
             <img src={userImg} alt="" />
             <span class="user-name">
@@ -80,9 +137,9 @@ const UserReviews = () => {
               dolor purus non porttitor rhoncus dolor purus non enim
             </p>
           </article>
-        </div>
+        </div> */}
       </main>
-      <footer className='reviews-nav'>
+      <footer className="reviews-nav">
         <div className="reviews-radio-btn">
           <iconify-icon icon="ci:radio"></iconify-icon>
           <iconify-icon icon="ci:radio-filled"></iconify-icon>
@@ -90,9 +147,20 @@ const UserReviews = () => {
           {/* <iconify-icon icon="ci:radio"></iconify-icon> */}
         </div>
 
-        <div className='reviews-arrow'>
-          <iconify-icon class='left-arrow' icon="bx:left-arrow-alt"></iconify-icon>
-          <iconify-icon class='right-arrow'  icon="bx:right-arrow-alt"></iconify-icon>
+        <div className="reviews-arrow">
+          <button  onClick={() => setIndex(index - 1)}>
+          <iconify-icon
+            class="left-arrow"
+            icon="bx:left-arrow-alt"
+          ></iconify-icon>
+          </button>
+          <button  onClick={() => setIndex(index + 1)}>
+          <iconify-icon
+            class="right-arrow"
+            icon="bx:right-arrow-alt"
+          ></iconify-icon>
+          </button>
+          
         </div>
       </footer>
 
