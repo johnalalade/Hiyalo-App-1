@@ -1,3 +1,4 @@
+import React from 'react'
 import './dashboard-apartment.css';
 import { useNavigate } from 'react-router-dom';
 import SideBar from '../../../../components/Dashboard Navbar/SideBar';
@@ -9,10 +10,10 @@ import PropertyDetails from './Apartment_Details';
 import PageLoader from '../../../../components/Loader/PageLoader';
 
 const ApartmentOverview = () => {
-  const [houses, setHouses] = useState([])
-  const [name, setName] = useState("")
-  const [page, setPage] = useState("overview")
-  const [filterStatus, setFilterStatus] = useState("all")
+  const [houses, setHouses] = useState([]);
+  const [name, setName] = useState('');
+  const [page, setPage] = useState('overview');
+  const [filterStatus, setFilterStatus] = useState('all');
   const [loading, setLoading] = useState(false);
   const [agent, setAgent] = useState({})
 
@@ -29,19 +30,19 @@ const ApartmentOverview = () => {
     },
     {
       filterType: 'Occupied',
-      availableApartment: houses.filter(h => h.status === "occupied").length,
+      availableApartment: houses.filter((h) => h.status === 'occupied').length,
     },
     {
       filterType: 'Vacant',
-      availableApartment: houses.filter(h => h.status === "vacant").length,
+      availableApartment: houses.filter((h) => h.status === 'vacant').length,
     },
     {
       filterType: 'Pending Request',
-      availableApartment: houses.filter(h => h.status === "pending").length,
+      availableApartment: houses.filter((h) => h.status === 'pending').length,
     },
     {
       filterType: 'Draft',
-      availableApartment: houses.filter(h => h.status === "draft").length,
+      availableApartment: houses.filter((h) => h.status === 'draft').length,
     },
   ];
 
@@ -85,41 +86,49 @@ const ApartmentOverview = () => {
   // ];
 
   useEffect(() => {
-    setLoading(true)
-    axios.post('https://hiyalo-backend.herokuapp.com/agents/agent-gateway/get-agent', { id: localStorage.getItem("id") })
-      .then(data => {
-
+    setLoading(true);
+    axios
+      .post(
+        'https://hiyalo-backend.herokuapp.com/agents/agent-gateway/get-agent',
+        { id: localStorage.getItem('id') }
+      )
+      .then((data) => {
         setName(data.data.agent.first_name)
         setAgent(data.data.agent)
-      })
+      });
 
-    axios.post("https://hiyalo-backend.herokuapp.com/houses/house-gateway/get-agent-houses", { agent_id: localStorage.getItem('id') })
-      .then(data => {
-        console.log(data.data)
-        setHouses(data.data.houses)
-        setLoading(false)
+    axios
+      .post(
+        'https://hiyalo-backend.herokuapp.com/houses/house-gateway/get-agent-houses',
+        { agent_id: localStorage.getItem('id') }
+      )
+      .then((data) => {
+        console.log(data.data);
+        setHouses(data.data.houses);
+        setLoading(false);
+
       })
-      .catch(err => {
-        setLoading(false)
+      .catch((err) => {
+        setLoading(false);
         console.log({
-          err
-        })
-      })
-  }, [])
+          err,
+        });
+      });
+  }, []);
 
   if (loading) {
     return (
       <div className="spinner">
-        <PageLoader color='#4733AC' />
+        <PageLoader color="#4733AC" />
       </div>
-    )
+    );
   }
 
   return (
     <section className="dashboard-container">
       <SideBar verified={agent.verified} />
 
-      {page === "details" ?
+      {page === 'details' ? (
         <main className="dashboard-main">
           <TopBar name={name} />
 
@@ -127,16 +136,19 @@ const ApartmentOverview = () => {
 
             <h4 onClick={() => { setPage("overview") }}><iconify-icon className='add-new-property-cta' icon="eva:arrow-back-outline"></iconify-icon> Apartments</h4>
 
+
             <button onClick={navigateToAddBasicInfo} type="button">
-              <iconify-icon className='add-new-property-cta' icon="akar-icons:plus"></iconify-icon>
+              <iconify-icon
+                className="add-new-property-cta"
+                icon="akar-icons:plus"
+              ></iconify-icon>
               <span> Add New Property</span>
             </button>
-
           </header>
 
           <PropertyDetails />
         </main>
-        :
+      ) : (
         <main className="dashboard-main">
           <TopBar name={name} />
 
@@ -144,7 +156,10 @@ const ApartmentOverview = () => {
             <header class="property-page-title">
               <h4>Apartments</h4>
               <button onClick={navigateToAddBasicInfo} type="button">
-                <iconify-icon className='add-new-property-cta' icon="akar-icons:plus"></iconify-icon>
+                <iconify-icon
+                  className="add-new-property-cta"
+                  icon="akar-icons:plus"
+                ></iconify-icon>
                 <span> Add New Property</span>
               </button>
             </header>
@@ -157,7 +172,16 @@ const ApartmentOverview = () => {
 
               {filterOptions.map((filteroption, idx) => {
                 return (
-                  <div className={filterStatus === filteroption.filterType.toLowerCase() ? "filter-option active-option" : "filter-option"} onClick={() => setFilterStatus(filteroption.filterType.toLowerCase())}>
+                  <div
+                    className={
+                      filterStatus === filteroption.filterType.toLowerCase()
+                        ? 'filter-option active-option'
+                        : 'filter-option'
+                    }
+                    onClick={() =>
+                      setFilterStatus(filteroption.filterType.toLowerCase())
+                    }
+                  >
                     <p>{filteroption.filterType}</p>
                     <span>{filteroption.availableApartment}</span>
                   </div>
@@ -167,6 +191,7 @@ const ApartmentOverview = () => {
           </main>
 
           <div class="apartment-list-container">
+
             {houses.length !== 0 ?
               <table class="apartments-list">
                 <thead>
@@ -189,6 +214,7 @@ const ApartmentOverview = () => {
                         localStorage.setItem("house_id", data._id)
                         setPage("details")
                       }}>
+
                         <td className="apartment-id">{data._id}</td>
                         <td className="apartment-images-overview">
                           <img src={data.images[0]} alt={data.address} />
@@ -197,11 +223,15 @@ const ApartmentOverview = () => {
                           <span> + {data.images.length - 3}</span>
                         </td>
 
-                        <td className="apartment-address">
-                          {data.address}
+
+                        <td className="apartment-address">{data.address}</td>
+                        <td className="apartment-price">
+                          {Number(data.annual_fee)
+                            .toFixed(2)
+                            .replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')}
                         </td>
-                        <td className="apartment-price">{Number(data.annual_fee).toFixed(2).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')}</td>
-                        <td>{data.status}</td>
+                        <td className="apartment-status">{data.status}</td>
+
                         <td>{data.createdAt}</td>
                         <td class="action-options">
                           <iconify-icon icon="carbon:overflow-menu-vertical"></iconify-icon>
@@ -209,6 +239,7 @@ const ApartmentOverview = () => {
                       </tr>
                     );
                   })}
+
                 </tbody>
 
               </table>
@@ -220,9 +251,10 @@ const ApartmentOverview = () => {
                 </button>
               </div>
             }
+
           </div>
         </main>
-      }
+      )}
     </section>
   );
 };

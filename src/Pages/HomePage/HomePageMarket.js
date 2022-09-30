@@ -1,3 +1,4 @@
+import React from 'react';
 import './home-page-market.css';
 import { Link } from 'react-router-dom';
 

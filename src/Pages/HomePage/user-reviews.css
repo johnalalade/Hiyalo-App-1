@@ -7,7 +7,7 @@
     background: #4733AC;
     color: #FFFF;
     padding: 4rem 0;
-    padding-bottom: 8rem;
+    padding-bottom: 4rem;
 }
 
 .user-review-container header {
@@ -95,15 +95,41 @@
 }
 
 #review-inactive-1 {
-    transform: scale(0.8);
+    transform: scale(0.80);
 }
 
+.reviews-nav {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    margin-top: 6rem;
+    height: 50px;
+    overflow: hidden;
+}
+.reviews-radio-btn {
+    display: flex;
+    column-gap: .2rem;
+    font-size: 24px;
+    margin: auto;
+}
+.reviews-arrow {
+    position: absolute;
+    right: 4rem;
+    font-size: 36px;
+}
+.left-arrow {
+    color: #ecececb2;
+}
 .user-review-container aside{
     font-family: 'gilroy-medium';
     position: absolute;
     right: 0;
     bottom: 0;
 }
+
+
 .user-review-container aside img {
     width: 150px;
 }

@@ -30,9 +30,9 @@ function NavBar() {
   };
   return (
     <nav class="nav-bar">
-      <div class="logo">
+      <Link to='/' class="logo">
         <img src={logo} alt="" />
-      </div>
+      </Link>
       <ul class="nav-links">
         <li>
           <Link to="/" className="nav-link">

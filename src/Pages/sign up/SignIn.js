@@ -1,3 +1,4 @@
+import React from 'react';
 import { useState } from 'react';
 import './sign-up.css';
 import SignNavBar from '../../components/sign up navbar/SignUpNavbar';

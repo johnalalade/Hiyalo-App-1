@@ -1,3 +1,4 @@
+import React from 'react';
 import './features.css';
 import flashIcon from '../../images/flash.svg';
 import walletIcon from '../../images/empty-wallet-tick.svg';

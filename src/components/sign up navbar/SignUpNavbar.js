@@ -8,9 +8,9 @@ function SignNavBar() {
 
     return (
         <nav class="nav-bar">
-        <div class="logo">
+        <Link to='/' class="logo">
             <img src={logo} alt="" />
-        </div>
+        </Link>
         
         <Link to="/marketplace" class="cta-btn">
             <img src={SearchIcon} alt="" />

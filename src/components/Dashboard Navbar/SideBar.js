@@ -1,3 +1,4 @@
+import React from 'react';
 import dashboardIcon from '../../images/dashboard.svg';
 import buildingsIcon from '../../images/buildings-2.svg';
 // import noteIcon from '../../images/note.svg';

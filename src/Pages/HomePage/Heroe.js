@@ -1,3 +1,4 @@
+import React from 'react';
 import './heroe.css'
 import NavBar from '../../components/Navbar/Navbar';
 import axios from 'axios';

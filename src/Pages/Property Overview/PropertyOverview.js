@@ -1,3 +1,4 @@
+import React from 'react';
 import { useEffect, useState } from 'react';
 import './property-overview.css';
 import NavBar from '../../components/Navbar/Navbar';

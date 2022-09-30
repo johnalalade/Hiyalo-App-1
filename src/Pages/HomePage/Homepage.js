@@ -1,4 +1,4 @@
-
+import React from 'react'
 import Heroe from './Heroe.js'
 import Features from './Features'
 import HomePageMarket from './HomePageMarket'

@@ -2,9 +2,14 @@ import React, { useState } from 'react';
 import './add-new-apartment.css';
 import { Link } from 'react-router-dom';
 
-export const ApartmentAmmenities = ({ nextStep, prevStep, handleChange, ammenities, finish }) => {
-
-  const [amenity, setAmenity] = useState(ammenities)
+export const ApartmentAmmenities = ({
+  nextStep,
+  prevStep,
+  handleChange,
+  ammenities,
+  finish,
+}) => {
+  const [amenity, setAmenity] = useState(ammenities);
 
   const continu = (e) => {
     // e.preventDefault();
@@ -12,10 +17,10 @@ export const ApartmentAmmenities = ({ nextStep, prevStep, handleChange, ammeniti
     handleChange({
       target: {
         value: amenity,
-        name: "ammenities"
-      }
-    })
-    console.log(ammenities)
+        name: 'ammenities',
+      },
+    });
+    console.log(ammenities);
   };
 
   const back = (e) => {
@@ -25,10 +30,11 @@ export const ApartmentAmmenities = ({ nextStep, prevStep, handleChange, ammeniti
     handleChange({
       target: {
         value: amenity,
-        name: "ammenities"
-      }
-    })
+        name: 'ammenities',
+      },
+    });
   };
+
 
   // const draft = () => {
 
@@ -49,43 +55,55 @@ export const ApartmentAmmenities = ({ nextStep, prevStep, handleChange, ammeniti
   //   finish()
   // }
 
+
+
+
   const add = (number, name) => {
+    if (amenity.filter((a) => a.name === name).length !== 0) {
+      console.log('f!');
+      let xx = amenity.indexOf(amenity.find((o) => o.name === name));
 
-    if (amenity.filter(a => a.name === name).length !== 0) {
-      console.log("f!")
-      let xx = amenity.indexOf(amenity.find(o => o.name === name))
-
-      setAmenity(amenity.map((obj, ix) => {
-        return ix === xx ? {
-          name,
-          number
-        } : obj
-      }))
-
-
+      setAmenity(
+        amenity.map((obj, ix) => {
+          return ix === xx
+            ? {
+                name,
+                number,
+              }
+            : obj;
+        })
+      );
     } else {
       if (number !== 0) {
-        console.log("ggg")
-        setAmenity([...amenity, {
-          name,
-          number
-        }])
+        console.log('ggg');
+        setAmenity([
+          ...amenity,
+          {
+            name,
+            number,
+          },
+        ]);
       }
       if (number === 0) {
-        setAmenity(amenity.filter(a => a.name !== name))
+        setAmenity(amenity.filter((a) => a.name !== name));
       }
     }
-
-  }
+  };
 
   return (
     <main class="add-new-property-container">
       <header>
-        <Link to="/apartments" class="apa" > <iconify-icon className='add-new-property-cta' icon="eva:arrow-back-outline"></iconify-icon>  Add New Apartment:</Link>
-        {/* <div class="add-property-cta">
-          <button type="submit" onClick={() => draft()}>Save as Draft</button>
-          <button type="submit" onClick={() => finish()} >Completed</button>
-        </div> */}
+
+        <h4>Add New Apartment:</h4>
+        <div class="add-property-cta">
+          <button type="submit" onClick={() => draft()}>
+            Save as Draft
+          </button>
+          <button type="submit" onClick={() => finish()}>
+            Completed
+          </button>
+        </div>
+
       </header>
 
       <div class="steps-filters">
@@ -123,18 +141,19 @@ export const ApartmentAmmenities = ({ nextStep, prevStep, handleChange, ammeniti
           <h4>Apartment Amenties</h4>
         </div>
         <form action="" class="amenities-info-form">
-
           <div className="amenity">
             <iconify-icon
               className="amenity-icons"
               icon="fluent:bed-16-regular"
             ></iconify-icon>
             <p>Bedroom</p>
+
             <input type="number"
               value={ammenities.find(o => o.name === "Bedroom") && ammenities.find(o => o.name === "Bedroom").number} placeholder="0"
               onChange={(ev) => {
                 add(ev.target.value, "Bedroom")
               }} />
+
           </div>
 
           <div className="amenity">
@@ -143,12 +162,14 @@ export const ApartmentAmmenities = ({ nextStep, prevStep, handleChange, ammeniti
               icon="cil:bathroom"
             ></iconify-icon>
             <p>Bathroom</p>
+
             <input type="number"
               placeholder="0"
               value={ammenities.find(o => o.name === "Bathroom") && ammenities.find(o => o.name === "Bathroom").number}
               onChange={(ev) => {
                 add(ev.target.value, "Bathroom")
               }} />
+
           </div>
 
           <div className="amenity">
@@ -157,12 +178,14 @@ export const ApartmentAmmenities = ({ nextStep, prevStep, handleChange, ammeniti
               icon="fe:kitchen-cooker"
             ></iconify-icon>
             <p>Kitchen</p>
+
             <input type="number"
               placeholder="0"
               value={ammenities.find(o => o.name === "Kitchen") && ammenities.find(o => o.name === "Kitchen").number}
               onChange={(ev) => {
                 add(ev.target.value, "Kitchen")
               }} />
+
           </div>
 
           <div className="amenity">
@@ -171,11 +194,13 @@ export const ApartmentAmmenities = ({ nextStep, prevStep, handleChange, ammeniti
               icon="material-symbols:dining-outline"
             ></iconify-icon>
             <p>Dining Room</p>
+
             <input type="number"
               placeholder="0"
               value={ammenities.find(o => o.name === "Dining Room") && ammenities.find(o => o.name === "Dining Room").number} onChange={(ev) => {
                 add(ev.target.value, "Dining Room")
               }} />
+
           </div>
 
           <div className="amenity">
@@ -184,12 +209,14 @@ export const ApartmentAmmenities = ({ nextStep, prevStep, handleChange, ammeniti
               icon="icon-park-outline:swimming-pool"
             ></iconify-icon>
             <p>Swimming pool</p>
+
             <input type="number"
               value={ammenities.find(o => o.name === "Swimming pool") && ammenities.find(o => o.name === "Swimming pool").number}
               placeholder="0"
               onChange={(ev) => {
                 add(ev.target.value, "Swimming pool")
               }} />
+
           </div>
 
           <div className="amenity">
@@ -198,12 +225,14 @@ export const ApartmentAmmenities = ({ nextStep, prevStep, handleChange, ammeniti
               icon="bx:store"
             ></iconify-icon>
             <p>Store room</p>
+
             <input type="number"
               value={ammenities.find(o => o.name === "Store room") && ammenities.find(o => o.name === "Store room").number}
               placeholder="0"
               onChange={(ev) => {
                 add(ev.target.value, "Store room")
               }} />
+
           </div>
 
           <div className="amenity">
@@ -212,13 +241,14 @@ export const ApartmentAmmenities = ({ nextStep, prevStep, handleChange, ammeniti
               icon="maki:parking-garage"
             ></iconify-icon>
             <p>Parking Space</p>
+
             <input type="number"
               value={ammenities.find(o => o.name === "Parking Space") && ammenities.find(o => o.name === "Parking Space").number} placeholder="0"
               onChange={(ev) => {
                 add(ev.target.value, "Parking Space")
               }} />
-          </div>
 
+          </div>
         </form>
         <div class="property-form-cta">
           <button type="submit" onClick={back}>
@@ -231,6 +261,6 @@ export const ApartmentAmmenities = ({ nextStep, prevStep, handleChange, ammeniti
       </div>
     </main>
   );
-}
+};
 
 export default ApartmentAmmenities;

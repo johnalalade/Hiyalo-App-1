@@ -1,3 +1,4 @@
+import React from 'react';
 import './about.css'
 import aboutPattern from '../../images/about-pattern.svg'
 import { Link } from 'react-router-dom';
