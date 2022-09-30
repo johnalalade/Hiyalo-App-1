@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import uploadIllustration from '../../../../images/add-photo-illustration.svg'
 import './add-new-apartment.css';
+import { Link } from 'react-router-dom';
 
 export const ApartmentGallery = ({ nextStep, prevStep, images, handleChange, finish }) => {
 
@@ -31,35 +32,35 @@ export const ApartmentGallery = ({ nextStep, prevStep, images, handleChange, fin
     })
   };
 
-  const draft = () => {
+  // const draft = () => {
 
-    handleChange({
-      target: {
-        value: files,
-        name: "images"
-      }
-    })
+  //   handleChange({
+  //     target: {
+  //       value: files,
+  //       name: "images"
+  //     }
+  //   })
 
-    handleChange({
-      target: {
-        value: "draft",
-        name: "status"
-      }
-    })
+  //   handleChange({
+  //     target: {
+  //       value: "draft",
+  //       name: "status"
+  //     }
+  //   })
 
-    finish()
-  }
+  //   finish()
+  // }
 
 
 
   return (
     <main className="add-new-property-container">
       <header>
-        <h4>Add New Apartment:</h4>
-        <div className="add-property-cta">
+        <Link to="/apartments" class="apa" > <iconify-icon className='add-new-property-cta' icon="eva:arrow-back-outline"></iconify-icon>  Add New Apartment:</Link>
+        {/* <div className="add-property-cta">
           <button type="submit" onClick={() => draft()}>Save as Draft</button>
           <button type="submit" onClick={() => finish()} >Completed</button>
-        </div>
+        </div> */}
       </header>
 
       <div className="steps-filters">
@@ -84,7 +85,7 @@ export const ApartmentGallery = ({ nextStep, prevStep, images, handleChange, fin
           <p>Address</p>
           <span>04</span>
         </div>
-        
+
         <div className="step-connector"></div>
         <div className="step">
           <p>Payment</p>

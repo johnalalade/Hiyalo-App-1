@@ -1,6 +1,7 @@
 import React from 'react';
 import states from '../../../../components/states'
 import './add-new-apartment.css';
+import { Link } from 'react-router-dom';
 
 const ApartmentAddress = ({ nextStep, prevStep, address, state, city, handleChange, finish }) => {
 
@@ -13,26 +14,26 @@ const ApartmentAddress = ({ nextStep, prevStep, address, state, city, handleChan
     prevStep();
   };
 
-  const draft = () => {
+  // const draft = () => {
 
-    handleChange({
-      target: {
-        value: "draft",
-        name: "status"
-      }
-    })
+  //   handleChange({
+  //     target: {
+  //       value: "draft",
+  //       name: "status"
+  //     }
+  //   })
 
-    finish()
-  }
+  //   finish()
+  // }
 
   return (
     <main class="add-new-property-container">
       <header>
-        <h4>Add New Apartment:</h4>
-        <div class="add-property-cta">
+        <Link to="/apartments" class="apa" > <iconify-icon className='add-new-property-cta' icon="eva:arrow-back-outline"></iconify-icon>  Add New Apartment:</Link>
+        {/* <div class="add-property-cta">
           <button type="submit" onClick={() => draft()}>Save as Draft</button>
           <button type="submit" onClick={() => finish()} >Completed</button>
-        </div>
+        </div> */}
       </header>
 
       <div class="steps-filters">

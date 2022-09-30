@@ -6,6 +6,9 @@ import TopBar from '../../../components/Dashboard Navbar/TopBar';
 import './dashboard-overview.css';
 import { Link } from 'react-router-dom';
 import PageLoader from '../../../components/Loader/PageLoader';
+import DashboardModal from './DashboardModal';
+
+import CardImg from '../../../images/card.svg'
 
 const DashboardOverview = () => {
   const [name, setName] = useState("")
@@ -13,6 +16,7 @@ const DashboardOverview = () => {
   const [houses, setHouses] = useState([])
   const [loading, setLoading] = useState(false);
   const [transactions, setTransactions] = useState([]);
+  const [modal, setModal] = useState(false);
 
 
   useEffect(() => {
@@ -29,6 +33,7 @@ const DashboardOverview = () => {
         console.log(data.data)
         setHouses(data.data.houses)
         setLoading(false)
+        if (data.data.houses.length === 0) { setModal(true) }
       })
       .catch(err => {
         setLoading(false)
@@ -60,116 +65,136 @@ const DashboardOverview = () => {
     )
   }
 
+  // if(houses.length === 0) {
+  //   setModal(true)
+  // }
+
   return (
 
 
     agent.first_name && <section className="dashboard-container">
-      <SideBar />
+      <SideBar verified={agent.verified} />
 
-      <main className="dashboard-main">
-        <TopBar name={name} />
+      {modal ? <DashboardModal setModal={setModal} /> :
 
-        <div className="page-title">
-          <h4>Account Overview:</h4>
-          <span class="overview-date">
-            <button>September, 2022</button>
-          </span>
-        </div>
+        <main className="dashboard-main">
+          <TopBar name={name} />
 
-        <div class="overview-header">
-          <div class="total-income">
-            <header>Total Income Revenue</header>
-            <span class="total-amount">&#8358; {Number(agent.balance).toFixed(2).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')}</span>
-            <span class="unpaid-stat">
-              {/* <p>% Unpaid</p>
+          <div className="page-title">
+            <h4>Account Overview:</h4>
+            {/* <span class="overview-date">
+              <button>September, 2022</button>
+            </span> */}
+          </div>
+
+          <div class="overview-header">
+            <div class="total-income">
+              <header>Total Income Revenue</header>
+              <span class="total-amount">&#8358; {Number(agent.balance).toFixed(2).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')}</span>
+              <span class="unpaid-stat">
+                {/* <p>% Unpaid</p>
               <p>85%</p> */}
-            </span>
+              </span>
+            </div>
+            <div class="total-outstanding">
+              <header>Available Balance</header>
+              <span class="total-amount">&#8358; {Number(agent.outstanding_payments).toFixed(2).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')}</span>
+              <span class="total-outstanding-cta">
+                <button>Messages</button>
+                <button>Withdraw</button>
+              </span>
+            </div>
+
+            <div class="properties-amount">
+              <span class="total-properties">
+                <header>
+                  <h6>Total Properties</h6>
+                </header>
+                <p>{houses[0] && houses.length}</p>
+              </span>
+
+              <span class="active-properties">
+                <header>
+                  <h6>Vacant Properties</h6>
+                </header>
+                <p>{houses[0] && houses.filter(h => h.status === "vacant").length}</p>
+              </span>
+            </div>
           </div>
-          <div class="total-outstanding">
-            <header>outstanding Payments</header>
-            <span class="total-amount">&#8358; {Number(agent.outstanding_payments).toFixed(2).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')}</span>
-            <span class="total-outstanding-cta">
-              <button>Messages</button>
-              <button>Withdraw</button>
-            </span>
-          </div>
 
-          <div class="properties-amount">
-            <span class="total-properties">
-              <header>
-                <h6>Total Properties</h6>
-              </header>
-              <p>{houses[0] && houses.length}</p>
-            </span>
-
-            <span class="active-properties">
-              <header>
-                <h6>Vacant Properties</h6>
-              </header>
-              <p>{houses[0] && houses.filter(h => h.status === "vacant").length}</p>
-            </span>
-          </div>
-        </div>
-
-        <div class="transaction-history-overview">
-          <header>
-            <h6>Payment History:</h6>
-            <Link to="/payments">see all</Link>
-          </header>
-          <table class="apartments-list payment-history">
-            <thead>
-              <tr>
-                <th>PaymentID</th>
-                <th>Name</th>
-                <th>Status</th>
-                <th>Amount</th>
-                <th>Date</th>
-                <th>Type</th>
-                <th>Action</th>
-              </tr>
-            </thead>
-
-            <tbody>
-              {transactions.map(transaction =>
+          <div class="transaction-history-overview">
+            <header>
+              <h6>Payment History:</h6>
+              <Link to="/payments">see all</Link>
+            </header>
+            <table class="apartments-list payment-history">
+              <thead>
                 <tr>
-                  <td class="apartment-id payment id">
-                    <p>{transaction._id}</p>
-                  </td>
-
-                  <td class="name">
-                    <p>{transaction.name}</p>
-                  </td>
-
-                  <td class="payment-status">
-                    <p> {transaction.status}</p>
-                  </td>
-
-                  <td class="apartment-price">
-                    <p> &#8358; {Number(transaction.amount).toFixed(2).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')}</p>
-                  </td>
-
-                  <td class="date-added">
-                    <p>{transaction.createdAt}</p>
-                  </td>
-
-                  <td class="type">
-                    <p>{transaction.type}</p>
-                  </td>
-
-                  <td class="action-options payment-actions">
-                    <iconify-icon
-                      class="action-icon"
-                      icon="carbon:overflow-menu-vertical"
-                    ></iconify-icon>
-                  </td>
+                  <th>PaymentID</th>
+                  <th>Name</th>
+                  <th>Status</th>
+                  <th>Amount</th>
+                  <th>Date</th>
+                  <th>Type</th>
+                  <th>Action</th>
                 </tr>
-              )}
+              </thead>
 
 
-            </tbody>
-          </table>
-        </div>
-      </main>
+              {transactions.length !== 0 &&
+                <tbody>
+                  {transactions.map(transaction =>
+                    <tr>
+                      <td class="apartment-id payment id">
+                        <p>{transaction._id}</p>
+                      </td>
+
+                      <td class="name">
+                        <p>{transaction.name}</p>
+                      </td>
+
+                      <td class="payment-status">
+                        <p> {transaction.status}</p>
+                      </td>
+
+                      <td class="apartment-price">
+                        <p> &#8358; {Number(transaction.amount).toFixed(2).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')}</p>
+                      </td>
+
+                      <td class="date-added">
+                        <p>{transaction.createdAt}</p>
+                      </td>
+
+                      <td class="type">
+                        <p>{transaction.type}</p>
+                      </td>
+
+                      <td class="action-options payment-actions">
+                        <iconify-icon
+                          class="action-icon"
+                          icon="carbon:overflow-menu-vertical"
+                        ></iconify-icon>
+                      </td>
+                    </tr>
+                  )}
+                </tbody>
+              }
+
+
+
+            </table>
+
+            { transactions.length === 0 &&
+              <div className='trans-img'>
+              <img src={CardImg} alt="no transactions yet" />
+              <p>No transactions yet... upload a house to start seeing money roll in 😉</p>
+            </div>
+            }
+          </div>
+        </main>
+
+      }
+
     </section>
 
   );

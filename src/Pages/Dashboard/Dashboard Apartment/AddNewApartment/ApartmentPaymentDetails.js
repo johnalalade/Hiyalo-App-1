@@ -1,6 +1,7 @@
 import React from 'react';
 import './add-new-apartment.css';
 import PageLoader from '../../../../components/Loader/PageLoader';
+import { Link } from 'react-router-dom';
 
 export const ApartmentPaymentDetails = ({ prevStep, annual_fee, agency_fee, caution_fee, stamp_fee, handleChange, finish, loading }) => {
 
@@ -10,7 +11,7 @@ export const ApartmentPaymentDetails = ({ prevStep, annual_fee, agency_fee, caut
   const continu = (e) => {
     // e.preventDefault();
     // nextStep();
-    
+
     finish()
   };
 
@@ -19,17 +20,18 @@ export const ApartmentPaymentDetails = ({ prevStep, annual_fee, agency_fee, caut
     prevStep();
   };
 
-  const draft = () => {
+  // const draft = () => {
 
-    handleChange({
-      target: {
-        value: "draft",
-        name: "status"
-      }
-    })
+  //   handleChange({
+  //     target: {
+  //       value: "draft",
+  //       name: "status"
+  //     }
+  //   })
 
-    finish()
-  }
+  //   finish()
+  // }
+
   if (loading) {
     return (
       <div className="spinner">
@@ -40,11 +42,11 @@ export const ApartmentPaymentDetails = ({ prevStep, annual_fee, agency_fee, caut
   return (
     <main class="add-new-property-container">
       <header>
-        <h4>Add New Apartment:</h4>
-        <div class="add-property-cta">
+        <Link to="/apartments" class="apa" > <iconify-icon className='add-new-property-cta' icon="eva:arrow-back-outline"></iconify-icon>  Add New Apartment:</Link>
+        {/* <div class="add-property-cta">
           <button type="submit" onClick={() => draft()}>Save as Draft</button>
           <button type="submit" onClick={() => finish()}>Completed</button>
-        </div>
+        </div> */}
       </header>
 
       <div class="steps-filters">
@@ -84,25 +86,28 @@ export const ApartmentPaymentDetails = ({ prevStep, annual_fee, agency_fee, caut
         <form action="" class="basic-info-form">
           <div class="col-1">
             <label for="payment"> Annual Rent Fee (&#8358;) </label>
-            <input type="number" name='annual_fee' value={annual_fee} placeholder="enter annual rent fee" onChange={(e) => handleChange(e)} />
+
+            <input type="text" name='annual_fee' value={annual_fee } placeholder="enter annual rent fee" onChange={(e) => handleChange(e)} />
 
             <label for="agency fee">Agency & Agreement Fee (&#8358;)</label>
+
             <input
-              type="number"
+              type="text"
               placeholder="enter the angency fee & Agreement Fee"
               name='agency_fee' value={agency_fee} onChange={(e) => handleChange(e)}
             />
 
-            <label for="caution fee">Caution Fee (&#8358;)</label>
-            <input type="number" placeholder="enter the caution fee" name='caution_fee' value={caution_fee} onChange={(e) => handleChange(e)} />
+            <label for="caution fee">Caution Fee (If any) (&#8358;) </label>
+
+            <input type="text" placeholder="enter the caution fee" name='caution_fee' value={caution_fee} onChange={(e) => handleChange(e)} />
 
           </div>
-          <div class="col-2">
+          {/* <div class="col-2">
             <label for="stamp duty">Stamp Duty Fee (&#8358;)</label>
             <input type="number" placeholder="stamp duty fee" name='stamp_fee' value={stamp_fee} onChange={(e) => handleChange(e)} />
 
             <aside>Total Fee is (&#8358;){(Number(annual_fee) + Number(agency_fee) + Number(caution_fee) + Number(stamp_fee)).toFixed(2).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')}</aside>
-          </div>
+          </div> */}
         </form>
 
         <div class="property-form-cta">

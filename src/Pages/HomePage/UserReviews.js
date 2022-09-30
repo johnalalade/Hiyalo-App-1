@@ -8,8 +8,7 @@ const UserReviews = () => {
       <header>
         <h2>User Reviews</h2>
         <p>
-          Over 200+ Tenant on hiyalo and over 100+ Agent has properties listed
-          and managed on Hiyalo
+          Here are reviews from Agents and Tenants who use Hiyalo
         </p>
       </header>
 
@@ -41,8 +40,8 @@ const UserReviews = () => {
           <div class="user-details">
             <img src={userImg} alt="" />
             <span class="user-name">
-              <p>Olakunbi Olabode</p>
-              <small>Tenant</small>
+              <p>David Olateru</p>
+              <small>Agent</small>
             </span>
           </div>
           <article>
@@ -51,11 +50,7 @@ const UserReviews = () => {
               icon="fontisto:quote-left"
             ></iconify-icon>
             <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit ut
-              aliquam, purus sit amet luctus venenatis, lectus agna fringilla
-              urna, porttitor rhoncus dolor purus non porttitor rhoncus dolor
-              purus non enim lectus magna fringilla urna, porttitor rhoncus
-              dolor purus non porttitor rhoncus dolor purus non enim
+              Hiyalo has helped take the load of searching for tenants off by providing a market place to list apartments. Providing fast and secure payment and ease of upload.
             </p>
           </article>
         </div>

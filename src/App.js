@@ -13,6 +13,7 @@ import AddNewApartmentContainer from './Pages/Dashboard/Dashboard Apartment/AddN
 import GeneralSettingsContainer from './Pages/Dashboard/Dashboard Settings/GeneralSettingsContainer';
 import DashboardPayment from './Pages/Dashboard/Dashboard Payment/Dashboard_Payment';
 import PageLoader from './components/Loader/PageLoader';
+import PrivacyPolicy from './Pages/Privacy_Policy/Privacy_Policy';
 // import ApartmentBasicInfo from './Pages/Dashboard/Dashboard Apartment/AddNewApartment/ApartmentBasicInfo';
 // import ApartmentAddress from './Pages/Dashboard/Dashboard Apartment/AddNewApartment/ApartementAddress';
 // import ApartmentAmmenities from './Pages/Dashboard/Dashboard Apartment/AddNewApartment/ApartmentAmmenities';
@@ -25,12 +26,12 @@ function App() {
       <Router>
         <Routes>
           <Route path="/" element={<HomePage />}></Route>
-       
+
           <Route
             path="/property-overview"
             element={<PropertyOverview />}
           ></Route>
-          
+
           <Route path="/sign-up-agent" element={<SignUp />}></Route>
           <Route path="/sign-in-agent" element={<SignIn />}></Route>
           <Route path="/marketplace" element={<MarketPlace />}></Route>
@@ -42,10 +43,12 @@ function App() {
             path="/apartments/add-new-apartment"
             element={<AddNewApartmentContainer />}
           ></Route>
-                    <Route
+          <Route
             path="/loader"
             element={<PageLoader />}
           ></Route>
+
+          <Route path="/privacy-policy" element={<PrivacyPolicy />}></Route>
           {/* <Route
             path="/apartments/add-apartment-basic-info"
             element={<ApartmentBasicInfo />}

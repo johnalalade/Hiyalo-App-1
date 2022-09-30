@@ -41,7 +41,7 @@ const GeneralSettingsContainer = () => {
 
   return (
     <section className="dashboard-container">
-      <SideBar />
+      <SideBar verified={agent.verified} />
 
       <main className="dashboard-main">
         <TopBar name={name}/>
@@ -106,6 +106,7 @@ const GeneralSettingsContainer = () => {
             phonee={agent.phone}
             doc_number={agent.document_number}
             bn={agent.bvn}
+            verified={agent.verified}
           />}
 
           {toggleState === 2 && <PaymentBankDetailsSettings

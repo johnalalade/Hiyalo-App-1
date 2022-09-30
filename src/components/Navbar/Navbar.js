@@ -4,7 +4,7 @@ import './navbar.css';
 import Dropdown from './Dropdown';
 // import Dropdown from './Dropdown';
 import logo from '../../images/logo.svg';
-import SearchIcon from '../../images/search-normal.svg';
+// import SearchIcon from '../../images/search-normal.svg';
 
 function NavBar() {
 //   const [click, setClick] = useState(false);
@@ -51,15 +51,17 @@ function NavBar() {
         </li>
 
         <li>
-          <Link to="/market-place" className="nav-link">
+          <Link to="/marketplace" className="nav-link">
             Rent
           </Link>
         </li>
-        <li>
+
+        {/* <li>
           <Link to="/" className="nav-link">
             Rent Loan
           </Link>
-        </li>
+        </li> */}
+
         <li>
           <Link to="/" className="nav-link">
             FAQ
@@ -67,7 +69,7 @@ function NavBar() {
         </li>
       </ul>
       <Link to="/sign-up-agent" class="cta-btn">
-        <img src={SearchIcon} alt="" />
+        {/* <img src={SearchIcon} alt="" /> */}
         <button type="button">Login</button>
       </Link>
       <div class="hamburger">
