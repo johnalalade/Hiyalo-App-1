@@ -8,6 +8,8 @@ import { Link } from 'react-router-dom';
 import PageLoader from '../../../components/Loader/PageLoader';
 import DashboardModal from './DashboardModal';
 
+import CardImg from '../../../images/card.svg'
+
 const DashboardOverview = () => {
   const [name, setName] = useState("")
   const [agent, setAgent] = useState({})
@@ -31,7 +33,7 @@ const DashboardOverview = () => {
         console.log(data.data)
         setHouses(data.data.houses)
         setLoading(false)
-        if(data.data.houses.length === 0) {setModal(true)}
+        if (data.data.houses.length === 0) { setModal(true) }
       })
       .catch(err => {
         setLoading(false)
@@ -73,16 +75,16 @@ const DashboardOverview = () => {
     agent.first_name && <section className="dashboard-container">
       <SideBar verified={agent.verified} />
 
-      {modal ? <DashboardModal setModal={setModal}/> :
+      {modal ? <DashboardModal setModal={setModal} /> :
 
         <main className="dashboard-main">
           <TopBar name={name} />
 
           <div className="page-title">
             <h4>Account Overview:</h4>
-            <span class="overview-date">
+            {/* <span class="overview-date">
               <button>September, 2022</button>
-            </span>
+            </span> */}
           </div>
 
           <div class="overview-header">
@@ -95,7 +97,7 @@ const DashboardOverview = () => {
               </span>
             </div>
             <div class="total-outstanding">
-              <header>outstanding Payments</header>
+              <header>Available Balance</header>
               <span class="total-amount">&#8358; {Number(agent.outstanding_payments).toFixed(2).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')}</span>
               <span class="total-outstanding-cta">
                 <button>Messages</button>
@@ -138,45 +140,56 @@ const DashboardOverview = () => {
                 </tr>
               </thead>
 
-              <tbody>
-                {transactions.map(transaction =>
-                  <tr>
-                    <td class="apartment-id payment id">
-                      <p>{transaction._id}</p>
-                    </td>
 
-                    <td class="name">
-                      <p>{transaction.name}</p>
-                    </td>
+              {transactions.length !== 0 &&
+                <tbody>
+                  {transactions.map(transaction =>
+                    <tr>
+                      <td class="apartment-id payment id">
+                        <p>{transaction._id}</p>
+                      </td>
 
-                    <td class="payment-status">
-                      <p> {transaction.status}</p>
-                    </td>
+                      <td class="name">
+                        <p>{transaction.name}</p>
+                      </td>
 
-                    <td class="apartment-price">
-                      <p> &#8358; {Number(transaction.amount).toFixed(2).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')}</p>
-                    </td>
+                      <td class="payment-status">
+                        <p> {transaction.status}</p>
+                      </td>
 
-                    <td class="date-added">
-                      <p>{transaction.createdAt}</p>
-                    </td>
+                      <td class="apartment-price">
+                        <p> &#8358; {Number(transaction.amount).toFixed(2).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')}</p>
+                      </td>
 
-                    <td class="type">
-                      <p>{transaction.type}</p>
-                    </td>
+                      <td class="date-added">
+                        <p>{transaction.createdAt}</p>
+                      </td>
 
-                    <td class="action-options payment-actions">
-                      <iconify-icon
-                        class="action-icon"
-                        icon="carbon:overflow-menu-vertical"
-                      ></iconify-icon>
-                    </td>
-                  </tr>
-                )}
+                      <td class="type">
+                        <p>{transaction.type}</p>
+                      </td>
+
+                      <td class="action-options payment-actions">
+                        <iconify-icon
+                          class="action-icon"
+                          icon="carbon:overflow-menu-vertical"
+                        ></iconify-icon>
+                      </td>
+                    </tr>
+                  )}
+                </tbody>
+              }
 
 
-              </tbody>
+
             </table>
+
+            { transactions.length === 0 &&
+              <div className='trans-img'>
+              <img src={CardImg} alt="no transactions yet" />
+              <p>No transactions yet... upload a house to start seeing money roll in 😉</p>
+            </div>
+            }
           </div>
         </main>
 

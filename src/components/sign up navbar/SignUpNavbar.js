@@ -12,9 +12,9 @@ function SignNavBar() {
             <img src={logo} alt="" />
         </div>
         
-        <Link to="/sign-in-agent" class="cta-btn">
+        <Link to="/marketplace" class="cta-btn">
             <img src={SearchIcon} alt="" />
-            <button type="button">Login</button>
+            {/* <button type="button">Login</button> */}
         </Link>
         <div class="hamburger">
             <div></div>

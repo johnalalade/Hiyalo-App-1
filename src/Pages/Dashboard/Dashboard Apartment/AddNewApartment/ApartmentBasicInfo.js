@@ -94,10 +94,10 @@ export const ApartmentBasicInfo = ({ nextStep, handleChange, property_type, hous
 
           </div>
           <div>
-            <label for="description">General Description</label>
-            <textarea name="description" id="" rows="6" value={description} onChange={(e) => handleChange(e)}></textarea>
+            <label for="description">General Information</label>
+            <textarea name="description" id="" rows="6" value={description} onChange={(e) => handleChange(e)} placeholder="Inform people on what they should know about the house... eg: The house is painted blue, no dogs allowed" ></textarea>
             <span class="form-message-info">
-              <p>Minimum of 60 words and Maximum of 120 words</p>
+              <p>Inform users what to expect</p>
             </span>
           </div>
         </form>

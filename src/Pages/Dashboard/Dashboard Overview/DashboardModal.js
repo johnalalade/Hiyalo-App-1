@@ -7,7 +7,7 @@ const DashboardModal = ({ setModal }) => {
       <div className="apartment-added-modal">
         <img src={VerifySuccess} alt="" />
 
-        <h4>Welcome to Hiyalo, Dear Agent</h4>
+        <h4>Welcome to Hiyalo, Comrade</h4>
 
         <p>
           Now that you are here lets get your first apartment on Hiyalo uploaded

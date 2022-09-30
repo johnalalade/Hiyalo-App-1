@@ -6,19 +6,19 @@ import secureIcon from '../../images/shield-security.svg';
 const Features = () => {
   const offers = [
     {
-      title: 'Search',
+      title: 'House hunt with convenience',
       paragraph:
-        'Another stressful day of property hunting without progress? Not to worry! Hiyalo provides a virtual and live tour of your prospective home. With our virtual tour, you can make the right choice from wherever you are.',
+        "Another stressful day of property hunting without progress? Not to worry! Hiyalo provides a virtual and live tour of your prospective home. Our virtual tour helps you make the right choice from wherever you are. Our live tour takes you to and from your prospective home",
       icon: flashIcon,
     },
     {
-      title: 'Security',
+      title: 'Stay safe with Hiyalo.',
       paragraph:
         'Never be a victim of fraudulent agents. At Hiyalo we make sure your payments are secure: connecting you with verified house agents and certified properties',
       icon: walletIcon,
     },
     {
-      title: 'Search',
+      title: 'Flexible Payment.',
       paragraph:
         "Little or no cash for an upfront payment? you don't have to forfeit your dream property. Hiyalo provides you with flexible payment plans. You can pay conveniently in installments ",
       icon: secureIcon,

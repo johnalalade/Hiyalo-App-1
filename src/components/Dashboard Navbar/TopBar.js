@@ -10,7 +10,7 @@ const TopBar = ({ name }) => {
     <header class="top-bar">
       <div class="welcome-back">
         <h3>Welcome, {name ? name : ""} 😃</h3>
-        <p>Go through what’s happening in your account</p>
+        <p>Comrade, what's popping cheif ?!</p>
       </div>
       <div class="top-bar-cta">
         {/* <span class="search-btn">
@@ -25,10 +25,10 @@ const TopBar = ({ name }) => {
         </span> */}
         <div class="profile-settings">
           <img src={userAvatar} alt="" />
-          <iconify-icon
+          {/* <iconify-icon
             class="iconify-dropdown"
             icon="ri:arrow-drop-down-line"
-          ></iconify-icon>
+          ></iconify-icon> */}
         </div>
       </div>
     </header>
