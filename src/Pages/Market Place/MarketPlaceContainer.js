@@ -7,11 +7,41 @@ import { useEffect, useState } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 import PageLoader from '../../components/Loader/PageLoader';
+import states from '../../components/states';
 
 const MarketPlace = () => {
+  const [filterActive, setfitlerActive] = useState(null);
+  let i = 0;
+  const toggle = (i) => {
+    if (filterActive === i) {
+      return setfitlerActive(null);
+    }
+    setfitlerActive(i);
+  };
+
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [filterStatus, setFilterStatus] = useState("all")
+  const [filterStatus, setFilterStatus] = useState('all');
+  const [state, setState] = useState('Choose State');
+  const [search_data, setSearchData] = useState('');
+
+  const search = (ev) => {
+    ev.preventDefault();
+    let data = {
+      search: search_data,
+    };
+
+    axios
+      .post(
+        'https://hiyalo-backend.herokuapp.com/houses/house-gateway/search-houses',
+        data
+      )
+      .then((res) => {
+        if (res.data.message === 'success') {
+          setData(res.data.houses);
+        }
+      });
+  };
 
   useEffect(() => {
     setLoading(true);
@@ -44,18 +74,47 @@ const MarketPlace = () => {
 
       <section className="available-spaces-container">
         <main class="available-spaces">
-          <header>
-            <h3>Available Spaces</h3>
-            <button className="filter-btn">
+          <form class="heroe-form">
+            <input
+              type="text"
+              placeholder="Search based on your loaction"
+              onChange={(ev) => setSearchData(ev.target.value)}
+            />
+
+            <button type="submit" onClick={(ev) => search(ev)}>
               <iconify-icon
-                class="iconify" 
-                icon="material-symbols:filter-list"
+                class="location-icon"
+                icon="lucide:locate-fixed"
               ></iconify-icon>
+              <p>Search</p>
+            </button>
+          </form>
+          <header>
+            <h3>Available Spaces:</h3>
+            <button className="filter-btn" onClick={() => toggle(i)}>
+              {filterActive === i ? (
+                <iconify-icon
+                  class="filter-iconify filter-close-icon"
+                  icon="ic:baseline-filter-list"
+                ></iconify-icon>
+              ) : (
+                <iconify-icon
+                  class="filter-iconify"
+                  icon="ic:baseline-filter-list"
+                ></iconify-icon>
+              )}
+
               <p>Filter</p>
             </button>
           </header>
-          <div className="filter-form">
 
+          <div
+            className={
+              filterActive === i
+                ? 'filter-form active-filter-form'
+                : 'filter-form'
+            }
+          >
             {/* <div className="filter-inputs">
               <label for="#">Location</label>
               <input type="text" placeholder="your preferred location" />
@@ -77,12 +136,23 @@ const MarketPlace = () => {
               <label for="#">Minimum Price</label>
               <input type="number" placeholder="&#8358;0.00" />
             </div> */}
+            <div className="filter-inputs">
+              <label for="#">Location</label>
+              <select
+                name="state"
+                value={state}
+                onChange={(e) => setState(e.target.value)}
+              >
+                {states.map((st) => (
+                  <option value={st}>{st}</option>
+                ))}
+              </select>
+            </div>
 
             {/* <div className="filter-inputs">
               <label for="#">Maximum Price</label>
               <input type="text" placeholder="&#8358;0.00" />
             </div> */}
-
           </div>
 
           <div className="apartments market-apartments">
@@ -90,17 +160,21 @@ const MarketPlace = () => {
             <Apartment apartment={apartment} /> */}
 
             <div className="apartments market-apartments">
-              {data.filter(h => filterStatus === "all" ? h : h.house_type === filterStatus).map((apartment) => (
-                <Apartment apartment={apartment} />
-              ))}
+              {data
+                .filter((h) =>
+                  filterStatus === 'all' ? h : h.house_type === filterStatus
+                )
+                .filter((h2) =>
+                  state === 'Choose State' ? h2 : h2.state === state
+                )
+                .slice(0, 4)
+                .map((apartment) => (
+                  <Apartment apartment={apartment} />
+                ))}
             </div>
           </div>
-
-
         </main>
-        <div>
-          
-        </div>
+        <div></div>
 
         <div class="get-listed-container">
           <p>Are You An Agent/Realtor?</p>
@@ -110,7 +184,6 @@ const MarketPlace = () => {
           </Link>
         </div>
       </section>
-
 
       <Footer />
     </section>

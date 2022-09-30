@@ -9,7 +9,7 @@ import './Dashboard_Payment.css';
 const DashboardPayment = () => {
 
     const [name, setName] = useState("")
-    // const [agent, setAgent] = useState({})
+    const [agent, setAgent] = useState({})
     const [loading, setLoading] = useState(true)
 
     const [transactions, setTransactions] = useState([]);
@@ -18,7 +18,7 @@ const DashboardPayment = () => {
 
         axios.post('https://hiyalo-backend.herokuapp.com/agents/agent-gateway/get-agent', { id: localStorage.getItem("id") })
             .then(data => {
-                // setAgent(data.data.agent)
+                setAgent(data.data.agent)
                 setName(data.data.agent.first_name)
                 setLoading(false)
             })
@@ -49,7 +49,7 @@ const DashboardPayment = () => {
     return (
 
         <section className="dashboard-container">
-            <SideBar />
+            <SideBar verified={agent.verified} />
 
             <main className="dashboard-main">
                 <TopBar name={name} />

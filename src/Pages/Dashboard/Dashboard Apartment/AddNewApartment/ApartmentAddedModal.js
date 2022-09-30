@@ -1,3 +1,4 @@
+import React from 'react';
 import { Link } from 'react-router-dom';
 import VerifySuccess from '../../../../images/verify.svg';
 
@@ -18,7 +19,7 @@ const ApartmentAddedModal = () => {
           <Link to="/dashboard" className="modal-cta">
             Go To Dashboard
           </Link>
-          <Link to="./dashboard" className="modal-cta">
+          <Link to="/apartments" className="modal-cta">
             Apartment Overview
           </Link>
         </span>

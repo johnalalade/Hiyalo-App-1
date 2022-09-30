@@ -19,18 +19,23 @@ const PaymentBankDetailsSettings = () => {
     setBankName(bank_data.Name)
     setBankCode(bank_data.Code)
 
-    if(account_number.length === 10){
-      axios.post('', {
+    if (account_number.length === 10) {
+      setLoading(true)
 
+      axios.post('https://hiyalo-backend.herokuapp.com/agents/agent-gateway/get-account-name', {
+        account_number,
+        bank_code: bank_data.Code
       })
-      .then(acc => {
-        console.log(acc.data)
-        setAccName(acc.data)
-      })
-      .catch(err => {
-        alert(err)
-        
-      })
+        .then(acc => {
+          setLoading(false)
+          console.log(acc.data)
+          setAccName(acc.data.account_name)
+        })
+        .catch(err => {
+          setLoading(false)
+          alert(err)
+
+        })
     }
 
     console.log(bank_data.Name)
@@ -38,13 +43,31 @@ const PaymentBankDetailsSettings = () => {
 
   const acc_num = (v) => {
     setAccNum(v)
+    
+    if (v.length === 10 && bank_name !== "") {
+      setLoading(true)
+      axios.post('https://hiyalo-backend.herokuapp.com/agents/agent-gateway/get-account-name', {
+        account_number: v,
+        bank_code
+      })
+        .then(acc => {
+          setLoading(false)
+          console.log(acc.data)
+          setAccName(acc.data.account_name)
+        })
+        .catch(err => {
+          setLoading(false)
+          alert(err)
+
+        })
+
+    }
+
   }
 
   const submit = (ev) => {
-    setLoading(true)
-
     ev.preventDefault()
-    setLoading(false)
+    setLoading(true)
 
     let data = {
 
@@ -54,7 +77,8 @@ const PaymentBankDetailsSettings = () => {
         account_number,
         account_name,
         agent_id: localStorage.getItem("id")
-      }
+      },
+      agent_id: localStorage.getItem("id")
 
     }
 
@@ -64,7 +88,7 @@ const PaymentBankDetailsSettings = () => {
       return false
     }
 
-    axios.post('', data)
+    axios.post('https://hiyalo-backend.herokuapp.com/agents/agent-gateway/update-agent', data)
       .then(res => {
         if (res.data.message === "success") {
           setLoading(false)
@@ -102,7 +126,7 @@ const PaymentBankDetailsSettings = () => {
           <label for="name">Choose Bank</label>
           <select onChange={(ev) => bank(ev.target.value)}>
             <option>Choose Bank</option>
-            {banks.map(ban => 
+            {banks.map(ban =>
               <option value={JSON.stringify(ban)}>{ban.Name}</option>
             )}
           </select>

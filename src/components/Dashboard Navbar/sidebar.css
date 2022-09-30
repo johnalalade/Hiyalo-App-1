@@ -76,3 +76,21 @@
     border-left: 6px solid #4733AC;
     transition: all 0.1s ease-in;
 }
+.badger {
+    position: relative;
+}
+.badge:after{
+    content:"";
+    position: absolute;
+    background: rgb(255, 5, 0);
+    height:2rem;
+    top:1rem;
+    right:1.5rem;
+    width:2rem;
+    text-align: center;
+    line-height: 2rem;;
+    font-size: 1rem;
+    border-radius: 50%;
+    color:white;
+    border:1px solid rgb(255, 5, 0);
+}

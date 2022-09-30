@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import './add-new-apartment.css';
+import { Link } from 'react-router-dom';
 
 export const ApartmentAmmenities = ({
   nextStep,
@@ -34,23 +35,24 @@ export const ApartmentAmmenities = ({
     });
   };
 
-  const draft = () => {
-    handleChange({
-      target: {
-        value: amenity,
-        name: 'ammenities',
-      },
-    });
+  // const draft = () => {
 
-    handleChange({
-      target: {
-        value: 'draft',
-        name: 'status',
-      },
-    });
+  //   handleChange({
+  //     target: {
+  //       value: amenity,
+  //       name: "ammenities"
+  //     }
+  //   })
 
-    finish();
-  };
+  //   handleChange({
+  //     target: {
+  //       value: "draft",
+  //       name: "status"
+  //     }
+  //   })
+
+  //   finish()
+  // }
 
   const add = (number, name) => {
     if (amenity.filter((a) => a.name === name).length !== 0) {
@@ -89,12 +91,12 @@ export const ApartmentAmmenities = ({
       <header>
         <h4>Add New Apartment:</h4>
         <div class="add-property-cta">
-          <button type="submit" onClick={() => draft()}>
+          {/* <button type="submit" onClick={() => draft()}>
             Save as Draft
           </button>
           <button type="submit" onClick={() => finish()}>
             Completed
-          </button>
+          </button> */}
         </div>
       </header>
 
@@ -139,9 +141,9 @@ export const ApartmentAmmenities = ({
               icon="fluent:bed-16-regular"
             ></iconify-icon>
             <p>Bedroom</p>
+
             <input
               type="number"
-              min="0"
               value={
                 ammenities.find((o) => o.name === 'Bedroom') &&
                 ammenities.find((o) => o.name === 'Bedroom').number
@@ -159,9 +161,9 @@ export const ApartmentAmmenities = ({
               icon="cil:bathroom"
             ></iconify-icon>
             <p>Bathroom</p>
+
             <input
               type="number"
-              min="0"
               placeholder="0"
               value={
                 ammenities.find((o) => o.name === 'Bathroom') &&
@@ -179,9 +181,9 @@ export const ApartmentAmmenities = ({
               icon="fe:kitchen-cooker"
             ></iconify-icon>
             <p>Kitchen</p>
+
             <input
               type="number"
-              min="0"
               placeholder="0"
               value={
                 ammenities.find((o) => o.name === 'Kitchen') &&
@@ -199,9 +201,9 @@ export const ApartmentAmmenities = ({
               icon="material-symbols:dining-outline"
             ></iconify-icon>
             <p>Dining Room</p>
+
             <input
               type="number"
-              min="0"
               placeholder="0"
               value={
                 ammenities.find((o) => o.name === 'Dining Room') &&
@@ -219,9 +221,9 @@ export const ApartmentAmmenities = ({
               icon="icon-park-outline:swimming-pool"
             ></iconify-icon>
             <p>Swimming pool</p>
+
             <input
               type="number"
-              min="0"
               value={
                 ammenities.find((o) => o.name === 'Swimming pool') &&
                 ammenities.find((o) => o.name === 'Swimming pool').number
@@ -239,9 +241,9 @@ export const ApartmentAmmenities = ({
               icon="bx:store"
             ></iconify-icon>
             <p>Store room</p>
+
             <input
               type="number"
-              min="0"
               value={
                 ammenities.find((o) => o.name === 'Store room') &&
                 ammenities.find((o) => o.name === 'Store room').number
@@ -259,9 +261,9 @@ export const ApartmentAmmenities = ({
               icon="maki:parking-garage"
             ></iconify-icon>
             <p>Parking Space</p>
+
             <input
               type="number"
-              min="0"
               value={
                 ammenities.find((o) => o.name === 'Parking Space') &&
                 ammenities.find((o) => o.name === 'Parking Space').number

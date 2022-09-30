@@ -15,6 +15,7 @@ const ApartmentOverview = () => {
   const [page, setPage] = useState('overview');
   const [filterStatus, setFilterStatus] = useState('all');
   const [loading, setLoading] = useState(false);
+  const [agent, setAgent] = useState({})
 
   const navigate = useNavigate();
 
@@ -92,7 +93,8 @@ const ApartmentOverview = () => {
         { id: localStorage.getItem('id') }
       )
       .then((data) => {
-        setName(data.data.agent.first_name);
+        setName(data.data.agent.first_name)
+        setAgent(data.data.agent)
       });
 
     axios
@@ -104,6 +106,7 @@ const ApartmentOverview = () => {
         console.log(data.data);
         setHouses(data.data.houses);
         setLoading(false);
+
       })
       .catch((err) => {
         setLoading(false);
@@ -123,24 +126,16 @@ const ApartmentOverview = () => {
 
   return (
     <section className="dashboard-container">
-      <SideBar />
+      <SideBar verified={agent.verified} />
 
       {page === 'details' ? (
         <main className="dashboard-main">
           <TopBar name={name} />
 
           <header class="property-page-title">
-            <h4
-              onClick={() => {
-                setPage('overview');
-              }}
-            >
-              <iconify-icon
-                className="add-new-property-cta"
-                icon="eva:arrow-back-outline"
-              ></iconify-icon>{' '}
-              Apartments
-            </h4>
+
+            <h4 onClick={() => { setPage("overview") }}><iconify-icon className='add-new-property-cta' icon="eva:arrow-back-outline"></iconify-icon> Apartments</h4>
+
 
             <button onClick={navigateToAddBasicInfo} type="button">
               <iconify-icon
@@ -196,32 +191,30 @@ const ApartmentOverview = () => {
           </main>
 
           <div class="apartment-list-container">
-            <table class="apartments-list">
-              <thead>
-                <tr>
-                  <th>Apartment ID</th>
-                  <th>Photos</th>
-                  <th>Address</th>
-                  <th>Price (&#8358;)</th>
-                  <th>Status</th>
-                  <th>Date Added</th>
-                  <th>Action</th>
-                </tr>
-              </thead>
 
-              <tbody>
-                {houses
-                  .filter((h) =>
-                    filterStatus === 'all' ? h : h.status === filterStatus
-                  )
-                  .map((data, idx) => {
+            {houses.length !== 0 ?
+              <table class="apartments-list">
+                <thead>
+                  <tr>
+                    <th>Apartment ID</th>
+                    <th>Photos</th>
+                    <th>Address</th>
+                    <th>Price (&#8358;)</th>
+                    <th>Status</th>
+                    <th>Date Added</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+
+
+                <tbody>
+                  {houses.filter(h => filterStatus === "all" ? h : h.status === filterStatus).map((data, idx) => {
                     return (
-                      <tr
-                        onClick={() => {
-                          localStorage.setItem('house_id', data._id);
-                          setPage('details');
-                        }}
-                      >
+                      <tr onClick={() => {
+                        localStorage.setItem("house_id", data._id)
+                        setPage("details")
+                      }}>
+
                         <td className="apartment-id">{data._id}</td>
                         <td className="apartment-images-overview">
                           <img src={data.images[0]} alt={data.address} />
@@ -230,6 +223,7 @@ const ApartmentOverview = () => {
                           <span> + {data.images.length - 3}</span>
                         </td>
 
+
                         <td className="apartment-address">{data.address}</td>
                         <td className="apartment-price">
                           {Number(data.annual_fee)
@@ -237,6 +231,7 @@ const ApartmentOverview = () => {
                             .replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')}
                         </td>
                         <td className="apartment-status">{data.status}</td>
+
                         <td>{data.createdAt}</td>
                         <td class="action-options">
                           <iconify-icon icon="carbon:overflow-menu-vertical"></iconify-icon>
@@ -244,8 +239,19 @@ const ApartmentOverview = () => {
                       </tr>
                     );
                   })}
-              </tbody>
-            </table>
+
+                </tbody>
+
+              </table>
+              :
+              <div class="property-page-add">
+                <button onClick={navigateToAddBasicInfo} type="button">
+                  <iconify-icon className='add-new-property-cta' icon="akar-icons:plus"></iconify-icon>
+                  <span> Add New Property</span>
+                </button>
+              </div>
+            }
+
           </div>
         </main>
       )}

@@ -14,24 +14,24 @@ function Faq() {
 
   const faqData = [
     {
-      question: 'What is Hiyalo about?',
+      question: 'What does Hiyalo offer?',
       answer:
-        ' Cumque sequi molestias harum cupiditate laboriosam est alias soluta ratione, maiores.',
+        'Soft life is your birth right 🤭⛱. Hiyalo makes your house hunting experience easy and scam-free, with flexible payment options that means no one is left out...',
     },
     {
-      question: 'What is Hiyalo about?',
+      question: 'Who can use Hiyalo?',
       answer:
-        ' Cumque sequi molestias harum cupiditate laboriosam est alias soluta ratione, maiores.',
+        "Anyone, Tenants, Agents and Landlords alike; The guy who is to busy to hunt a house, the one scared of being scammed, the one who can't afford the bulky fees, the Agent/Landlord in search of an occupant... The solutions to these problems are not magic, It's Hiyalo",
     },
     {
-      question: 'What is Hiyalo about?',
+      question: 'How do I tour my house?',
       answer:
-        ' Cumque sequi molestias harum cupiditate laboriosam est alias soluta ratione, maiores.',
+        'At Hiyalo we provide both virual and physical tours for our users allowing you to scout your property at ease.',
     },
     {
-      question: 'What is Hiyalo about?',
+      question: 'How can put my house on Hiyalo?',
       answer:
-        ' Cumque sequi molestias harum cupiditate laboriosam est alias soluta ratione, maiores.',
+        'Easy!, Register with us, Validate your account, and continue your journey to soft life',
     },
   ];
   return (

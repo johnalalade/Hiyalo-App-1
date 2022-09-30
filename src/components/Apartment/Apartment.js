@@ -17,14 +17,14 @@ const Apartment = ({ apartment }) => {
             class="iconify"
             icon="emojione-monotone:bed"
           ></iconify-icon>
-          <p>{apartment.ammenities.find(o => o.name === "Bedroom") ? apartment.ammenities.find(o => o.name === "Bedroom").number : "0"} bedroom(s)</p>
+          <p>{apartment.ammenities.find(o => o.name === "Bedroom") ? apartment.ammenities.find(o => o.name === "Bedroom").number : "0"} bed(s)</p>
         </span>
         <span>
           <iconify-icon
             class="iconify"
             icon="cil:bath"
           ></iconify-icon>
-          <p>{apartment.ammenities.find(o => o.name === "Bathroom") ? apartment.ammenities.find(o => o.name === "Bathroom").number : "0"} bathroom(s)</p>
+          <p>{apartment.ammenities.find(o => o.name === "Bathroom") ? apartment.ammenities.find(o => o.name === "Bathroom").number : "0"} bath(s)</p>
         </span>
       </div>
       <div class="apartment-prices">

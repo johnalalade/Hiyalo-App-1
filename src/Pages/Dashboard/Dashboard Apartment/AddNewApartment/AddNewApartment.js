@@ -2,10 +2,11 @@ import React, { useState } from 'react';
 import ApartmentBasicInfo from './ApartmentBasicInfo';
 import ApartmentAmmenities from './ApartmentAmmenities';
 import ApartmentAddress from './ApartmentAddress';
-import { useNavigate } from 'react-router-dom';
+// import { useNavigate } from 'react-router-dom';
 import ApartmentPaymentDetails from './ApartmentPaymentDetails';
 import ApartmentGallery from './ApartmentGallery';
 import axios from 'axios';
+import ApartmentAddedModal from './ApartmentAddedModal';
 
 // const override: CSSProperties = {
 //   display: "block",
@@ -39,7 +40,7 @@ const AddNewApartment = () => {
   const [step, setStep] = useState(1)
   const [loading, setLoading] = useState(false)
 
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
 
   const {
     property_type,
@@ -102,7 +103,7 @@ const AddNewApartment = () => {
       setStep(4)
       return false
     }
-    if (annual_fee === "0" || agency_fee === "0" || caution_fee === "0" || stamp_fee === "0") {
+    if (annual_fee === "0" || agency_fee === "0") {
       setLoading(false)
       setStep(5)
       return false
@@ -148,7 +149,8 @@ const AddNewApartment = () => {
         console.log(res.data)
         if (res.data.message === "success") {
           localStorage.setItem("house_id", res.data.house._id)
-            navigate('/apartments');
+          setStep(6)
+            // navigate('/apartments');
         }
         setLoading(false)
         console.log(res.data)
@@ -232,8 +234,8 @@ const AddNewApartment = () => {
           loading={loading}
         />
       );
-    // case 6:
-    //   return <Success />;
+    case 6:
+      return <ApartmentAddedModal />;
     default:
       console.log('This is a multi-step form built with React.');
   }
