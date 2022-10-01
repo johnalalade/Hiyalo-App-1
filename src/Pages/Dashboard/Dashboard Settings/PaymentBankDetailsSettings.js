@@ -4,12 +4,12 @@ import axios from 'axios';
 import banks from '../../../components/banks';
 import PageLoader from '../../../components/Loader/PageLoader';
 
-const PaymentBankDetailsSettings = () => {
+const PaymentBankDetailsSettings = ({banking}) => {
 
-  const [bank_name, setBankName] = useState("")
+  const [bank_name, setBankName] = useState(banking ? banking.bank_name : "")
   const [bank_code, setBankCode] = useState("")
-  const [account_number, setAccNum] = useState("")
-  const [account_name, setAccName] = useState("")
+  const [account_number, setAccNum] = useState(banking ? banking.account_number : "")
+  const [account_name, setAccName] = useState(banking? banking.account_name : "")
 
   const [loading, setLoading] = useState(false)
 

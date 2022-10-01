@@ -187,7 +187,7 @@ const DashboardOverview = () => {
             { transactions.length === 0 &&
               <div className='trans-img'>
               <img src={CardImg} alt="no transactions yet" />
-              <p>No transactions yet... upload a house to start seeing money roll in 😉</p>
+              <p>No transactions yet... upload a house to start seeing money roll in <span role="img" aria-label="wink">😉</span></p>
             </div>
             }
           </div>

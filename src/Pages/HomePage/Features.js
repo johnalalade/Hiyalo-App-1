@@ -16,13 +16,13 @@ const Features = () => {
       title: 'Stay safe with Hiyalo.',
       paragraph:
         'Never be a victim of fraudulent agents. At Hiyalo we make sure your payments are secure: connecting you with verified house agents and certified properties',
-      icon: walletIcon,
+      icon: secureIcon,
     },
     {
       title: 'Flexible Payment.',
       paragraph:
         "Little or no cash for an upfront payment? you don't have to forfeit your dream property. Hiyalo provides you with flexible payment plans. You can pay conveniently in installments ",
-      icon: secureIcon,
+      icon: walletIcon,
     },
   ];
 

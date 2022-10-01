@@ -322,7 +322,7 @@ const PropertyOverview = () => {
                 </span>
                 <span class="tour-cta-btn">
                   <button type="submit">Virtual Tour</button>
-                  <button type="submit">Physical Tour</button>
+                  {/* <button type="submit">Physical Tour</button> */}
                 </span>
               </form>
             </div>

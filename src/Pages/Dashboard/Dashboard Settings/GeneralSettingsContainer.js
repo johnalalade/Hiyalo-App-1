@@ -23,6 +23,7 @@ const GeneralSettingsContainer = () => {
     axios.post('https://hiyalo-backend.herokuapp.com/agents/agent-gateway/get-agent', { id: localStorage.getItem("id") })
       .then(data => {
         setAgent(data.data.agent)
+        console.log(data.data.agent)
         setLoading(false)
         setName(data.data.agent.first_name)
       })
@@ -115,6 +116,7 @@ const GeneralSettingsContainer = () => {
                 ? 'settings-content  active-settings-content'
                 : 'settings-content'
             }
+            banking={agent.bank}
           />}
 
           {toggleState === 3 && <PasswordSettings

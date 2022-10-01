@@ -24,6 +24,7 @@ const MarketPlace = () => {
   const [filterStatus, setFilterStatus] = useState('all');
   const [state, setState] = useState('Choose State');
   const [search_data, setSearchData] = useState('');
+  const [indexA, setIndexA] = useState(0)
 
   const search = (ev) => {
     ev.preventDefault();
@@ -43,6 +44,14 @@ const MarketPlace = () => {
       });
   };
 
+  const fwd = () => {
+    setIndexA(indexA + 4)
+  }
+
+  const back = () => {
+    setIndexA(indexA - 4)
+  }
+
   useEffect(() => {
     setLoading(true);
     axios
@@ -50,12 +59,10 @@ const MarketPlace = () => {
         'https://hiyalo-backend.herokuapp.com/houses/house-gateway/get-houses'
       )
       .then((data) => {
-        console.log(data.data.houses);
         setData(data.data.houses);
         setLoading(false);
       })
       .catch((err) => {
-        console.log(err);
         setLoading(false);
       });
   }, []);
@@ -167,14 +174,24 @@ const MarketPlace = () => {
                 .filter((h2) =>
                   state === 'Choose State' ? h2 : h2.state === state
                 )
-                .slice(0, 4)
+                .slice(indexA, indexA + 4)
                 .map((apartment) => (
                   <Apartment apartment={apartment} />
                 ))}
             </div>
           </div>
         </main>
-        <div></div>
+        {/* <div></div> */}
+
+        <div className='next-prev'>
+          {indexA !== 0 && <span className='prev' onClick={() => back()}>
+            <iconify-icon icon="eva:arrow-ios-back-outline"></iconify-icon>
+          </span> }
+
+          {indexA + 4 < data.length && <span className='next' onClick={() => fwd()}>
+            <iconify-icon icon="eva:arrow-ios-forward-fill"></iconify-icon>
+          </span> }
+        </div>
 
         <div class="get-listed-container">
           <p>Are You An Agent/Realtor?</p>
