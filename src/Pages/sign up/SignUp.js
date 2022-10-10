@@ -40,6 +40,7 @@ const SignUp = () => {
         // console.log(res);
         setLoading(false);
         localStorage.setItem('id', res.data.id);
+        localStorage.setItem('email', res.data.email);
         navigate('/dashboard');
       } else {
         alert(res.data.message, res.data.details)
@@ -60,6 +61,7 @@ const SignUp = () => {
           console.log(resp.data);
           setLoading(false);
           localStorage.setItem('id', resp.data.id);
+          localStorage.setItem('email', resp.data.email);
           navigate('/dashboard');
         } else {
           alert(`${resp.data.message}, ${resp.data.details}`)

@@ -34,6 +34,7 @@ const AddNewApartment = () => {
     available_payment_scheme: "",
     available_payment_duration: "",
     agent_id: localStorage.getItem("id"),
+    agent_email: localStorage.getItem("email"),
     status: "vacant",
     images: []
   })
@@ -60,6 +61,7 @@ const AddNewApartment = () => {
     // available_payment_duration,
     status,
     agent_id,
+    agent_email,
     images
   } = houseData
 
@@ -128,6 +130,7 @@ const AddNewApartment = () => {
     dat.append("caution_fee", caution_fee)
     dat.append("stamp_fee", stamp_fee)
     dat.append("agent_id", agent_id)
+    dat.append("agent_email", agent_email)
     dat.append("status", status)
 
     for (let i = 0; i < images.length; i++) {
