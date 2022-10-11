@@ -94,9 +94,16 @@
     color: #FFFFFF;
     margin-top: 1.5rem;
 }
+.user-review:nth-child(4) {
+    display: none;
+}
+.review-active {
+ transform: translateX(0);   
+}
 
 .review-inactive-1 {
-    transform: scale(0.75);
+    transform: translateX(-100%);
+    /* transform: scale(0.75); */
 }
 
 .reviews-nav {
@@ -128,6 +135,9 @@
     position: absolute;
     right: 0;
     bottom: 0;
+}
+.lastIndex {
+
 }
 
 

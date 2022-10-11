@@ -39,7 +39,7 @@ const UserReviews = () => {
       <main class="user-reviews">
         {reviews.map((review, indexReviews) => {
           const { id, userImg, userFullname, userRole, reviewComment } = review;
-          let position = 'user-review review-inactive-1 ';
+          let position = 'user-review review-inactive-1 review-inactive-2';
           if (indexReviews === index) {
             position = 'user-review review-active';
           }

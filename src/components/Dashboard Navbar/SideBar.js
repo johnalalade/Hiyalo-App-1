@@ -25,7 +25,7 @@ const SideBar = ({ verified }) => {
           <li>
             <NavLink to="/dashboard" className="side-bar-link" id={window.location.pathname === "/dashboard" ? "active" : ""} >
               <img src={dashboardIcon} alt="" />
-              <p>Overview</p>
+              <span>Overview</span>
             </NavLink>
           </li>
 
