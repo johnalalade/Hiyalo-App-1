@@ -61,7 +61,7 @@ const SignUp = () => {
           console.log(resp.data);
           setLoading(false);
           localStorage.setItem('id', resp.data.id);
-          localStorage.setItem('email', resp.data.email);
+          localStorage.setItem('email', resp.data.user.email);
           navigate('/dashboard');
         } else {
           alert(`${resp.data.message}, ${resp.data.details}`)
