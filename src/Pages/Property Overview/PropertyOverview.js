@@ -17,6 +17,8 @@ const PropertyOverview = () => {
 
   const [toggleState, setToggleState] = useState(1);
   const [loading, setLoading] = useState(true);
+  const [map, setMap] = useState("https://maps.google.com/maps?q=" + encodeURI("Omoalade Alafia Street") + "&t=&z=13&ie=UTF8&iwloc=&output=embed")
+  // "https://maps.google.com/maps?q=Omoalade%20Alafia,%20Street,%20Somolu,%20Lagos&t=&z=13&ie=UTF8&iwloc=&output=embed")
   // const index = 0
   const toggleTab = (index) => {
     setToggleState(index);
@@ -30,6 +32,7 @@ const PropertyOverview = () => {
       .then(data => {
 
         setProperty(data.data.house)
+        setMap("https://maps.google.com/maps?q=" + encodeURI(data.data.house.address + data.data.house.city + data.data.house.state) + "&t=&z=13&ie=UTF8&iwloc=&output=embed")
         setLoading(false)
       })
   }, [])
@@ -115,6 +118,8 @@ const PropertyOverview = () => {
               >
                 <p>
                   {property.description}
+
+                  {/* %20 */}
                 </p>
               </div>
 
@@ -243,6 +248,7 @@ const PropertyOverview = () => {
                     <p className="address-p">{property.state} State</p>
                   </span>
                 </div>
+                <iframe title='Map' width="600" height="500" id="gmap_canvas" src={map} frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>
               </div>
               <div
                 className={
