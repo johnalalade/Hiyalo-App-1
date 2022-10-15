@@ -360,7 +360,7 @@ const PropertyOverview = () => {
                      * specify the rootElement property to ensure that the modal is inserted into the correct domNode.
                      */
                     rootElement={document.getElementById('root')}
-                    text="Virtual Tour"
+                    text="Request Tour"
                   />
                   {/* <button type="submit">Physical Tour</button> */}
                 </span>
@@ -378,7 +378,37 @@ const PropertyOverview = () => {
         </main>
 
         <div class="mobile-product-cta">
-          <button>Request for Tour</button>
+          <PopupButton
+            url="https://calendly.com/hiyalo"
+            prefill={{
+              // email: 'johnalalade3@gmail.com',
+              // firstName: 'Jon',
+              // lastName: 'Snow',
+              // name: 'Jon Snow',
+              guests: [
+                property.agent_email ? property.agent_email : "david@hiyalo.com"
+              ],
+              // customAnswers: {
+              //   a1: 'a1',
+              //   a2: 'a2',
+              //   a3: 'a3',
+              //   a4: 'a4',
+              //   a5: 'a5',
+              //   a6: 'a6',
+              //   a7: 'a7',
+              //   a8: 'a8',
+              //   a9: 'a9',
+              //   a10: 'a10'
+              // },
+              // date: new Date(Date.now() + 86400000)
+            }}
+            /*
+             * react-calendly uses React's Portal feature (https://reactjs.org/docs/portals.html) to render the popup modal. As a result, you'll need to
+             * specify the rootElement property to ensure that the modal is inserted into the correct domNode.
+             */
+            rootElement={document.getElementById('root')}
+            text="Request Tour"
+          />
           <button>Apply Now</button>
         </div>
       </main>
