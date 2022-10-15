@@ -332,14 +332,14 @@ const PropertyOverview = () => {
                 <span class="tour-cta-btn">
                   {/* <button >Virtual Tour</button> */}
                   <PopupButton
-                    url="https://calendly.com/johnalalade6"
+                    url="https://calendly.com/hiyalo"
                     prefill={{
                       // email: 'johnalalade3@gmail.com',
                       // firstName: 'Jon',
                       // lastName: 'Snow',
                       // name: 'Jon Snow',
                       guests: [
-                        property.agent_email ? property.agent_email : "john@clyppay.io"
+                        property.agent_email ? property.agent_email : "david@hiyalo.com"
                       ],
                       // customAnswers: {
                       //   a1: 'a1',
