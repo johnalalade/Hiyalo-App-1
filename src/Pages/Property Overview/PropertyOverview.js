@@ -446,7 +446,7 @@ const PropertyOverview = () => {
           </span>}
         </span>
 
-        <img src={property.images[indexA]} alt="property image" className='view-all-img' />
+        <img src={property.images[indexA]} alt="property" className='view-all-img' />
 
         <span>
           {indexA + 1 < property.images.length && <span className='next' onClick={() => fwd()}>
