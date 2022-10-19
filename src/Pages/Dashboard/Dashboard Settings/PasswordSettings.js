@@ -1,4 +1,4 @@
-import axios from 'axios';
+import axios from '../../../components/axios';
 import React, { useState } from 'react';
 import PageLoader from '../../../components/Loader/PageLoader';
 import './general-settings.css';
@@ -38,7 +38,7 @@ const PasswordSettings = () => {
       return false
     }
 
-    axios.post("https://hiyalo-backend.herokuapp.com/agents/agent-gateway/update-agent-password", data)
+    axios.post("/agents/agent-gateway/update-agent-password", data)
       .then(res => {
         if (res.data.message === "success") {
           setLoading(false)

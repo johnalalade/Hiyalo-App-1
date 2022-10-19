@@ -5,7 +5,7 @@ import ApartmentAddress from './ApartmentAddress';
 // import { useNavigate } from 'react-router-dom';
 import ApartmentPaymentDetails from './ApartmentPaymentDetails';
 import ApartmentGallery from './ApartmentGallery';
-import axios from 'axios';
+import axios from '../../../../components/axios';
 import ApartmentAddedModal from './ApartmentAddedModal';
 
 // const override: CSSProperties = {
@@ -142,7 +142,7 @@ const AddNewApartment = () => {
 
     console.log(dat)
 
-    axios.post('https://hiyalo-backend.herokuapp.com/houses/house-gateway/register', dat, {
+    axios.post('/houses/house-gateway/register', dat, {
       headers: {
         Accept: 'application/json',
         'Content-Type': 'multipart/form-data',

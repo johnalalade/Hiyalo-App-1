@@ -1,7 +1,7 @@
 import React from 'react';
 import { useEffect, useState } from 'react';
 import './Apartment_Details.css';
-import axios from 'axios';
+import axios from '../../../../components/axios';
 import PageLoader from '../../../../components/Loader/PageLoader';
 // import img1 from '../../images/bg.jpg';
 // import img2 from '../../images/bg.jpg';
@@ -14,16 +14,28 @@ const PropertyDetails = () => {
 
   const [toggleState, setToggleState] = useState(1);
   const [loading, setLoading] = useState(true);
+  const [viewAll, setViewAll] = useState(false);
   // const index = 0
   const toggleTab = (index) => {
     setToggleState(index);
   };
 
+  const [indexA, setIndexA] = useState(0)
+
+  const fwd = () => {
+    setIndexA(indexA + 1)
+  }
+
+  const back = () => {
+    setIndexA(indexA - 1)
+  }
+
+
   const [property, setProperty] = useState({})
 
   useEffect(() => {
     setLoading(true)
-    axios.post('https://hiyalo-backend.herokuapp.com/houses/house-gateway/get-house', { id: localStorage.getItem("house_id") })
+    axios.post('/houses/house-gateway/get-house', { id: localStorage.getItem("house_id") })
       .then(data => {
 
         setProperty(data.data.house)
@@ -34,7 +46,7 @@ const PropertyDetails = () => {
   if (loading) {
     return (
       <div className="spinner">
-          <PageLoader />
+        <PageLoader />
       </div>
     )
   }
@@ -54,7 +66,9 @@ const PropertyDetails = () => {
 
             <img src={property.address && property.images[2]} alt="" />
             <span className="view-all-btn">
-              <button type="button">View all image</button>
+              <button type="button" onClick={() => {
+                setViewAll(!viewAll)
+              }}>View all image</button>
             </span>
           </div>
         </div>
@@ -331,7 +345,7 @@ const PropertyDetails = () => {
             <div class="apply-now-cta">
               <button>Apply Now</button>
             </div> */}
-            
+
           </div>
         </main>
 
@@ -339,6 +353,30 @@ const PropertyDetails = () => {
           <button>Request for Tour</button>
           <button>Apply Now</button>
         </div> */}
+
+        {viewAll && <div className='view-all-div'>
+
+          <span onClick={() => { setViewAll(!viewAll); setIndexA(0) }} className='view-all-cancel'>
+            <iconify-icon icon="iconoir:cancel" height="60"></iconify-icon>
+          </span>
+
+          <span>
+            {indexA !== 0 && <span className='prev' onClick={() => back()}>
+              <iconify-icon icon="eva:arrow-ios-back-outline"></iconify-icon>
+            </span>}
+          </span>
+
+          <img src={property.images[indexA]} alt="property" className='view-all-img' />
+
+          <span>
+            {indexA + 1 < property.images.length && <span className='next' onClick={() => fwd()}>
+              <iconify-icon icon="eva:arrow-ios-forward-fill"></iconify-icon>
+            </span>}
+          </span>
+
+        </div>
+        }
+
       </main>
     </>
   );

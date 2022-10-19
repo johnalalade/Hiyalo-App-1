@@ -4,7 +4,7 @@ import NavBar from '../../components/Navbar/Navbar';
 import Footer from '../../components/Footer/Footer';
 import Apartment from '../../components/Apartment/Apartment';
 import { useEffect, useState } from 'react';
-import axios from 'axios';
+import axios from '../../components/axios';
 import { Link } from 'react-router-dom';
 import PageLoader from '../../components/Loader/PageLoader';
 import states from '../../components/states';
@@ -34,7 +34,7 @@ const MarketPlace = () => {
 
     axios
       .post(
-        'https://hiyalo-backend.herokuapp.com/houses/house-gateway/search-houses',
+        '/houses/house-gateway/search-houses',
         data
       )
       .then((res) => {
@@ -56,7 +56,7 @@ const MarketPlace = () => {
     setLoading(true);
     axios
       .post(
-        'https://hiyalo-backend.herokuapp.com/houses/house-gateway/get-houses'
+        '/houses/house-gateway/get-houses'
       )
       .then((data) => {
         setData(data.data.houses);

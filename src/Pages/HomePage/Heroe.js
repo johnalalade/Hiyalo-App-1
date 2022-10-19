@@ -1,7 +1,7 @@
 import React from 'react';
 import './heroe.css'
 import NavBar from '../../components/Navbar/Navbar';
-import axios from 'axios';
+import axios from '../../components/axios';
 import { useState } from 'react';
 // import { useNavigate } from 'react-router-dom';
 import PageLoader from '../../components/Loader/PageLoader.js'
@@ -20,7 +20,7 @@ const Heroe = ({ executeScroll, setHouses, setSearch }) => {
       search: search_data
     }
 
-    axios.post('https://hiyalo-backend.herokuapp.com/houses/house-gateway/search-houses', data)
+    axios.post('/houses/house-gateway/search-houses', data)
       .then(res => {
         setLoad(false)
         if (res.data.message === "success") {

@@ -2,7 +2,7 @@ import React from 'react';
 import { useEffect, useState } from 'react';
 import './property-overview.css';
 import NavBar from '../../components/Navbar/Navbar';
-import axios from 'axios';
+import axios from '../../components/axios';
 import Footer from '../../components/Footer/Footer';
 import PageLoader from '../../components/Loader/PageLoader';
 // import img1 from '../../images/bg.jpg';
@@ -42,7 +42,7 @@ const PropertyOverview = () => {
 
   useEffect(() => {
     setLoading(true)
-    axios.post('https://hiyalo-backend.herokuapp.com/houses/house-gateway/get-house', { id: localStorage.getItem("house_id") })
+    axios.post('/houses/house-gateway/get-house', { id: localStorage.getItem("house_id") })
       .then(data => {
 
         setProperty(data.data.house)
@@ -436,7 +436,7 @@ const PropertyOverview = () => {
 
       {viewAll && <div className='view-all-div'>
 
-        <span  onClick={() => { setViewAll(!viewAll) }} className='view-all-cancel'>
+        <span  onClick={() => { setViewAll(!viewAll); setIndexA(0) }} className='view-all-cancel'>
           <iconify-icon icon="iconoir:cancel" height="60"></iconify-icon>
         </span>
 

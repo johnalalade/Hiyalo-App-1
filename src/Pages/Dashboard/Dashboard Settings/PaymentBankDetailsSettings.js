@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import './general-settings.css'
-import axios from 'axios';
+import axios from '../../../components/axios';
 import banks from '../../../components/banks';
 import PageLoader from '../../../components/Loader/PageLoader';
 
@@ -22,7 +22,7 @@ const PaymentBankDetailsSettings = ({banking}) => {
     if (account_number.length === 10) {
       setLoading(true)
 
-      axios.post('https://hiyalo-backend.herokuapp.com/agents/agent-gateway/get-account-name', {
+      axios.post('/agents/agent-gateway/get-account-name', {
         account_number,
         bank_code: bank_data.Code
       })
@@ -46,7 +46,7 @@ const PaymentBankDetailsSettings = ({banking}) => {
     
     if (v.length === 10 && bank_name !== "") {
       setLoading(true)
-      axios.post('https://hiyalo-backend.herokuapp.com/agents/agent-gateway/get-account-name', {
+      axios.post('/agents/agent-gateway/get-account-name', {
         account_number: v,
         bank_code
       })
@@ -88,7 +88,7 @@ const PaymentBankDetailsSettings = ({banking}) => {
       return false
     }
 
-    axios.post('https://hiyalo-backend.herokuapp.com/agents/agent-gateway/update-agent', data)
+    axios.post('/agents/agent-gateway/update-agent', data)
       .then(res => {
         if (res.data.message === "success") {
           setLoading(false)

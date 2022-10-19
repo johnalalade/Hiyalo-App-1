@@ -7,7 +7,7 @@ import UserReviews from './UserReviews'
 import Faq from './Faq'
 import Footer from '../../components/Footer/Footer.js'
 import { useEffect, useRef, useState } from 'react'
-import axios from 'axios'
+import axios from '../../components/axios';
 
 function HomePage() {
   const [data, setData] = useState([])
@@ -15,7 +15,7 @@ function HomePage() {
   
 
   useEffect(() => {
-    axios.post('https://hiyalo-backend.herokuapp.com/houses/house-gateway/get-houses')
+    axios.post('/houses/house-gateway/get-houses')
       .then(data => {
         console.log(data.data.houses)
         setData(data.data.houses.slice(0, 4))

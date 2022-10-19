@@ -4,7 +4,7 @@ import './sign-up.css';
 import SignNavBar from '../../components/sign up navbar/SignUpNavbar';
 import { Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
-import axios from 'axios';
+import axios from '../../components/axios';
 import PageLoader from '../../components/Loader/PageLoader';
 import { GoogleLogin } from '@react-oauth/google';
 
@@ -19,7 +19,7 @@ const SignIn = () => {
   const navigate = useNavigate();
 
   const { userName, password } = formData;
-  const url = 'https://hiyalo-backend.herokuapp.com/agents/agent-gateway/login';
+  const url = '/agents/agent-gateway/login';
 
 
   const onChange = (e) => {
@@ -53,7 +53,7 @@ const SignIn = () => {
     console.log(res);
     setLoading(true);
 
-    axios.post('https://hiyalo-backend.herokuapp.com/agents/agent-gateway/google-auth', {
+    axios.post('/agents/agent-gateway/google-auth', {
       token: res.credential
     })
       .then((resp) => {

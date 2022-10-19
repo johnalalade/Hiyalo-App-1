@@ -1,4 +1,4 @@
-import axios from 'axios';
+import axios from '../../../components/axios';
 import React, { useState } from 'react';
 import './general-settings.css'
 import PageLoader from '../../../components/Loader/PageLoader';
@@ -37,7 +37,7 @@ const PersonalDetailsSettings = ({ f_name, l_name, mail, phonee, doc_number, bn,
       return
     }
 
-    axios.post('https://hiyalo-backend.herokuapp.com/agents/agent-gateway/update-agent', data)
+    axios.post('/agents/agent-gateway/update-agent', data)
       .then(res => {
         if (res.data.message === "success") {
           setLoading(false)
@@ -68,7 +68,7 @@ const PersonalDetailsSettings = ({ f_name, l_name, mail, phonee, doc_number, bn,
     data.append("agent_id", localStorage.getItem("id"))
     data.append("file", document_image)
 
-    axios.post('https://hiyalo-backend.herokuapp.com/agents/agent-gateway/update-agent-identification', data)
+    axios.post('/agents/agent-gateway/update-agent-identification', data)
       .then(res => {
         if (res.data.message === "success") {
           setLoading(false)
