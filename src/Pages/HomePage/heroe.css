@@ -108,19 +108,25 @@
         margin: 0rem;
         padding: 0 1rem;
         margin-top: 70px;
-        height: 520px;
+        height: 580px;
     }
     .heroe-section main h1 {
-        font-size: 36px;
-        line-height: normal;
+        font-family: 'gilroy-semibold';
+        font-size: 31px;
+        font-weight: 600;
+        text-transform: capitalize;
+        line-height: 46px;
+    }
+    .heroe-section main h1 br {
+        display: none;
     }
     .heroe-section main .heroe-form {
         margin-top: 1rem;
         row-gap: .5rem;
     }
     .heroe-form input {
-        height: 55px;
-        font-size: 16px;
+        height: 55px !important;
+        font-size: 16px !important;
         padding:  0 1rem;
         text-align: center;
     }
@@ -129,8 +135,8 @@
         color: #acacac;
     }
     .heroe-form button {
-        position: relative;
+        position: relative !important;
         height: 55px;
-        width: 100%;
+        min-width: 100%;
     }
 }

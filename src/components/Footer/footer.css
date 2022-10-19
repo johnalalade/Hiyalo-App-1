@@ -135,6 +135,7 @@
 }
 .newsletter-form input {
     font-family: 'gilroy-regular';
+     text-transform: lowercase;
     font-size: 16px;
     background: none;
     outline: none;
@@ -147,7 +148,6 @@
     overflow: hidden;
 }
 .newsletter-form input::placeholder {
-    text-transform: lowercase;
     font-weight: 400;
     font-size: 16px;
     color: #8C8C8C;
@@ -188,13 +188,13 @@
     }
 }
 
-@media  (max-width:768px) {
+@media  (max-width:900px) {
     footer {
-        padding: 0 1rem;
+        padding: 0 1rem !important;
     }
     .footer-newsletter-container {
        min-height: 200px;
-        padding:  3rem 1rem;
+        padding:  3rem 1rem !important;
         margin-top: 4rem;
         border-radius: 5px;
     }
@@ -202,7 +202,8 @@
         margin: auto;
     }
     .footer-newsletter-container h3 {
-        font-size: 30px;
+        font-size: 28px;
+        line-height: normal;
         padding: 0;
     }
     .footer-newsletter-container p {

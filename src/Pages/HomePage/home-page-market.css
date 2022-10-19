@@ -25,7 +25,7 @@
     grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
     column-gap: 3rem;
     row-gap: 3rem;
-    margin-top: 4rem;
+    margin-top: 64px;
 }
 .homepage-apartment{
     display: flex;
@@ -123,7 +123,7 @@
 }
 
 .explore-cta  {
-    margin-top: 4rem;
+    margin-top: 64px;
     display: flex;
     justify-content: center;
     align-items: center;

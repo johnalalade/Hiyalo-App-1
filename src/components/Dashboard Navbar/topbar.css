@@ -8,6 +8,9 @@
     border-bottom: 1px solid rgba(117, 117, 117, 0.3);
     background: #FFF;
 }
+.dashboard-hamburger {
+    display: none;
+}
 .welcome-back {
     display: flex;
     flex-direction: column;
@@ -67,4 +70,37 @@
 }
 .top-bar-cta span button img {
     width: 20px;
+}
+
+
+@media  screen and (max-width: 1168px) {
+    .top-bar {
+        padding: 0 1.5rem !important;
+    }
+}
+
+@media  screen and (max-width: 768px) {
+    .top-bar {
+        padding: 0 1rem !important;
+    }
+    .welcome-back {
+        display: none;
+    }
+    .welcome-back h3 {
+        font-size: 20px;
+    }
+    .profile-settings img{
+        width: 48px;
+        height: 48px;
+    }
+    .dashboard-hamburger {
+        display: flex;
+        flex-direction: column;
+        row-gap: .5rem;
+    }
+    .dashboard-hamburger div {
+        width: 40px;
+        height: 3px;
+        background: #050213;
+    }
 }

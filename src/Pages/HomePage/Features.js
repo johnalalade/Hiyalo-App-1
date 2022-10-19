@@ -9,7 +9,7 @@ const Features = () => {
     {
       title: 'House hunt with convenience',
       paragraph:
-        "Another stressful day of property hunting without progress? Not to worry! Hiyalo provides a virtual and live tour of your prospective home. Our virtual tour helps you make the right choice from wherever you are. Our live tour takes you to and from your prospective home",
+        "Another stressful day of property hunting without progress? Not to worry! Hiyalo provides a virtual and live tour of your prospective home. Our virtual tour helps you make the right choice.",
       icon: flashIcon,
     },
     {

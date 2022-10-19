@@ -102,7 +102,8 @@
 }
 
 .review-inactive-1 {
-    transform: translateX(-100%);
+    /* display: none; */
+    transform: translateX(-150%);
     /* transform: scale(0.75); */
 }
 
@@ -136,9 +137,9 @@
     right: 0;
     bottom: 0;
 }
-.lastIndex {
+/* .lastIndex {
 
-}
+} */
 
 
 .user-review-container aside img {
@@ -191,7 +192,7 @@
     .user-review article {
         padding: 2rem 1rem;
     }
-    #review-inactive-1 {
+    /* #review-inactive-1 {
         display: none;
-    }
+    } */
 }

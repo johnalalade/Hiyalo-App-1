@@ -74,21 +74,7 @@ const MarketPlace = () => {
 
       <section className="available-spaces-container">
         <main class="available-spaces">
-          <form class="heroe-form">
-            <input
-              type="text"
-              placeholder="Search based on your loaction"
-              onChange={(ev) => setSearchData(ev.target.value)}
-            />
 
-            <button type="submit" onClick={(ev) => search(ev)}>
-              <iconify-icon
-                class="location-icon"
-                icon="lucide:locate-fixed"
-              ></iconify-icon>
-              <p>Search</p>
-            </button>
-          </form>
           <header>
             <h3>Available Spaces:</h3>
             <button className="filter-btn" onClick={() => toggle(i)}>

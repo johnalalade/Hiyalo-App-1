@@ -6,7 +6,7 @@
     padding: 150px 80px;
     padding-bottom: 200px;
     position: relative;
-
+    overflow: hidden;
 }
 .about-text {
     z-index: 1;
@@ -20,6 +20,8 @@
     line-height: 78px;
     color: #4733AC;
     z-index: 1;
+    text-align: justify;
+
 }
 .about-text h2 span {
     color: #7572EA;
@@ -73,6 +75,12 @@
 .about-pattern img {
     width: 80%;
 }
+.about-illustration {
+    display: none;
+}
+.about-illustration img {
+    width: 85%;
+}
 
 @media screen and (max-width: 986px) {
     .about-container {
@@ -82,14 +90,13 @@
 }
 @media screen and (max-width: 786px) {
     .about-container {
-        padding: 150px 1rem;
-        padding-bottom: 200px;
+        padding:6rem 1rem;
     }
     .about-text h2 {
         font-weight: 600;
-        line-height: 50px;
-        font-size: 32px;
-
+        line-height: 60px;
+        font-size: 36px;
+        text-align: left;
     }
     .about-cta {
         column-gap: .5rem;
@@ -98,12 +105,21 @@
         font-family: 'Inter', sans-serif;
         font-size: 16px;
         font-weight: 600;
+        height: 60px;
     }
     .about-pattern {
-        transform:  translate(50px);
-        bottom: 2rem;
+        display: none;
     }
     .about-pattern img {
         width: 100%;
     }
+    .about-illustration {
+        display: flex;
+        position: relative;
+        margin-top: 4rem;
+    }
+    .about-illustration img {
+        width: 100%;
+    }
+    
 }

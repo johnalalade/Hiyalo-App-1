@@ -5,24 +5,24 @@ const Reviews = [
     userImg: userImage,
     userFullname: 'Olakunbi Olabode',
     userRole: 'Tenant',
-    reviewComment: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam sit amet luctus venenatis, lectus agna fringilla urna, porttito rhoncus dolor purus non porttitor rhoncus dolor purus non enim lectus magna fringilla urna, porttitor rhoncus dolor purus non porttitor rhoncus dolor purus non enim',
+    reviewComment: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam sit amet luctus venenatis, lectus agna fringilla urna, porttito rhoncus dolor purus non porttitor rhoncus dolor pur',
   },
   {
-    id: 1,
+    id: 2,
     userImg: userImage,
     userFullname: 'Olakunbi Olabode',
     userRole: 'Tenant',
-    reviewComment: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam sit amet luctus venenatis, lectus agna fringilla urna, porttito rhoncus dolor purus non porttitor rhoncus dolor purus non enim lectus magna fringilla urna, porttitor rhoncus dolor purus non porttitor rhoncus dolor purus non enim',
+    reviewComment: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam sit amet luctus venenatis, lectus ag'
   },
   {
-    id: 1,
+    id: 3,
     userImg: userImage,
     userFullname: 'Olakunbi Olabode',
     userRole: 'Tenant',
-    reviewComment: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam sit amet luctus venenatis, lectus agna fringilla urna, porttito rhoncus dolor purus non porttitor rhoncus dolor purus non enim lectus magna fringilla urna, porttitor rhoncus dolor purus non porttitor rhoncus dolor purus non enim',
+    reviewComment: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam sit amet luctus venenatis, lectus agna fringilla urna, porttito rhoncus dolor purus non porttitor rhoncus dolor purus non enim lectus magna frin'
   },
   {
-    id: 1,
+    id: 4,
     userImg: userImage,
     userFullname: 'Olakunbi Olabode',
     userRole: 'Tenant',

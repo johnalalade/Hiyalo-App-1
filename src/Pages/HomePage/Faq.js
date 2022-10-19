@@ -1,6 +1,6 @@
 import React from 'react';
 import './faq.css';
-import { useState } from 'react';
+  import { useState } from 'react';
 
 function Faq() {
   const [selected, setSelected] = useState(null);

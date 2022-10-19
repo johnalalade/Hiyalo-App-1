@@ -5,6 +5,7 @@ import buildingsIcon from '../../images/buildings-2.svg';
 import walletIcon from '../../images/wallet-minus.svg';
 // import messageIcon from '../../images/message-notif.svg';
 import settingsIcon from '../../images/setting-2.svg';
+import Logo from '../../images/logo.svg'
 
 import './sidebar.css';
 import { NavLink } from 'react-router-dom';
@@ -18,7 +19,9 @@ const SideBar = ({ verified }) => {
 
   return (
     <aside class="side-bar">
-      <div class="dashboard-logo">{/* <!-- logo --> */}</div>
+      <div class="dashboard-logo">
+        <img src={Logo} alt="" />
+        </div>
       <nav class="dashboard-navbar">
         <ul class="dashboard-nav-links">
 
@@ -32,7 +35,7 @@ const SideBar = ({ verified }) => {
           <li>
             <NavLink to="/apartments" className="side-bar-link" id={window.location.pathname === "/apartments" ? "active" : ""} >
               <img src={buildingsIcon} alt="" />
-              <p>Apartment</p>
+              <span>Apartment</span>
             </NavLink>
 
           </li>
@@ -46,7 +49,7 @@ const SideBar = ({ verified }) => {
           <li>
             <NavLink to="/payments" className="side-bar-link" id={window.location.pathname === "/payments" ? "active" : ""} >
               <img src={walletIcon} alt="" />
-              <p>Payments</p>
+              <span>Payments</span>
             </NavLink>
           </li>
 
@@ -60,7 +63,7 @@ const SideBar = ({ verified }) => {
           <li className='badger'>
             <NavLink to="/settings" className={verified === true ? "side-bar-link" : "side-bar-link badge" }  id={window.location.pathname === "/settings" ? "active" : ""} >
               <img src={settingsIcon} alt="" />
-              <p>Settings</p>
+              <span>Settings</span>
             </NavLink>
           </li>
 

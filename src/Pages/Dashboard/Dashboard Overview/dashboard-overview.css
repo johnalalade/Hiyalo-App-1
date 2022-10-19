@@ -224,9 +224,6 @@
     text-align: center;
 }
 
-.apartments-list thead tr {
-    border-bottom: 1px solid rgba(169, 0, 0, 0.4) !important;
-}
 .apartments-list thead tr th {
     font-size: 14px !important;
 }
@@ -272,5 +269,41 @@
     margin-bottom: 30px;
 }
 .trans-img img {
-    height: 10rem;
+    height: 200px;
+}
+.trans-img p {
+    text-align: center;
+    font-size: 18px;
+    max-width: 400px;
+    margin: 2rem;
+}
+
+
+@media  screen and (max-width: 1168px) {
+
+    .dashboard-main {
+        flex-basis: 90%;
+        margin-left: 10%;
+        width: 90%;
+    }
+
+    .page-title {
+        padding: 0 1.5rem !important;
+    }
+
+    .overview-header {
+        padding: 0 1.5rem !important;
+    }
+    .transaction-history-overview {
+        margin: 1.5rem !important;
+        /* min-height: min-content; */
+    }
+}
+
+@media  screen and (max-width: 868px) {
+    .dashboard-main {
+        flex-basis: 100% !important;
+        margin-left: 0% !important;
+        width: 100% !important;
+    }
 }

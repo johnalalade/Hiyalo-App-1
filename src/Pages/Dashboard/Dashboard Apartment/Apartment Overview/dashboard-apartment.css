@@ -28,7 +28,8 @@
 }
 .properties-page-filter-options {
     display: flex;
-    height: 60px;
+    justify-content: space-between;
+    height: 70px;
     background: #FFF;
     column-gap: 4rem;
     margin: 0 3rem;
@@ -56,15 +57,19 @@
     font-size: 14px;
     color: #757575;
 }
-.filter-option.active-option p {
+.filter-option.active-option p,
+.filter-option:hover p {
     font-weight: 600;
 }
-.filter-option.active-option span{
+.filter-option.active-option span,
+.filter-option span:hover{
     background: #4733AC;
     color: #FFF;
 }
 
-
+.properties-page-filter-options button {
+    display: none;
+}
 
 
 .apartment-list-container {
@@ -89,7 +94,7 @@
 } */
 
 .apartments-list thead tr {
-    border-bottom: 1px solid rgba(169, 0, 0, 0.4) !important;
+    border-bottom: 1px solid rgba(71, 51, 172, 0.174) !important;
 }
 .apartments-list thead tr th {
     font-size: 14px !important;
@@ -180,11 +185,16 @@
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
-    padding: 0 3rem;
-    margin-top: 1.5rem;
+    padding: 0;
+    padding-bottom: 3rem;
     align-self: center;
 }
-
+.house-illustration {
+    display: flex;
+    flex-direction: column;
+    max-width: 350px;
+    margin-top: 2rem;
+}
 .property-page-add button {
     display: flex;
     align-items: center;
@@ -204,4 +214,91 @@
 .property-page-add button:hover {
     background-color: #7572EA;
     transition: all 0.4s ease-in-out;
+}
+.cta-add-prop {
+    display: flex;
+    flex-direction: column;
+    row-gap: 1.5rem;
+    align-items: center;
+    justify-content: center;
+    margin-top: 2rem;
+}
+.cta-add-prop p {
+    font-size: 20px;
+}
+
+
+
+
+
+@media  screen and (max-width: 1168px) {
+    .property-page-title  {
+        padding: 0 1.5rem;
+    }
+    .properties-page-filter-options {
+        margin: 0 1.5rem;
+        margin-top: 1.5rem;
+    }
+    .apartment-list-container {
+        margin: 1.5rem !important;
+    }
+}
+@media screen and (max-width: 678px) {
+    .property-page-title  {
+        padding: 0 1rem;
+    }
+    .properties-page-filter-options {
+        margin: 0 1rem;
+        margin-top: 1.5rem;
+        padding:0 1.5rem;
+        height: 60px;
+        width: 100%;
+    }
+
+    .filter-option {
+        display: none;
+    }
+    .filter-option:first-child {
+        display: flex !important;
+    }
+    .properties-page-filter-options button {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        column-gap: .5rem;
+        height: 40px;
+        color: #CB7A00;
+        margin: auto 0;
+        background: none;
+        border: none;
+        outline: none;
+    }
+    .properties-page-filter-options button .iconify {
+        font-size: 24px;
+        color: #CB7A00;
+    }
+    .properties-page-filter-options button p {
+        font-family: 'gilroy-regular';
+        font-size: 18px;
+        letter-spacing: 0.01em;
+        color: #CB7A00;
+    }
+    /* .dashboard-main {
+        overflow: scroll;
+        width: 100%;
+    } */
+    .apartment-list-container {
+        margin: 1rem !important;
+        padding: 0;
+    }
+    .property-page-title button {
+    padding: 0 .7rem;
+    font-size: 12px;
+    height: 45px;
+    }
+
+    .property-page-add table{
+        display: none;
+    }
+
 }
