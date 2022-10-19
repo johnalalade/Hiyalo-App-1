@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 import './dashboard-apartment.css';
 import { useNavigate } from 'react-router-dom';
 import SideBar from '../../../../components/Dashboard Navbar/SideBar';
@@ -8,6 +8,7 @@ import { useEffect, useState } from 'react';
 import axios from '../../../../components/axios';
 import PropertyDetails from './Apartment_Details';
 import PageLoader from '../../../../components/Loader/PageLoader';
+import EmptyHouse from '../../../../images/empty-house.png';
 
 const ApartmentOverview = () => {
   const [houses, setHouses] = useState([]);
@@ -15,7 +16,7 @@ const ApartmentOverview = () => {
   const [page, setPage] = useState('overview');
   const [filterStatus, setFilterStatus] = useState('all');
   const [loading, setLoading] = useState(false);
-  const [agent, setAgent] = useState({})
+  const [agent, setAgent] = useState({});
 
   const navigate = useNavigate();
 
@@ -93,8 +94,8 @@ const ApartmentOverview = () => {
         { id: localStorage.getItem('id') }
       )
       .then((data) => {
-        setName(data.data.agent.first_name)
-        setAgent(data.data.agent)
+        setName(data.data.agent.first_name);
+        setAgent(data.data.agent);
       });
 
     axios
@@ -106,7 +107,6 @@ const ApartmentOverview = () => {
         console.log(data.data);
         setHouses(data.data.houses);
         setLoading(false);
-
       })
       .catch((err) => {
         setLoading(false);
@@ -133,9 +133,17 @@ const ApartmentOverview = () => {
           <TopBar name={name} />
 
           <header class="property-page-title">
-
-            <h4 onClick={() => { setPage("overview") }}><iconify-icon className='add-new-property-cta' icon="eva:arrow-back-outline"></iconify-icon> Apartments</h4>
-
+            <h4
+              onClick={() => {
+                setPage('overview');
+              }}
+            >
+              <iconify-icon
+                className="add-new-property-cta"
+                icon="eva:arrow-back-outline"
+              ></iconify-icon>{' '}
+              Apartments
+            </h4>
 
             <button onClick={navigateToAddBasicInfo} type="button">
               <iconify-icon
@@ -187,12 +195,16 @@ const ApartmentOverview = () => {
                   </div>
                 );
               })}
+
+              <button>
+                <iconify-icon class="iconify" icon="bi:filter"></iconify-icon>
+                <p>Filter</p>
+              </button>
             </div>
           </main>
 
           <div class="apartment-list-container">
-
-            {houses.length !== 0 ?
+            {houses.length !== 0 ? (
               <table class="apartments-list">
                 <thead>
                   <tr>
@@ -206,52 +218,74 @@ const ApartmentOverview = () => {
                   </tr>
                 </thead>
 
-
                 <tbody>
-                  {houses.filter(h => filterStatus === "all" ? h : h.status === filterStatus).map((data, idx) => {
-                    return (
-                      <tr onClick={() => {
-                        localStorage.setItem("house_id", data._id)
-                        setPage("details")
-                      }}>
+                  {houses
+                    .filter((h) =>
+                      filterStatus === 'all' ? h : h.status === filterStatus
+                    )
+                    .map((data, idx) => {
+                      return (
+                        <tr
+                          onClick={() => {
+                            localStorage.setItem('house_id', data._id);
+                            setPage('details');
+                          }}
+                        >
+                          <td className="apartment-id">{data._id}</td>
+                          <td className="apartment-images-overview">
+                            <img src={data.images[0]} alt={data.address} />
+                            <img src={data.images[1]} alt={data.address} />
+                            <img src={data.images[2]} alt={data.address} />
+                            <span> + {data.images.length - 3}</span>
+                          </td>
 
-                        <td className="apartment-id">{data._id}</td>
-                        <td className="apartment-images-overview">
-                          <img src={data.images[0]} alt={data.address} />
-                          <img src={data.images[1]} alt={data.address} />
-                          <img src={data.images[2]} alt={data.address} />
-                          <span> + {data.images.length - 3}</span>
-                        </td>
+                          <td className="apartment-address">{data.address}</td>
+                          <td className="apartment-price">
+                            {Number(data.annual_fee)
+                              .toFixed(2)
+                              .replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')}
+                          </td>
+                          <td className="apartment-status">{data.status}</td>
 
-
-                        <td className="apartment-address">{data.address}</td>
-                        <td className="apartment-price">
-                          {Number(data.annual_fee)
-                            .toFixed(2)
-                            .replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')}
-                        </td>
-                        <td className="apartment-status">{data.status}</td>
-
-                        <td>{data.createdAt}</td>
-                        <td class="action-options">
-                          <iconify-icon icon="carbon:overflow-menu-vertical"></iconify-icon>
-                        </td>
-                      </tr>
-                    );
-                  })}
-
+                          <td>{data.createdAt}</td>
+                          <td class="action-options">
+                            <iconify-icon icon="carbon:overflow-menu-vertical"></iconify-icon>
+                          </td>
+                        </tr>
+                      );
+                    })}
                 </tbody>
-
               </table>
-              :
+            ) : (
               <div class="property-page-add">
-                <button onClick={navigateToAddBasicInfo} type="button">
-                  <iconify-icon className='add-new-property-cta' icon="akar-icons:plus"></iconify-icon>
-                  <span> Add New Property</span>
-                </button>
+                <table class="apartments-list">
+                  <thead>
+                    <tr>
+                      <th>Apartment ID</th>
+                      <th>Photos</th>
+                      <th>Address</th>
+                      <th>Price (&#8358;)</th>
+                      <th>Status</th>
+                      <th>Date Added</th>
+                      <th>Action</th>
+                    </tr>
+                  </thead>
+                </table>
+                <div className="house-illustration">
+                  <img src={EmptyHouse} alt="" />
+                </div>
+                <div className="cta-add-prop">
+                  <p>Oops! Nothing to see yet...</p>
+                  <button onClick={navigateToAddBasicInfo} type="button">
+                    <iconify-icon
+                      className="add-new-property-cta"
+                      icon="akar-icons:plus"
+                    ></iconify-icon>
+                    <span> Add New Property</span>
+                  </button>
+                </div>
               </div>
-            }
-
+            )}
           </div>
         </main>
       )}

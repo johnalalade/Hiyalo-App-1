@@ -137,7 +137,7 @@ export const ApartmentAmmenities = ({
         <form action="" class="amenities-info-form">
           <div className="amenity">
             <iconify-icon
-              className="amenity-icons"
+              class="amenity-icons"
               icon="fluent:bed-16-regular"
             ></iconify-icon>
             <p>Bedroom</p>
@@ -157,7 +157,7 @@ export const ApartmentAmmenities = ({
 
           <div className="amenity">
             <iconify-icon
-              className="amenity-icons"
+              class="amenity-icons"
               icon="cil:bathroom"
             ></iconify-icon>
             <p>Bathroom</p>
@@ -177,7 +177,7 @@ export const ApartmentAmmenities = ({
 
           <div className="amenity">
             <iconify-icon
-              className="amenity-icons"
+              class="amenity-icons"
               icon="fe:kitchen-cooker"
             ></iconify-icon>
             <p>Kitchen</p>
@@ -197,7 +197,7 @@ export const ApartmentAmmenities = ({
 
           <div className="amenity">
             <iconify-icon
-              className="amenity-icons"
+              class="amenity-icons"
               icon="material-symbols:dining-outline"
             ></iconify-icon>
             <p>Dining Room</p>
@@ -217,7 +217,7 @@ export const ApartmentAmmenities = ({
 
           <div className="amenity">
             <iconify-icon
-              className="amenity-icons"
+              class="amenity-icons"
               icon="icon-park-outline:swimming-pool"
             ></iconify-icon>
             <p>Swimming pool</p>
@@ -237,7 +237,7 @@ export const ApartmentAmmenities = ({
 
           <div className="amenity">
             <iconify-icon
-              className="amenity-icons"
+              class="amenity-icons"
               icon="bx:store"
             ></iconify-icon>
             <p>Store room</p>
@@ -257,7 +257,7 @@ export const ApartmentAmmenities = ({
 
           <div className="amenity">
             <iconify-icon
-              className="amenity-icons"
+              class="amenity-icons"
               icon="maki:parking-garage"
             ></iconify-icon>
             <p>Parking Space</p>

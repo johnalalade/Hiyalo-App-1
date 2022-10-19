@@ -28,7 +28,8 @@ export const ApartmentBasicInfo = ({ nextStep, handleChange, property_type, hous
     <main class="add-new-property-container">
       <header>
 
-        <Link to="/apartments" class="apa" > <iconify-icon className='add-new-property-cta' icon="eva:arrow-back-outline"></iconify-icon>  Add New Apartment:</Link>
+        <Link to="/apartments" class="apa" > 
+        <iconify-icon className='add-new-property-cta' icon="eva:arrow-back-outline"></iconify-icon>  Add New Apartment:</Link>
 
         {/* <div class="add-property-cta">
             <button type="submit" onClick={() => draft()} >Save as Draft</button>
@@ -97,6 +98,7 @@ export const ApartmentBasicInfo = ({ nextStep, handleChange, property_type, hous
             <label for="description">General Information</label>
             <textarea name="description" id="" rows="6" value={description} onChange={(e) => handleChange(e)} placeholder="Inform people on what they should know about the house... eg: The house is painted blue, no dogs allowed" ></textarea>
             <span class="form-message-info">
+            <iconify-icon class='iconify' icon="carbon:information-filled"></iconify-icon>
               <p>Inform users what to expect</p>
             </span>
           </div>

@@ -18,7 +18,7 @@
 .faqs {
     display: flex;
     flex-direction: column;
-    row-gap: 2rem;
+    row-gap: 2.5rem;
     margin-top: 4rem;
     width: 100%;
     max-width: 900px;
@@ -27,7 +27,7 @@
     display: flex;
     flex-direction: column;
     border-bottom: 1px solid rgba(117, 117, 117, 0.3);
-    padding-bottom: 1rem;
+    padding-bottom: 1.5rem;
 
     /* min-height: ; */
 }
@@ -155,6 +155,9 @@
         max-width: 28px;
         max-height: 28px;
     }
+    .faqs {
+        row-gap: 2rem;
+    }
     .faq .open-icon,
     .faq .close-icon {
         font-size: 18px;
@@ -167,7 +170,7 @@
     }
     .contact-us {
         padding: 2rem 1rem;
-        margin-top: 6rem;
+        margin-top: 4rem;
         border-radius: 0;
     }
     .contact-us h4 {

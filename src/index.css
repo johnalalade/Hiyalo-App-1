@@ -5,15 +5,19 @@
 
 @font-face {
   font-family: 'gilroy-regular';
-  src: url(./fonts/Gilroy-Regular.ttf);
+  src: url(./fonts/hiyalo-Regular.ttf);
 }
 @font-face {
   font-family: 'gilroy-medium';
-  src: url(./fonts/Gilroy-Medium.ttf);
+  src: url(./fonts/hiyalo-Medium.ttf);
+}
+@font-face {
+  font-family: 'gilroy-semibold';
+  src: url(./fonts/hiyalo-SemiBold.ttf);
 }
 @font-face {
   font-family: 'gilroy-bold';
-  src: url(./fonts/Gilroy-Bold.ttf);
+  src: url(./fonts/hiyalo-Bold.ttf);
 }
 
 * {
@@ -41,8 +45,8 @@ body {
     display: flex;
     flex-direction: column;
     background: #fff;
-
     font-family: 'gilroy-regular';
     font-size: 16px;
     color: #1a1a1a;   
+    overflow-x: hidden;
 }

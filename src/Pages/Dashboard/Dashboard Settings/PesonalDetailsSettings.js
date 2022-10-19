@@ -144,7 +144,7 @@ const PersonalDetailsSettings = ({ f_name, l_name, mail, phonee, doc_number, bn,
           <form action="">
 
             <label for="apartment type">Document Type</label>
-            <select onChange={(ev) => setDocType(ev.target.value)}>
+            <select className='select-doc' onChange={(ev) => setDocType(ev.target.value)}>
               <option value="National ID">National Identification</option>
               <option value="International Passport">International Passport</option>
               <option value="Driver's License">Driver's License</option>

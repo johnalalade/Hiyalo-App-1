@@ -1,18 +1,24 @@
 // import searchIcon from '../../images/search-normal.svg';
 // import notificationIcon from '../../images/notification-bing.svg';
 import './topbar.css';
-import React from 'react'
+import React from 'react';
 // import React from 'react'
-
 
 const TopBar = ({ name }) => {
   const userAvatar = require('../../images/bg.jpg');
   return (
     <header class="top-bar">
+      <div className="dashboard-hamburger">
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+
       <div class="welcome-back">
-        <h3>Welcome, {name ? name : ""} 😃</h3>
+        <h3>Welcome, {name ? name : ''} 😃</h3>
         <p>Comrade, what's popping cheif ?!</p>
       </div>
+
       <div class="top-bar-cta">
         {/* <span class="search-btn">
           <button type="button">

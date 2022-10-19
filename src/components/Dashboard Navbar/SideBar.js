@@ -27,14 +27,14 @@ const SideBar = ({ verified }) => {
           <li>
             <NavLink to="/dashboard" className="side-bar-link" id={window.location.pathname === "/dashboard" ? "active" : ""} >
               <img src={dashboardIcon} alt="" />
-              <p>Overview</p>
+              <span>Overview</span>
             </NavLink>
           </li>
 
           <li>
             <NavLink to="/apartments" className="side-bar-link" id={window.location.pathname === "/apartments" ? "active" : ""} >
               <img src={buildingsIcon} alt="" />
-              <p>Apartment</p>
+              <span>Apartment</span>
             </NavLink>
 
           </li>
@@ -48,7 +48,7 @@ const SideBar = ({ verified }) => {
           <li>
             <NavLink to="/payments" className="side-bar-link" id={window.location.pathname === "/payments" ? "active" : ""} >
               <img src={walletIcon} alt="" />
-              <p>Payments</p>
+              <span>Payments</span>
             </NavLink>
           </li>
 
@@ -62,7 +62,7 @@ const SideBar = ({ verified }) => {
           <li className='badger'>
             <NavLink to="/settings" className={verified === true ? "side-bar-link" : "side-bar-link badge"} id={window.location.pathname === "/settings" ? "active" : ""} >
               <img src={settingsIcon} alt="" />
-              <p>Settings</p>
+              <span>Settings</span>
             </NavLink>
           </li>
 

@@ -504,3 +504,10 @@
     }
 
 }
+
+@media  screen and (max-width: 1168px) {
+
+    .product-overview-container {
+        padding: 1.5rem;
+    }
+}

@@ -11,9 +11,9 @@ import PageLoader from '../../../components/Loader/PageLoader';
 
 const GeneralSettingsContainer = () => {
   const [toggleState, setToggleState] = useState(1);
-  const [name, setName] = useState("")
-  const [agent, setAgent] = useState({})
-  const [loading, setLoading] = useState(true)
+  const [name, setName] = useState('');
+  const [agent, setAgent] = useState({});
+  const [loading, setLoading] = useState(true);
 
   const toggleTab = (index) => {
     setToggleState(index);
@@ -27,17 +27,17 @@ const GeneralSettingsContainer = () => {
         setLoading(false)
         setName(data.data.agent.first_name)
       })
-      .catch(err => {
-        setLoading(false)
-      })
-  }, [])
+      .catch((err) => {
+        setLoading(false);
+      });
+  }, []);
 
   if (loading) {
     return (
       <div className="spinner">
         <PageLoader />
       </div>
-    )
+    );
   }
 
   return (
@@ -45,7 +45,7 @@ const GeneralSettingsContainer = () => {
       <SideBar verified={agent.verified} />
 
       <main className="dashboard-main">
-        <TopBar name={name}/>
+        <TopBar name={name} />
 
         <main class="add-new-property-container">
           <header>
@@ -95,20 +95,22 @@ const GeneralSettingsContainer = () => {
             </ul>
           </div>
 
-          {toggleState === 1 && <PersonalDetailsSettings
-            // className={
-            //   toggleState === 1
-            //     ? 'settings-content  active-settings-content'
-            //     : 'settings-content'
-            // }
-            f_name={agent.first_name}
-            l_name={agent.last_name}
-            mail={agent.email}
-            phonee={agent.phone}
-            doc_number={agent.document_number}
-            bn={agent.bvn}
-            verified={agent.verified}
-          />}
+          {toggleState === 1 && (
+            <PersonalDetailsSettings
+              // className={
+              //   toggleState === 1
+              //     ? 'settings-content  active-settings-content'
+              //     : 'settings-content'
+              // }
+              f_name={agent.first_name}
+              l_name={agent.last_name}
+              mail={agent.email}
+              phonee={agent.phone}
+              doc_number={agent.document_number}
+              bn={agent.bvn}
+              verified={agent.verified}
+            />
+          )}
 
           {toggleState === 2 && <PaymentBankDetailsSettings
             className={
@@ -119,13 +121,15 @@ const GeneralSettingsContainer = () => {
             banking={agent.bank}
           />}
 
-          {toggleState === 3 && <PasswordSettings
-            className={
-              toggleState === 3
-                ? 'settings-content  active-settings-content'
-                : 'settings-content'
-            }
-          />}
+          {toggleState === 3 && (
+            <PasswordSettings
+              className={
+                toggleState === 3
+                  ? 'settings-content  active-settings-content'
+                  : 'settings-content'
+              }
+            />
+          )}
         </main>
       </main>
     </section>
