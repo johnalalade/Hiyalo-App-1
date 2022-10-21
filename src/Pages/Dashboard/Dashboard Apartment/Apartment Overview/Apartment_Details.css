@@ -472,6 +472,31 @@
     color: #333333;
 }
 
+.view-all-div {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+    background-color: rgba(0, 0, 0, 0.5);
+    margin-top: 110px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    max-height: 100vh;
+    position: absolute;
+    top: 0;
+    width: 100vw;
+}
+.view-all-cancel {
+    position: absolute;
+    top: 0;
+    right: 0;
+    color: white;
+    height: 60px;
+    padding-right: 10px;
+}
+.view-all-img {
+    height: 90vh;
+}
 
 @media screen and (min-width: 1400px) {
     #property-address-details {

@@ -5,8 +5,7 @@ import buildingsIcon from '../../images/buildings-2.svg';
 import walletIcon from '../../images/wallet-minus.svg';
 // import messageIcon from '../../images/message-notif.svg';
 import settingsIcon from '../../images/setting-2.svg';
-import Logo from '../../images/logo.svg'
-
+import logo from '../../images/logo.svg';
 import './sidebar.css';
 import { NavLink } from 'react-router-dom';
 // import { useEffect } from 'react';
@@ -20,8 +19,8 @@ const SideBar = ({ verified }) => {
   return (
     <aside class="side-bar">
       <div class="dashboard-logo">
-        <img src={Logo} alt="" />
-        </div>
+        <img src={logo} alt="" />
+      </div>
       <nav class="dashboard-navbar">
         <ul class="dashboard-nav-links">
 
@@ -61,7 +60,7 @@ const SideBar = ({ verified }) => {
           </li> */}
 
           <li className='badger'>
-            <NavLink to="/settings" className={verified === true ? "side-bar-link" : "side-bar-link badge" }  id={window.location.pathname === "/settings" ? "active" : ""} >
+            <NavLink to="/settings" className={verified === true ? "side-bar-link" : "side-bar-link badge"} id={window.location.pathname === "/settings" ? "active" : ""} >
               <img src={settingsIcon} alt="" />
               <span>Settings</span>
             </NavLink>

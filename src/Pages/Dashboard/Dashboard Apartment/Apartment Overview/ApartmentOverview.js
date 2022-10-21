@@ -5,7 +5,7 @@ import SideBar from '../../../../components/Dashboard Navbar/SideBar';
 import TopBar from '../../../../components/Dashboard Navbar/TopBar';
 // import apartmentImg from '../../images/bg.jpg';
 import { useEffect, useState } from 'react';
-import axios from 'axios';
+import axios from '../../../../components/axios';
 import PropertyDetails from './Apartment_Details';
 import PageLoader from '../../../../components/Loader/PageLoader';
 import EmptyHouse from '../../../../images/empty-house.png';
@@ -90,7 +90,7 @@ const ApartmentOverview = () => {
     setLoading(true);
     axios
       .post(
-        'https://hiyalo-backend.herokuapp.com/agents/agent-gateway/get-agent',
+        '/agents/agent-gateway/get-agent',
         { id: localStorage.getItem('id') }
       )
       .then((data) => {
@@ -100,7 +100,7 @@ const ApartmentOverview = () => {
 
     axios
       .post(
-        'https://hiyalo-backend.herokuapp.com/houses/house-gateway/get-agent-houses',
+        '/houses/house-gateway/get-agent-houses',
         { agent_id: localStorage.getItem('id') }
       )
       .then((data) => {

@@ -6,7 +6,7 @@ import TopBar from '../../../components/Dashboard Navbar/TopBar';
 import PersonalDetailsSettings from './PesonalDetailsSettings';
 import PaymentBankDetailsSettings from './PaymentBankDetailsSettings';
 import PasswordSettings from './PasswordSettings';
-import axios from 'axios';
+import axios from '../../../components/axios';
 import PageLoader from '../../../components/Loader/PageLoader';
 
 const GeneralSettingsContainer = () => {
@@ -20,15 +20,12 @@ const GeneralSettingsContainer = () => {
   };
 
   useEffect(() => {
-    axios
-      .post(
-        'https://hiyalo-backend.herokuapp.com/agents/agent-gateway/get-agent',
-        { id: localStorage.getItem('id') }
-      )
-      .then((data) => {
-        setAgent(data.data.agent);
-        setLoading(false);
-        setName(data.data.agent.first_name);
+    axios.post('/agents/agent-gateway/get-agent', { id: localStorage.getItem("id") })
+      .then(data => {
+        setAgent(data.data.agent)
+        console.log(data.data.agent)
+        setLoading(false)
+        setName(data.data.agent.first_name)
       })
       .catch((err) => {
         setLoading(false);
@@ -115,15 +112,14 @@ const GeneralSettingsContainer = () => {
             />
           )}
 
-          {toggleState === 2 && (
-            <PaymentBankDetailsSettings
-              className={
-                toggleState === 2
-                  ? 'settings-content  active-settings-content'
-                  : 'settings-content'
-              }
-            />
-          )}
+          {toggleState === 2 && <PaymentBankDetailsSettings
+            className={
+              toggleState === 2
+                ? 'settings-content  active-settings-content'
+                : 'settings-content'
+            }
+            banking={agent.bank}
+          />}
 
           {toggleState === 3 && (
             <PasswordSettings

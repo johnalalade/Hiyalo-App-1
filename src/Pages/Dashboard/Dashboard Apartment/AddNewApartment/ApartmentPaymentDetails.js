@@ -87,7 +87,7 @@ export const ApartmentPaymentDetails = ({ prevStep, annual_fee, agency_fee, caut
           <div class="col-1">
             <label for="payment"> Annual Rent Fee (&#8358;) </label>
 
-            <input type="text" name='annual_fee' value={annual_fee } placeholder="enter annual rent fee" onChange={(e) => handleChange(e)} />
+            <input type="text" name='annual_fee' value={annual_fee} placeholder="enter annual rent fee" onChange={(e) => handleChange(e)} />
 
             <label for="agency fee">Agency & Agreement Fee (&#8358;)</label>
 
@@ -108,6 +108,11 @@ export const ApartmentPaymentDetails = ({ prevStep, annual_fee, agency_fee, caut
 
             <aside>Total Fee is (&#8358;){(Number(annual_fee) + Number(agency_fee) + Number(caution_fee) + Number(stamp_fee)).toFixed(2).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')}</aside>
           </div> */}
+
+          <div class="col-2">
+            <aside>Total Fee is (&#8358;){(Number(annual_fee) + Number(agency_fee) + Number(caution_fee) + Number(stamp_fee)).toFixed(2).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')}</aside>
+          </div>
+
         </form>
 
         <div class="property-form-cta">

@@ -1,5 +1,5 @@
 import React from 'react';
-import axios from 'axios';
+import axios from '../../../components/axios';
 import { useEffect, useState } from 'react';
 import SideBar from '../../../components/Dashboard Navbar/SideBar';
 import TopBar from '../../../components/Dashboard Navbar/TopBar';
@@ -19,47 +19,33 @@ const DashboardOverview = () => {
   const [modal, setModal] = useState(false);
 
   useEffect(() => {
-    setLoading(true);
+    setLoading(true)
 
-    axios
-      .post(
-        'https://hiyalo-backend.herokuapp.com/agents/agent-gateway/get-agent',
-        { id: localStorage.getItem('id') }
-      )
-      .then((data) => {
-        setAgent(data.data.agent);
-        setName(data.data.agent.first_name);
-      });
+    axios.post('/agents/agent-gateway/get-agent', { id: localStorage.getItem("id") })
+      .then(data => {
+        setAgent(data.data.agent)
+        setName(data.data.agent.first_name)
+      })
 
-    axios
-      .post(
-        'https://hiyalo-backend.herokuapp.com/houses/house-gateway/get-agent-houses',
-        { agent_id: localStorage.getItem('id') }
-      )
-      .then((data) => {
-        console.log(data.data);
-        setHouses(data.data.houses);
-        setLoading(false);
-        if (data.data.houses.length === 0) {
-          setModal(true);
-        }
+    axios.post("/houses/house-gateway/get-agent-houses", { agent_id: localStorage.getItem('id') })
+      .then(data => {
+        console.log(data.data)
+        setHouses(data.data.houses)
+        setLoading(false)
+        if (data.data.houses.length === 0) { setModal(true) }
       })
       .catch((err) => {
         setLoading(false);
         console.log({
-          err,
-        });
-      });
+          err
+        })
+      })
 
-    axios
-      .post(
-        'https://hiyalo-backend.herokuapp.com/agents/agent-gateway/get-agent-transactions',
-        { agent_id: localStorage.getItem('id') }
-      )
-      .then((data) => {
-        console.log(data.data);
-        setTransactions(data.data.transactions);
-        setLoading(false);
+    axios.post("/agents/agent-gateway/get-agent-transactions", { agent_id: localStorage.getItem('id') })
+      .then(data => {
+        console.log(data.data)
+        setTransactions(data.data.transactions)
+        setLoading(false)
       })
       .catch((err) => {
         setLoading(false);
@@ -126,6 +112,95 @@ const DashboardOverview = () => {
                   <button>Withdraw</button>
                 </span>
               </div>
+
+            <div class="properties-amount">
+              <span class="total-properties">
+                <header>
+                  <h6>Total Properties</h6>
+                </header>
+                <p>{houses[0] && houses.length}</p>
+              </span>
+
+              <span class="active-properties">
+                <header>
+                  <h6>Vacant Properties</h6>
+                </header>
+                <p>{houses[0] && houses.filter(h => h.status === "vacant").length}</p>
+              </span>
+            </div>
+          </div>
+
+          <div class="transaction-history-overview">
+            <header>
+              <h6>Payment History:</h6>
+              <Link to="/payments">see all</Link>
+            </header>
+            <table class="apartments-list payment-history">
+              <thead>
+                <tr>
+                  <th>PaymentID</th>
+                  <th>Name</th>
+                  <th>Status</th>
+                  <th>Amount</th>
+                  <th>Date</th>
+                  <th>Type</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+
+
+              {transactions.length !== 0 &&
+                <tbody>
+                  {transactions.map(transaction =>
+                    <tr>
+                      <td class="apartment-id payment id">
+                        <p>{transaction._id}</p>
+                      </td>
+
+                      <td class="name">
+                        <p>{transaction.name}</p>
+                      </td>
+
+                      <td class="payment-status">
+                        <p> {transaction.status}</p>
+                      </td>
+
+                      <td class="apartment-price">
+                        <p> &#8358; {Number(transaction.amount).toFixed(2).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')}</p>
+                      </td>
+
+                      <td class="date-added">
+                        <p>{transaction.createdAt}</p>
+                      </td>
+
+                      <td class="type">
+                        <p>{transaction.type}</p>
+                      </td>
+
+                      <td class="action-options payment-actions">
+                        <iconify-icon
+                          class="action-icon"
+                          icon="carbon:overflow-menu-vertical"
+                        ></iconify-icon>
+                      </td>
+                    </tr>
+                  )}
+                </tbody>
+              }
+
+
+
+            </table>
+
+            {transactions.length === 0 && (
+                <div className="trans-img">
+                  <img src={CardImg} alt="no transactions yet" />
+                  <p>
+                    No transactions yet... upload a house to start seeing money
+                    roll in <span role="img" aria-label='lol'>😉</span>
+                  </p>
+                </div>
+              )}
 
               <div class="properties-amount">
                 <span class="total-properties">
@@ -216,7 +291,7 @@ const DashboardOverview = () => {
                   <img src={CardImg} alt="no transactions yet" />
                   <p>
                     No transactions yet... upload a house to start seeing money
-                    roll in 😉
+                    roll in <span role="img" aria-label='lol'>😉</span>
                   </p>
                 </div>
               )}

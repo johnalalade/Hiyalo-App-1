@@ -1,5 +1,5 @@
 import React from 'react';
-import axios from 'axios';
+import axios from '../../../components/axios';
 import { useEffect, useState } from 'react';
 import SideBar from '../../../components/Dashboard Navbar/SideBar';
 import TopBar from '../../../components/Dashboard Navbar/TopBar';
@@ -16,14 +16,14 @@ const DashboardPayment = () => {
 
     useEffect(() => {
 
-        axios.post('https://hiyalo-backend.herokuapp.com/agents/agent-gateway/get-agent', { id: localStorage.getItem("id") })
+        axios.post('/agents/agent-gateway/get-agent', { id: localStorage.getItem("id") })
             .then(data => {
                 setAgent(data.data.agent)
                 setName(data.data.agent.first_name)
                 setLoading(false)
             })
 
-        axios.post("https://hiyalo-backend.herokuapp.com/agents/agent-gateway/get-agent-transactions", { agent_id: localStorage.getItem('id') })
+        axios.post("/agents/agent-gateway/get-agent-transactions", { agent_id: localStorage.getItem('id') })
             .then(data => {
                 console.log(data.data)
                 setTransactions(data.data.transactions)
