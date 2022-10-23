@@ -1,13 +1,13 @@
 import React, { useEffect } from 'react';
 import { useState } from 'react';
 import './general-settings.css';
-import SideBar from '../../../components/Dashboard Navbar/SideBar';
-import TopBar from '../../../components/Dashboard Navbar/TopBar';
+import SideBar from '../../../../components/Dashboard Navbar/SideBar';
+import TopBar from '../../../../components/Dashboard Navbar/TopBar';
 import PersonalDetailsSettings from './PesonalDetailsSettings';
 import PaymentBankDetailsSettings from './PaymentBankDetailsSettings';
 import PasswordSettings from './PasswordSettings';
-import axios from '../../../components/axios';
-import PageLoader from '../../../components/Loader/PageLoader';
+import axios from '../../../../components/axios';
+import PageLoader from '../../../../components/Loader/PageLoader';
 
 const GeneralSettingsContainer = () => {
   const [toggleState, setToggleState] = useState(1);

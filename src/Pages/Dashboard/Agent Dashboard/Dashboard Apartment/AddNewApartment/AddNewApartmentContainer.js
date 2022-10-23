@@ -1,11 +1,11 @@
 // import  {AddNewApartment}  from './AddNewApartment';
 import React from 'react';
 import AddNewApartment from './AddNewApartment';
-import SideBar from '../../../../components/Dashboard Navbar/SideBar';
-import TopBar from '../../../../components/Dashboard Navbar/TopBar';
+import SideBar from '../../../../../components/Dashboard Navbar/SideBar';
+import TopBar from '../../../../../components/Dashboard Navbar/TopBar';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
-import PageLoader from '../../../../components/Loader/PageLoader';
+import PageLoader from '../../../../../components/Loader/PageLoader';
 
 export const AddNewApartmentContainer = () => {
   const [agent, setAgent] = useState({})

@@ -306,4 +306,25 @@
         margin-left: 0% !important;
         width: 100% !important;
     }
+
+    .overview-header {
+        flex-direction: column;
+        row-gap: 1.5rem;
+        padding: 0 1rem !important;
+    }
+    .overview-header div {
+        min-height: 200px !important;
+    }
+    .total-outstanding {
+        margin-left: 0 !important;
+    }
+    .properties-amount {
+        margin-left: 0rem !important;
+    }
+    .properties-amount span {
+        row-gap: 1em;
+    }
+    .properties-amount span header {
+        height: 45px;
+    }
 }

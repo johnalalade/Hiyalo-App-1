@@ -1,9 +1,9 @@
 import React from 'react';
-import axios from '../../../components/axios';
+import axios from '../../../../components/axios';
 import { useEffect, useState } from 'react';
-import SideBar from '../../../components/Dashboard Navbar/SideBar';
-import TopBar from '../../../components/Dashboard Navbar/TopBar';
-import PageLoader from '../../../components/Loader/PageLoader';
+import SideBar from '../../../../components/Dashboard Navbar/SideBar';
+import TopBar from '../../../../components/Dashboard Navbar/TopBar';
+import PageLoader from '../../../../components/Loader/PageLoader';
 import './Dashboard_Payment.css';
 
 const DashboardPayment = () => {

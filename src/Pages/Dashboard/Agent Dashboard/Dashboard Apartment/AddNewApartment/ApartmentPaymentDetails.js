@@ -1,6 +1,6 @@
 import React from 'react';
 import './add-new-apartment.css';
-import PageLoader from '../../../../components/Loader/PageLoader';
+import PageLoader from '../../../../../components/Loader/PageLoader';
 import { Link } from 'react-router-dom';
 
 export const ApartmentPaymentDetails = ({ prevStep, annual_fee, agency_fee, caution_fee, stamp_fee, handleChange, finish, loading }) => {

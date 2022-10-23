@@ -265,3 +265,28 @@
         column-gap: 1rem;
     }
 }
+
+
+@media (max-width: 786px) {
+    .settings-filter {
+        padding: 0 1rem;
+    }
+    .settings-form-container {
+        flex-direction: column;
+        row-gap: 2rem;
+        margin-bottom: 1rem;
+    }
+    .settings-filter ul::-webkit-scrollbar {
+        display: none;
+      }
+    .settings-filter ul {
+        column-gap: 2rem;
+        min-width: 100%;
+        overflow: auto !important;
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+    }
+    .settings-filter li {
+        min-width: max-content;
+    }
+}

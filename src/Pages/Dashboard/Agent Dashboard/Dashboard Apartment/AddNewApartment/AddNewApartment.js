@@ -5,7 +5,7 @@ import ApartmentAddress from './ApartmentAddress';
 // import { useNavigate } from 'react-router-dom';
 import ApartmentPaymentDetails from './ApartmentPaymentDetails';
 import ApartmentGallery from './ApartmentGallery';
-import axios from '../../../../components/axios';
+import axios from '../../../../../components/axios';
 import ApartmentAddedModal from './ApartmentAddedModal';
 
 // const override: CSSProperties = {

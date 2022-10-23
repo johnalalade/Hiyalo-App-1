@@ -1,8 +1,8 @@
 import React from 'react';
 import { useEffect, useState } from 'react';
 import './Apartment_Details.css';
-import axios from '../../../../components/axios';
-import PageLoader from '../../../../components/Loader/PageLoader';
+import axios from '../../../../../components/axios';
+import PageLoader from '../../../../../components/Loader/PageLoader';
 // import img1 from '../../images/bg.jpg';
 // import img2 from '../../images/bg.jpg';
 // import img3 from '../../images/bg.jpg';
@@ -53,18 +53,24 @@ const PropertyDetails = () => {
 
   return (
     <>
-      <main className="product-overview-container">
+      <main className="product-overview-container dashboard-overview-container">
         {/******** PROPERTY IMAGES ********/}
 
         <div className="product-images">
           <div className="image-1">
-            <img src={property.address && property.images[0]} alt="" />
+            <img src={property.address && property.images[0]} alt=""  onClick={() => {
+                setViewAll(!viewAll)
+              }}/>
           </div>
 
           <div className="image-2-3">
-            <img src={property.address && property.images[1]} alt="" />
+            <img src={property.address && property.images[1]} alt="" onClick={() => {
+                setViewAll(!viewAll)
+              }} />
 
-            <img src={property.address && property.images[2]} alt="" />
+            <img src={property.address && property.images[2]} alt="" onClick={() => {
+                setViewAll(!viewAll)
+              }} />
             <span className="view-all-btn">
               <button type="button" onClick={() => {
                 setViewAll(!viewAll)
@@ -357,7 +363,7 @@ const PropertyDetails = () => {
         {viewAll && <div className='view-all-div'>
 
           <span onClick={() => { setViewAll(!viewAll); setIndexA(0) }} className='view-all-cancel'>
-            <iconify-icon icon="iconoir:cancel" height="60"></iconify-icon>
+            <iconify-icon icon="iconoir:cancel" ></iconify-icon>
           </span>
 
           <span>

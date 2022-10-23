@@ -1,14 +1,14 @@
 import React from 'react';
 import './dashboard-apartment.css';
 import { useNavigate } from 'react-router-dom';
-import SideBar from '../../../../components/Dashboard Navbar/SideBar';
-import TopBar from '../../../../components/Dashboard Navbar/TopBar';
+import SideBar from '../../../../../components/Dashboard Navbar/SideBar';
+import TopBar from '../../../../../components/Dashboard Navbar/TopBar';
 // import apartmentImg from '../../images/bg.jpg';
 import { useEffect, useState } from 'react';
-import axios from '../../../../components/axios';
+import axios from '../../../../../components/axios';
 import PropertyDetails from './Apartment_Details';
-import PageLoader from '../../../../components/Loader/PageLoader';
-import EmptyHouse from '../../../../images/empty-house.png';
+import PageLoader from '../../../../../components/Loader/PageLoader';
+import EmptyHouse from '../../../../../images/empty-house.png';
 
 const ApartmentOverview = () => {
   const [houses, setHouses] = useState([]);

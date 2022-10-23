@@ -252,7 +252,17 @@
         margin-top: 1.5rem;
         padding:0 1.5rem;
         height: 60px;
-        width: 100%;
+        /* width: 100%; */
+    }
+    .apartment-list-container::-webkit-scrollbar {
+        display: none;
+      }
+    .apartment-list-container {
+        margin: 1rem !important;
+        margin-top: 2rem !important;
+        overflow: auto !important;
+        -ms-overflow-style: none;
+        scrollbar-width: none;
     }
 
     .filter-option {

@@ -432,6 +432,7 @@
     align-self: center;
     height: 100%;
     padding-top: 5rem;
+
     
 }
 .prev {
@@ -443,6 +444,7 @@
     padding: 10px;
     border-top-left-radius: 5px;
     border-bottom-left-radius: 5px;
+    cursor: pointer;
 }
 
 .next {
@@ -455,4 +457,5 @@
     border-top-right-radius: 5px;
     border-bottom-right-radius: 5px;
     color: #E4E3E9;
+    cursor: pointer;
 }

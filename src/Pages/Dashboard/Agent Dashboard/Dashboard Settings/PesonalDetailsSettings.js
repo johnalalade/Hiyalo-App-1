@@ -1,7 +1,7 @@
-import axios from '../../../components/axios';
+import axios from '../../../../components/axios';
 import React, { useState } from 'react';
 import './general-settings.css'
-import PageLoader from '../../../components/Loader/PageLoader';
+import PageLoader from '../../../../components/Loader/PageLoader';
 
 const PersonalDetailsSettings = ({ f_name, l_name, mail, phonee, doc_number, bn, verified }) => {
 

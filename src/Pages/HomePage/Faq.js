@@ -53,7 +53,7 @@ function Faq() {
                         color: '#D63434',
                         transition: 'all 0.5s ease-in-out;',
                       }}
-                      icon="fe:close"
+                      icon="ant-design:minus-outlined"
                     ></iconify-icon>
                   ) : (
                     <iconify-icon

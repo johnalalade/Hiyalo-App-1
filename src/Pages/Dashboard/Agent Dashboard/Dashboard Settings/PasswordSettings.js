@@ -1,6 +1,6 @@
-import axios from '../../../components/axios';
+import axios from '../../../../components/axios';
 import React, { useState } from 'react';
-import PageLoader from '../../../components/Loader/PageLoader';
+import PageLoader from '../../../../components/Loader/PageLoader';
 import './general-settings.css';
 
 const PasswordSettings = () => {

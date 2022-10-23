@@ -1,14 +1,14 @@
 import React from 'react';
-import axios from '../../../components/axios';
+import axios from '../../../../components/axios';
 import { useEffect, useState } from 'react';
-import SideBar from '../../../components/Dashboard Navbar/SideBar';
-import TopBar from '../../../components/Dashboard Navbar/TopBar';
+import SideBar from '../../../../components/Dashboard Navbar/SideBar';
+import TopBar from '../../../../components/Dashboard Navbar/TopBar';
 import './dashboard-overview.css';
 import { Link } from 'react-router-dom';
-import PageLoader from '../../../components/Loader/PageLoader';
+import PageLoader from '../../../../components/Loader/PageLoader';
 import DashboardModal from './DashboardModal';
 
-import CardImg from '../../../images/empty-list.png';
+import CardImg from '../../../../images/empty-list.png';
 
 const DashboardOverview = () => {
   const [name, setName] = useState('');
@@ -192,7 +192,7 @@ const DashboardOverview = () => {
 
             </table>
 
-            {transactions.length === 0 && (
+            {/* {transactions.length === 0 && (
                 <div className="trans-img">
                   <img src={CardImg} alt="no transactions yet" />
                   <p>
@@ -284,7 +284,7 @@ const DashboardOverview = () => {
                     ))}
                   </tbody>
                 )}
-              </table>
+              </table> */}
 
               {transactions.length === 0 && (
                 <div className="trans-img">

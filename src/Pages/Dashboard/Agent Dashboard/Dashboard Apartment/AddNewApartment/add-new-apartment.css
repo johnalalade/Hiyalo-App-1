@@ -542,6 +542,9 @@
     padding:  3rem 1rem;
     margin-bottom: 1rem;
 }
+.add-new-property-container {
+    padding: 0 1rem !important;
+}
     .basic-info-form {
         flex-direction: column;
         /* row-gap: 2rem; */

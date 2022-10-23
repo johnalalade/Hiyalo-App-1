@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import uploadIllustration from '../../../../images/add-photo-illustration.svg'
+import uploadIllustration from '../../../../../images/add-photo-illustration.svg'
 import './add-new-apartment.css';
 import { Link } from 'react-router-dom';
 

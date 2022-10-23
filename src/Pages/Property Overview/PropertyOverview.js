@@ -8,7 +8,7 @@ import PageLoader from '../../components/Loader/PageLoader';
 // import img1 from '../../images/bg.jpg';
 // import img2 from '../../images/bg.jpg';
 // import img3 from '../../images/bg.jpg';
-import { PopupButton } from "react-calendly";
+import { PopupButton } from 'react-calendly';
 
 const PropertyOverview = () => {
   // const PropertyImage1 = img1;
@@ -18,45 +18,57 @@ const PropertyOverview = () => {
   const [toggleState, setToggleState] = useState(1);
   const [loading, setLoading] = useState(true);
   const [viewAll, setViewAll] = useState(false);
-  const [map, setMap] = useState("https://maps.google.com/maps?q=" + encodeURI("Omoalade Alafia Street") + "&t=&z=13&ie=UTF8&iwloc=&output=embed")
+  const [map, setMap] = useState(
+    'https://maps.google.com/maps?q=' +
+      encodeURI('Omoalade Alafia Street') +
+      '&t=&z=13&ie=UTF8&iwloc=&output=embed'
+  );
   // "https://maps.google.com/maps?q=Omoalade%20Alafia,%20Street,%20Somolu,%20Lagos&t=&z=13&ie=UTF8&iwloc=&output=embed")
-  const [property, setProperty] = useState({})
+  const [property, setProperty] = useState({});
 
   // const index = 0
 
-  const [indexA, setIndexA] = useState(0)
+  const [indexA, setIndexA] = useState(0);
 
   const fwd = () => {
-    setIndexA(indexA + 1)
-  }
+    setIndexA(indexA + 1);
+  };
 
   const back = () => {
-    setIndexA(indexA - 1)
-  }
+    setIndexA(indexA - 1);
+  };
 
   const toggleTab = (index) => {
     setToggleState(index);
   };
 
-
-
   useEffect(() => {
-    setLoading(true)
-    axios.post('/houses/house-gateway/get-house', { id: localStorage.getItem("house_id") })
-      .then(data => {
-
-        setProperty(data.data.house)
-        setMap("https://maps.google.com/maps?q=" + encodeURI(data.data.house.address + data.data.house.city + data.data.house.state) + "&t=&z=13&ie=UTF8&iwloc=&output=embed")
-        setLoading(false)
+    setLoading(true);
+    axios
+      .post('/houses/house-gateway/get-house', {
+        id: localStorage.getItem('house_id'),
       })
-  }, [])
+      .then((data) => {
+        setProperty(data.data.house);
+        setMap(
+          'https://maps.google.com/maps?q=' +
+            encodeURI(
+              data.data.house.address +
+                data.data.house.city +
+                data.data.house.state
+            ) +
+            '&t=&z=13&ie=UTF8&iwloc=&output=embed'
+        );
+        setLoading(false);
+      });
+  }, []);
 
   if (loading) {
     return (
       <div className="spinner">
         <PageLoader />
       </div>
-    )
+    );
   }
 
   return (
@@ -69,17 +81,40 @@ const PropertyOverview = () => {
 
           <div className="product-images">
             <div className="image-1">
-              <img src={property.address && property.images[0]} alt="" />
+              <img
+                src={property.address && property.images[0]}
+                alt=""
+                onClick={() => {
+                  setViewAll(!viewAll);
+                }}
+              />
             </div>
 
             <div className="image-2-3">
-              <img src={property.address && property.images[1]} alt="" />
+              <img
+                src={property.address && property.images[1]}
+                alt=""
+                onClick={() => {
+                  setViewAll(!viewAll);
+                }}
+              />
 
-              <img src={property.address && property.images[2]} alt="" />
+              <img
+                src={property.address && property.images[2]}
+                alt=""
+                onClick={() => {
+                  setViewAll(!viewAll);
+                }}
+              />
               <span className="view-all-btn">
-                <button type="button" onClick={() => {
-                  setViewAll(!viewAll)
-                }}>View all image</button>
+                <button
+                  type="button"
+                  onClick={() => {
+                    setViewAll(!viewAll);
+                  }}
+                >
+                  View all image
+                </button>
               </span>
             </div>
           </div>
@@ -92,7 +127,9 @@ const PropertyOverview = () => {
                 <ul>
                   <li>
                     <button
-                      className={toggleState === 1 ? 'tabs active-tabs' : 'tabs'}
+                      className={
+                        toggleState === 1 ? 'tabs active-tabs' : 'tabs'
+                      }
                       onClick={() => toggleTab(1)}
                     >
                       {' '}
@@ -101,7 +138,9 @@ const PropertyOverview = () => {
                   </li>
                   <li>
                     <button
-                      className={toggleState === 2 ? 'tabs active-tabs' : 'tabs'}
+                      className={
+                        toggleState === 2 ? 'tabs active-tabs' : 'tabs'
+                      }
                       onClick={() => toggleTab(2)}
                     >
                       Features
@@ -109,7 +148,9 @@ const PropertyOverview = () => {
                   </li>
                   <li>
                     <button
-                      className={toggleState === 3 ? 'tabs active-tabs' : 'tabs'}
+                      className={
+                        toggleState === 3 ? 'tabs active-tabs' : 'tabs'
+                      }
                       onClick={() => toggleTab(3)}
                     >
                       Location
@@ -117,7 +158,9 @@ const PropertyOverview = () => {
                   </li>
                   <li>
                     <button
-                      className={toggleState === 4 ? 'tabs active-tabs' : 'tabs'}
+                      className={
+                        toggleState === 4 ? 'tabs active-tabs' : 'tabs'
+                      }
                       onClick={() => toggleTab(4)}
                     >
                       Price
@@ -157,7 +200,13 @@ const PropertyOverview = () => {
                       </span>
                       <span>
                         <p className="amenity-title">Bedroom</p>
-                        <p className="amenity-value">{property.ammenities.find(o => o.name === "Bedroom") ? property.ammenities.find(o => o.name === "Bedroom").number : "0"}</p>
+                        <p className="amenity-value">
+                          {property.ammenities.find((o) => o.name === 'Bedroom')
+                            ? property.ammenities.find(
+                                (o) => o.name === 'Bedroom'
+                              ).number
+                            : '0'}
+                        </p>
                       </span>
                     </div>
 
@@ -170,7 +219,13 @@ const PropertyOverview = () => {
                       </span>
                       <span>
                         <p className="amenity-title">Kitchen</p>
-                        <p className="amenity-value">{property.ammenities.find(o => o.name === "Kitchen") ? property.ammenities.find(o => o.name === "Kitchen").number : "0"}</p>
+                        <p className="amenity-value">
+                          {property.ammenities.find((o) => o.name === 'Kitchen')
+                            ? property.ammenities.find(
+                                (o) => o.name === 'Kitchen'
+                              ).number
+                            : '0'}
+                        </p>
                       </span>
                     </div>
 
@@ -183,7 +238,15 @@ const PropertyOverview = () => {
                       </span>
                       <span>
                         <p className="amenity-title">Dining Room</p>
-                        <p className="amenity-value">{property.ammenities.find(o => o.name === "Dining Room") ? property.ammenities.find(o => o.name === "Dining Room").number : "0"}</p>
+                        <p className="amenity-value">
+                          {property.ammenities.find(
+                            (o) => o.name === 'Dining Room'
+                          )
+                            ? property.ammenities.find(
+                                (o) => o.name === 'Dining Room'
+                              ).number
+                            : '0'}
+                        </p>
                       </span>
                     </div>
 
@@ -196,7 +259,15 @@ const PropertyOverview = () => {
                       </span>
                       <span>
                         <p className="amenity-title">Swimming pool</p>
-                        <p className="amenity-value">{property.ammenities.find(o => o.name === "Swimming pool") ? property.ammenities.find(o => o.name === "Swimming pool").number : "0"}</p>
+                        <p className="amenity-value">
+                          {property.ammenities.find(
+                            (o) => o.name === 'Swimming pool'
+                          )
+                            ? property.ammenities.find(
+                                (o) => o.name === 'Swimming pool'
+                              ).number
+                            : '0'}
+                        </p>
                       </span>
                     </div>
 
@@ -209,7 +280,15 @@ const PropertyOverview = () => {
                       </span>
                       <span>
                         <p className="amenity-title">Store room</p>
-                        <p className="amenity-value">{property.ammenities.find(o => o.name === "Store room") ? property.ammenities.find(o => o.name === "Store room").number : "0"}</p>
+                        <p className="amenity-value">
+                          {property.ammenities.find(
+                            (o) => o.name === 'Store room'
+                          )
+                            ? property.ammenities.find(
+                                (o) => o.name === 'Store room'
+                              ).number
+                            : '0'}
+                        </p>
                       </span>
                     </div>
 
@@ -222,7 +301,15 @@ const PropertyOverview = () => {
                       </span>
                       <span>
                         <p className="amenity-title">Bathroom</p>
-                        <p className="amenity-value">{property.ammenities.find(o => o.name === "Bathroom") ? property.ammenities.find(o => o.name === "Bathroom").number : "0"}</p>
+                        <p className="amenity-value">
+                          {property.ammenities.find(
+                            (o) => o.name === 'Bathroom'
+                          )
+                            ? property.ammenities.find(
+                                (o) => o.name === 'Bathroom'
+                              ).number
+                            : '0'}
+                        </p>
                       </span>
                     </div>
 
@@ -235,7 +322,15 @@ const PropertyOverview = () => {
                       </span>
                       <span>
                         <p className="amenity-title">Parking Space</p>
-                        <p className="amenity-value">{property.ammenities.find(o => o.name === "Parking Space") ? property.ammenities.find(o => o.name === "Parking Space").number : "0"}</p>
+                        <p className="amenity-value">
+                          {property.ammenities.find(
+                            (o) => o.name === 'Parking Space'
+                          )
+                            ? property.ammenities.find(
+                                (o) => o.name === 'Parking Space'
+                              ).number
+                            : '0'}
+                        </p>
                       </span>
                     </div>
                   </main>
@@ -250,9 +345,7 @@ const PropertyOverview = () => {
                   <div id="property-address-details">
                     <span>
                       <p className="address-title">Street Address</p>
-                      <p className="address-p">
-                        {property.address}
-                      </p>
+                      <p className="address-p">{property.address}</p>
                     </span>
 
                     <span>
@@ -265,7 +358,17 @@ const PropertyOverview = () => {
                       <p className="address-p">{property.state} State</p>
                     </span>
                   </div>
-                  <iframe title='Map' width="600" height="500" id="gmap_canvas" src={map} frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>
+                  <iframe
+                    title="Map"
+                    width="600"
+                    height="500"
+                    id="gmap_canvas"
+                    src={map}
+                    frameborder="0"
+                    scrolling="no"
+                    marginheight="0"
+                    marginwidth="0"
+                  ></iframe>
                 </div>
                 <div
                   className={
@@ -277,22 +380,43 @@ const PropertyOverview = () => {
                   <div id="property-address-details">
                     <span>
                       <p className="address-title">Anual Rent Fee</p>
-                      <p className="address-p">&#8358; {Number(property.annual_fee).toFixed(2).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')} </p>
+                      <p className="address-p">
+                        &#8358;{' '}
+                        {Number(property.annual_fee)
+                          .toFixed(2)
+                          .replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')}{' '}
+                      </p>
                     </span>
 
                     <span>
                       <p className="address-title">Agency & Agreement Fee</p>
-                      <p className="address-p"> &#8358; {Number(property.agency_fee).toFixed(2).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')}</p>
+                      <p className="address-p">
+                        {' '}
+                        &#8358;{' '}
+                        {Number(property.agency_fee)
+                          .toFixed(2)
+                          .replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')}
+                      </p>
                     </span>
 
                     <span>
                       <p className="address-title">Caution Fee</p>
-                      <p className="address-p">&#8358; {Number(property.caution_fee).toFixed(2).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')}</p>
+                      <p className="address-p">
+                        &#8358;{' '}
+                        {Number(property.caution_fee)
+                          .toFixed(2)
+                          .replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')}
+                      </p>
                     </span>
 
                     <span>
                       <p className="address-title">Stamp Duty</p>
-                      <p className="address-p">&#8358; {Number(property.stamp_fee).toFixed(2).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')}</p>
+                      <p className="address-p">
+                        &#8358;{' '}
+                        {Number(property.stamp_fee)
+                          .toFixed(2)
+                          .replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')}
+                      </p>
                     </span>
                   </div>
                 </div>
@@ -306,9 +430,9 @@ const PropertyOverview = () => {
                   icon="bi:info-circle"
                 ></iconify-icon>
                 <p>
-                  <b>Inspection Fee:</b> Physical Tour Cost <b>N 10,000 </b> that
-                  would cater for your transportation from your house to where the
-                  apartment is located
+                  <b>Inspection Fee:</b> Physical Tour Cost <b>N 10,000 </b>{' '}
+                  that would cater for your transportation from your house to
+                  where the apartment is located
                 </p>
               </div>
             </div>
@@ -316,17 +440,24 @@ const PropertyOverview = () => {
             <div class="payment-details-container">
               <header>
                 <h4>
-                  &#8358; {Number(property.annual_fee).toFixed(2).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')}<small>/year</small>
+                  &#8358;{' '}
+                  {Number(property.annual_fee)
+                    .toFixed(2)
+                    .replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')}
+                  <small>/year</small>
                 </h4>
                 <h4>
-                  &#8358; {(Number(property.annual_fee / 12)).toFixed(2).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')}<small>/month</small>
+                  &#8358;{' '}
+                  {Number(property.annual_fee / 12)
+                    .toFixed(2)
+                    .replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')}
+                  <small>/month</small>
                 </h4>
               </header>
               <div class="tour-form-container">
                 <h4>Request For Tour</h4>
 
                 <form action="" class="tour-form">
-
                   {/* <div class="inspect-time-date">
                   <span>
                     <label for="date">Inspection Date *</label>
@@ -356,7 +487,9 @@ const PropertyOverview = () => {
                         // lastName: 'Snow',
                         // name: 'Jon Snow',
                         guests: [
-                          property.agent_email ? property.agent_email : "david@hiyalo.com"
+                          property.agent_email
+                            ? property.agent_email
+                            : 'david@hiyalo.com',
                         ],
                         // customAnswers: {
                         //   a1: 'a1',
@@ -403,7 +536,9 @@ const PropertyOverview = () => {
                 // lastName: 'Snow',
                 // name: 'Jon Snow',
                 guests: [
-                  property.agent_email ? property.agent_email : "david@hiyalo.com"
+                  property.agent_email
+                    ? property.agent_email
+                    : 'david@hiyalo.com',
                 ],
                 // customAnswers: {
                 //   a1: 'a1',
@@ -430,33 +565,44 @@ const PropertyOverview = () => {
           </div>
         </main>
 
-
         <Footer />
       </div>
 
-      {viewAll && <div className='view-all-div'>
+      {viewAll && (
+        <div className="view-all-div">
+          <span
+            onClick={() => {
+              setViewAll(!viewAll);
+              setIndexA(0);
+            }}
+            className="view-all-cancel"
+          >
+            <iconify-icon class='iconify-cancel' icon="iconoir:cancel"></iconify-icon>
+          </span>
 
-        <span  onClick={() => { setViewAll(!viewAll); setIndexA(0) }} className='view-all-cancel'>
-          <iconify-icon icon="iconoir:cancel" height="60"></iconify-icon>
-        </span>
+          <span>
+            {indexA - 1 && (
+              <span className="prev img-prev" onClick={() => back()}>
+                <iconify-icon icon="eva:arrow-ios-back-outline"></iconify-icon>
+              </span>
+            )}
+          </span>
 
-        <span>
-          {indexA !== 0 && <span className='prev' onClick={() => back()}>
-            <iconify-icon icon="eva:arrow-ios-back-outline"></iconify-icon>
-          </span>}
-        </span>
+          <img
+            src={property.images[indexA]}
+            alt="property"
+            className="view-all-img"
+          />
 
-        <img src={property.images[indexA]} alt="property" className='view-all-img' />
-
-        <span>
-          {indexA + 1 < property.images.length && <span className='next' onClick={() => fwd()}>
-            <iconify-icon icon="eva:arrow-ios-forward-fill"></iconify-icon>
-          </span>}
-        </span>
-
-      </div>
-      }
-
+          <span>
+            {indexA + 1 < property.images.length && (
+              <span className="next img-next" onClick={() => fwd()}>
+                <iconify-icon icon="eva:arrow-ios-forward-fill"></iconify-icon>
+              </span>
+            )}
+          </span>
+        </div>
+      )}
     </>
   );
 };

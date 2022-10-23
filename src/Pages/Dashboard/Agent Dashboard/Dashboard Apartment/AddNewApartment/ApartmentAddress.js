@@ -1,5 +1,5 @@
 import React from 'react';
-import states from '../../../../components/states'
+import states from '../../../../../components/states'
 import './add-new-apartment.css';
 import { Link } from 'react-router-dom';
 

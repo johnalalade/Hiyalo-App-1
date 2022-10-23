@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import VerifySuccess from '../../../../images/verify.svg';
+import VerifySuccess from '../../../../../images/verify.svg';
 
 const ApartmentAddedModal = () => {
   return (
