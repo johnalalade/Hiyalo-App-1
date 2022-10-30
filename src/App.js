@@ -26,6 +26,10 @@ import PrivacyPolicy from './Pages/Privacy_Policy/Privacy_Policy';
 // import "slick-carousel/slick/slick.css";
 // import "slick-carousel/slick/slick-theme.css";
 
+
+import TenantDashboardOverview from './Pages/Dashboard/User Dashboard/Tenant Dashboard Overview/TenantDashboardOverview';
+// import TenantActiveOverview from './Pages/Dashboard/User Dashboard/Tenant Dashboard Overview/Tenant Active Overview/TenantActiveOverview';
+
 function App() {
   return (
     <>
@@ -75,6 +79,8 @@ function App() {
             path="/apartments/add-apartment-payment-info"
             element={<ApartmentPaymentDetails />}
           ></Route> */}
+
+          <Route path="/tenant-dashboard-inactive" element={<TenantDashboardOverview />}></Route>
         </Routes>
       </Router>
     </>
