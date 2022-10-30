@@ -124,4 +124,8 @@
 
 .apartments.dashboard-listed-apartments {
     margin: 2rem 3rem;
+    column-gap: 2rem;
+}
+.apartments.dashboard-listed-apartments .apartment {
+    background: #FFF;
 }

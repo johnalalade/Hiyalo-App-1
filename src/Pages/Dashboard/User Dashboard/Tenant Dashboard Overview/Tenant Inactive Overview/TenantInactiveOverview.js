@@ -1,8 +1,11 @@
 import React from 'react';
 import './tenant-inactive-overview.css';
 import ApartmentImg from '../../../../../images/bg.jpg';
+
 import { Link } from 'react-router-dom';
+
 const TenantInactiveOverview = () => {
+
   const apartments = [
     {
       id: 1,
@@ -39,7 +42,7 @@ const TenantInactiveOverview = () => {
       productPriceMonthly: 400,
       numberOfBeds: 3,
       numberOfBaths: 4,
-    },
+    }
   ];
   return (
     <>
@@ -102,16 +105,17 @@ const TenantInactiveOverview = () => {
           <h4>Explore Similar Properties</h4>
 
           <span className="ee-all">See All</span>
+
         </div>
 
-        <main className="apartments dashboard-listed-apartments">
+        <main className="market-apartments apartments dashboard-listed-apartments">
           {apartments.map((apartment, idx) => {
             return (
               <div className="apartment">
                 <img src={apartment.productImg} alt="" />
 
                 <div className="apartment-location">
-                  <p>{apartment.address}</p>
+                  <p>{apartment.productLocation}</p>
                 </div>
 
                 <div className="core-ammenities">

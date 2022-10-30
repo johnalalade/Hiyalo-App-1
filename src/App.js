@@ -29,7 +29,8 @@ import PrivacyPolicy from './Pages/Privacy_Policy/Privacy_Policy';
 
 import TenantDashboardOverview from './Pages/Dashboard/User Dashboard/Tenant Dashboard Overview/TenantDashboardOverview';
 // import TenantActiveOverview from './Pages/Dashboard/User Dashboard/Tenant Dashboard Overview/Tenant Active Overview/TenantActiveOverview';
-
+import SettingsContainer from './Pages/Dashboard/User Dashboard/User Dashboard Settings/SettingsContainer';
+import TenantPaymentHistory from './Pages/Dashboard/User Dashboard/UserPaymentPage/TenantPaymentHistory';
 function App() {
   return (
     <>
@@ -81,6 +82,8 @@ function App() {
           ></Route> */}
 
           <Route path="/tenant-dashboard-inactive" element={<TenantDashboardOverview />}></Route>
+          <Route path="/tenant-settings" element={<SettingsContainer />}></Route>
+          <Route path="/tenant-payment-history" element={<TenantPaymentHistory />}></Route>
         </Routes>
       </Router>
     </>

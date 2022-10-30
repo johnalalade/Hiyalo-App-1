@@ -186,7 +186,8 @@
     text-align: center;
     color: #050213;
 }
-.available-spaces header .filter-btn {
+.available-spaces header .filter-btn,
+.filter-btn {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -378,7 +379,8 @@
     .available-spaces header h3 {
         font-size: 28px;
     }
-    .available-spaces header .filter-btn {
+    .available-spaces header .filter-btn,
+    .filter-btn {
         width: 80px;
         column-gap: .2rem;
         align-items: center;
