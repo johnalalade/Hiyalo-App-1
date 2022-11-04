@@ -26,11 +26,13 @@ import PrivacyPolicy from './Pages/Privacy_Policy/Privacy_Policy';
 // import "slick-carousel/slick/slick.css";
 // import "slick-carousel/slick/slick-theme.css";
 
-
 import TenantDashboardOverview from './Pages/Dashboard/User Dashboard/Tenant Dashboard Overview/TenantDashboardOverview';
 // import TenantActiveOverview from './Pages/Dashboard/User Dashboard/Tenant Dashboard Overview/Tenant Active Overview/TenantActiveOverview';
 import SettingsContainer from './Pages/Dashboard/User Dashboard/User Dashboard Settings/SettingsContainer';
 import TenantPaymentHistory from './Pages/Dashboard/User Dashboard/UserPaymentPage/TenantPaymentHistory';
+
+import TenantSignUp from './Pages/Tenant SignUp/TenantSignUp';
+import TenantSignIn from './Pages/Tenant SignUp/TenantSignIn';
 function App() {
   return (
     <>
@@ -81,9 +83,21 @@ function App() {
             element={<ApartmentPaymentDetails />}
           ></Route> */}
 
-          <Route path="/tenant-dashboard-inactive" element={<TenantDashboardOverview />}></Route>
-          <Route path="/tenant-settings" element={<SettingsContainer />}></Route>
-          <Route path="/tenant-payment-history" element={<TenantPaymentHistory />}></Route>
+          <Route
+            path="/tenant-dashboard-inactive"
+            element={<TenantDashboardOverview />}
+          ></Route>
+          <Route
+            path="/tenant-settings"
+            element={<SettingsContainer />}
+          ></Route>
+          <Route
+            path="/tenant-payment-history"
+            element={<TenantPaymentHistory />}
+          ></Route>
+
+          <Route path="/tenant-sign-up" element={<TenantSignUp />}></Route>
+          <Route path="/tenant-sign-in" element={<TenantSignIn />}></Route>
         </Routes>
       </Router>
     </>

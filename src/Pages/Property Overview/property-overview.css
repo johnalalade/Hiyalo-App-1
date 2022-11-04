@@ -452,6 +452,9 @@
         row-gap: 3rem;
 
     }
+    .product-details {
+        margin-right: 0rem !important;
+    }
     .product-details header ul {
         min-width: 100%;
         overflow-x: hidden;
@@ -462,6 +465,7 @@
     }
     .physical-tour-info {
         column-gap: .5rem;
+        margin-top: 2rem !important;
     }
     /* .product-details {
         margin-bottom: 4rem;
@@ -469,6 +473,7 @@
     .payment-details-container {
         min-height: 400px;
         margin-bottom: 4rem;
+        margin-top: 1rem;
         /* display: none; */
     }
 

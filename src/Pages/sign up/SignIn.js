@@ -118,7 +118,7 @@ const SignIn = () => {
               onChange={onChange}
             />
             
-            <button type="submit" onClick={submit} >Get Started</button>
+            <button type="submit" onClick={submit} >Continue</button>
             <br/>
             <div class="forgot-password-text">
               <p>
@@ -139,8 +139,8 @@ const SignIn = () => {
               {/* <iconify-icon
                 class="google-icon"
                 icon="flat-color-icons:google"
-              ></iconify-icon> */}
-              {/* <p>Sign Up with Google</p> */}
+              ></iconify-icon>
+              <p>Sign Up with Google</p> */}
               <GoogleLogin
                 class="sign-up-google"
                 buttonText="Login"
