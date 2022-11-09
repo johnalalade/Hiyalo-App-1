@@ -4,10 +4,71 @@
     display: flex;
     flex-direction: column;
     overflow: hidden;
-    margin-top: 80px;
+    margin-top: 70px;
     padding: 2rem 80px;
+    background-color: #ECECEC;;
+}
+.property-overview-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+}
+.prop-nav {
+    display: flex;
+    align-items: center;
+    column-gap: 1rem;
+}
+.prop-nav .back-iconify {
+    font-size: 26px;
+}
+.prop-nav-links {
+    display: flex;
+    column-gap: .4rem;
+}
+.prop-nav-links p {
+    letter-spacing: 0.03em;
+    color: #757575;
+    font-size: 16px;
+    border-right: 1px solid #757575;
+    padding-right: .3rem;
+
+}
+.prop-nav-links p:last-child {
+    color: #333333;
+    border-right: none;
+    padding-right: 0;
 }
 
+.property-overview-nav-cta {
+    display: flex;
+    column-gap: 1rem;
+    align-items: center;
+}
+.property-overview-nav-cta button {
+    display: flex;
+    align-items: center;
+    height: 40px;
+    padding: 0 1rem;
+    border-radius: 5px;
+    border: 1px solid #333333;
+}
+.property-overview-nav-cta button:last-child {
+    /* background: #4733ac49; */
+    border-color: #4733AC;
+    /* color: #FFF; */
+}
+.property-overview-nav-cta button:last-child p{
+    font-size: 16px;
+}
+.property-overview-nav-cta .share-icon {
+    font-size: 22px;
+}
+.property-overview-nav-cta .like-btn {
+    color: #4733AC;
+    font-size: 22px;
+    margin-right: .4rem;
+}
 .product-images {
     display: flex;
     column-gap: 1rem;
@@ -429,7 +490,25 @@
     .product-overview-container {
         padding: 1rem 1rem;
         position: relative;
-
+    }
+    .prop-nav-links {
+        display: none;
+    }
+    .property-overview-nav-cta {
+        column-gap: .5rem;
+    }
+    .property-overview-nav-cta .share-icon {
+        font-size: 18px;
+    }
+    .property-overview-nav-cta .like-btn {
+        font-size: 18px;
+        margin-right: .2rem;
+    }
+    .property-overview-nav-cta button {
+        height: 38px;
+    }
+    .property-overview-nav-cta button:last-child p {
+        font-size: 16px;
     }
     .product-images {
         display: flex;

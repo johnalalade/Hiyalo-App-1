@@ -43,10 +43,10 @@ const HomePageMarket = ({ data, search }) => {
               <div className="apartment-prices">
                 <span>
                   <p>
-                    &#8358;{(Number(apartment.annual_fee)).toFixed(2).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')}<small>/year</small>{' '}
+                    &#8358;{(Number(apartment.annual_fee)).toFixed(2).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')}<small>/yr</small>{' '}
                   </p>
                   <p>
-                    &#8358;{(Number(apartment.annual_fee / 12)).toFixed(2).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')}<small>/monthly</small>{' '}
+                    &#8358;{(Number(apartment.annual_fee / 12)).toFixed(2).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')}<small>/mth</small>{' '}
                   </p>
                 </span>
                 <Link onClick={() => {

@@ -190,7 +190,13 @@
         min-height: 270px !important;
         margin: 1.5rem 1rem !important;
     }
-    .explore-cta  button{
-        height: 55px !important;
+    .explore-btn {
+        height: 50px;
+    }
+    .explore-btn p {
+        font-size: 24px;
+    }
+    .explore-icon {
+        font-size: 24px;
     }
 }

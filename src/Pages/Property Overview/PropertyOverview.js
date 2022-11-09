@@ -77,6 +77,35 @@ const PropertyOverview = () => {
         <NavBar />
 
         <main className="product-overview-container">
+          <div className="property-overview-nav">
+            <div className="prop-nav">
+              <iconify-icon
+                class="back-iconify"
+                icon="bx:arrow-back"
+              ></iconify-icon>
+
+              <span className="prop-nav-links">
+                <p>Home</p>
+                <p>Search</p>
+                <p>Osapa London</p>
+              </span>
+            </div>
+
+            <div className="property-overview-nav-cta">
+              {/* <button><iconify-icon icon="lucide:locate-fixed"></iconify-icon> Open Google Map</button> */}
+              <button>
+                <iconify-icon class="share-icon" icon="ci:share"></iconify-icon>
+              </button>
+              <button>
+                <iconify-icon
+                  class="like-btn"
+                  icon="carbon:favorite-filled"
+                ></iconify-icon>
+                <p>Save</p>
+              </button>
+            </div>
+          </div>
+
           {/******** PROPERTY IMAGES ********/}
 
           <div className="product-images">
@@ -425,11 +454,11 @@ const PropertyOverview = () => {
               {/******** PROPERTY TOUR AND APPLICATION FORM ********/}
 
               <div className="physical-tour-info">
-                <iconify-icon
-                  class="info-icon"
-                  icon="bi:info-circle"
-                ></iconify-icon>
                 <p>
+                  <iconify-icon
+                    class="info-icon"
+                    icon="bi:info-circle"
+                  ></iconify-icon>
                   <b>Inspection Fee:</b> Physical Tour Cost <b>N 10,000 </b>{' '}
                   that would cater for your transportation from your house to
                   where the apartment is located
@@ -577,7 +606,10 @@ const PropertyOverview = () => {
             }}
             className="view-all-cancel"
           >
-            <iconify-icon class='iconify-cancel' icon="iconoir:cancel"></iconify-icon>
+            <iconify-icon
+              class="iconify-cancel"
+              icon="iconoir:cancel"
+            ></iconify-icon>
           </span>
 
           <span>
