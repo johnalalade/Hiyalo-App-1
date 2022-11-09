@@ -3,8 +3,16 @@ import './add-new-apartment.css';
 import PageLoader from '../../../../../components/Loader/PageLoader';
 import { Link } from 'react-router-dom';
 
-export const ApartmentPaymentDetails = ({ prevStep, annual_fee, agency_fee, caution_fee, stamp_fee, handleChange, finish, loading }) => {
-
+export const ApartmentPaymentDetails = ({
+  prevStep,
+  annual_fee,
+  agency_fee,
+  caution_fee,
+  stamp_fee,
+  handleChange,
+  finish,
+  loading,
+}) => {
   // let [loading, setLoading] = useState(false);
   // let [color, setColor] = useState("#ffffff");
 
@@ -12,10 +20,10 @@ export const ApartmentPaymentDetails = ({ prevStep, annual_fee, agency_fee, caut
     // e.preventDefault();
     // nextStep();
 
-    finish()
+    finish();
   };
 
-  const back = e => {
+  const back = (e) => {
     e.preventDefault();
     prevStep();
   };
@@ -35,14 +43,20 @@ export const ApartmentPaymentDetails = ({ prevStep, annual_fee, agency_fee, caut
   if (loading) {
     return (
       <div className="spinner">
-        <PageLoader color='#4733AC' />
+        <PageLoader color="#4733AC" />
       </div>
-    )
+    );
   }
   return (
     <main class="add-new-property-container">
       <header>
-        <Link to="/apartments" class="apa" > <iconify-icon className='add-new-property-cta' icon="eva:arrow-back-outline"></iconify-icon>  Add New Apartment:</Link>
+        <Link to="/apartments" className="apa">
+          <iconify-icon
+            class="back-iconify"
+            icon="bx:arrow-back"
+          ></iconify-icon>
+          <h4>Add New Apartment</h4>
+        </Link>
         {/* <div class="add-property-cta">
           <button type="submit" onClick={() => draft()}>Save as Draft</button>
           <button type="submit" onClick={() => finish()}>Completed</button>
@@ -87,20 +101,33 @@ export const ApartmentPaymentDetails = ({ prevStep, annual_fee, agency_fee, caut
           <div class="col-1">
             <label for="payment"> Annual Rent Fee (&#8358;) </label>
 
-            <input type="text" name='annual_fee' value={annual_fee} placeholder="enter annual rent fee" onChange={(e) => handleChange(e)} />
+            <input
+              type="text"
+              name="annual_fee"
+              value={annual_fee}
+              placeholder="enter annual rent fee"
+              onChange={(e) => handleChange(e)}
+            />
 
             <label for="agency fee">Agency & Agreement Fee (&#8358;)</label>
 
             <input
               type="text"
               placeholder="enter the angency fee & Agreement Fee"
-              name='agency_fee' value={agency_fee} onChange={(e) => handleChange(e)}
+              name="agency_fee"
+              value={agency_fee}
+              onChange={(e) => handleChange(e)}
             />
 
             <label for="caution fee">Caution Fee (If any) (&#8358;) </label>
 
-            <input type="text" placeholder="enter the caution fee" name='caution_fee' value={caution_fee} onChange={(e) => handleChange(e)} />
-
+            <input
+              type="text"
+              placeholder="enter the caution fee"
+              name="caution_fee"
+              value={caution_fee}
+              onChange={(e) => handleChange(e)}
+            />
           </div>
           {/* <div class="col-2">
             <label for="stamp duty">Stamp Duty Fee (&#8358;)</label>
@@ -110,13 +137,24 @@ export const ApartmentPaymentDetails = ({ prevStep, annual_fee, agency_fee, caut
           </div> */}
 
           <div class="col-2">
-            <aside>Total Fee is (&#8358;){(Number(annual_fee) + Number(agency_fee) + Number(caution_fee) + Number(stamp_fee)).toFixed(2).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')}</aside>
+            <aside>
+              Total Fee is (&#8358;)
+              {(
+                Number(annual_fee) +
+                Number(agency_fee) +
+                Number(caution_fee) +
+                Number(stamp_fee)
+              )
+                .toFixed(2)
+                .replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')}
+            </aside>
           </div>
-
         </form>
 
         <div class="property-form-cta">
-          <button type="submit" onClick={back}>previous</button>
+          <button type="submit" onClick={back}>
+            previous
+          </button>
           <button onClick={continu} type="button">
             Finish
           </button>
@@ -124,6 +162,6 @@ export const ApartmentPaymentDetails = ({ prevStep, annual_fee, agency_fee, caut
       </div>
     </main>
   );
-}
+};
 
 export default ApartmentPaymentDetails;

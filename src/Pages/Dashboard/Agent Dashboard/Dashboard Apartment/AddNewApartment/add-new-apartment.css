@@ -34,7 +34,10 @@
 }
 
 .apa {
+    display: flex;
+    align-items: center;
     font-style: normal;
+    column-gap: .5rem;
     font-weight: 600;
     font-size: 22px;
     color: #333333;
@@ -569,5 +572,13 @@
     }
     .step p {
         display: none;
+    }
+    .apa {
+        display: flex;
+        width: 100%;
+        justify-content: space-between !important;
+    }
+    .apa h4 {
+        font-size: 18px;
     }
 }
