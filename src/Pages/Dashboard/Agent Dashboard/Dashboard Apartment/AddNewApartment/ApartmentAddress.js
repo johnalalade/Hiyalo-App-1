@@ -1,15 +1,22 @@
 import React from 'react';
-import states from '../../../../../components/states'
+import states from '../../../../../components/states';
 import './add-new-apartment.css';
 import { Link } from 'react-router-dom';
 
-const ApartmentAddress = ({ nextStep, prevStep, address, state, city, handleChange, finish }) => {
-
+const ApartmentAddress = ({
+  nextStep,
+  prevStep,
+  address,
+  state,
+  city,
+  handleChange,
+  finish,
+}) => {
   const continu = (e) => {
     e.preventDefault();
     nextStep();
   };
-  const back = e => {
+  const back = (e) => {
     e.preventDefault();
     prevStep();
   };
@@ -29,7 +36,13 @@ const ApartmentAddress = ({ nextStep, prevStep, address, state, city, handleChan
   return (
     <main class="add-new-property-container">
       <header>
-        <Link to="/apartments" class="apa" > <iconify-icon className='add-new-property-cta' icon="eva:arrow-back-outline"></iconify-icon>  Add New Apartment:</Link>
+        <Link to="/apartments" className="apa">
+          <iconify-icon
+            class="back-iconify"
+            icon="bx:arrow-back"
+          ></iconify-icon>
+          <h4>Add New Apartment</h4>
+        </Link>
         {/* <div class="add-property-cta">
           <button type="submit" onClick={() => draft()}>Save as Draft</button>
           <button type="submit" onClick={() => finish()} >Completed</button>
@@ -70,23 +83,39 @@ const ApartmentAddress = ({ nextStep, prevStep, address, state, city, handleChan
         <div class="step-title">Full Address</div>
         <form action="" class="basic-info-form">
           <div class="col-1">
-
             <label for="apartment type"> Address Description</label>
-            <input type="text" name='address' value={address} placeholder="enter the apartment loaction" onChange={(e) => handleChange(e)} />
+            <input
+              type="text"
+              name="address"
+              value={address}
+              placeholder="enter the apartment loaction"
+              onChange={(e) => handleChange(e)}
+            />
 
             <label for="city">City</label>
-            <input type="city" name='city' value={city} placeholder="Ikoyi" onChange={(e) => handleChange(e)} />
+            <input
+              type="city"
+              name="city"
+              value={city}
+              placeholder="Ikoyi"
+              onChange={(e) => handleChange(e)}
+            />
 
             <label for="state">State</label>
 
-            <select name='state' value={state} onChange={(e) => handleChange(e)} className="input-selection" id='house-type-option' >
-              {
-                states.map(st => <option value={st} >{st}</option>)
-              }
+            <select
+              name="state"
+              value={state}
+              onChange={(e) => handleChange(e)}
+              className="input-selection"
+              id="house-type-option"
+            >
+              {states.map((st) => (
+                <option value={st}>{st}</option>
+              ))}
             </select>
 
             {/* <input type="text" name='state' value={state} placeholder="Lagos State" onChange={(e) => handleChange(e)} /> */}
-
           </div>
           <div class="location-map">
             {/* <iframe
@@ -99,7 +128,9 @@ const ApartmentAddress = ({ nextStep, prevStep, address, state, city, handleChan
           </div>
         </form>
         <div class="property-form-cta">
-          <button type="submit" onClick={back}>previous</button>
+          <button type="submit" onClick={back}>
+            previous
+          </button>
           <button onClick={continu} type="submit">
             Next
           </button>
@@ -107,6 +138,6 @@ const ApartmentAddress = ({ nextStep, prevStep, address, state, city, handleChan
       </div>
     </main>
   );
-}
+};
 
 export default ApartmentAddress;

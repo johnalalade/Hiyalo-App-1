@@ -89,7 +89,13 @@ export const ApartmentAmmenities = ({
   return (
     <main class="add-new-property-container">
       <header>
-        <h4>Add New Apartment:</h4>
+        <Link to="/apartments" className="apa">
+          <iconify-icon
+            class="back-iconify"
+            icon="bx:arrow-back"
+          ></iconify-icon>
+          <h4>Add New Apartment</h4>
+        </Link>
         <div class="add-property-cta">
           {/* <button type="submit" onClick={() => draft()}>
             Save as Draft
@@ -236,10 +242,7 @@ export const ApartmentAmmenities = ({
           </div>
 
           <div className="amenity">
-            <iconify-icon
-              class="amenity-icons"
-              icon="bx:store"
-            ></iconify-icon>
+            <iconify-icon class="amenity-icons" icon="bx:store"></iconify-icon>
             <p>Store room</p>
 
             <input

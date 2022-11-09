@@ -1,11 +1,16 @@
 import React, { useState } from 'react';
-import uploadIllustration from '../../../../../images/add-photo-illustration.svg'
+import uploadIllustration from '../../../../../images/add-photo-illustration.svg';
 import './add-new-apartment.css';
 import { Link } from 'react-router-dom';
 
-export const ApartmentGallery = ({ nextStep, prevStep, images, handleChange, finish }) => {
-
-  const [files, setFiles] = useState([...images])
+export const ApartmentGallery = ({
+  nextStep,
+  prevStep,
+  images,
+  handleChange,
+  finish,
+}) => {
+  const [files, setFiles] = useState([...images]);
 
   const continu = (e) => {
     e.preventDefault();
@@ -14,22 +19,21 @@ export const ApartmentGallery = ({ nextStep, prevStep, images, handleChange, fin
     handleChange({
       target: {
         value: files,
-        name: "images"
-      }
-    })
-
+        name: 'images',
+      },
+    });
   };
 
-  const back = e => {
+  const back = (e) => {
     e.preventDefault();
     prevStep();
 
     handleChange({
       target: {
         value: files,
-        name: "images"
-      }
-    })
+        name: 'images',
+      },
+    });
   };
 
   // const draft = () => {
@@ -51,12 +55,16 @@ export const ApartmentGallery = ({ nextStep, prevStep, images, handleChange, fin
   //   finish()
   // }
 
-
-
   return (
     <main className="add-new-property-container">
       <header>
-        <Link to="/apartments" class="apa" > <iconify-icon className='add-new-property-cta' icon="eva:arrow-back-outline"></iconify-icon>  Add New Apartment:</Link>
+        <Link to="/apartments" className="apa">
+          <iconify-icon
+            class="back-iconify"
+            icon="bx:arrow-back"
+          ></iconify-icon>
+          <h4>Add New Apartment</h4>
+        </Link>
         {/* <div className="add-property-cta">
           <button type="submit" onClick={() => draft()}>Save as Draft</button>
           <button type="submit" onClick={() => finish()} >Completed</button>
@@ -99,17 +107,21 @@ export const ApartmentGallery = ({ nextStep, prevStep, images, handleChange, fin
         </div>
 
         <div className="uploaded-pictures">
-          {files.map(f =>
+          {files.map((f) => (
             <div className="">
-              <img src={f ? window.URL.createObjectURL(f) : './images/bg.jpg'} alt="" />
+              <img
+                src={f ? window.URL.createObjectURL(f) : './images/bg.jpg'}
+                alt=""
+              />
               <span className="picture-delete-btn">
-                <button onClick={() => setFiles(files.filter(fr => fr !== f))}
+                <button
+                  onClick={() => setFiles(files.filter((fr) => fr !== f))}
                 >
                   <iconify-icon icon="ic:baseline-delete"></iconify-icon>
                 </button>
               </span>
             </div>
-          )}
+          ))}
 
           {/* <div>
               <img src="./images/bg.jpg" alt="" />
@@ -130,14 +142,15 @@ export const ApartmentGallery = ({ nextStep, prevStep, images, handleChange, fin
             </div> */}
 
           <label htmlFor="input-image" className="input-image-container">
-
-            <input type='file' accept='image/*' multiple={true} onChange={(ev) => setFiles([...files, ...ev.target.files])} />
+            <input
+              type="file"
+              accept="image/*"
+              multiple={true}
+              onChange={(ev) => setFiles([...files, ...ev.target.files])}
+            />
             <img src={uploadIllustration} alt="" />
             <p>Click to upload photos</p>
-
           </label>
-
-
         </div>
 
         <span className="form-message-info">
@@ -145,7 +158,9 @@ export const ApartmentGallery = ({ nextStep, prevStep, images, handleChange, fin
         </span>
 
         <div className="property-form-cta">
-          <button type="submit" onClick={back}>previous</button>
+          <button type="submit" onClick={back}>
+            previous
+          </button>
           <button onClick={continu} type="button">
             Next
           </button>
@@ -153,7 +168,6 @@ export const ApartmentGallery = ({ nextStep, prevStep, images, handleChange, fin
       </div>
     </main>
   );
-}
-
+};
 
 export default ApartmentGallery;

@@ -113,6 +113,7 @@
     }
     .dashboard-nav-content.dashboard-nav-shows {
         transform: translateX(0%);
+        transition: all 0.5s ease;
         position: absolute;
         display: flex;
         background: #ECECEC;
