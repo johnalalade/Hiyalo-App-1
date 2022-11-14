@@ -120,7 +120,7 @@ const PaymentBankDetailsSettings = ({ banking }) => {
           <h6>Withdrawal Method</h6>
           {/* <a href="www.google.com">+ Add Account Details</a> */}
         </header>
-        <form>
+        <form className="employment-status-form">
           <label for="name">Choose Bank</label>
           <select onChange={(ev) => bank(ev.target.value)}>
             <option>Choose Bank</option>

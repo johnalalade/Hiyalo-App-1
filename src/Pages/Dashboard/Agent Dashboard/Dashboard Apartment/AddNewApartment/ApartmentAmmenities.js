@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import './add-new-apartment.css';
-// import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 export const ApartmentAmmenities = ({
   nextStep,

@@ -6,6 +6,8 @@ import TopBar from '../../../../components/Dashboard Navbar/TopBar';
 import PersonalDetailsSettings from './PesonalDetailsSettings';
 import PaymentBankDetailsSettings from './PaymentBankDetailsSettings';
 import PasswordSettings from './PasswordSettings';
+import EmploymentStatus from './EmploymentStatus';
+import NextOfKin from './NextOfKin';
 import axios from '../../../../components/axios';
 import PageLoader from '../../../../components/Loader/PageLoader';
 
@@ -20,12 +22,15 @@ const GeneralSettingsContainer = () => {
   };
 
   useEffect(() => {
-    axios.post('/agents/agent-gateway/get-agent', { id: localStorage.getItem("id") })
-      .then(data => {
-        setAgent(data.data.agent)
-        console.log(data.data.agent)
-        setLoading(false)
-        setName(data.data.agent.first_name)
+    axios
+      .post('/agents/agent-gateway/get-agent', {
+        id: localStorage.getItem('id'),
+      })
+      .then((data) => {
+        setAgent(data.data.agent);
+        console.log(data.data.agent);
+        setLoading(false);
+        setName(data.data.agent.first_name);
       })
       .catch((err) => {
         setLoading(false);
@@ -90,6 +95,28 @@ const GeneralSettingsContainer = () => {
               >
                 Password
               </li>
+
+              <li
+                className={
+                  toggleState === 4
+                    ? 'settings-tabs active-setings-tabs'
+                    : 'settings-tabs'
+                }
+                onClick={() => toggleTab(4)}
+              >
+                Employement Status
+              </li>
+
+              <li
+                className={
+                  toggleState === 5
+                    ? 'settings-tabs active-setings-tabs'
+                    : 'settings-tabs'
+                }
+                onClick={() => toggleTab(5)}
+              >
+                Next Of Kin
+              </li>
               {/* <li>Contact Us</li>
               <li>Terms of Service</li> */}
             </ul>
@@ -112,19 +139,41 @@ const GeneralSettingsContainer = () => {
             />
           )}
 
-          {toggleState === 2 && <PaymentBankDetailsSettings
-            className={
-              toggleState === 2
-                ? 'settings-content  active-settings-content'
-                : 'settings-content'
-            }
-            banking={agent.bank}
-          />}
+          {toggleState === 2 && (
+            <PaymentBankDetailsSettings
+              className={
+                toggleState === 2
+                  ? 'settings-content  active-settings-content'
+                  : 'settings-content'
+              }
+              banking={agent.bank}
+            />
+          )}
 
           {toggleState === 3 && (
             <PasswordSettings
               className={
                 toggleState === 3
+                  ? 'settings-content  active-settings-content'
+                  : 'settings-content'
+              }
+            />
+          )}
+
+          {toggleState === 4 && (
+            <EmploymentStatus
+              className={
+                toggleState === 4
+                  ? 'settings-content  active-settings-content'
+                  : 'settings-content'
+              }
+            />
+          )}
+
+          {toggleState === 5 && (
+            <NextOfKin
+              className={
+                toggleState === 5
                   ? 'settings-content  active-settings-content'
                   : 'settings-content'
               }
