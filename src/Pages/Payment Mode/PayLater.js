@@ -86,7 +86,12 @@ const PayLater = () => {
           subsequently
         </h5>
       </div>
-      <button className="pay-now-btn">Proceed To Fund Your Wallet & Pay</button>
+      <div className="payment-cta">
+        <button className="pay-wallet-btn">
+          Proceed To Fund Your Wallet & Pay
+        </button>
+        <button className="pay-wallet-btn pay-card-btn">Pay With Card</button>
+      </div>
     </section>
   );
 };
