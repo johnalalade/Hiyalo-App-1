@@ -38,6 +38,7 @@ import RentLoanContainer from './Pages/Rent Loan LandingPage/RentLoanContainer';
 import PaymentModeContainer from './Pages/Payment Mode/PaymentModeContainer';
 
 import SignUpContainer from './Pages/New Sign Up /SignUpContainer';
+import PaymentSuccessful from './Pages/Payment Mode/PaymentSuccessful';
 
 function App() {
   return (
@@ -115,6 +116,11 @@ function App() {
           ></Route>
 
           <Route path="/new-signup" element={<SignUpContainer />}></Route>
+
+          <Route
+            path="/payment-successful-modal"
+            element={<PaymentSuccessful />}
+          ></Route>
         </Routes>
       </Router>
     </>

@@ -302,3 +302,12 @@ color: #757575;
     font-family: 'gilroy-semibold';
     color: #050213;
 }
+
+.payment-successful-modal {
+    max-width: 600px;
+    height: 550px;
+}
+.payment-successful-modal img {
+    width: 200px;
+    margin-bottom: 0;
+}

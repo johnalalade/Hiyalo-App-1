@@ -1,10 +1,12 @@
 import React from 'react';
+import './payment-mode.css';
 import PaymentSuccessImg from '../../images/payment-successful.png';
+import { Link } from 'react-router-dom';
 
 const PaymentSuccessful = () => {
   return (
     <section className="apartment-added-modal-container">
-      <div className="apartment-added-modal">
+      <div className="apartment-added-modal payment-successful-modal">
         <img src={PaymentSuccessImg} alt="" />
 
         <h4>Payment Successful!</h4>
