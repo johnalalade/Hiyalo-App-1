@@ -206,15 +206,19 @@ color: #757575;
     font-size: 20px;
     color: #050213;
 }
-
-.pay-now-btn {
+.payment-cta {
+    display: flex;
+    flex-direction: column;
+    row-gap: 1rem;
+    margin-top: 2rem;
+}
+.pay-wallet-btn {
     display: flex;
     justify-content: center;
     align-items: center;
     background: #4733AC;
     outline: none;
     border: none;
-    margin-top: 2rem;
     border-radius: 8px;
     height: 72px;
     width: 100%;
@@ -223,8 +227,21 @@ color: #757575;
     font-size: 20px;
     color: #FFFFFF;
 }
-
-
+.pay-card-btn {
+    transition: 0.5s ease-in-out;
+    background: transparent;
+    color: #1A1A1A;
+    border: 1px solid #4733AC;
+    /* margin-top: 1rem; */
+}
+.pay-wallet-btn:hover {
+    background: #7572EA;
+    color: #fff;
+}
+.pay-card-btn:hover {
+    background: #FFF;
+    color: #050213;
+}
 
 .pay-later-info {
     display: flex;

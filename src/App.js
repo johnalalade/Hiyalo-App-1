@@ -37,6 +37,8 @@ import TenantSignIn from './Pages/Tenant SignUp/TenantSignIn';
 import RentLoanContainer from './Pages/Rent Loan LandingPage/RentLoanContainer';
 import PaymentModeContainer from './Pages/Payment Mode/PaymentModeContainer';
 
+import SignUpContainer from './Pages/New Sign Up /SignUpContainer';
+
 function App() {
   return (
     <>
@@ -103,11 +105,16 @@ function App() {
           <Route path="/tenant-sign-up" element={<TenantSignUp />}></Route>
           <Route path="/tenant-sign-in" element={<TenantSignIn />}></Route>
 
-          <Route path="/rent-loan-home" element={<RentLoanContainer />}></Route>
+          <Route
+            path="/pay-monthly-home"
+            element={<RentLoanContainer />}
+          ></Route>
           <Route
             path="/payment-mode"
             element={<PaymentModeContainer />}
           ></Route>
+
+          <Route path="/new-signup" element={<SignUpContainer />}></Route>
         </Routes>
       </Router>
     </>

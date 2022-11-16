@@ -68,11 +68,11 @@ function NavBar() {
             </Link>
           </li>
 
-          {/* <li>
-          <Link to="/" className="nav-link">
-            Rent Loan
-          </Link>
-        </li> */}
+          <li>
+            <NavLink to="/pay-monthly-home" className="nav-link">
+              Pay Monthly
+            </NavLink>
+          </li>
 
           <li>
             <NavLink to="/" className="nav-link">
@@ -81,10 +81,16 @@ function NavBar() {
           </li>
         </ul>
 
-        <Link to="/sign-up-agent" class="cta-btn">
-          {/* <img src={SearchIcon} alt="" /> */}
-          <button type="button">Login</button>
-        </Link>
+        <div className="cta-container">
+          <Link to="/sign-in-agent" class="cta-btn">
+            {/* <img src={SearchIcon} alt="" /> */}
+            <button type="button">Login</button>
+          </Link>
+          <Link to="/sign-up-agent" class="cta-btn signup-cta-btn">
+            <button type="button">Sign Up</button>
+          </Link>
+        </div>
+
         <div class="hamburger" onClick={() => toggle(i)}>
           {selected === i ? (
             <iconify-icon

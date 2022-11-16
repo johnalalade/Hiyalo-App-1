@@ -29,7 +29,7 @@
     position: absolute  ;
     left: 50%;
     transform: translate(-50%);
-    max-width: 270px;
+    max-width: 380px;
 }
 .nav-links .nav-link {
     font-family: 'Inter', sans-serif;
@@ -40,6 +40,12 @@
 .nav-link:hover {
     transition: all 0.2s ease-out;
     color: #4733AC;
+}
+
+.cta-container {
+    display: flex;
+    flex-direction: row;
+    column-gap: 1rem;
 }
 .cta-btn {
     display: flex;
@@ -58,6 +64,14 @@
     background: #4733AC;
     color: #FFF;
     transition: all 0.4s ease-in-out;
+}
+.cta-btn.signup-cta-btn button {
+    background: #4733AC;
+    color: #FFF;
+}
+.cta-btn.signup-cta-btn button:hover {
+    background: transparent;
+    color: #050213;
 }
 .hamburger {
     display: none;
