@@ -39,6 +39,9 @@ import PaymentModeContainer from './Pages/Payment Mode/PaymentModeContainer';
 
 import SignUpContainer from './Pages/New Sign Up /SignUpContainer';
 import PaymentSuccessful from './Pages/Payment Mode/PaymentSuccessful';
+import PaymentEmailSent from './Pages/Payment Mode/PaymentEmailModal';
+
+import BalanceWithdrawalContainer from './Pages/Dashboard/Agent Dashboard/Dashboard Withdrawal/BalanceWithdrawalContainer';
 
 function App() {
   return (
@@ -120,6 +123,14 @@ function App() {
           <Route
             path="/payment-successful-modal"
             element={<PaymentSuccessful />}
+          ></Route>
+          <Route
+            path="/payment-email-modal"
+            element={<PaymentEmailSent />}
+          ></Route>
+          <Route
+            path="/tenant-withdrawal"
+            element={<BalanceWithdrawalContainer />}
           ></Route>
         </Routes>
       </Router>

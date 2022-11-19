@@ -41,7 +41,7 @@ const PaymentModeContainer = () => {
             }
             onClick={() => toggleTab(2)}
           >
-            Rent Now, Pay Later
+            Rent Monthly
           </span>
         </div>
 

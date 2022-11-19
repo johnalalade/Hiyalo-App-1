@@ -25,7 +25,7 @@ const RentLoanHeroe = () => {
           </span>
           <img className="circle-img" src={CircleSvg} alt="" />
           <h2>
-            Hiyalo Rent Now Pay <span>Later </span>Is Here!
+            Hiyalo Rent Now Pay <span>Later</span>Is Here!
           </h2>
           <p>
             Lorem ipsum dolor sit amet consectetur. Eget vel risus ante morbi

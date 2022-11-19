@@ -1,0 +1,122 @@
+.withdrawal-container header {
+    align-items: center;
+}
+.withdrawal-container header h4 {
+    font-family: 'gilroy-semibold';
+    font-size: 24px;
+}
+.withdrawal-container header a {
+    font-size: 16px;
+}
+.choose-account-details-container {
+    background: #FFF;
+    display: flex;
+    flex-direction: column;
+    /* align-items: center; */
+    padding: 3rem;
+    width: 100%;
+    max-width: 700px;
+    margin: auto;
+    margin-top: 4rem;
+    border-radius: 10px;
+}
+.choose-account-details-container header {
+    display: flex;
+    flex-direction: column;
+    row-gap: 1rem;
+}
+
+.account-det-options {
+    margin-top: 3rem;
+    display: flex;
+    flex-direction: column;
+    row-gap: 2rem;
+}
+.option-tab {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 1px solid rgba(71, 51, 172, 0.1);
+    border-radius: 5px;
+    height: 100px;
+    min-width: 100%;
+    padding: 0rem 2.5rem;
+    cursor: pointer;
+}
+.option-tab:hover {
+    background: rgba(71, 51, 172, 0.1);
+    border: 1px solid rgba(71, 51, 172, 0.5);
+    transition: all 0.4s linear;
+}
+.wallet-details {
+    display: flex;
+    align-items: center;
+    column-gap: 2rem;
+}
+.wallet-details-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}
+.wallet-details-main {
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
+}
+.wallet-details-main h6 {
+    font-size: 22px;
+    color: #333;
+}
+.wallet-details-main p {
+    font-size: 16px;
+    color: #555;
+}
+.wallet-details #icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 60px;
+    width: 60px;
+    background: #DCE6FF;
+    border-radius: 60px;
+}
+
+
+.option-tab-2 {
+    flex-direction: column;
+    min-height: 100px;
+    height: 100%;
+    width: 100%;
+    padding: 1.5rem 2.5rem;
+}
+.option-tab-2.personal-information-settings  form{
+    padding: 0;
+    width: 100%;
+    margin: 2rem 0;
+    transition: 0.4s ease-in-out;
+}
+
+.wallet-form-content {
+    display: none !important;
+}
+.shows-wallet-from {
+    display: flex !important;
+}
+
+
+.choose-account-details-container button {
+
+    height: 55px;
+    background: #4733AC;
+    font-family: 'gilroy-medium';
+    font-size: 18px;
+    color: #FFF;
+    width: 100%;
+    max-width: 200px;
+    border-radius: 5px;
+    border: none;
+    outline: none;
+    margin: auto;
+    margin-top: 4rem;
+}

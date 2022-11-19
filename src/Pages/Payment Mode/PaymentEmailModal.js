@@ -1,19 +1,19 @@
 import React from 'react';
 import './payment-mode.css';
-import PaymentSuccessImg from '../../images/successful-icon.svg';
+import PaymentEmailImg from '../../images/check_email-icon.svg';
 import { Link } from 'react-router-dom';
 
-const PaymentSuccessful = () => {
+const PaymentEmailSent = () => {
   return (
     <section className="apartment-added-modal-container">
       <div className="apartment-added-modal payment-successful-modal">
-        <img src={PaymentSuccessImg} alt="" />
+        <img src={PaymentEmailImg} alt="" />
 
-        <h4>Payment Successful!</h4>
+        <h4>Check Your Email!</h4>
 
         <p>
-          You have successfully pay for the apartment and an email has been sent
-          to you. Thank you for trusting us!
+          Almost there! We’ve sent an email to ola********@gmail.com. Follow the
+          prompt to see your eligibility.
         </p>
 
         <span className="apartment-added-modal-cta">
@@ -29,4 +29,4 @@ const PaymentSuccessful = () => {
   );
 };
 
-export default PaymentSuccessful;
+export default PaymentEmailSent;

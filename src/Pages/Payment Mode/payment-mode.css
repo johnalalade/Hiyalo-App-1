@@ -304,12 +304,13 @@ color: #757575;
 }
 
 .payment-successful-modal {
-    max-width: 600px;
-    height: 550px;
+    padding: 2rem !important;
+    max-width: 650px;
+    height: 650px;
 }
 .payment-successful-modal img {
     width: 200px;
-    margin-bottom: 0;
+    margin-bottom: 2rem;
 }
 
 
@@ -321,8 +322,14 @@ color: #757575;
     .payment-mode header h3 {
         font-size: 28px;
     }
-    
     .mode-navbar {
         margin-top: 2rem;
+        height: 70px;
+    }
+    .mode-navbar span {
+        font-size: 18px;
+    }
+    .pay-later-info p {
+        font-size: 18px≠;
     }
 }

@@ -156,6 +156,7 @@
     grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
     column-gap: 3rem;
     row-gap: 3rem;
+    padding-bottom: 48px;
 }
 
 .rent-loan-hit {
@@ -165,6 +166,9 @@
     background: rgba(71, 51, 172, 0.1);
     border-radius: 5px;
 
+}
+.rent-loan-hit:nth-child(even) {
+    transform: translateY(48px);
 }
 
 .hit-icon{
@@ -209,7 +213,14 @@
     color: #D63434;
 }
 
-
+@media screen and (max-width: 786px) {
+    .hit-container {
+        padding: 0 1rem;
+    }
+    .rent-loan-hit-container {
+        flex-direction: column;
+    }
+}
 
 
 
