@@ -8,6 +8,12 @@
 .withdrawal-container header a {
     font-size: 16px;
 }
+.step-filters-withdrawal {
+    width: 100%;
+    max-width: 750px;
+    margin: auto;
+    margin-top: 4rem;
+}
 .choose-account-details-container {
     background: #FFF;
     display: flex;
@@ -15,17 +21,20 @@
     /* align-items: center; */
     padding: 3rem;
     width: 100%;
-    max-width: 700px;
-    margin: auto;
-    margin-top: 4rem;
+    max-width: 750px;
+    margin: 2rem auto;
     border-radius: 10px;
 }
 .choose-account-details-container header {
     display: flex;
     flex-direction: column;
-    row-gap: 1rem;
+    row-gap: .5rem;
 }
-
+.choose-account-details-container header p {
+    color: #555 !important;
+    font-size: 16px;
+    text-align: center;
+}
 .account-det-options {
     margin-top: 3rem;
     display: flex;
@@ -62,10 +71,11 @@
 .wallet-details-main {
     display: flex;
     flex-direction: column;
-    row-gap: 10px;
+    row-gap: 5px;
 }
 .wallet-details-main h6 {
-    font-size: 22px;
+    font-family: 'gilroy-medium';
+    font-size: 20px;
     color: #333;
 }
 .wallet-details-main p {
@@ -78,10 +88,12 @@
     align-items: center;
     height: 60px;
     width: 60px;
-    background: #DCE6FF;
+    background: #dce6ffad;
     border-radius: 60px;
 }
-
+.wallet-details #icon img{
+    width: 28px;
+}
 
 .option-tab-2 {
     flex-direction: column;
@@ -104,9 +116,15 @@
     display: flex !important;
 }
 
-
-.choose-account-details-container button {
-
+.withdrawal-cta {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    column-gap: 1rem;
+    margin-top: 4rem;
+}
+.withdrawal-cta button {
     height: 55px;
     background: #4733AC;
     font-family: 'gilroy-medium';
@@ -117,6 +135,84 @@
     border-radius: 5px;
     border: none;
     outline: none;
+  
+}
+.withdrawal-cta button:nth-child(1) {
+    background: transparent;
+    border: 1px solid #4733AC;
+    color: #333;
+}
+
+
+
+
+
+/****** WITHDRAWAL AMOUNT CONTAINER *******/
+
+.available-balance {
     margin: auto;
     margin-top: 4rem;
+    padding: .5rem 1rem;
+    background: rgba(71, 51, 172, 0.3);
+    border-radius: 5px;
+    font-family: 'gilroy-medium';
+    color: #757575;
+    font-size: 18px;
+}
+.withdrawal-amount-options {
+    margin-top: 2rem;
+}
+.withdrawal-balance-tab-1 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100% !important;
+    padding: 36px;
+}
+.withdrawal-balance-tab h6 {
+    font-family: 'gilroy-medium';
+    font-size: 20px;
+    color: #333;
+}
+
+
+#custom-withdrawal {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+#custom-withdrawal-input {
+    margin-top: 2rem;
+    width: 100%;
+}
+#custom-withdrawal-input input {
+    width: 100%;
+    height: 55px;
+    padding: 0 1.5rem;
+    font-size: 18px;
+    font-family: 'Inter';
+    border: 1px solid rgba(117, 117, 117, 0.2);
+    border-radius: 5px;
+}
+#custom-withdrawal-input input::placeholder {
+    color: #757575;
+}
+
+.withdrawal-cta {
+    display: flex;
+    width: 100%;
+    column-gap: 1rem;
+}
+/****** END OF WITHDRAWAL AMOUNT CONTAINER *******/
+
+
+.password-label {
+    color: #333 !important;
+    font-size: 16px !important; 
+    margin-bottom: 1rem !important;
+}
+
+.withdrawal-confirmation-det {
+    border: 1px solid rgba(117, 117, 117, 0.2);
+    padding: 2rem;
 }

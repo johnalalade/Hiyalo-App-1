@@ -75,7 +75,9 @@ const ChooseAccountDetails = () => {
         </div>
       </main>
 
-      <button>Next</button>
+      <div className="withdrawal-cta">
+        <button>Next</button>
+      </div>
     </section>
   );
 };

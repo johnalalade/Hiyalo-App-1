@@ -177,19 +177,20 @@ color: #757575;
 }
 
 .apartment-price-breakdown span p:nth-child(1) {
-    font-family: 'gilroy-medium';
+
     font-style: normal;
     font-weight: 400;
     font-size: 20px;
     line-height: 22px;
-    color: #333333;
+    color: #757575;
 }
 .apartment-price-breakdown span p:nth-child(2) {
+    font-family: 'gilroy-medium';
     font-style: normal;
     font-weight: 400;
     font-size: 20px;
     text-align: right;
-    color: #757575;
+    color: #333;
 }
 
 .total-price-payment {
