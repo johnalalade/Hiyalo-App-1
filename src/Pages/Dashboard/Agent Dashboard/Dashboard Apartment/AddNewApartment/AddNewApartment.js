@@ -14,32 +14,30 @@ import ApartmentAddedModal from './ApartmentAddedModal';
 //   borderColor: "red",
 // };
 
-
 const AddNewApartment = () => {
   const [houseData, setHousesData] = useState({
-
-    property_type: "",
-    house_type: "",
-    description: "",
+    property_type: '',
+    house_type: '',
+    description: '',
     ammenities: [],
-    address: "",
-    state: "",
-    city: "",
-    longitude: "",
-    latitude: "",
-    annual_fee: "0",
-    agency_fee: "0",
-    caution_fee: "0",
-    stamp_fee: "0",
-    available_payment_scheme: "",
-    available_payment_duration: "",
-    agent_id: localStorage.getItem("id"),
-    agent_email: localStorage.getItem("email"),
-    status: "vacant",
-    images: []
-  })
-  const [step, setStep] = useState(1)
-  const [loading, setLoading] = useState(false)
+    address: '',
+    state: '',
+    city: '',
+    longitude: '',
+    latitude: '',
+    annual_fee: '0',
+    agency_fee: '0',
+    caution_fee: '0',
+    stamp_fee: '0',
+    available_payment_scheme: '',
+    available_payment_duration: '',
+    agent_id: localStorage.getItem('id'),
+    agent_email: localStorage.getItem('email'),
+    status: 'vacant',
+    images: [],
+  });
+  const [step, setStep] = useState(1);
+  const [loading, setLoading] = useState(false);
 
   // const navigate = useNavigate();
 
@@ -62,11 +60,10 @@ const AddNewApartment = () => {
     status,
     agent_id,
     agent_email,
-    images
-  } = houseData
+    images,
+  } = houseData;
 
   const nextStep = () => {
-
     setStep(step + 1);
   };
 
@@ -78,95 +75,92 @@ const AddNewApartment = () => {
   const handleChange = (e) => {
     setHousesData((prevState) => ({
       ...prevState,
-      [e.target.name]: e.target.value
-    }))
-    console.log(e.target.value)
+      [e.target.name]: e.target.value,
+    }));
+    console.log(e.target.value);
   };
 
   const finish = () => {
-    setLoading(true)
+    setLoading(true);
     if (images.length < 4) {
-      setLoading(false)
-      setStep(3)
-      return false
+      setLoading(false);
+      setStep(3);
+      return false;
     }
-    if (property_type === "" || house_type === "" || description === "") {
-      setLoading(false)
-      setStep(1)
-      return false
+    if (property_type === '' || house_type === '' || description === '') {
+      setLoading(false);
+      setStep(1);
+      return false;
     }
     if (ammenities.length === 0) {
-      setLoading(false)
-      setStep(2)
-      return false
+      setLoading(false);
+      setStep(2);
+      return false;
     }
-    if (address === "" || state === "" || city === "") {
-      setLoading(false)
-      setStep(4)
-      return false
+    if (address === '' || state === '' || city === '') {
+      setLoading(false);
+      setStep(4);
+      return false;
     }
-    if (annual_fee === "0" || agency_fee === "0") {
-      setLoading(false)
-      setStep(5)
-      return false
+    if (annual_fee === '0' || agency_fee === '0') {
+      setLoading(false);
+      setStep(5);
+      return false;
     }
 
-    console.log(houseData)
+    console.log(houseData);
 
-    let dat = new FormData()
+    let dat = new FormData();
 
-    dat.append("property_type", property_type)
-    dat.append("house_type", house_type)
-    dat.append("description", description)
+    dat.append('property_type', property_type);
+    dat.append('house_type', house_type);
+    dat.append('description', description);
     for (let i = 0; i < ammenities.length; i++) {
-    dat.append("ammenities[]", JSON.stringify(ammenities[i]))
-    // dat.append("ammenities[number]", ammenities[i].number)
-  }
-    dat.append("address", address)
-    dat.append("state", state)
-    dat.append("city", city)
-    dat.append("annual_fee", annual_fee)
-    dat.append("agency_fee", agency_fee)
-    dat.append("caution_fee", caution_fee)
-    dat.append("stamp_fee", stamp_fee)
-    dat.append("agent_id", agent_id)
-    dat.append("agent_email", agent_email)
-    dat.append("status", status)
+      dat.append('ammenities[]', JSON.stringify(ammenities[i]));
+      // dat.append("ammenities[number]", ammenities[i].number)
+    }
+    dat.append('address', address);
+    dat.append('state', state);
+    dat.append('city', city);
+    dat.append('annual_fee', annual_fee);
+    dat.append('agency_fee', agency_fee);
+    dat.append('caution_fee', caution_fee);
+    dat.append('stamp_fee', stamp_fee);
+    dat.append('agent_id', agent_id);
+    dat.append('agent_email', agent_email);
+    dat.append('status', status);
 
     for (let i = 0; i < images.length; i++) {
-      dat.append("files", images[i])
+      dat.append('files', images[i]);
     }
     for (let i = 0; i < ammenities.length; i++) {
-      console.log(ammenities[i])
+      console.log(ammenities[i]);
     }
 
-    console.log(dat)
+    console.log(dat);
 
-    axios.post('/houses/house-gateway/register', dat, {
-      headers: {
-        Accept: 'application/json',
-        'Content-Type': 'multipart/form-data',
-      }
-    })
-      .then(res => {
-        console.log(res.data)
-        if (res.data.message === "success") {
-          localStorage.setItem("house_id", res.data.house._id)
-          setStep(6)
-            // navigate('/apartments');
+    axios
+      .post('/houses/house-gateway/register', dat, {
+        headers: {
+          Accept: 'application/json',
+          'Content-Type': 'multipart/form-data',
+        },
+      })
+      .then((res) => {
+        console.log(res.data);
+        if (res.data.message === 'success') {
+          localStorage.setItem('house_id', res.data.house._id);
+          setStep(6);
+          // navigate('/apartments');
         }
-        setLoading(false)
-        console.log(res.data)
+        setLoading(false);
+        console.log(res.data);
       })
-      .catch(err => {
-        console.log(err)
-        setLoading(false)
-      })
-
-  }
-
-
-
+      .catch((err) => {
+        console.log(err);
+        setLoading(false);
+      });
+  };
 
   switch (step) {
     case 1:
@@ -179,7 +173,6 @@ const AddNewApartment = () => {
           description={description}
           finish={finish}
           agent_id={agent_id}
-          
         />
       );
     case 2:
@@ -191,7 +184,6 @@ const AddNewApartment = () => {
           ammenities={ammenities}
           finish={finish}
           agent_id={agent_id}
-
         />
       );
     case 3:
@@ -203,7 +195,6 @@ const AddNewApartment = () => {
           handleChange={handleChange}
           finish={finish}
           agent_id={agent_id}
-
         />
       );
     case 4:
@@ -219,7 +210,6 @@ const AddNewApartment = () => {
           latitude={latitude}
           finish={finish}
           agent_id={agent_id}
-
         />
       );
     case 5:
@@ -242,6 +232,6 @@ const AddNewApartment = () => {
     default:
       console.log('This is a multi-step form built with React.');
   }
-}
+};
 
 export default AddNewApartment;

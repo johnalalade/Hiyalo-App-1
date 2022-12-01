@@ -205,7 +205,7 @@ const PropertyOverview = () => {
                       : 'property-content'
                   }
                 >
-                  <p>
+                  <p className="property-details-description">
                     {property.description}
 
                     {/* %20 */}
@@ -303,7 +303,7 @@ const PropertyOverview = () => {
                     <div className="product-amenity">
                       <span>
                         <iconify-icon
-                          className="amenity-icons"
+                          class="amenity-icons"
                           icon="bx:store"
                         ></iconify-icon>
                       </span>
@@ -389,8 +389,6 @@ const PropertyOverview = () => {
                   </div>
                   <iframe
                     title="Map"
-                    width="600"
-                    height="500"
                     id="gmap_canvas"
                     src={map}
                     frameborder="0"
@@ -473,14 +471,14 @@ const PropertyOverview = () => {
                   {Number(property.annual_fee)
                     .toFixed(2)
                     .replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')}
-                  <small>/year</small>
+                  <small>/yr</small>
                 </h4>
                 <h4>
                   &#8358;{' '}
                   {Number(property.annual_fee / 12)
                     .toFixed(2)
                     .replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')}
-                  <small>/month</small>
+                  <small>/mth</small>
                 </h4>
               </header>
               <div class="tour-form-container">
@@ -488,26 +486,26 @@ const PropertyOverview = () => {
 
                 <form action="" class="tour-form">
                   {/* <div class="inspect-time-date">
-                  <span>
-                    <label for="date">Inspection Date *</label>
-                    <input
-                      type="date"
-                      placeholder="dd/mm/yyyy"
-                      value="2022-08-24"
-                    />
-                  </span>
-                  <span>
-                    <label for="time">Inspection Time *</label>
-                    <input type="time" placeholder="00:00" />
-                  </span>
-                </div>
-                <span class="add-note-input">
-                  <label for="text">Add a note</label>
-                  <input type="text" placeholder="add a note for agent" />
-                </span> */}
+                    <span>
+                      <label for="date">Inspection Date *</label>
+                      <input
+                        type="date"
+                        placeholder="dd/mm/yyyy"
+                        value="2022-08-24"
+                      />
+                    </span>
+                    <span>
+                      <label for="time">Inspection Time *</label>
+                      <input type="time" placeholder="00:00" />
+                    </span>
+                  </div>
+                  <span class="add-note-input">
+                    <label for="text">Add a note</label>
+                    <input type="text" placeholder="add a note for agent" />
+                  </span> */}
 
                   <span class="tour-cta-btn">
-                    {/* <button >Virtual Tour</button> */}
+                    <button>Virtual Tour</button>
                     <PopupButton
                       url="https://calendly.com/hiyalo"
                       prefill={{
@@ -539,7 +537,7 @@ const PropertyOverview = () => {
                        * specify the rootElement property to ensure that the modal is inserted into the correct domNode.
                        */
                       rootElement={document.getElementById('root')}
-                      text="Request Tour"
+                      text="Physical Tour"
                     />
                     {/* <button type="submit">Physical Tour</button> */}
                   </span>

@@ -1,4 +1,5 @@
 import React from 'react';
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
 // import './general-settings.css';
 import SideBar from '../../../../components/Dashboard Navbar/SideBar';
@@ -8,6 +9,37 @@ import WithdrawalAmount from './WithdrawalAmount';
 import WithdrawalConfirmation from './WithdrawalConfirmation';
 
 const BalanceWithdrawalContainer = () => {
+  const [withdrawalStep, setWithdrawalStep] = useState(1);
+
+  const nextWithdrawalStep = () => {
+    setWithdrawalStep(withdrawalStep + 1);
+  };
+
+  const previousWithdrawalStep = () => {
+    setWithdrawalStep(withdrawalStep - 1);
+  };
+
+  switch (withdrawalStep) {
+    case 1:
+      return <ChooseAccountDetails nextWithdrawalStep={nextWithdrawalStep} />;
+    case 2:
+      return (
+        <BalanceWithdrawalContainer
+          nextWithdrawalStep={nextWithdrawalStep}
+          previousWithdrawalStep={previousWithdrawalStep}
+        />
+      );
+    case 3:
+      return (
+        <WithdrawalConfirmation
+          nextWithdrawalStep={nextWithdrawalStep}
+          previousWithdrawalStep={previousWithdrawalStep}
+        />
+      );
+    default:
+      console.log('This is a multi-step form built with React.');
+  }
+
   return (
     <section className="dashboard-container">
       <SideBar />
@@ -15,7 +47,7 @@ const BalanceWithdrawalContainer = () => {
       <main className="dashboard-main">
         <TopBar />
 
-        <main class="add-new-property-container withdrawal-container">
+        <main className="add-new-property-container withdrawal-container">
           <header>
             <Link to="/apartments" className="apa">
               <iconify-icon
@@ -26,26 +58,6 @@ const BalanceWithdrawalContainer = () => {
             </Link>
             <h4>Balance Withdrawal</h4>
           </header>
-          <div class="steps-filters step-filters-withdrawal">
-            <div class="step active-step">
-              <p>Bank Account</p>
-              <span>01</span>
-            </div>
-            <div class="step-connector active-connector"></div>
-            <div class="step active-step">
-              <p>Withdrawal Amount</p>
-              <span>02</span>
-            </div>
-
-            <div class="step-connector"></div>
-            <div class="step">
-              <p>Withdrawal Confiration</p>
-              <span>03</span>
-            </div>
-          </div>
-          <ChooseAccountDetails />
-          <WithdrawalAmount />
-          <WithdrawalConfirmation />
         </main>
       </main>
     </section>

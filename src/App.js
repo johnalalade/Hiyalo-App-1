@@ -43,6 +43,7 @@ import PaymentEmailSent from './Pages/Payment Mode/PaymentEmailModal';
 
 import BalanceWithdrawalContainer from './Pages/Dashboard/Agent Dashboard/Dashboard Withdrawal/BalanceWithdrawalContainer';
 
+import RequestTourModal from './Pages/Property Overview/RequestTourModal';
 function App() {
   return (
     <>
@@ -131,6 +132,11 @@ function App() {
           <Route
             path="/tenant-withdrawal"
             element={<BalanceWithdrawalContainer />}
+          ></Route>
+
+          <Route
+            path="/request-tour-modal"
+            element={<RequestTourModal />}
           ></Route>
         </Routes>
       </Router>

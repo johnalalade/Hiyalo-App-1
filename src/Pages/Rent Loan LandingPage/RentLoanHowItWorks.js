@@ -45,7 +45,7 @@ const RentLoanHowItWorks = () => {
           <img src={WalletHandCash} alt="" />
           <h3>Learn how rent now pay later works on Hiyalo</h3>
 
-          <img src={HandArrow} alt="" />
+          <img id="arrow" src={HandArrow} alt="" />
         </div>
 
         <main className="rent-loan-hits">
