@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import './user-reviews.css';
 // import userImg from '../../images/bg.jpg';
 import reviewPattern from '../../images/review-pattern.svg';
-import reviewsData from './ReviewsData'
+import reviewsData from './ReviewsData';
 
 const UserReviews = () => {
   const [reviews] = useState(reviewsData);
@@ -21,7 +21,7 @@ const UserReviews = () => {
   useEffect(() => {
     let slider = setInterval(() => {
       setIndex(index + 1);
-    }, 1000);
+    }, 4000);
     return () => {
       clearInterval(slider);
     };
@@ -31,9 +31,7 @@ const UserReviews = () => {
     <section class="user-review-container">
       <header>
         <h2>User Reviews</h2>
-        <p>
-          Here are reviews from Agents and Tenants who use Hiyalo
-        </p>
+        <p>Here are reviews from Agents and Tenants who use Hiyalo</p>
       </header>
 
       <main class="user-reviews">
@@ -143,19 +141,18 @@ const UserReviews = () => {
         </div>
 
         <div className="reviews-arrow">
-          <button  onClick={() => setIndex(index - 1)}>
-          <iconify-icon
-            class="left-arrow"
-            icon="bx:left-arrow-alt"
-          ></iconify-icon>
+          <button onClick={() => setIndex(index - 1)}>
+            <iconify-icon
+              class="left-arrow"
+              icon="bx:left-arrow-alt"
+            ></iconify-icon>
           </button>
-          <button  onClick={() => setIndex(index + 1)}>
-          <iconify-icon
-            class="right-arrow"
-            icon="bx:right-arrow-alt"
-          ></iconify-icon>
+          <button onClick={() => setIndex(index + 1)}>
+            <iconify-icon
+              class="right-arrow"
+              icon="bx:right-arrow-alt"
+            ></iconify-icon>
           </button>
-          
         </div>
       </footer>
 

@@ -98,7 +98,7 @@ const DashboardOverview = () => {
 
             <div class="overview-header">
               <div class="total-income">
-              <header>Available Balance</header>
+                <header>Available Balance</header>
                 <span class="total-amount">
                   &#8358;{' '}
                   {Number(agent.outstanding_payments)
@@ -109,10 +109,9 @@ const DashboardOverview = () => {
                   <button>Messages</button>
                   <button>Withdraw</button>
                 </span>
-              
               </div>
               <div class="total-outstanding">
-              <header>Total Income Revenue</header>
+                <header>Total Income Revenue</header>
                 <span class="total-amount">
                   &#8358;{' '}
                   {Number(agent.balance)
@@ -150,7 +149,7 @@ const DashboardOverview = () => {
                 <h6>Payment History:</h6>
                 <Link to="/payments">see all</Link>
               </header>
-              <table class="apartments-list payment-history">
+              <table className="apartments-list payment-history">
                 <thead>
                   <tr>
                     <th>PaymentID</th>

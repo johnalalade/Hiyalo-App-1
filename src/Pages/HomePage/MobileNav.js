@@ -2,7 +2,7 @@ import React from 'react';
 
 const MobileNav = () => {
   return (
-    <div className='mobile-nav-container'>
+    <div className="mobile-nav-container">
       <ul class="nav-links">
         <li>
           <NavLink to="/" className="nav-link">
@@ -33,8 +33,8 @@ const MobileNav = () => {
         </li> */}
 
         <li>
-          <NavLink to="/" className="nav-link">
-            FAQ
+          <NavLink to="/contact-us" className="nav-link">
+            Contact Us
           </NavLink>
         </li>
       </ul>

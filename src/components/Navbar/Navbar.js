@@ -75,8 +75,8 @@ function NavBar() {
           </li>
 
           <li>
-            <NavLink to="/" className="nav-link">
-              FAQ
+            <NavLink to="/contact-us" className="nav-link">
+              Contact Us
             </NavLink>
           </li>
         </ul>
@@ -136,8 +136,8 @@ function NavBar() {
         </li> */}
 
           <li>
-            <NavLink to="/" className="nav-link">
-              FAQ
+            <NavLink to="/contact-us" className="nav-link">
+              Contact Us
             </NavLink>
           </li>
         </ul>

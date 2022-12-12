@@ -44,6 +44,21 @@ import PaymentEmailSent from './Pages/Payment Mode/PaymentEmailModal';
 import BalanceWithdrawalContainer from './Pages/Dashboard/Agent Dashboard/Dashboard Withdrawal/BalanceWithdrawalContainer';
 
 import RequestTourModal from './Pages/Property Overview/RequestTourModal';
+
+import ContactUsContainer from './Pages/Contact Us/ContactUsContainer';
+
+import AnotherSignUpContainer from './Pages/Another Sign Up/AnotherSignUpContainer';
+import AnotherSignInContainer from './Pages/Another Sign In/AnotherSignInContainer';
+
+import AdminOverview from './Pages/Dashboard/Admin Dashboard/Dashboard Overview/AdminOverview';
+
+import AdminSettingsContainer from './Pages/Dashboard/Admin Dashboard/Dashboard Settings/AdminSettingsContainer';
+
+import TransactionsContainer from './Pages/Dashboard/Admin Dashboard/Dashboard Transactions/TransactionsContainer';
+
+import EditTransactionModal from './Pages/Dashboard/Admin Dashboard/Dashboard Transactions/EditTransactionModal';
+
+import ListedApartment from './Pages/Dashboard/Admin Dashboard/Dashboard Apartment/ListedApartment';
 function App() {
   return (
     <>
@@ -137,6 +152,41 @@ function App() {
           <Route
             path="/request-tour-modal"
             element={<RequestTourModal />}
+          ></Route>
+
+          <Route path="/contact-us" element={<ContactUsContainer />}></Route>
+
+          <Route
+            path="/another-sign-up"
+            element={<AnotherSignUpContainer />}
+          ></Route>
+          <Route
+            path="/another-sign-In"
+            element={<AnotherSignInContainer />}
+          ></Route>
+
+          <Route
+            path="/admin-dashboard-overview"
+            element={<AdminOverview />}
+          ></Route>
+
+          <Route
+            path="/admin-settings"
+            element={<AdminSettingsContainer />}
+          ></Route>
+
+          <Route
+            path="/admin-transaction"
+            element={<TransactionsContainer />}
+          ></Route>
+
+<Route
+            path="/edit-transaction"
+            element={<EditTransactionModal />}
+          ></Route>
+          <Route
+            path="/listed-properties-admin"
+            element={<ListedApartment />}
           ></Route>
         </Routes>
       </Router>

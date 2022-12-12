@@ -1,0 +1,139 @@
+.admin-overview-header {
+    column-gap: 1rem !important;
+}
+.overall-income {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start !important;
+    justify-content: flex-start;
+    background-image: url(../../../../images/overall-amount-bg.svg);
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 10px;
+    padding: 2rem;
+    width: 100%;
+    flex-basis: 30% !important;
+}
+
+.overall-income header,
+.total-listed-apartment header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+.overall-income header span,
+.total-listed-apartment header span {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.2);
+}
+.overall-income header .iconify {
+    color: #FFF;
+    font-size: 32px;
+}
+.overall-income p {
+    display: flex;
+    align-items: flex-start;
+    text-align: left;
+    font-family: 'gilroy-medium';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 24px;
+    color: #F0F0F0;
+}
+.overall-income h4 {
+    font-family: 'gilroy-bold';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 30px;
+    line-height: 37px;
+    display: flex;
+    align-items: center;
+
+    color: #FFFFFF;
+}
+
+
+.total-listed-apartment {
+    display: flex;
+    align-items: flex-start !important;
+    background-color: #FFFFFF;
+    margin-left: 0rem;
+    flex-basis: 20% !important;
+}
+.total-listed-apartment header span {
+    background: rgba(71, 51, 172, 0.1);
+}
+.total-listed-apartment header .iconify {
+    color: #050213;
+    font-size: 32px;
+}
+.total-listed-apartment p {
+    font-family: 'gilroy-medium';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    color: #757575;
+}
+.total-listed-apartment h4 {
+    font-family: 'gilroy-bold';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 30px;
+    color: #050213;
+}
+
+
+
+.recent-transaction-chart-container {
+    display: flex;
+}
+
+.transaction-history-overview {
+    height: 100%;
+    flex-basis: 65% !important;
+    margin-right: 2rem !important;
+}
+
+.apartments-list tr th thead{
+    font-size: 16px !important;
+}
+.apartments-list th,
+.apartments-list td {
+    padding: 1.5rem 2rem;
+}
+.apartments-list tbody{
+    padding: 2rem 0;
+}
+.apartments-list tbody tr:nth-of-type(even) {
+    background: rgba(71, 51, 172, 0.1);
+}
+.apartments-list tr p{
+    /* font-family: 'gilroy-medium'; */
+    font-size: 16px;
+    color: #757575 !important;
+}
+.apartment-list-container tr td {
+    text-align: left;
+    align-items: center;
+}
+
+
+
+.chart {
+    flex-basis: 30% !important;
+    background-color: #FFFFFF;
+    margin-top: 3rem;
+    margin-right: 3rem !important;
+    margin-left: 0 !important;
+    border-radius: 10px;
+    height: 100%;
+    min-height: 400px;
+}

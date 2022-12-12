@@ -23,7 +23,7 @@
 .homepage-apartments {
     display: grid !important;
     grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-    column-gap: 3rem;
+    column-gap: 2rem;
     row-gap: 3rem;
     margin-top: 64px;
 }
@@ -31,7 +31,7 @@
     display: flex;
     justify-content: space-between !important;
     flex-direction: column;
-    background: #7572EA40;
+    background: #7672ea22;
     border-radius: 5px;
     max-width: 450px;
 }
@@ -44,8 +44,7 @@
     object-fit: cover;
     object-position: center;
     height: 280px;
-    margin:1.5rem;
-    margin-bottom: 1rem;
+    margin: 1rem;
     border-radius: 3px;
 }
 .homepage-apartment .apartment-location {
@@ -123,7 +122,7 @@
 }
 
 .explore-cta  {
-    margin-top: 64px;
+    margin-top: 5rem !important;
     display: flex;
     justify-content: center;
     align-items: center;
