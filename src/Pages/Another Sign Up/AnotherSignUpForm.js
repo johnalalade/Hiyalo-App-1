@@ -2,6 +2,9 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import './another-sign-up.css';
 import BrandLogo from '../../images/logo.svg';
+
+
+
 const AnotherSignUpForm = () => {
   return (
     <main className="sign-up-form-container-2">
@@ -46,15 +49,14 @@ const AnotherSignUpForm = () => {
           <label htmlFor="">Email</label>
           <input type="text" name="" id="Enter your email address" />
         </span>
-        <label for="phone number">Phone Number</label>
-        <span class="phone-number phone2">
-          <input
-            type="tel"
-            placeholder="800000000"
-            id="tel"
-          />
-          <p>+234 &nbsp; |</p>
+        <span>
+          <label for="phone number">Phone Number</label>
+          <span class="phone-number phone2">
+            <input type="tel" placeholder="800000000" id="tel" />
+            <p>+234 &nbsp; |</p>
+          </span>
         </span>
+
         <span>
           <label htmlFor="">Password</label>
           <input type="password" name="" id="" />

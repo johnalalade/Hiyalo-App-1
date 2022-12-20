@@ -1,8 +1,8 @@
-import React from 'react'
+import React from 'react';
 
 const AdminPersonalInformation = () => {
   return (
-<main class="settings-form-container">
+    <main class="settings-form-container">
       <div class="personal-information-settings">
         <header>
           <h6>Personal Information</h6>
@@ -25,7 +25,6 @@ const AdminPersonalInformation = () => {
           </span>
 
           <button>Update Details</button>
-
         </form>
       </div>
 
@@ -64,9 +63,8 @@ const AdminPersonalInformation = () => {
           </form>
         </div> */}
       </div>
-
     </main>
-  )
-}
+  );
+};
 
-export default AdminPersonalInformation
+export default AdminPersonalInformation;
