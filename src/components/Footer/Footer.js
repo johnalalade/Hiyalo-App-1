@@ -27,19 +27,13 @@ const Footer = () => {
           <p>Company</p>
           <ul class="footer-nav-links">
             <li>
-              <a href="www.google.com">About</a>
+              <a href="/market">Listings</a>
             </li>
             <li>
-              <a href="www.google.com">Listings</a>
+              <a href="/pay-monthly-home">Rent Loan</a>
             </li>
             <li>
-              <a href="www.google.com">About</a>
-            </li>
-            <li>
-              <a href="www.google.com">FAQ</a>
-            </li>
-            <li>
-              <a href="www.google.com">Contact Us</a>
+              <a href="/contact-us">Contact Us</a>
             </li>
             <li>
               <a href="www.google.com">Blog</a>
@@ -50,16 +44,10 @@ const Footer = () => {
           <p>Terms Of Service</p>
           <ul class="footer-nav-links">
             <li>
-              <a href="www.google.com">About</a>
-            </li>
-            <li>
               <a href="www.google.com">Listings</a>
             </li>
             <li>
-              <a href="www.google.com">About</a>
-            </li>
-            <li>
-              <a href="www.google.com">FAQ</a>
+              <a href="www.google.com">Rent Loan</a>
             </li>
             <li>
               <a href="www.google.com">Contact Us</a>

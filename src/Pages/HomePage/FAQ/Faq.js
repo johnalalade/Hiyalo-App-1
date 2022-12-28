@@ -1,6 +1,9 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
+import { useState } from 'react';
 import './faq.css';
-  import { useState } from 'react';
+import FaqData from './FaqData';
+
 
 function Faq() {
   const [selected, setSelected] = useState(null);
@@ -12,28 +15,6 @@ function Faq() {
     setSelected(i);
   };
 
-  const faqData = [
-    {
-      question: 'What does Hiyalo offer?',
-      answer:
-        'Soft life is your birth right 🤭⛱. Hiyalo makes your house hunting experience easy and scam-free, with flexible payment options that means no one is left out...',
-    },
-    {
-      question: 'Who can use Hiyalo?',
-      answer:
-        "Anyone, Tenants, Agents and Landlords alike; The guy who is to busy to hunt a house, the one scared of being scammed, the one who can't afford the bulky fees, the Agent/Landlord in search of an occupant... The solutions to these problems are not magic, It's Hiyalo",
-    },
-    {
-      question: 'How do I tour my house?',
-      answer:
-        'At Hiyalo we provide both virual and physical tours for our users allowing you to scout your property at ease.',
-    },
-    {
-      question: 'How can put my house on Hiyalo?',
-      answer:
-        'Easy!, Register with us, Validate your account, and continue your journey to soft life',
-    },
-  ];
   return (
     <div className="faq-container">
       <header className="faq-header">
@@ -41,7 +22,7 @@ function Faq() {
       </header>
 
       <main className="faqs">
-        {faqData.map((faq, i) => {
+        {FaqData.map((faq, i) => {
           return (
             <div className="faq">
               <header className="title" onClick={() => toggle(i)}>
@@ -79,7 +60,9 @@ function Faq() {
           Can’t find the answer you are looking for? You can can get in touch
           with our friendly team thank you!
         </p>
-        <button>Contact Us</button>
+        <Link to="/contact-us">
+          <button>Contact Us</button>
+        </Link>
       </div>
     </div>
   );

@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import './rent-loan.css';
 import ReachOutBg from '../../images/reachout.svg';
 const ReachOut = () => {
@@ -11,7 +12,9 @@ const ReachOut = () => {
 
       <p>Reach Out To Us</p>
       <h3>Do You Want To Make More Enquires</h3>
-      <button>Contact Us</button>
+      <Link to="/contact-us">
+          <button>Contact Us</button>
+        </Link>
     </section>
   );
 };

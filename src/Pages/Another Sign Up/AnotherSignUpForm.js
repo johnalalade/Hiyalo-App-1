@@ -3,13 +3,13 @@ import { Link } from 'react-router-dom';
 import './another-sign-up.css';
 import BrandLogo from '../../images/logo.svg';
 
-
-
 const AnotherSignUpForm = () => {
   return (
     <main className="sign-up-form-container-2">
       <div className="logo brand-logo">
-        <img src={BrandLogo} alt="" />
+        <Link to="/" class="logo">
+          <img src={BrandLogo} alt="" />
+        </Link>
       </div>
       <header>
         <h2>Sign Up</h2>
@@ -49,7 +49,7 @@ const AnotherSignUpForm = () => {
           <label htmlFor="">Email</label>
           <input type="text" name="" id="Enter your email address" />
         </span>
-        <span>
+        <span className="phone-span">
           <label for="phone number">Phone Number</label>
           <span class="phone-number phone2">
             <input type="tel" placeholder="800000000" id="tel" />

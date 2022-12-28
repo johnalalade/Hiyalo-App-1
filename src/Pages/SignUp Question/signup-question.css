@@ -1,0 +1,41 @@
+
+.question-header {
+    margin-top: 8rem !important;
+    margin-bottom: 0;
+}
+
+
+.signup-question-tab {
+    margin-top: 0rem;
+    row-gap: 3rem;
+}
+.right-icon {
+    font-size: 34px;
+}
+
+@media (max-width: 786px) {
+    .signup-question-tab {
+        row-gap: 2rem;
+    }
+    .tenant-tab {
+        padding: 0 1rem;
+        height: 80px;
+    }
+    .tab-name {
+        column-gap: 1rem;
+    }
+    .tab-name span {
+        width: 49px;
+        height: 49px;
+    }
+    .tab-name span img {
+        width: 24px;
+        height: 24px;
+    }
+    .tab-name p {
+        font-size: 18px;
+    }
+    .question-header h2 {
+        font-size: 22px !important;
+    }
+}

@@ -59,6 +59,8 @@ import TransactionsContainer from './Pages/Dashboard/Admin Dashboard/Dashboard T
 import EditTransactionModal from './Pages/Dashboard/Admin Dashboard/Dashboard Transactions/EditTransactionModal';
 
 import ListedApartment from './Pages/Dashboard/Admin Dashboard/Dashboard Apartment/ListedApartment';
+
+import SignUpQuestionContainer from './Pages/SignUp Question/SignUpQuestionContainer';
 function App() {
   return (
     <>
@@ -187,6 +189,11 @@ function App() {
           <Route
             path="/listed-properties-admin"
             element={<ListedApartment />}
+          ></Route>
+
+<Route
+            path="/signup-question"
+            element={<SignUpQuestionContainer />}
           ></Route>
         </Routes>
       </Router>
