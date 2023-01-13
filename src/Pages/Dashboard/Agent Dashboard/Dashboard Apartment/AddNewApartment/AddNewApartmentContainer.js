@@ -14,7 +14,7 @@ export const AddNewApartmentContainer = () => {
   useEffect(() => {
     setLoading(true)
 
-    axios.post('https://hiyalo-backend.herokuapp.com/agents/agent-gateway/get-agent', { id: localStorage.getItem("id") })
+    axios.post('https://hiyalo-app-backend.herokuapp.com/agents/agent-gateway/get-agent', { id: localStorage.getItem("id") })
       .then(data => {
         setAgent(data.data.agent)
         setLoading(false)

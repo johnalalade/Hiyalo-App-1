@@ -51,31 +51,36 @@ const ApartmentAddress = ({
 
       <div class="steps-filters">
         <div class="step active-step">
-          <p>Basic Info</p>
+          <p>Apartment Type</p>
           <span>01</span>
         </div>
         <div class="step-connector active-connector"></div>
         <div class="step active-step">
-          <p>Amenities</p>
+          <p>Basic Info</p>
           <span>02</span>
         </div>
-
         <div class="step-connector active-connector"></div>
         <div class="step active-step">
-          <p>Gallery</p>
+          <p>Amenities</p>
           <span>03</span>
         </div>
 
         <div class="step-connector active-connector"></div>
         <div class="step active-step">
-          <p>Address</p>
+          <p>Gallery</p>
           <span>04</span>
+        </div>
+
+        <div class="step-connector active-connector"></div>
+        <div class="step active-step">
+          <p>Address</p>
+          <span>05</span>
         </div>
 
         <div class="step-connector"></div>
         <div class="step">
           <p>Payment</p>
-          <span>05</span>
+          <span>06</span>
         </div>
       </div>
 

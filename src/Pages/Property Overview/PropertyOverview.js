@@ -175,6 +175,7 @@ const PropertyOverview = () => {
                       Features
                     </button>
                   </li>
+
                   <li>
                     <button
                       className={
@@ -182,7 +183,7 @@ const PropertyOverview = () => {
                       }
                       onClick={() => toggleTab(3)}
                     >
-                      Location
+                      Landloard Instruction
                     </button>
                   </li>
                   <li>
@@ -192,11 +193,24 @@ const PropertyOverview = () => {
                       }
                       onClick={() => toggleTab(4)}
                     >
+                      Location
+                    </button>
+                  </li>
+                  <li>
+                    <button
+                      className={
+                        toggleState === 5 ? 'tabs active-tabs' : 'tabs'
+                      }
+                      onClick={() => toggleTab(5)}
+                    >
                       Price
                     </button>
                   </li>
                 </ul>
               </header>
+
+
+
               <div className="product-details-overview">
                 <div
                   className={
@@ -364,9 +378,23 @@ const PropertyOverview = () => {
                     </div>
                   </main>
                 </div>
+
+
+
                 <div
                   className={
                     toggleState === 3
+                      ? 'property-content  active-content'
+                      : 'property-content'
+                  }
+                >
+                  Land Lord Description
+                </div>
+
+
+                <div
+                  className={
+                    toggleState === 4
                       ? 'property-content  active-content'
                       : 'property-content'
                   }
@@ -399,7 +427,7 @@ const PropertyOverview = () => {
                 </div>
                 <div
                   className={
-                    toggleState === 4
+                    toggleState === 5
                       ? 'property-content  active-content'
                       : 'property-content'
                   }
@@ -418,8 +446,8 @@ const PropertyOverview = () => {
                     <span>
                       <p className="address-title">Agency & Agreement Fee</p>
                       <p className="address-p">
-                        {' '}
-                        &#8358;{' '}
+                        
+                        &#8358;
                         {Number(property.agency_fee)
                           .toFixed(2)
                           .replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')}
@@ -457,7 +485,7 @@ const PropertyOverview = () => {
                     class="info-icon"
                     icon="bi:info-circle"
                   ></iconify-icon>
-                  <b>Inspection Fee:</b> Physical Tour Cost <b>N 10,000 </b>{' '}
+                  <b>Inspection Fee:</b> Physical Tour Cost <b>N 10,000 </b>
                   that would cater for your transportation from your house to
                   where the apartment is located
                 </p>

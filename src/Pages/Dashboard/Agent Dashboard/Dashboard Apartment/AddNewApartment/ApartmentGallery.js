@@ -73,31 +73,37 @@ export const ApartmentGallery = ({
 
       <div className="steps-filters">
         <div className="step active-step">
-          <p>Basic Info</p>
+          <p>Apartment Type</p>
           <span>01</span>
+        </div>
+        <div className="step-connector active-connector"></div>
+
+        <div className="step active-step">
+          <p>Basic Info</p>
+          <span>02</span>
         </div>
         <div className="step-connector active-connector"></div>
         <div className="step active-step">
           <p>Amenities</p>
-          <span>02</span>
+          <span>03</span>
         </div>
 
         <div className="step-connector active-connector"></div>
         <div className="step active-step">
           <p>Gallery</p>
-          <span>03</span>
-        </div>
-
-        <div className="step-connector"></div>
-        <div className="step">
-          <p>Address</p>
           <span>04</span>
         </div>
 
         <div className="step-connector"></div>
         <div className="step">
-          <p>Payment</p>
+          <p>Address</p>
           <span>05</span>
+        </div>
+
+        <div className="step-connector"></div>
+        <div className="step">
+          <p>Payment</p>
+          <span>06</span>
         </div>
       </div>
 

@@ -68,28 +68,35 @@ export const ApartmentPaymentDetails = ({
           <p>Basic Info</p>
           <span>01</span>
         </div>
-        <div class="step-connector active-connector"></div>
-        <div class="step active-step">
-          <p>Amenities</p>
-          <span>02</span>
-        </div>
 
         <div class="step-connector active-connector"></div>
         <div class="step active-step">
-          <p>Gallery</p>
+          <p>Basic Info</p>
+          <span>02</span>
+        </div>
+        
+        <div class="step-connector active-connector"></div>
+        <div class="step active-step">
+          <p>Amenities</p>
           <span>03</span>
         </div>
 
         <div class="step-connector active-connector"></div>
         <div class="step active-step">
-          <p>Address</p>
+          <p>Gallery</p>
           <span>04</span>
         </div>
 
         <div class="step-connector active-connector"></div>
         <div class="step active-step">
-          <p>Payment</p>
+          <p>Address</p>
           <span>05</span>
+        </div>
+
+        <div class="step-connector active-connector"></div>
+        <div class="step active-step">
+          <p>Payment</p>
+          <span>06</span>
         </div>
       </div>
 

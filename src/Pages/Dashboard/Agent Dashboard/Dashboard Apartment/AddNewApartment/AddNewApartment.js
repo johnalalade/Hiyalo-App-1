@@ -7,6 +7,7 @@ import ApartmentPaymentDetails from './ApartmentPaymentDetails';
 import ApartmentGallery from './ApartmentGallery';
 import axios from '../../../../../components/axios';
 import ApartmentAddedModal from './ApartmentAddedModal';
+import ApartmentType from './ApartmentType';
 
 // const override: CSSProperties = {
 //   display: "block",
@@ -165,8 +166,20 @@ const AddNewApartment = () => {
   switch (step) {
     case 1:
       return (
+        <ApartmentType
+          nextStep={nextStep}
+          prevStep={prevStep}
+          // handleChange={handleChange}
+
+          finish={finish}
+          // agent_id={agent_id}
+        />
+      );
+    case 2:
+      return (
         <ApartmentBasicInfo
           nextStep={nextStep}
+          prevStep={prevStep}
           handleChange={handleChange}
           property_type={property_type}
           house_type={house_type}
@@ -175,7 +188,7 @@ const AddNewApartment = () => {
           agent_id={agent_id}
         />
       );
-    case 2:
+    case 3:
       return (
         <ApartmentAmmenities
           nextStep={nextStep}
@@ -186,7 +199,7 @@ const AddNewApartment = () => {
           agent_id={agent_id}
         />
       );
-    case 3:
+    case 4:
       return (
         <ApartmentGallery
           nextStep={nextStep}
@@ -197,7 +210,7 @@ const AddNewApartment = () => {
           agent_id={agent_id}
         />
       );
-    case 4:
+    case 5:
       return (
         <ApartmentAddress
           nextStep={nextStep}
@@ -212,7 +225,7 @@ const AddNewApartment = () => {
           agent_id={agent_id}
         />
       );
-    case 5:
+    case 6:
       return (
         <ApartmentPaymentDetails
           nextStep={nextStep}
@@ -227,7 +240,7 @@ const AddNewApartment = () => {
           loading={loading}
         />
       );
-    case 6:
+    case 7:
       return <ApartmentAddedModal />;
     default:
       console.log('This is a multi-step form built with React.');

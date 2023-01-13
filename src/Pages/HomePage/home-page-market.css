@@ -34,6 +34,7 @@
     background: #7672ea22;
     border-radius: 5px;
     max-width: 450px;
+    position: relative;
 }
 .homepage-apartment:hover {
     transition: all 0.3s ease-in;
@@ -198,4 +199,20 @@
     .explore-icon {
         font-size: 24px;
     }
+}
+
+.apartment-status-1 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    right: 1.5rem;
+    top: 1.5rem;
+    border: 1px solid #4733AC;
+    border-radius: 3px;
+    backdrop-filter: blur(10px);
+    background: rgba(255, 255, 255, 0.707);
+    color: #4733AC;
+    height: 36px;
+    padding: 0 1.5rem;
 }
