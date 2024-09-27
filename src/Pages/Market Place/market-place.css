@@ -9,11 +9,12 @@
 .heroe-form {
     display: flex;
     flex-direction: column;
+    row-gap: 1rem;
     /* align-items: center; */
     position: relative;
     width: 100%;
     max-width: 700px;
-    margin-top: 1.5rem;
+    margin-top: 0rem;
     margin-bottom: 1rem;
     max-height: max-content;
     overflow: hidden;
@@ -180,13 +181,15 @@
     margin-top: 4rem;
 }
 .available-spaces header h3 {
+    font-family: 'gilroy-medium';
     font-style: normal;
     font-weight: 700;
     font-size: 36px;
     text-align: center;
     color: #050213;
 }
-.available-spaces header .filter-btn {
+.available-spaces header .filter-btn,
+.filter-btn {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -242,7 +245,6 @@
 .filter-inputs {
     display: flex;
     flex-direction: column;
-
     position: relative;
     padding-top: 1.5rem;
     width: 100%;
@@ -376,11 +378,14 @@
         padding: 4rem 1rem;
     }
     .available-spaces header h3 {
-        font-size: 28px;
+        font-family: 'gilroy-medium';
+        font-size: 24px;
     }
-    .available-spaces header .filter-btn {
-        width: 80px;
-        column-gap: .2rem;
+    .available-spaces header .filter-btn,
+    .filter-btn {
+        width: 100px;
+        height: 40px;
+        column-gap: .5rem;
         align-items: center;
     }
     .filter-btn .iconify {
@@ -391,13 +396,20 @@
         font-size: 16px;
     }
     .filter-form {
-        padding-top: 1.5rem;
+        padding: 1.5rem 1rem;
+    }
+    .filter-inputs input,
+    .filter-inputs select {
+        padding: 0 1rem;
     }
     .filter-inputs {
         padding-top: 1rem;
     }
     .filter-inputs label {
-        top: 0rem;
+        top: 4px;
+        left: 12px;
+        padding: .3rem;
+        font-size: 14px;
     }
     .apartments {
         margin-top: 2rem;
@@ -416,12 +428,14 @@
         text-align: center;
     }
     .get-listed-container h3 {
-        font-size: 32px;
-        line-height: 50px;
+        font-size: 24px;
+        line-height: 36px;
+        max-width: 300px;
     }
     .get-listed-container button {
-        width: 160px;
+        width: 180px;
         height: 50px;
+        margin: 0;
     }
 }
 
@@ -432,6 +446,7 @@
     align-self: center;
     height: 100%;
     padding-top: 5rem;
+
     
 }
 .prev {
@@ -443,6 +458,7 @@
     padding: 10px;
     border-top-left-radius: 5px;
     border-bottom-left-radius: 5px;
+    cursor: pointer;
 }
 
 .next {
@@ -455,4 +471,5 @@
     border-top-right-radius: 5px;
     border-bottom-right-radius: 5px;
     color: #E4E3E9;
+    cursor: pointer;
 }

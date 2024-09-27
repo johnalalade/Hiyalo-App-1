@@ -15,7 +15,7 @@
     font-family: 'gilroy-bold';
     font-style: normal;
     font-weight: 600;
-    font-size: 48px;
+    font-size: 44px;
     letter-spacing: 0.01rem;
     line-height: 78px;
     color: #4733AC;
@@ -81,7 +81,12 @@
 .about-illustration img {
     width: 85%;
 }
-
+@media screen and (min-width: 1406px) {
+    .about-text h2 {
+        font-size: 68px;
+        line-height: 96px;
+    }
+}
 @media screen and (max-width: 986px) {
     .about-container {
         padding: 150px 24px;

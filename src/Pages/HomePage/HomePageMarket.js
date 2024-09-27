@@ -21,6 +21,11 @@ const HomePageMarket = ({ data, search }) => {
               localStorage.setItem("house_id", apartment._id)
             }} to={`/property-overview/`} className="homepage-apartment">
               <img src={apartment.images[0]} alt="" />
+
+              <span className='apartment-status-1'>
+                Occupied
+              </span>
+
               <div className="apartment-location">
                 <p>{apartment.address}</p>
               </div>
@@ -30,23 +35,23 @@ const HomePageMarket = ({ data, search }) => {
                     class="iconify"
                     icon="emojione-monotone:bed"
                   ></iconify-icon>
-                  <p>{apartment.apartment_type}</p>
+                  <p>{apartment.apartment_type} Bed(s)</p>
                 </span>
                 <span>
                   <iconify-icon
                     class="iconify"
                     icon="emojione-monotone:person-taking-bath"
                   ></iconify-icon>
-                  <p>{apartment.apartment_type}</p>
+                  <p>{apartment.apartment_type} Bath(s)</p>
                 </span>
               </div>
               <div className="apartment-prices">
                 <span>
                   <p>
-                    &#8358;{(Number(apartment.annual_fee)).toFixed(2).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')}<small>/year</small>{' '}
+                    &#8358;{(Number(apartment.annual_fee)).toFixed(2).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')}<small>/yr</small>{' '}
                   </p>
                   <p>
-                    &#8358;{(Number(apartment.annual_fee / 12)).toFixed(2).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')}<small>/monthly</small>{' '}
+                    &#8358;{(Number(apartment.annual_fee / 12)).toFixed(2).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')}<small>/mth</small>{' '}
                   </p>
                 </span>
                 <Link onClick={() => {

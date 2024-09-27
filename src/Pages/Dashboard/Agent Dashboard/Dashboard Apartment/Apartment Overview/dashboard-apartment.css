@@ -1,0 +1,314 @@
+.property-page-title  {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 3rem;
+    margin-top: 1.5rem;
+}
+
+.property-page-title button {
+    display: flex;
+    align-items: center;
+    column-gap: .5rem;
+   align-items: center;
+    padding: 0 2rem;
+    height: 50px;
+    background: #4733AC;
+    border: none;
+    border-radius: 5px;
+    font-family: 'gilroy-medium';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    color: #FFFFFF;
+}
+.property-page-title button:hover {
+    background-color: #7572EA;
+    transition: all 0.4s ease-in-out;
+}
+.properties-page-filter-options {
+    display: flex;
+    justify-content: space-between;
+    height: 70px;
+    background: #FFF;
+    column-gap: 4rem;
+    margin: 0 3rem;
+    margin-top: 1.5rem;
+    padding: 0 2rem;
+    border-radius: 5px;
+}
+.filter-option {
+    display: flex;
+    align-items: center;
+    column-gap: .5rem;
+    cursor: pointer;
+}
+.filter-option span {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgba(26, 26, 26, 0.1);
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    font-family: 'gilroy-medium';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    color: #757575;
+}
+.filter-option.active-option p,
+.filter-option:hover p {
+    font-weight: 600;
+}
+.filter-option.active-option span,
+.filter-option span:hover{
+    background: #4733AC;
+    color: #FFF;
+}
+
+.properties-page-filter-options button {
+    display: none;
+}
+
+
+.apartment-list-container {
+    background-color: #FFFFFF;
+    /* height: 100%; */
+    margin: 24px 3rem;
+    border-radius: 5px;
+    /* width: 100%; */
+}
+.apartments-list {    
+    border-collapse: collapse;
+    text-align: left;
+    width: 100%;
+    padding: 1rem 2rem;
+}
+/* .apartments-list thead{
+    border-collapse: collapse;
+    border-bottom: 1px solid rgba(169, 0, 0, 0.4) !important;
+    padding: 1.5rem 1rem !important;
+    height: 60px;
+    margin-bottom: 2px;
+} */
+
+.apartments-list thead tr {
+    border-bottom: 1px solid rgba(71, 51, 172, 0.174) !important;
+}
+.apartments-list thead tr th {
+    font-size: 14px !important;
+}
+.apartments-list th,
+.apartments-list td {
+    padding: 1.5rem 2rem;
+}
+.apartments-list tbody{
+    padding: 2rem 0;
+}
+.apartments-list tbody tr:nth-of-type(even) {
+    background: rgba(71, 51, 172, 0.1);
+}
+.apartments-list tr p{
+    /* font-family: 'gilroy-medium'; */
+    font-size: 14px;
+}
+.apartment-list-container tr td {
+    text-align: left;
+    align-items: center;
+}
+
+
+
+
+
+
+/* .apartment-det span {} */
+.apartment-images-overview{
+    display: flex;
+    position: relative;
+}
+.apartment-images-overview img {
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    position: relative;
+}
+.apartment-images-overview span {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #4733AC;
+    text-align: center;
+    font-family: 'gilroy-medium';
+    font-size: 14px;
+    color: #FFF;
+    width: 42px;
+    height: 42px;
+    border-radius: 36px;
+    position: absolute;
+    left: 69px;
+}
+.apartment-images-overview img:nth-child(2) {
+   position: absolute;
+   left: 42px;
+}
+.apartment-images-overview img:nth-child(3) {
+    position: absolute;
+    left: 54px;
+ }
+.apartment-status {
+    color: #CB7A00;
+}
+.apartment-status p {
+    text-align: center;
+}
+
+
+
+.payment-status {
+    color: #CB7A00;
+}
+
+
+.payment-actions .action-icon{
+    /* transform: rotate(-180deg); */
+    transform: rotate(-90deg);
+    align-items: center;
+    text-align: center;
+}
+
+
+.property-page-add  {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0;
+    padding-bottom: 3rem;
+    align-self: center;
+}
+.house-illustration {
+    display: flex;
+    flex-direction: column;
+    max-width: 350px;
+    margin-top: 2rem;
+}
+.property-page-add button {
+    display: flex;
+    align-items: center;
+    column-gap: .5rem;
+   align-items: center;
+    padding: 0 2rem;
+    height: 50px;
+    background: #4733AC;
+    border: none;
+    border-radius: 5px;
+    font-family: 'gilroy-medium';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    color: #FFFFFF;
+}
+.property-page-add button:hover {
+    background-color: #7572EA;
+    transition: all 0.4s ease-in-out;
+}
+.cta-add-prop {
+    display: flex;
+    flex-direction: column;
+    row-gap: 1.5rem;
+    align-items: center;
+    justify-content: center;
+    margin-top: 2rem;
+}
+.cta-add-prop p {
+    font-size: 20px;
+}
+
+
+
+
+
+@media  screen and (max-width: 1168px) {
+    .property-page-title  {
+        padding: 0 1.5rem;
+    }
+    .properties-page-filter-options {
+        margin: 0 1.5rem;
+        margin-top: 1.5rem;
+    }
+    .apartment-list-container {
+        margin: 1.5rem !important;
+    }
+}
+@media screen and (max-width: 678px) {
+    .property-page-title  {
+        padding: 0 1rem;
+    }
+    .properties-page-filter-options {
+        margin: 0 1rem;
+        margin-top: 1.5rem;
+        padding:0 1.5rem;
+        height: 60px;
+        /* width: 100%; */
+    }
+    .apartment-list-container::-webkit-scrollbar {
+        display: none;
+      }
+    .apartment-list-container {
+        margin: 1rem !important;
+        margin-top: 2rem !important;
+        overflow: auto !important;
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+    }
+
+    .filter-option {
+        display: none;
+    }
+    .filter-option:first-child {
+        display: flex !important;
+    }
+    .properties-page-filter-options button {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        column-gap: .5rem;
+        height: 40px;
+        color: #CB7A00;
+        margin: auto 0;
+        background: none;
+        border: none;
+        outline: none;
+    }
+    .properties-page-filter-options button .iconify {
+        font-size: 24px;
+        color: #CB7A00;
+    }
+    .properties-page-filter-options button p {
+        font-family: 'gilroy-regular';
+        font-size: 18px;
+        letter-spacing: 0.01em;
+        color: #CB7A00;
+    }
+    /* .dashboard-main {
+        overflow: scroll;
+        width: 100%;
+    } */
+    .apartment-list-container {
+        margin: 1rem !important;
+        padding: 0;
+    }
+    .property-page-title button {
+    padding: 0 .7rem;
+    font-size: 12px;
+    height: 45px;
+    }
+
+    .property-page-add table{
+        display: none;
+    }
+
+}

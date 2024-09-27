@@ -14,83 +14,79 @@ const SignIn = () => {
     password: '',
   });
 
-  const [loading, setLoading] = useState(false)
+  const [loading, setLoading] = useState(false);
 
   const navigate = useNavigate();
 
   const { userName, password } = formData;
   const url = '/agents/agent-gateway/login';
 
-
   const onChange = (e) => {
     setFormData((prevState) => ({
       ...prevState,
       [e.target.name]: e.target.value,
-    }))
+    }));
   };
 
   const submit = (e) => {
-    setLoading(true)
+    setLoading(true);
     e.preventDefault();
 
-    console.log(formData)
-    axios.post(url, formData)
-      .then((res) => {
-        console.log(res);
-        if (res.data.message === "success") {
-          setLoading(false)
-          localStorage.setItem("id", res.data.id)
-          localStorage.setItem("email", res.data.response.email)
-          navigate('/dashboard');
-        } else {
-          alert(res.data.message, res.data.details)
-          setLoading(false);
-        }
-      });
+    console.log(formData);
+    axios.post(url, formData).then((res) => {
+      console.log(res);
+      if (res.data.message === 'success') {
+        setLoading(false);
+        localStorage.setItem('id', res.data.id);
+        localStorage.setItem('email', res.data.response.email);
+        navigate('/dashboard');
+      } else {
+        alert(res.data.message, res.data.details);
+        setLoading(false);
+      }
+    });
   };
 
   const onGoogleSuccess = (res) => {
     console.log(res);
     setLoading(true);
 
-    axios.post('/agents/agent-gateway/google-auth', {
-      token: res.credential
-    })
+    axios
+      .post('/agents/agent-gateway/google-auth', {
+        token: res.credential,
+      })
       .then((resp) => {
-        if (resp.data.message === "success") {
+        if (resp.data.message === 'success') {
           console.log(resp.data);
           setLoading(false);
           localStorage.setItem('id', resp.data.id);
           localStorage.setItem('email', resp.data.user.email);
           navigate('/dashboard');
         } else {
-          alert(`${resp.data.message}, ${resp.data.details}`)
+          alert(`${resp.data.message}, ${resp.data.details}`);
           setLoading(false);
         }
       });
-
   };
 
   const onGoogleFailure = (res) => {
     console.log(res);
   };
 
-
   if (loading) {
     return (
       <div className="spinner">
         <PageLoader />
       </div>
-    )
+    );
   }
-
 
   return (
     <section className="sign-up-body">
       <SignNavBar />
       <div class="sign-up-form-container">
         <header>
-          <h3>Welcome Back Hiyalo Agent</h3>
+          <h3>Welcome Back To Hiyalo</h3>
           <p>
             Let’s get you in. Don't have an account?{' '}
             <Link to="/sign-up-agent">Sign Up</Link>
@@ -117,15 +113,16 @@ const SignIn = () => {
               value={password}
               onChange={onChange}
             />
-            
-            <button type="submit" onClick={submit} >Get Started</button>
-            <br/>
+
+            <button type="submit" onClick={submit}>
+              Continue
+            </button>
+            <br />
             <div class="forgot-password-text">
               <p>
                 forgot password? <a href="www.google.com">click here</a>{' '}
               </p>
             </div>
-
           </form>
 
           <div class="or-container">
@@ -135,12 +132,12 @@ const SignIn = () => {
           </div>
 
           <div class="sign-up-google">
-            <button type="submit" >
+            <button type="submit">
               {/* <iconify-icon
                 class="google-icon"
                 icon="flat-color-icons:google"
-              ></iconify-icon> */}
-              {/* <p>Sign Up with Google</p> */}
+              ></iconify-icon>
+              <p>Sign Up with Google</p> */}
               <GoogleLogin
                 class="sign-up-google"
                 buttonText="Login"
@@ -150,7 +147,6 @@ const SignIn = () => {
               />
             </button>
           </div>
-
         </main>
       </div>
     </section>

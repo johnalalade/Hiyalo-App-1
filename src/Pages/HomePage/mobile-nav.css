@@ -1,0 +1,14 @@
+.mobile-nav-container {
+    display: none;
+    height: 400px;
+}
+.mobile-nav-container .nav-links {
+    display: flex;
+    flex-direction: column !important;
+    width: fit-content;
+}
+
+
+@media (max-width: 786px) {
+    
+}

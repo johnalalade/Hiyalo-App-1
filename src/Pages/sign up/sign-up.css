@@ -11,15 +11,16 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    padding: 3rem 3rem;
+    padding: 0rem 3rem;
     padding-bottom: 4rem;
     margin:0 auto;
     margin-bottom: 36px;
-    margin-top: 80px;
+    margin-top: 48px;
     width: 100%;
     max-width: 800px;
     color: #050213;
     background-color: #4733AC;
+    border-radius: 8px;
 }
 
 .sign-up-form-container header {
@@ -39,6 +40,7 @@
     font-weight: 500;
     font-size: 16px;
     color: #ECECEC;
+    margin-top: .5rem;
 }
 .sign-up-form-container header p a {
     color: #FFF;
@@ -73,7 +75,7 @@
     display: flex;
     flex-direction: row;
     /* width: 100%; */
-    margin-top: .7rem;
+    margin-top: 0rem;
     margin-bottom: 1.5rem;
 }
 .phone-number input {
@@ -279,7 +281,7 @@ margin: 0;
         font-size: 14px;
     }
     .sign-up-form .full-name {
-        column-gap: .5rem;
+        column-gap: .5rem !important;
     }
 
     .sign-up-google {

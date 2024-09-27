@@ -1,0 +1,101 @@
+.sign-up-container {
+    background: #ECECEC;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+.new-sign-up-container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+    margin-top: 8rem;
+}
+
+.new-sign-up-container header {
+    display: flex;
+    flex-direction: column;
+    color: #FFF;
+    text-align: center;
+    row-gap: .3rem;
+}
+.new-sign-up-container header h2 {
+    font-family: 'gilroy-medium';
+    font-size: 28px;
+    font-weight: 600;
+    color: #050213;
+}
+.new-sign-up-container header p {
+    font-family: 'gilroy-medium';
+    font-weight: 500;
+    font-size: 16px;
+    color: #555;
+    margin-top: .5rem;
+}
+.new-sign-up-container header p a {
+    color: #4733AC;
+    font-weight: 600;
+    text-decoration: underline;
+}
+
+.sign-form-tabs {
+    display: flex;
+    flex-direction: column;
+    margin-top: 3rem;
+    row-gap: 1.5rem;
+}
+.tenant-tab {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 1px solid rgba(71, 51, 172, 0.1);
+    border-radius: 5px;
+    height: 100px;
+    padding: 0 2.5rem;
+    cursor: pointer;
+}
+.tenant-tab:hover,
+.active-signup-tab {
+    background: rgba(71, 51, 172, 0.1);
+    border: 1px solid rgba(71, 51, 172, 0.5);
+    transition: all 0.4s linear;
+}
+.tab-name {
+    display: flex;
+    align-items: center;
+    column-gap: 1.5rem;
+    transition: all 0.4s linear;
+}
+.tab-name span {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 60px;
+    width: 60px;
+    background: #DCE6FF;
+    border-radius: 60px;
+}
+.tab-name p {
+    font-family: 'gilroy-medium';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 20px;
+    letter-spacing: 0.01em;
+    color: #333333;
+}
+.tenant-tab input {
+    width: 24px;
+    height: 24px;
+}
+
+.signup-form {
+    display: none !important;
+}
+.active-signup-form {
+    display: flex !important;
+}
+
+.tenant-sign-up-form {
+    background: #7572EA !important;
+}

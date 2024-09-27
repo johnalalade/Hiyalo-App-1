@@ -23,7 +23,7 @@
 .homepage-apartments {
     display: grid !important;
     grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-    column-gap: 3rem;
+    column-gap: 2rem;
     row-gap: 3rem;
     margin-top: 64px;
 }
@@ -31,9 +31,10 @@
     display: flex;
     justify-content: space-between !important;
     flex-direction: column;
-    background: #7572EA40;
+    background: #7672ea22;
     border-radius: 5px;
     max-width: 450px;
+    position: relative;
 }
 .homepage-apartment:hover {
     transition: all 0.3s ease-in;
@@ -43,9 +44,8 @@
 .homepage-apartment img {
     object-fit: cover;
     object-position: center;
-    height: 240px;
-    margin:1.5rem;
-    margin-bottom: 1rem;
+    height: 280px;
+    margin: 1rem;
     border-radius: 3px;
 }
 .homepage-apartment .apartment-location {
@@ -123,7 +123,7 @@
 }
 
 .explore-cta  {
-    margin-top: 64px;
+    margin-top: 5rem !important;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -190,7 +190,29 @@
         min-height: 270px !important;
         margin: 1.5rem 1rem !important;
     }
-    .explore-cta  button{
-        height: 55px !important;
+    .explore-btn {
+        height: 50px;
     }
+    .explore-btn p {
+        font-size: 24px;
+    }
+    .explore-icon {
+        font-size: 24px;
+    }
+}
+
+.apartment-status-1 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    right: 1.5rem;
+    top: 1.5rem;
+    border: 1px solid #4733AC;
+    border-radius: 3px;
+    backdrop-filter: blur(10px);
+    background: rgba(255, 255, 255, 0.707);
+    color: #4733AC;
+    height: 36px;
+    padding: 0 1.5rem;
 }
